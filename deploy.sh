@@ -27,7 +27,7 @@ else
   if git clone --depth 1 "$REMOTE_URL" "$TMP" 2>/dev/null; then
     git -C "$TMP" checkout --orphan gh-pages
     git -C "$TMP" rm -r --cached . >/dev/null 2>&1 || true
-    rm -rf "$TMP"/* "$TMP"/.[!.]* 2>/dev/null || true   # 保留 .git
+    find "$TMP" -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +   # 保留 .git
   else
     git init -b gh-pages "$TMP"
     git -C "$TMP" remote add origin "$REMOTE_URL"
