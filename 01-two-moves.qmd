@@ -1,0 +1,177 @@
+# 两个母动作 {#sec-two-moves}
+
+你说一元微积分「基本能回忆起来」——很好，本章不复习它，而是**重组**它：导数和积分在教材里是相隔几章的两块内容，在物理书里它们是**两个母动作**，全部微积分只有这两个母动作，后面六章的一切对象（梯度、通量、方程的解）都是它们的变奏。把这两个动作想清楚，物理书里的公式就不再是孤立的符号串。
+
+::: {.callout-important title="本章问题"}
+导数和积分各自「承诺」了什么，使得物理学非用它们不可？以及：为什么说微积分基本定理是一座桥——它把两个看似无关的动作缝合成一件事，这座桥在第 4 章还会两次重建。
+:::
+
+## 母动作一：切（局部线性化）
+
+物理离不开「率」：瞬时速度、瞬时功率、瞬时增长率。麻烦在于「瞬时」本身是悖论——速度是位移除以**一段时间**，瞬时意味着时间间隔为零，零除以零没有定义。导数的全部构造就是为了解开这个悖论：
+
+$$
+f'(x) \;=\; \lim_{\Delta x \to 0} \frac{f(x+\Delta x) - f(x)}{\Delta x} \tag{1.1}
+$$
+
+它的几何形象是切线斜率，但物理里更有用的读法是**放大镜**：把 $f$ 在 $x$ 附近放大足够多倍，任何光滑曲线看起来都是直线。导数就是这条「放大后的直线」的斜率。一阶泰勒展开把这个承诺写成代数：
+
+$$
+f(x + \Delta x) \;=\; f(x) + f'(x)\,\Delta x + O(\Delta x^2) \tag{1.2}
+$$
+
+**读懂 (1.2) 就够了**：物理推导里海量的「小量近似」全是它。单摆方程怎么来的？$\sin\theta \approx \theta$ 就是 (1.2) 应用于 $f=\sin$ 在 $x=0$ 处、取一阶。相对论里「低速极限退回牛顿力学」也是它。你不需要会算高阶泰勒展开的系数，只需要看到「$\approx$」时知道：**有人刚用了放大镜**。
+
+::: {.callout-note title="判据 A（看到导数）"}
+看到 $f'$ 或 $\dot{x}$，先问：**这是什么的率？**对什么变量取的率？$\dot{x}$ 是「位置随时间的率」（速度）；$\mathrm{d}P/\mathrm{d}V$ 是「压强随体积的率」。率的对象错了，后面全错。
+:::
+
+### $\mathrm{d}x$ 是合法对象
+
+数学课常把 $\frac{\mathrm{d}y}{\mathrm{d}x}$ 当成不可拆的整体记号。物理书**拆开用**：$\mathrm{d}x$ 表示「无穷小位移」，是方程里的合法居民。把 (1.1) 去掉极限、写成「无穷小」语言：
+
+$$
+\mathrm{d}y = f'(x)\,\mathrm{d}x \tag{1.3}
+$$
+
+意思是：自变量挪了一小步 $\mathrm{d}x$，函数值大约挪 $f'(x)$ 倍那么多的 $\mathrm{d}y$——严格说差一个高阶小量，但在「无穷小」层面精确。这个写法在物理里无处不在：功 $\mathrm{d}W = \mathbf{F}\cdot \mathrm{d}\mathbf{l}$（力在一小段位移上做的功）、电荷 $\mathrm{d}q = \rho\, \mathrm{d}v$（一小块体积里的电荷）。**「微元」思想是物理把连续世界切块的唯一手段**，而它就是 (1.3)。
+
+## 母动作二：积（无穷累积）
+
+有了无穷小，第二个母动作回答「总账怎么算」：总功、总电荷、总路程，都是把无穷多个无穷小的贡献**加起来**。定积分的定义就是「切细、求和、取极限」：
+
+$$
+\int_a^b f(x)\,\mathrm{d}x \;=\; \lim_{N\to\infty} \sum_{i=1}^{N} f(x_i)\,\Delta x, \qquad \Delta x = \frac{b-a}{N} \tag{1.4}
+$$
+
+注意积分号 $\int$ 就是拉长的 S——**求和**。黎曼和不是需要掌握的技巧，而是积分的**语义**：看到 $\int$，脑中展开成 $\sum$。
+
+物理书里积分有三种身份，认出身份就知道它在干什么：
+
+| 身份 | 语义 | 物理例子 |
+|---|---|---|
+| 切片求和 | 把连续分布切成微元求总量 | 总电荷 $\int \rho\, \mathrm{d}v$、圆盘转动惯量 |
+| 路径累积 | 沿路径逐段累积微小贡献 | 功 $W=\int_C \mathbf{F}\cdot \mathrm{d}\mathbf{l}$ |
+| 反导数 | FTC 的逆运算（下一段） | 「积出来」的技巧性用法 |
+
+前两种身份是物理的本职；第三种身份只是数学上的便利。**你在物理书里遇到的 90% 的积分是前两种**——它们甚至常常「积不出来」初等闭式，物理书照样写在那里，因为在物理里，把「总量 = 无穷求和」**写对**比把它**算出**重要。
+
+::: {.callout-note title="判据 B（看到积分）三连问"}
+1. **积什么**——被积函数是什么物理量的密度/分布？
+2. **在哪测**——积分元 $\mathrm{d}x$、$\mathrm{d}A$、$\mathrm{d}v$ 是沿什么（直线、面积、体积、路径）累积？
+3. **界在哪**——上下限/积分区域覆盖哪一段？
+
+三问答对，积分的物理意义就完整了，哪怕一步都算不出来。
+:::
+
+## 一座桥：微积分基本定理
+
+母动作一和母动作二看起来无关：一个切，一个加。FTC 说它们是**同一件事的两个方向**：
+
+$$
+\frac{\mathrm{d}}{\mathrm{d}x} \int_a^x f(t)\,\mathrm{d}t \;=\; f(x) \tag{1.5}
+$$
+
+为什么成立，一句话就够（这是全书最重要的一句话的第一次出现）：**累积到 $x$ 的总量，再往前挪 $\mathrm{d}x$，新增的就是这一片的大小 $f(x)\,\mathrm{d}x$**——所以累积函数的增长率恰好是 $f(x)$。换个说法：
+
+> **边界的增量 = 最外层那一薄片的贡献。**
+
+记住这句话。第 4 章你将看到格林、高斯、斯托克斯三大定理全是它的变奏：那时「边界」换成曲线/曲面，「最外层薄片」换成「源」，句子一模一样。
+
+FTC 的实用面是逆运算：若 $F' = f$，则 $\int_a^b f\,\mathrm{d}x = F(b) - F(a)$。「求原函数」的技巧训练教材里占几百页，本书一页都不给——你只需要知道：**任何定积分都等于某个原函数在两端的差**，算不出原函数时数值积分、查表、乃至「这个积分就叫误差函数」都是物理书的合法操作。
+
+下面这张图同时演出两个母动作与那座桥：左图是分布 $f$（细粒度切换，看黎曼和收敛于曲线下的面积）；右图是从零累积到 $x$ 的总量 $F(x)=\int_0^x f$——注意 $F$ 的斜率处处等于左边同一高度处的 $f$ 值（这就是式 (1.5) 的动态版）。
+
+<div class="ftc-fig" aria-hidden="true">
+<style>
+.ftc-fig { margin: 1.6em 0; }
+.ftc-fig svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+.ftc-fig .ftc-bar { display: flex; gap: .5em; margin-bottom: .6em; justify-content: center; }
+.ftc-fig .ftc-bar button { font: 500 .85em -apple-system,"PingFang SC",sans-serif; padding: .32em 1em;
+  border: 1px solid #ddd8ce; border-radius: 6px; background: #fff; color: #24292f; cursor: pointer; }
+.ftc-fig .ftc-bar button:hover { border-color: #3a4aa8; color: #3a4aa8; }
+.ftc-fig .ftc-bar button.on { border-color: #3a4aa8; color: #fff; background: #3a4aa8; }
+</style>
+<div class="ftc-bar">
+<button onclick="rmSet(4)" id="rmb4">N = 4</button>
+<button onclick="rmSet(8)" id="rmb8">N = 8</button>
+<button onclick="rmSet(16)" id="rmb16">N = 16</button>
+<button onclick="rmSet(64)" id="rmb64" class="on">N = 64</button>
+</div>
+<svg id="ftcsvg" viewBox="0 0 660 270" width="660" height="270"></svg>
+<script>
+window.addEventListener('load', function () {
+  if (typeof Sketch === 'undefined') return;
+  const svg = document.getElementById('ftcsvg');
+  const P = { ink: '#3a4aa8', deep: '#2c3a8c', amber: '#bf8700', green: '#1a7f37', dim: '#9aa1b9' };
+  const f = t => 0.6 + 0.45*t + 0.55*Math.sin(1.6*t);          // 分布 f
+  const X0 = 20, X1 = 300, YB = 235, YT = 30;                   // 左面板像素域
+  const px = t => X0 + t/5*(X1-X0), py = v => YB - v/3.2*(YB-YT); // 世界: t∈[0,5], v∈[0,3.2]
+  function F(t) {                                               // 累积 F=∫₀ᵗf, 细梯形
+    let s = 0, h = 0.001;
+    for (let u = 0; u < t; u += h) s += (f(u)+f(u+h))*h/2;
+    return s;
+  }
+  window.rmSet = function (N) {
+    ['4','8','16','64'].forEach(n => { const b = document.getElementById('rmb'+n); if (b) b.className = N==n ? 'on' : ''; });
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    const s = Sketch(svg);
+    /* ---- 左面板: 黎曼和 ---- */
+    s.path(`M${X0} ${YB} L${X1} ${YB}`, { width: 1.4 });  s.path(`M${X0} ${YB} L${X0} ${YT}`, { width: 1.4 });
+    let d = `M${px(0)} ${py(f(0))}`;
+    for (let t = 0.02; t <= 5.001; t += 0.02) d += ` L${px(t)} ${py(f(t))}`;
+    s.path(d, { stroke: P.deep, width: 2 });
+    const dt = 5/N;
+    for (let i = 0; i < N; i++) {                               // 中点矩形
+      const tm = (i + .5)*dt, hpx = dt/5*(X1-X0);
+      s.path(`M${px(i*dt)} ${YB} L${px(i*dt)} ${py(f(tm))} L${px(i*dt)+hpx} ${py(f(tm))} L${px(i*dt)+hpx} ${YB} Z`,
+             { stroke: 'rgba(191,135,0,.55)', width: 1, fill: 'rgba(191,135,0,.10)', rough: false });
+    }
+    s.label((X0+X1)/2, 262, '分布 f(t)  —  Σ f·Δt', { size: 15, color: P.deep });
+    /* ---- 右面板: 累积函数 ---- */
+    const RX0 = 360, RX1 = 640;
+    const q = t => RX0 + t/5*(RX1-RX0);
+    const Fmax = F(5);
+    const w = v => YB - v/Fmax*(YB-YT);
+    s.path(`M${RX0} ${YB} L${RX1} ${YB}`, { width: 1.4 });  s.path(`M${RX0} ${YB} L${RX0} ${YT}`, { width: 1.4 });
+    let dF = `M${q(0)} ${w(0)}`;
+    for (let t = 0.04; t <= 5.001; t += 0.04) dF += ` L${q(t)} ${w(F(t))}`;
+    s.path(dF, { stroke: P.green, width: 2 });
+    /* 同一时刻 t*: 左边的高度 = 右边的切线斜率 (桥) */
+    const tstar = 2.6, fs = f(tstar);
+    s.dot(px(tstar), py(fs), P.amber, 5);
+    s.path(`M${q(tstar)} ${w(F(tstar))} L${q(tstar)} ${YB}`, { stroke: 'rgba(26,127,55,.4)', width: 1, rough: false });
+    const k = fs * ( (YB-YT)/Fmax ) / ( (RX1-RX0)/5 );          // 像素斜率换算
+    s.path(`M${q(tstar)-46} ${w(F(tstar))+46*k} L${q(tstar)+46} ${w(F(tstar))-46*k}`,
+           { stroke: P.amber, width: 1.8, rough: false });
+    s.dot(q(tstar), w(F(tstar)), P.amber, 5);
+    s.pulse(`M${q(0)} ${w(F(0))} ` + dF.slice(6), { t0: 0.4, travel: 3.6, period: 8, color: P.green });
+    s.label((RX0+RX1)/2, 262, '累积 F(t) = ∫₀ᵗ f  —  斜率 = 同高度处的 f', { size: 15, color: P.green });
+    /* ---- 桥 ---- */
+    s.path(`M${X1+8} ${135} L${RX0-8} ${135}`, { stroke: P.dim, width: 1.3, arrow: true });
+    s.label((X1+RX0)/2, 122, 'FTC', { size: 16, color: P.dim, mono: true });
+    s.label((X1+RX0)/2, 152, '斜率即高度', { size: 13, color: P.dim });
+  };
+  rmSet(64);
+});
+</script>
+</div>
+
+## 物理书里的即时验收
+
+拿一段真实的物理语言检验本章。简谐振子的定义式：
+
+$$
+F = -kx \qquad\Longrightarrow\qquad m\ddot{x} = -kx \tag{1.6}
+$$
+
+左到右只做了一次「翻译」：牛顿第二定律 $F = m\ddot{x}$（力 = 质量乘加速度，加速度是位置对时间的二阶导数）。这不是积分也不是求导，是**把物理定律用导数语言写出**——第 5 章的主戏「定律变方程」在这里预演。(1.6) 右边带着未知函数 $\ddot{x}$，它是一个**方程**而非公式：给定 $x(t)$ 它能检验对错，但不能直接算出 $x(t)$。怎么从方程里读出运动，就是第 5 章的事。
+
+## 本章收束
+
+- 导数 = 放大镜（局部线性化），积分 = 无穷求和（累积）；一切高阶对象都是二者的变奏。
+- $\mathrm{d}x$ 是合法对象，微元 $\mathrm{d}q = \rho\,\mathrm{d}v$ 是物理切块世界的手段。
+- FTC：**边界的增量 = 最外层薄片的贡献**——这句话第 4 章将以更高大上的身份回来两次。
+- 计算技巧全部降级：近似认得出泰勒一阶，积分答得出三连问，足够读物理书。
+
+一维的语言至此完备。但物理量大多活在三维空间里：温度是「位置的函数」，电场是「位置 AND 方向的函数」。当自变量从一个数变成一组坐标，「导数」这个概念将发生第一次分裂——下一章处理这个分裂。

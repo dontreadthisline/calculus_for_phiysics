@@ -1,0 +1,28 @@
+project:
+  type: book
+  output-dir: book
+  resources: [resources]
+
+book:
+  title: "微积分的物理地图"
+  subtitle: "为经典力学与电动力学重学微积分 — 一张自包含的语言地图"
+  description: "不训练计算肌肉，只重建语言能力：两个母动作、一座桥、坐标无关性与「定律→方程」的翻译术，从一元串联走到向量场、ODE、PDE，直通物理书页。"
+  page-navigation: true
+  chapters:
+    - index.qmd
+    - conventions.qmd
+    - 01-two-moves.qmd
+    - 02-multivariable.qmd
+    - 03-parametrize.qmd
+    - 04-vector-field.qmd
+    - 05-ode.qmd
+    - 06-pde.qmd
+    - 07-reading-map.qmd
+
+format:
+  indigo-atlas-html:
+    code-copy: true
+    include-in-header: back-to-landing.html
+    html-math-method:
+      method: katex
+      url: "resources/libs/katex/"

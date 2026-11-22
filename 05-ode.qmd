@@ -1,0 +1,161 @@
+# 定律变成方程：常微分方程 {#sec-ode}
+
+前四章的语言都是**描述**：描述场、描述变化率。但物理书的正戏是**演化**：给系统定律，问它接下来怎么动。而物理定律几乎全部写成「变化率之间的关系」——牛顿第二定律、热力学、麦克斯韦（含时间那一半）。把定律写下来，得到的不是公式而是**方程**：方程里藏着未知的函数及其导数。本章教你「读」这种方程——它的解长什么样、结构如何、初值条件扮演什么角色。计算技巧降到最低：读物理书要的是**认出解的形状**，不是亲手解。
+
+::: {.callout-important title="本章问题"}
+$F = ma$ 为什么是「方程」而不是「公式」？微分方程的解为什么是一**族**函数而不是一个？「齐次通解 + 特解」这个结构从哪里来，为什么初值/边界条件能从解族中挑出唯一的那个？
+:::
+
+## 定律 → 方程
+
+$$
+m\ddot{x} = F(x, \dot{x}, t) \qquad \text{牛顿第二定律：一个二阶常微分方程（ODE）} \tag{5.1}
+$$
+
+「常」微分方程：未知函数 $x(t)$ 只有一个自变量（时间）。(5.1) 不是拿来「代入求值」的公式——它是一道**考题**：找一个函数 $x(t)$，代入后它的二阶导数恰好等于 $F/m$。物理定律为什么总是这个形状？因为定律是**局域**的陈述：此刻的位置和速度决定此刻的加速度，下一步由下一步的定律接着管——「变化率驱动演化」是物理世界的基本合同。
+
+「解方程」在 ODE 语境下意味着：**找函数**。这就是你在物理书里看到的 $x(t) = A\cos(\omega t + \varphi_0)$ 的身份——它是方程 (5.6) 的**通解**。
+
+## 一阶方程：指数是宇宙的默认解
+
+最简单的 ODE 族里，两个成员覆盖了物理书的大半入门场景。
+
+**可分离变量**：$\frac{\mathrm{d}y}{\mathrm{d}t} = g(y)\,h(t)$。变量除法把导数拆开、两边各自积分（第 1 章母动作二）。原型是放射性衰变：
+
+$$
+\frac{\mathrm{d}N}{\mathrm{d}t} = -\lambda N \;\;\Longrightarrow\;\; N(t) = N_0\, e^{-\lambda t} \tag{5.2}
+$$
+
+读法：衰变率正比于现存数量——越多衰得越快，于是指数衰减。**「率的值正比于当前的值」⇒ 指数解**，这是全书最值得背的一句话级的规律（电容放电、牛顿冷却、光吸收全是它）。
+
+**一阶线性**：$\frac{\mathrm{d}y}{\mathrm{d}t} + P(t)\,y = Q(t)$。有个万能的积分因子技巧，本书不讲——你只需认出形状与解的定性图像：暂态（齐次部分衰减掉）+ 稳态（跟着外源走），见下文「结构」一节。
+
+**初值条件**：注意 (5.2) 里的 $N_0$——方程本身没有固定它。**通解是函数族，初值负责挑出其中一个**。一阶方程需要一个初值（$N(0)=N_0$）。
+
+## 二阶常系数：谐振子全家
+
+力学与电路的骨干方程：
+
+$$
+\ddot{x} + \gamma\,\dot{x} + \omega_0^2\, x = f(t) \qquad
+(\text{自由振动 } \gamma=f=0;\; \text{阻尼 } \gamma>0;\; \text{受迫 } f\neq 0) \tag{5.3}
+$$
+
+它来自弹簧 $m\ddot{x} = -kx$（加上阻尼、外力），覆盖单摆小角度、LC 电路、分子振动、桥梁、地震仪。**怎么解不重要，为什么解法有效值得看一眼**——一行就够：猜 $x = e^{rt}$，因为指数函数是「求导的不动点」（$\frac{\mathrm{d}}{\mathrm{d}t}e^{rt} = r\,e^{rt}$，形状不变），代入后 $e^{rt}$ 从方程里约掉，剩下一个**代数**方程：
+
+$$
+r^2 + \gamma\, r + \omega_0^2 = 0 \qquad \text{（特征方程）} \tag{5.4}
+$$
+
+二阶 ODE 降成二次方程，根 $r_{1,2}$ 给出两个解 $e^{r_1 t}, e^{r_2 t}$。判别式分三种情形，每种对应一种**看得见的运动**：
+
+| 判别式 | 根 | 解的形状 | 物理名字 |
+|---|---|---|---|
+| $\gamma^2 < 4\omega_0^2$ | 共轭复根 $-\gamma/2 \pm i\omega'$ | $e^{-\gamma t/2}\cos(\omega' t + \varphi_0)$ | **欠阻尼**：振荡着衰减 |
+| $\gamma^2 = 4\omega_0^2$ | 重根 | $(A + Bt)\,e^{-\gamma t/2}$ | **临界阻尼**：不振荡，最快归位（门吸、仪表指针） |
+| $\gamma^2 > 4\omega_0^2$ | 两负实根 | $A e^{r_1 t} + B e^{r_2 t}$ | **过阻尼**：缓慢爬回（浓糖浆里的弹簧） |
+
+复根怎么给出振荡？欧拉公式 $e^{i\theta} = \cos\theta + i\sin\theta$——复指数的实部就是振荡。**「振荡 = 频率取虚数的指数」**，虚数不是玄学，是特征方程在告诉你「这个系统在振动」。
+
+**结构定理**（线性 ODE 的组织方式，物理书的地基）：
+
+$$
+y_{\text{通解}} = y_h \;(\text{齐次通解，含待定常数}) + y_p \;(\text{任一特解}) \tag{5.5}
+$$
+
+齐次部分 $y_h$ 是系统**自己的**运动模式（自然频率、衰减率），特解 $y_p$ 是外源**逼出来的**响应。受迫振动的标准图景由此读出：刚启动时两者都在（**暂态**），阻尼磨掉 $y_h$ 后只剩 $y_p$（**稳态**）；外源频率逼近 $\omega_0$ 时 $y_p$ 的振幅暴涨（**共振**）。读 RLC 电路、受迫振动、散射共振，全是这一个结构。
+
+为什么解可以叠加以至「通解 = 齐次 + 特解」？因为方程**线性**：解的线性组合还是解（叠加原理）。线性从哪来？定律本身线性（弹簧力 $\propto$ 位移）。非线性 ODE（如大角度单摆）没有这个结构，解也不可叠加——物理书对它们的态度通常是「小角度近似线性化」（第 1 章放大镜又出场）。
+
+**初值条件**：二阶方程需要**两个**（如 $x(0)$ 与 $\dot{x}(0)$：初始位置与初始速度）。直觉：预测未来需要知道「现在在哪 + 现在往哪冲」，缺一不可。通解里恰好有两个待定常数，两个条件恰好锁定它们——这不是巧合，是「阶数 = 所需初值个数」的一般规律。
+
+## 定性分析：不解也读得出
+
+物理书大量出现「不解方程，直接判断」的段落，工具是**相图**：以 $(x, \dot{x})$ 为坐标画轨迹族。两个够用的读法：
+
+- **平衡点**（$F=0$ 的点）：附近轨迹被推开的 = 不稳定（倒立摆）；被吸住的 = 稳定（碗底）。$\frac{\mathrm{d}}{\mathrm{d}t}$（能量）$< 0$ 恒成立的系统必然滑向平衡（阻尼耗散）。
+- **轨道不交叉**：相图轨迹互不相交（同一初值只有一个未来——决定论）。
+
+下面这张图把 (5.3) 的三种阻尼画在一起对比——同一个 $\omega_0$，不同的 $\gamma$，曲线自己讲完了三行表格：
+
+<div class="damp-fig" aria-hidden="true">
+<style>
+.damp-fig { margin: 1.6em 0; }
+.damp-fig svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+.damp-fig .d-bar { display: flex; gap: .5em; margin-bottom: .6em; justify-content: center; }
+.damp-fig .d-bar button { font: 500 .85em -apple-system,"PingFang SC",sans-serif; padding: .32em 1em;
+  border: 1px solid #ddd8ce; border-radius: 6px; background: #fff; color: #24292f; cursor: pointer; }
+.damp-fig .d-bar button:hover { border-color: #3a4aa8; color: #3a4aa8; }
+.damp-fig .d-bar button.on { border-color: #3a4aa8; color: #fff; background: #3a4aa8; }
+</style>
+<div class="d-bar">
+<button onclick="dSet(0)" id="db0" class="on">欠阻尼 γ=0.15</button>
+<button onclick="dSet(1)" id="db1">临界阻尼 γ=1.0</button>
+<button onclick="dSet(2)" id="db2">过阻尼 γ=1.8</button>
+</div>
+<svg id="dampsvg" viewBox="0 0 640 280" width="640" height="280"></svg>
+<script>
+window.addEventListener('load', function () {
+  if (typeof Sketch === 'undefined') return;
+  const svg = document.getElementById('dampsvg');
+  const P = { ink: '#3a4aa8', deep: '#2c3a8c', amber: '#bf8700', green: '#1a7f37', dim: '#9aa1b9' };
+  const CASES = [
+    { g: 0.15, name: '欠阻尼 γ=0.15 — 振荡衰减', note: '复根: 包络 e^{−γt/2} × 振荡', color: P.ink },
+    { g: 1.0,  name: '临界阻尼 γ=1.0 — 最快无振荡归位', note: '重根: (1+t)e^{−t}', color: P.green },
+    { g: 1.8,  name: '过阻尼 γ=1.8 — 缓慢爬回', note: '两负实根: 慢根拖尾', color: P.amber },
+  ];
+  const px = t => 40 + t/20*580, py = x => 140 - x*95;
+  window.dSet = function (k) {
+    [0,1,2].forEach(i => { const b = document.getElementById('db'+i); if (b) b.className = i==k ? 'on' : ''; });
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    const s = Sketch(svg), C = CASES[k], g = C.g;
+    s.path(`M40 ${py(0)} L620 ${py(0)}`, { stroke: 'rgba(154,161,185,.5)', width: 1.2 });
+    s.path(`M40 ${py(1)} L620 ${py(1)}`, { stroke: 'rgba(154,161,185,.25)', width: 1, rough: false });
+    s.path(`M40 ${py(-1)} L620 ${py(-1)}`, { stroke: 'rgba(154,161,185,.25)', width: 1, rough: false });
+    s.label(624, py(1)+4, 'x₀', { size: 12, color: P.dim, anchor: 'end' });
+    let x, d = '';
+    for (let t = 0; t <= 20.001; t += 0.08) {
+      if (C.g === 1.0) x = (1 + t)*Math.exp(-t);
+      else if (C.g < 1) { const w = Math.sqrt(1 - g*g/4);
+        x = Math.exp(-g*t/2)*(Math.cos(w*t) + (g/(2*w))*Math.sin(w*t)); }
+      else { const q = Math.sqrt(g*g/4 - 1), r1 = -g/2 + q, r2 = -g/2 - q;
+        const C1 = r2/(r2 - r1), C2 = 1 - C1; x = C1*Math.exp(r1*t) + C2*Math.exp(r2*t); }
+      d += (d ? ' L' : 'M') + px(t) + ' ' + py(x);
+    }
+    s.path(d, { stroke: C.color, width: 2.2 });
+    if (C.g < 1) {                                   /* 包络 ±e^{−γt/2} */
+      let up = '', dn = '';
+      for (let t = 0; t <= 20.001; t += 0.2) {
+        const e = Math.exp(-g*t/2);
+        up += (up ? ' L' : 'M') + px(t) + ' ' + py(e);
+        dn += (dn ? ' L' : 'M') + px(t) + ' ' + py(-e); }
+      s.path(up, { stroke: 'rgba(58,74,168,.35)', width: 1.1, rough: false });
+      s.path(dn, { stroke: 'rgba(58,74,168,.35)', width: 1.1, rough: false });
+    }
+    s.label(330, 34, C.name, { size: 16, color: C.color });
+    s.label(330, 266, C.note + '   （初值 x(0)=1, ẋ(0)=0 — 两个条件锁定两个常数）', { size: 13.5, color: P.dim });
+    s.pulse(d, { t0: 0.4, travel: 3.4, period: 8, color: C.color });
+  };
+  dSet(0);
+});
+</script>
+</div>
+
+## 耦合方程组一瞥
+
+两个自由度互相影响（两节车厢挂弹簧、双摆小角度）时，得到**方程组**：$\ddot{x}_1$ 依赖 $x_1, x_2$。线性代数登场：找**简正模式**——两个特殊「步调」，各以固定频率同步振动；一般运动 = 模式的叠加（把矩阵对角化的物理名字）。读到「简正模式」「本征频率」时认出它：**矩阵本征值问题穿着力学的衣服**，第 6 章它还会以分离变量的身份回来。
+
+::: {.callout-note title="判据 F（见微分方程）三连问"}
+1. **几阶？** 最高导数阶数 = 需要的初值/边界条件个数。
+2. **线性吗？** 线性 ⇒ 解可叠加（$y_h + y_p$、模式分解全合法）；非线性 ⇒ 只能定性或数值。
+3. **齐次吗？** 有外源（非齐次）⇒ 解 = 自由衰减的模式 + 被逼出的稳态响应。
+:::
+
+## 本章收束
+
+- 定律 = 变化率的局域合同，写下来就是 ODE；解是**函数族**，初值挑出唯一成员。
+- 「率正比于当前值」⇒ 指数；「回复力」⇒ 振荡（复特征根）；两者都在说特征方程。
+- 结构定理 $y = y_h + y_p$ 是受迫振动、共振、暂态/稳态的统一读法。
+- 二阶要两个初值（位置 + 速度）；相图不解方程也能读出稳定性。
+
+ODE 的自变量只有时间。但一根振动的弦：每个位置 $x$ 都有自己的时间故事 $u(x,t)$——未知函数有**两个**自变量，方程里同时出现对 $x$ 与对 $t$ 的导数。这就是偏微分方程，物理数学的最后一座山，也是电动力学后半本的地基。

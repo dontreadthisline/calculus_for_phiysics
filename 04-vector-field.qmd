@@ -1,0 +1,208 @@
+# 向量场与三大定理 {#sec-vector-field}
+
+现在引入最后一位主角。标量场是「每点一个数」（温度、电势），向量场是**每点一个向量**：河流每点的流速、空间每点的电场、引力场。电动力学的本体就是向量场——麦克斯韦方程组的每个符号都是本章的对象。学完本章，你会发现四个「大定理」其实是第 1 章那座桥（FTC）的三次高维重建：**边界上的量 = 内部源的累积**。
+
+::: {.callout-important title="本章问题"}
+散度与旋度到底在量什么，凭什么一个是标量一个是向量？线积分、通量、环流三种积分各自累积什么？以及：格林、高斯、斯托克斯三大定理为什么是同一句话——它们与一元微积分的 FTC 共享哪句话？
+:::
+
+## 场与场线
+
+$$
+\mathbf{F}(x,y,z) = \big(F_x,\; F_y,\; F_z\big) \qquad \text{每个分量都是位置的函数} \tag{4.1}
+$$
+
+直觉工具是**场线**：一条处处与场向量相切的曲线。两条读图规则：**场线的方向 = 场的方向；场线的密度 = 场的强度**（电场线越密处电场越强）。物理书大量用场线做定性论证，你也需要——本章的高斯定理先在场线语言里「看见」，再用公式说出。
+
+场的微积分 = 两个母动作装配到场上。「切」的变奏是散度与旋度（局部量），「积」的变奏是线积分与通量（整体量），两个定理把它们缝合。
+
+## 两种积分：沿线累积 & 穿面累积
+
+**线积分**：沿曲线 $C$ 累积场的**切向**分量。一小步位移 $\mathrm{d}\mathbf{l}$（沿切线方向的小向量），场的贡献是 $\mathbf{F}\cdot\mathrm{d}\mathbf{l}$（第 2 章点积：投影乘长度）：
+
+$$
+\int_C \mathbf{F}\cdot\mathrm{d}\mathbf{l} \qquad \text{物理身份：功（力沿路径的累积）} \tag{4.2}
+$$
+
+曲线闭合（绕一圈）时叫**环流** $\oint_C \mathbf{F}\cdot\mathrm{d}\mathbf{l}$：绕这一圈，场净推了你多少——漩涡的强弱。
+
+**通量**：穿过曲面 $S$ 累积场的**法向**分量。一小片面元 $\mathrm{d}\mathbf{A} = \hat{\mathbf{n}}\,\mathrm{d}A$（$\hat{\mathbf n}$ 是法向单位向量），场的贡献是 $\mathbf{F}\cdot\mathrm{d}\mathbf{A}$：
+
+$$
+\int_S \mathbf{F}\cdot\mathrm{d}\mathbf{A} \qquad \text{物理身份：单位时间穿过面的流量} \tag{4.3}
+$$
+
+闭合曲面上（如气球表面）法向约定为**向外**，此时的通量问的是：**这片封闭区域净涌出多少东西**——这是散度登场的入口。
+
+::: {.callout-note title="判据 E（见闭合积分号）两连问"}
+1. 积分元是 $\mathrm{d}\mathbf{l}$（沿线，量环流）还是 $\mathrm{d}\mathbf{A}$（穿面，量通量）？
+2. 曲线/曲面闭合吗？闭合 → 可以调用高斯/斯托克斯把边界积分换成内部积分（几乎总是更简单）。
+:::
+
+## 散度：局部源强度
+
+想知道**某一点**是不是场的源头（比如这一点有没有电荷），造一个包围它的小闭合面，测净流出通量，再除以体积取极限：
+
+$$
+\nabla\cdot\mathbf{F} \;=\; \lim_{V\to 0} \frac{1}{V} \oint_{\partial V} \mathbf{F}\cdot\mathrm{d}\mathbf{A}
+\qquad \text{（单位体积的净流出量）} \tag{4.4}
+$$
+
+（$\partial V$ 读作「$V$ 的边界」——边界算子见符号约定。）它是标量：正 = 源（净涌出，如正电荷），负 = 汇（净吸入，如负电荷），零 = 无源（流进多少流出多少）。直角坐标下可算出 $\nabla\cdot\mathbf{F} = \partial F_x/\partial x + \partial F_y/\partial y + \partial F_z/\partial z$——形式上像「$\nabla$ 这个向量点乘 $\mathbf{F}$」，这只是记号巧合帮记忆，语义永远是 (4.4)。
+
+**高斯散度定理**（FTC 变奏一号）：把 (4.4) 反过来用——不取极限，闭合面的总通量等于内部所有源的累积：
+
+$$
+\oint_{\partial V} \mathbf{F}\cdot\mathrm{d}\mathbf{A} \;=\; \int_V (\nabla\cdot\mathbf{F})\, \mathrm{d}v \tag{4.5}
+$$
+
+读出来正是那句话：**边界（表面）上的量 = 内部源的累积**。场线语言里它是一次数数游戏：穿出的线数 = 内部发出的线数，与面选得多歪多圆无关。物理的第一次兑付是高斯定律 $\oint \mathbf{E}\cdot\mathrm{d}\mathbf{A} = Q_{\text{enc}}/\varepsilon_0$：**数穿出闭合面的电场线，就数出了内部电荷总量**——这是计算对称电场最强的一招。
+
+<div class="gau-fig" aria-hidden="true">
+<style>
+.gau-fig { margin: 1.6em 0; }
+.gau-fig svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+</style>
+<svg id="gaussvg" viewBox="0 0 680 290" width="680" height="290"></svg>
+<script>
+window.addEventListener('load', function () {
+  if (typeof Sketch === 'undefined') return;
+  const svg = document.getElementById('gausssvg') || document.getElementById('gaussvg');
+  const P = { ink: '#3a4aa8', deep: '#2c3a8c', amber: '#bf8700', green: '#1a7f37', dim: '#9aa1b9' };
+  const s = Sketch(svg);
+  function panel(cx, qy, qin) {
+    const cy = 150, R = 92;                                   /* 高斯面 */
+    let circle = '';
+    for (let a = 0; a <= 6.4; a += .15) circle += (circle ? ' L' : 'M') + (cx + R*Math.cos(a)) + ' ' + (cy + R*Math.sin(a));
+    s.path(circle + ' Z', { stroke: 'rgba(58,74,168,.8)', width: 1.8 });
+    s.label(cx, cy + R + 24, '高斯面', { size: 14, color: P.deep });
+    const qx = qin ? cx : cx + R + 78;                        /* 电荷位置 */
+    s.dot(qx, qy, P.amber, 7);
+    s.label(qx, qy - 14, '+q', { size: 15, color: P.amber, mono: true });
+    /* 放射场线: 12 条, 只画可见段 (起步于电荷, 长 150) */
+    const hits = [];
+    for (let i = 0; i < 12; i++) {
+      const a = i/12*2*Math.PI, L = 150;
+      const ex = qx + L*Math.cos(a), ey = qy + L*Math.sin(a);
+      s.path(`M${qx + 10*Math.cos(a)} ${qy + 10*Math.sin(a)} L${ex} ${ey}`,
+             { stroke: 'rgba(191,135,0,.5)', width: 1.2, rough: false });
+      /* 与圆求交, 交点画小箭头 */
+      const dx = ex - qx, dy = ey - qy;
+      const fx = qx - cx, fy = qy - cy;
+      const A = dx*dx + dy*dy, B = 2*(fx*dx + fy*dy), C = fx*fx + fy*fy - R*R;
+      const disc = B*B - 4*A*C;
+      if (disc > 0) {
+        [(-B - Math.sqrt(disc))/(2*A), (-B + Math.sqrt(disc))/(2*A)].forEach(t => {
+          if (t > 0.05 && t < 1) {
+            const px = qx + t*dx, py = qy + t*dy;
+            s.path(`M${px - 9*Math.cos(a)} ${py - 9*Math.sin(a)} L${px} ${py}`,
+                   { stroke: P.green, width: 1.6, arrow: true, rough: false });
+            hits.push([a, px, py]);
+          }
+        });
+      }
+    }
+    return hits;
+  }
+  const hL = panel(170, 150, true);       /* 左: 电荷在面内 */
+  const hR = panel(510, 150, false);      /* 右: 电荷在面外 */
+  s.label(170, 40, '电荷在面内：每条线都穿出', { size: 15, color: P.deep });
+  s.label(510, 40, '电荷在面外：穿入 = 穿出', { size: 15, color: P.deep });
+  s.label(170, 272, '∮ E·dA = q/ε₀  （净通量 > 0）', { size: 14.5, color: P.green, mono: true });
+  s.label(510, 272, '∮ E·dA = 0  （净通量 = 0）', { size: 14.5, color: P.green, mono: true });
+  /* 动画: 左沿一条场线向外; 右沿一条穿过圆的场线 (先入后出) */
+  if (hL.length) { const [a, px, py] = hL[0];
+    s.pulse(`M170 150 L${px} ${py}`, { t0: 0.5, travel: 1.2, period: 5, color: P.green }); }
+  const qxr = 510 + 92 + 78;
+  const through = [-0.35, -0.15, 0.15, 0.35];
+  through.forEach((da, i) => {
+    const a = Math.PI + da;                                   /* 从电荷指向圆的方向 */
+    const ex = qxr + 150*Math.cos(a), ey = 150 + 150*Math.sin(a);
+    s.pulse(`M${qxr + 10*Math.cos(a)} ${150 + 10*Math.sin(a)} L${ex} ${ey}`,
+            { t0: 1.2 + i*0.4, travel: 1.6, period: 6, color: P.green });
+  });
+});
+</script>
+</div>
+
+上图就是高斯定律的场线版：左面板，电荷在面内，所有场线穿出——数线即数电荷；右面板，电荷在面外，每条穿入的线必然再穿出（场线不会凭空消失），净通量为零。**这就是 $\nabla\cdot\mathbf{E} = \rho/\varepsilon_0$ 的全部直觉**：电荷是电场线的源，散度数的是源。
+
+## 旋度：局部涡旋强度
+
+散度问「这一点是不是源头」，旋度问「**这一点是不是漩涡**」——即使流速大小处处相同，河道拐弯处放一个小水车也会转。构造：小水车放在场里，各方向转动的净推动取极限。数学定义（斯托克斯的微分形式）：
+
+$$
+(\nabla\times\mathbf{F})\cdot\hat{\mathbf{n}} \;=\; \lim_{A\to 0} \frac{1}{A} \oint_{\partial A} \mathbf{F}\cdot\mathrm{d}\mathbf{l}
+\qquad \text{（单位面积的环流）} \tag{4.6}
+$$
+
+它是**向量**（水车的转轴方向，右手定则定指向），长度是转速。物理身份：磁场 ($\nabla\times\mathbf{B}=\mu_0\mathbf{J}$，电流是磁场的「涡源」)、流体涡旋、科里奥利力。
+
+**斯托克斯定理**（FTC 变奏二号）：边界环路上的环流 = 张在该边界上的任意曲面内旋度的累积：
+
+$$
+\oint_{\partial S} \mathbf{F}\cdot\mathrm{d}\mathbf{l} \;=\; \int_S (\nabla\times\mathbf{F})\cdot\mathrm{d}\mathbf{A} \tag{4.7}
+$$
+
+还是那句话：**边界上的量（回路环流）= 内部源的累积（旋度通量）**。物理兑付：安培环路定理 $\oint \mathbf{B}\cdot\mathrm{d}\mathbf{l} = \mu_0 I_{\text{enc}}$——绕回路一圈量到的磁场环流，数出的是穿过回路的电流。
+
+（格林定理：斯托克斯在平面上的特例，二维场的环流-旋度关系。读到时知道它是「自己人」即可。）
+
+## 大统一：一座桥的四次化身
+
+| 定理 | 边界上的量 | 内部的源 | 维度 |
+|---|---|---|---|
+| FTC (1.5) | 区间两端的 $F$ 值差 | $\int_a^b f\,\mathrm{d}x$ | 1 |
+| 格林 | 平面闭曲线的环流/通量 | 面积分（旋度/散度） | 2 |
+| 高斯 (4.5) | 闭合面通量 | $\int_V \nabla\cdot\mathbf{F}\,\mathrm{d}v$ | 3 |
+| 斯托克斯 (4.7) | 闭合回路环流 | $\int_S \nabla\times\mathbf{F}\cdot\mathrm{d}\mathbf{A}$ | 任意 |
+
+四行共享一个模板：**把边界上的测量，换成内部密度的累积**。为什么物理热爱它们：边界测量往往困难（曲面上的积分），内部密度往往是「定律本身」（$\rho$、$\mathbf{J}$）——定理把难的换成简单的。麦克斯韦方程组有积分、微分两套写法且物理书随时互译，桥梁就是 (4.5) 与 (4.7)。
+
+## $\nabla$ 算子速查
+
+| 表达式 | 类型 | 语义一句话 |
+|---|---|---|
+| $\nabla f$ | 标量 → 向量 | 上坡方向（第 2 章） |
+| $\nabla\cdot\mathbf{F}$ | 向量 → 标量 | 源强度 (4.4) |
+| $\nabla\times\mathbf{F}$ | 向量 → 向量 | 涡强度 (4.6) |
+| $\nabla^2 f$ | 标量 → 标量 | 与周围平均值之差（$\nabla\cdot\nabla f$） |
+| $\nabla\cdot(\nabla\times\mathbf{F}) = 0$ | 恒等式 | 涡无源（漩涡线不凭空出发） |
+| $\nabla\times(\nabla f) = \mathbf{0}$ | 恒等式 | 坡无涡（下坡场绕圈做功为零 ⇒ 保守力） |
+
+最后一条恒等式值得多说一句：$\nabla\times(\nabla f) = 0$ 是「**保守力**」的微分语言——力是势的梯度（$\mathbf{F}=-\nabla V$，第 2 章）时自动无旋，绕任何闭合回路做功为零。静电学全书建立在这条上。
+
+## 验收现场：读麦克斯韦方程组
+
+拿出真正的物理书页验收。微分形式四条，逐条翻译：
+
+$$
+\nabla\cdot\mathbf{E} = \frac{\rho}{\varepsilon_0}
+\qquad\text{电荷是电场线的源；正电荷发线，负电荷收线（高斯定律）} \tag{4.8}
+$$
+
+$$
+\nabla\cdot\mathbf{B} = 0
+\qquad\text{磁场无源：磁单极子不存在，磁感线永远闭合} \tag{4.9}
+$$
+
+$$
+\nabla\times\mathbf{E} = -\frac{\partial\mathbf{B}}{\partial t}
+\qquad\text{磁场变化时，空间出现涡旋电场（法拉第：变化磁通周围有环流）} \tag{4.10}
+$$
+
+$$
+\nabla\times\mathbf{B} = \mu_0\mathbf{J} + \mu_0\varepsilon_0\frac{\partial\mathbf{E}}{\partial t}
+\qquad\text{电流与变化的电场都是磁场的涡源（安培–麦克斯韦）} \tag{4.11}
+$$
+
+四个符号全部到位：$\nabla\cdot$ 与 $\nabla\times$ 是本章的两个局部量，$\partial/\partial t$ 是第 1 章的率，$\mathbf{E},\mathbf{B}$ 是两个向量场，右边的 $\rho,\mathbf{J}$ 是源。**没有一个符号超出前四章**——这四行是本书前半部分的期末考试，你现在每一行都能读出物理内容。物理书里它们还会以积分形式出现（对任意闭合面/回路），互译工具就是 (4.5) 与 (4.7)。
+
+## 本章收束
+
+- 向量场 = 每点一个向量；场线方向给方向、密度给强度。
+- 两种整体量：通量（穿面，法向累积）、环流（沿线，切向累积）；两个局部量：散度（源，标量）、旋度（涡，向量）。
+- 高斯与斯托克斯把整体量与局部量缝合，都是 FTC 的化身：**边界上的量 = 内部源的累积**。
+- 麦克斯韦四条 = 场语言的完整句子，逐条可读。
+
+至此，「描述场」的语言全部齐备。但物理书的另一半是**运动与演化**：定律给出方程，问题变成「从这个方程里读出运动」。方程里带导数、未知的是函数——这就是微分方程，下一章从 $F = m\ddot{x}$ 开始。

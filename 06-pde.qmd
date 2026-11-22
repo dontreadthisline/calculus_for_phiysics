@@ -1,0 +1,176 @@
+# 时空一起说话：偏微分方程 {#sec-pde}
+
+ODE 的世界里系统由几个数描述（一个质点的位置）。但连续世界——振动的弦、发热的棒、带电的空间——每一点都有自己的状态，未知函数是 $u(x,t)$、$T(\mathbf{r},t)$、$V(\mathbf{r})$：**自变量是时空本身**。方程里同时出现对不同变量的偏导数，这就是偏微分方程（PDE）。你在第 6 章的立场不变：不训练求解，而是掌握三件事——PDE 怎么从物理**长出来**、解的**通用结构**是什么、边界条件凭什么**挑**出解。这三件事就是「列方程组」能力在连续世界的版本。
+
+::: {.callout-important title="本章问题"}
+热方程、波动方程、拉普拉斯方程为什么是「三大方程」，它们各自从哪条守恒律生成？分离变量凭什么能把 PDE 拆成一串熟悉的 ODE？为什么吉他弦的频率是离散的——边界条件在其中扮演什么角色？
+:::
+
+## PDE 的生成语法：守恒律 + 局部定律
+
+三大方程不是天上掉下来的，每一条都是同一个两步模板的产物：**守恒律（某量不灭）+ 局部定律（流量怎么由场决定）**。看一遍生成过程，你对「列方程」就脱敏了。
+
+**热方程**。第一步（能量守恒）：任意区域内热能的变化 = 流入边界的热量（第 4 章高斯定理把边界积分换成内部积分，立刻出场）。第二步（傅里叶定律，第 2 章模板）：热流 $\mathbf{q} = -\kappa\nabla T$，从高温流向低温。两步合起来：
+
+$$
+\frac{\partial T}{\partial t} \;=\; \alpha\, \nabla^2 T \qquad \text{（扩散方程）} \tag{6.1}
+$$
+
+读法：**一点的温度变化，正比于它与周围平均温度的差距**（$\nabla^2$ 的语义，第 4 章）。比周围热就降温，比周围冷就升温——扩散的全部哲学。
+
+**波动方程**。把牛顿第二定律用于连续介质（弦的每一小段：质量 × 加速度 = 张力带来的净回复力）：
+
+$$
+\frac{\partial^2 u}{\partial t^2} \;=\; c^2\, \nabla^2 u \qquad \text{（波动方程，} c \text{ 即波速）} \tag{6.2}
+$$
+
+读法：一点的加速度，正比于它与周围平均位置的差距。电磁波「是光」的推导（麦克斯韦方程组推出 (6.2)、$c = 1/\sqrt{\mu_0\varepsilon_0}$）就是电动力学的高光时刻——届时你已有全部语言。
+
+**拉普拉斯 / 泊松方程**。静态（$\partial/\partial t = 0$）且无源的电势世界：
+
+$$
+\nabla^2 V = 0 \;(\text{拉普拉斯，无源}), \qquad
+\nabla^2 V = -\frac{\rho}{\varepsilon_0} \;(\text{泊松，有源}) \tag{6.3}
+$$
+
+来历一步：高斯定律 (4.8) 的 $\mathbf{E}=\nabla\phi$（第 2 章）代入 $\nabla\cdot\mathbf{E}=\rho/\varepsilon_0$。**这就是「电动力学全书都在解泊松方程」的原因**：静电学 = 泊松方程 + 边界条件。$\nabla^2 V=0$ 的解有一个漂亮的定性性质：**没有极值**（比周围高就降温/高就被拉平）——电势的峰谷只能长在边界或电荷上。
+
+## 边界条件：解的锚
+
+PDE 是**局部**合同（每点每刻的变化率），只靠它推不出全局——就像知道每个人的性格推不出整个社会的分布。全局信息由**边界条件**供给，三种常用类型：
+
+| 类型 | 给定什么 | 例子 |
+|---|---|---|
+| 狄利克雷 | 边界上的**值** | 导体表面电势恒定 |
+| 诺伊曼 | 边界上的**法向导数** | 边界上的电场（面电荷） |
+| 初值（柯西） | $t=0$ 时刻的整个场（波动方程还要初速度——二阶时间导数，第 5 章规矩） | 拨弦的初始形状 |
+
+**唯一性定理**（读物理书的免死金牌）：满足方程 + 边界条件的解**只有一个**。它的实用意义是：无论你用对称性猜出来、用镜子凑出来还是查表查出来的函数，只要验证它满足方程和边界，它就是**正解**——物理书「猜测—验证—收工」的解法全部合法。
+
+## 分离变量：把 PDE 降级成 ODE
+
+三大方程的通用解法骨架是**分离变量**：假设解可以写成单变量函数的乘积（弦的驻波：$u(x,t) = X(x)\,T(t)$），代入波动方程：
+
+$$
+\frac{1}{c^2}\frac{T''(t)}{T(t)} = \frac{X''(x)}{X(x)} \tag{6.4}
+$$
+
+左边只是 $t$ 的函数，右边只是 $x$ 的函数，两者相等——唯一可能是**都等于常数**（分离常数 $\lambda$）。一个 PDE 裂解成两个 ODE：
+
+$$
+T'' = -\lambda c^2 T, \qquad X'' = -\lambda X \tag{6.5}
+$$
+
+而 ODE 是第 5 章的地盘。**分离变量的本质：让「时间节奏」与「空间形状」分家**——驻波正是这种分家的物理形象：整条弦以同一频率呼吸，形状不变只剩幅度起伏。
+
+为什么「假设乘积解」不亏？因为方程**线性**：乘积解可以叠加成一般解（第 5 章叠加原理的连续版）。于是 PDE 的解 = 无穷个模式之和，这就是**本征模式展开**——傅里叶级数、勒让德多项式、球谐函数，全是它在不同坐标/边界下的产出。
+
+## 本征值：边界条件筛出离散频率
+
+两端固定的弦要求 $X(0)=X(L)=0$（狄利克雷）。$X''=-\lambda X$ 的解 $\sin(\sqrt{\lambda}\,x)$ 要在两端归零，必须 $\sqrt{\lambda}\,L = n\pi$：
+
+$$
+\lambda_n = \left(\frac{n\pi}{L}\right)^2, \qquad u_n(x,t) = \sin\!\left(\frac{n\pi x}{L}\right)\cos(\omega_n t), \quad n = 1,2,3,\ldots \tag{6.6}
+$$
+
+**边界条件筛出离散的 $\lambda$**——吉他弦只有特定频率、原子只有特定能级（量子力学里同一个机制）、热管只有特定衰减模式。$\lambda_n$ 叫本征值，对应的形状叫本征函数。读到「本征值问题」，翻译成「边界条件在给合法频率发牌照」。
+
+下面这张图演出模式叠加的力量：两端固定的弦上的方波初始形状 = 无穷多个驻波模式的和。逐档加入更多模式，看和曲线逼近方波——**每一档新加入的模式就是式 (6.6) 的一项**：
+
+<div class="mode-fig" aria-hidden="true">
+<style>
+.mode-fig { margin: 1.6em 0; }
+.mode-fig svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+.mode-fig .m-bar { display: flex; gap: .5em; margin-bottom: .6em; justify-content: center; flex-wrap: wrap; }
+.mode-fig .m-bar button { font: 500 .85em -apple-system,"PingFang SC",sans-serif; padding: .32em 1em;
+  border: 1px solid #ddd8ce; border-radius: 6px; background: #fff; color: #24292f; cursor: pointer; }
+.mode-fig .m-bar button:hover { border-color: #3a4aa8; color: #3a4aa8; }
+.mode-fig .m-bar button.on { border-color: #3a4aa8; color: #fff; background: #3a4aa8; }
+</style>
+<div class="m-bar">
+<button onclick="mSet(1)" id="mb1" class="on">前 1 项</button>
+<button onclick="mSet(3)" id="mb3">前 3 项</button>
+<button onclick="mSet(7)" id="mb7">前 7 项</button>
+<button onclick="mSet(15)" id="mb15">前 15 项</button>
+<button onclick="mSet(41)" id="mb41">前 41 项</button>
+</div>
+<svg id="modesvg" viewBox="0 0 640 270" width="640" height="270"></svg>
+<script>
+window.addEventListener('load', function () {
+  if (typeof Sketch === 'undefined') return;
+  const svg = document.getElementById('modesvg');
+  const P = { ink: '#3a4aa8', deep: '#2c3a8c', amber: '#bf8700', green: '#1a7f37', dim: '#9aa1b9' };
+  const px = x => 45 + x/(2*Math.PI)*550, py = v => 135 - v*88;
+  const sq = x => (x < Math.PI ? 1 : -1) * 0.82;          /* 方波目标 */
+  window.mSet = function (N) {
+    [1,3,7,15,41].forEach(n => { const b = document.getElementById('mb'+n); if (b) b.className = n==N ? 'on' : ''; });
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    const s = Sketch(svg);
+    /* 边框: 两端固定的弦 */
+    s.path(`M${px(0)} ${py(0)} L${px(2*Math.PI)} ${py(0)}`, { stroke: 'rgba(154,161,185,.5)', width: 1.2 });
+    s.dot(px(0), py(0), P.dim, 4); s.dot(px(2*Math.PI), py(0), P.dim, 4);
+    /* 方波 (虚线参考) */
+    let dref = `M${px(0)} ${py(sq(0.01))}`;
+    for (let x = 0.02; x <= Math.PI - .02; x += .04) dref += ` L${px(x)} ${py(sq(x))}`;
+    dref += ` L${px(Math.PI+.02)} ${py(sq(Math.PI+.02))}`;
+    for (let x = Math.PI + .04; x <= 2*Math.PI; x += .04) dref += ` L${px(x)} ${py(sq(x))}`;
+    s.path(dref, { stroke: 'rgba(191,135,0,.55)', width: 1.3, rough: false });
+    /* 各模式 (淡) + 累加 (浓) */
+    let shown = 0, n = 1;
+    while (shown < N) {                                     /* 只画前 5 条模式线避免糊 */
+      if (shown < 5) {
+        let dm = '';
+        for (let x = 0; x <= 2*Math.PI + .01; x += .05)
+          dm += (dm ? ' L' : 'M') + px(x) + ' ' + py(4/(n*Math.PI)*Math.sin(n*x)*0.82);
+        s.path(dm, { stroke: 'rgba(26,127,55,.3)', width: 1, rough: false });
+      }
+      shown++; n += 2;
+    }
+    let d = '';
+    n = 1; let acc = 0;
+    for (let x = 0; x <= 2*Math.PI + .01; x += .02) {
+      let sum = 0; n = 1; let cnt = 0;
+      while (cnt < N) { sum += 4/(n*Math.PI)*Math.sin(n*x); n += 2; cnt++; }
+      d += (d ? ' L' : 'M') + px(x) + ' ' + py(sum*0.82);
+    }
+    s.path(d, { stroke: P.deep, width: 2.2 });
+    s.pulse(d, { t0: 0.4, travel: 3.2, period: 8, color: P.deep });
+    s.label(320, 30, '驻波模式叠出方波初始形状', { size: 16, color: P.deep });
+    s.label(320, 252, '深蓝: 前 ' + N + ' 项之和     淡绿: 各模式 sin(nx)     琥珀虚线: 目标方波', { size: 13.5, color: P.dim });
+    s.label(320, 236, 'λ = (nπ/L)² — 边界条件只发离散牌照', { size: 13.5, color: P.green });
+  };
+  mSet(1);
+});
+</script>
+</div>
+
+（图中可见的「过冲尖峰」叫吉布斯现象：不连续形状的级数在跳变处永远留一点毛刺——认得即可。）
+
+## 球坐标与「认脸」清单
+
+静电学的球形问题（带电球、壳、偶极子）需要球坐标下的 $\nabla^2$，分离变量产出两串特殊函数。**本书不给公式，只给认脸卡片**——读物理书时认出身份即可，正如第 1 章的承诺：算不出来不要紧，认得出就行。
+
+| 对象 | 身份 | 一句话 |
+|---|---|---|
+| $\sin,\ \cos$ | 直角坐标的本征函数 | 均匀弦上的驻波 |
+| $e^{im\varphi}$ | 方位角方向的本征函数 | 绕轴转一圈要贴合自己 |
+| 勒让德多项式 $P_l(\cos\theta)$ | 极角方向的本征函数（轴对称时） | 球面上的「驻波」，$l=0$ 常数、$l=1$ 就是 $\cos\theta$ |
+| 球谐函数 $Y_l^m(\theta,\varphi)$ | 整个球面的本征函数 | 原子轨道形状的来源 |
+| 贝塞尔函数 $J_n$ | 柱坐标径向的本征函数 | 圆鼓面的驻波 |
+
+物理书里「解 = $\sum_l A_l r^l P_l(\cos\theta)$」这样的表达式，读法：**一般解 = 合法模式的线性叠加，系数由边界条件定**——永远是第 5 章 $y_h + y_p$ 结构的高维版。
+
+::: {.callout-note title="判据 G（见 PDE）三连问"}
+1. **哪个方程？** 三大方程（扩散/波动/泊松）对号——先认出「变化率 ↔ 与周围平均之差」的句式。
+2. **什么坐标？** 对称性决定（球对称 → 球坐标），Jacobian 与特殊函数跟着坐标走。
+3. **什么边界？** 狄利克雷/诺伊曼/初值——边界发牌照，唯一性定理保证牌照唯一。
+:::
+
+## 本章收束
+
+- PDE = 守恒律 + 局部定律的产出；三大方程各背一句读法（扩散：向平均值靠拢；波动：回复力来自与周围平均之差；泊松：电荷是电势的源）。
+- 分离变量 = 时间节奏与空间形状分家，PDE 降级为 ODE；线性 ⇒ 模式叠加。
+- 边界条件筛出离散本征值——「离散频率」是连续世界里边界的功劳。
+- 特殊函数 = 各坐标下的 sin/cos，认脸不背诵。
+
+至此，六个因果链走完：两个母动作 → 多元 → 坐标 → 场 → ODE → PDE。语言集齐，最后一章是出发前的装备清点：把经典力学与电动力学的典型章节逐一映射到这些工具上，附一张「读不动」时的自查表。
