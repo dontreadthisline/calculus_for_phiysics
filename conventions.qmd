@@ -71,7 +71,7 @@ number-depth: 0
 | 时间导数 | $\mathrm{d}x/\mathrm{d}t$ | $\dot{x}$ | 两用，力学语境多用 $\dot{x}$ |
 | 偏导数的固定变量 | 靠语境猜 | 下标显式 $(\partial f/\partial x)_T$ | 物理语境带下标 |
 | $\partial V$ | 不出现 | 区域 $V$ 的边界 | 边界算子 |
-| 极角与方位角 | 多种约定 | $\theta$ 极角、$\varphi$ 方位角（Griffiths 惯例） | 从 Griffiths |
+| 极角与方位角 | 多种约定 | $\theta$ 极角、$\varphi$ 方位角（Griffiths 惯例 [@griffiths2013, sec. 1.4]） | 从 Griffiths |
 | 拉普拉斯 | $\Delta$ | $\nabla^2$ | $\nabla^2$ |
 | $\rho$ | 极坐标半径 / 密度 / 电荷密度 | 语境区分 | 语境区分，正文就近声明 |
 

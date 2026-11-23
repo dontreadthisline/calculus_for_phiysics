@@ -14,7 +14,7 @@ $$
 \frac{\partial f}{\partial x} \;=\; \lim_{\Delta x\to 0} \frac{f(x+\Delta x,\,y,\,z) - f(x,\,y,\,z)}{\Delta x} \tag{2.1}
 $$
 
-几何形象：用平面 $y=\text{const}$ 切曲面，切口是一条曲线，$\partial f/\partial x$ 是这条切口曲线的斜率。
+几何形象：用平面 $y=\text{const}$ 切曲面，切口是一条曲线，$\partial f/\partial x$ 是这条切口曲线的斜率（教材定位：[@stewart2016, sec. 14.3]）。
 
 ::: {.callout-note title="判据 C（看到偏导）"}
 看到 $\partial$ 先问：**固定了谁？**这不是 pedantry，是物理的生死线。热力学里同样一个 $\partial P/\partial V$，绝热过程（固定熵 $S$）与等温过程（固定温度 $T$）给出完全不同的答案，差一个因子 $\gamma$。所以物理书写成 $(\partial P/\partial V)_S$ 与 $(\partial P/\partial V)_T$——下标不是注释，是**定义的一部分**。读物理书时看到裸的 $\partial f/\partial x$，默认其他自变量全部冻结，然后立刻检查语境里「自变量」到底是哪几个。
@@ -28,7 +28,7 @@ $$
 \mathrm{d}f \;=\; \frac{\partial f}{\partial x}\mathrm{d}x + \frac{\partial f}{\partial y}\mathrm{d}y + \frac{\partial f}{\partial z}\mathrm{d}z \tag{2.2}
 $$
 
-为什么是加法？因为在一阶（放大镜层面）每个变量各自贡献一份，交叉的影响是 $\mathrm{d}x\,\mathrm{d}y$ 这种**二阶小量**，无穷小层面可以丢弃——(2.2) 就是多元版的式 (1.3)，依然是「放大镜」承诺。
+为什么是加法？因为在一阶（放大镜层面）每个变量各自贡献一份，交叉的影响是 $\mathrm{d}x\,\mathrm{d}y$ 这种**二阶小量**，无穷小层面可以丢弃——(2.2) 就是多元版的式 (1.3)，依然是「放大镜」承诺（全微分与线性近似的教材定位：[@stewart2016, sec. 14.4]）。
 
 物理里 $\mathrm{d}f$ 满地都是：热力学第一定律 $\mathrm{d}U = \delta Q - P\,\mathrm{d}V$（内能的总账）、分子动理论的 $\mathrm{d}\mathbf{v}$。**读法**：全微分是「一筐无穷小变化的线性报价单」——每个自变量动一点点，函数值按各偏导数报价。
 
@@ -38,7 +38,7 @@ $$
 \frac{\partial^2 f}{\partial x\,\partial y} = \frac{\partial^2 f}{\partial y\,\partial x} \tag{2.3}
 $$
 
-（先动 $x$ 再动 $y$，与先 $y$ 后 $x$，结果一样。）你在物理书里会看到它被用来证明「保守力做功与路径无关」等大定理——认出它即可，证明不必背。
+（先动 $x$ 再动 $y$，与先 $y$ 后 $x$，结果一样——此即 Clairaut 定理 [@stewart2016, sec. 14.3]。）你在物理书里会看到它被用来证明「保守力做功与路径无关」等大定理——认出它即可，证明不必背。
 
 ## 链式法则：换变量的语法
 
@@ -48,7 +48,7 @@ $$
 \mathrm{d}f = \sum_i \frac{\partial f}{\partial u_i}\,\mathrm{d}u_i \quad\text{（新变量组 } u_i \text{ 的报价单）} \tag{2.4}
 $$
 
-一元版本你记得：$\frac{\mathrm{d}y}{\mathrm{d}t} = \frac{\mathrm{d}y}{\mathrm{d}x}\frac{\mathrm{d}x}{\mathrm{d}t}$（复合函数逐环传导）。多元版本只是把「逐环」变成「逐变量报价加总」。**不必背**：它就是「同一张报价单，用哪套货币单位重新开价」——第 3 章换极坐标、球坐标时，这个语法还要升级出 Jacobian。
+一元版本你记得：$\frac{\mathrm{d}y}{\mathrm{d}t} = \frac{\mathrm{d}y}{\mathrm{d}x}\frac{\mathrm{d}x}{\mathrm{d}t}$（复合函数逐环传导）。多元版本只是把「逐环」变成「逐变量报价加总」（教材定位：[@stewart2016, sec. 14.5]）。**不必背**：它就是「同一张报价单，用哪套货币单位重新开价」——第 3 章换极坐标、球坐标时，这个语法还要升级出 Jacobian。
 
 ## 梯度：把报价单折叠成一个向量
 
@@ -61,7 +61,7 @@ $$
 $\nabla f$（读 del f、grad f）是把三个偏导数打包成的向量。这个折叠不只是记号紧凑，它立刻送出两个几何结论，**读物理书全靠这两条**：
 
 1. **梯度垂直于等值面**：站在等值面 $f=c$ 上挪一小步 $\mathrm{d}\mathbf{l}$，$f$ 不变，$\mathrm{d}f = 0$，即 $\nabla f \cdot \mathrm{d}\mathbf{l} = 0$——梯度与等值面上任何方向垂直。等值面（等温面、等势面）与梯度（热流、电场）的垂直关系就是这么来的。
-2. **梯度指向上升最快方向**：把 $\mathrm{d}\mathbf{l}$ 取单位长度各方向试一遍，$\mathrm{d}f = \nabla f \cdot \hat{\mathbf{u}}$ 在 $\hat{\mathbf{u}}$ 平行 $\nabla f$ 时最大。这个量就是方向导数：$D_{\hat{\mathbf{u}}}f = \nabla f \cdot \hat{\mathbf{u}}$——沿任意方向的斜率，都由梯度一个向量批发。
+2. **梯度指向上升最快方向**：把 $\mathrm{d}\mathbf{l}$ 取单位长度各方向试一遍，$\mathrm{d}f = \nabla f \cdot \hat{\mathbf{u}}$ 在 $\hat{\mathbf{u}}$ 平行 $\nabla f$ 时最大。这个量就是方向导数：$D_{\hat{\mathbf{u}}}f = \nabla f \cdot \hat{\mathbf{u}}$——沿任意方向的斜率，都由梯度一个向量批发（梯度与方向导数的完整讨论见 [@stewart2016, sec. 14.6]）。
 
 物理身份（本书第一次正式出场表）：
 
@@ -71,7 +71,7 @@ $\nabla f$（读 del f、grad f）是把三个偏导数打包成的向量。这�
 | 电场 | $\mathbf{E} = -\nabla \phi$ | 电场是电势的「下坡」方向；等势面 ⊥ 电场线 |
 | 热流 | $\mathbf{q} = -\kappa \nabla T$ | 热量从高温流向低温（傅里叶定律） |
 
-三行共享一个模板「流量 = −系数 × 势的梯度」。**读到任何 $\mathbf{X} = -\nabla Y$，脑中图像：从高山 $Y$ 往下冲的箭头场。**
+三行共享一个模板「流量 = −系数 × 势的梯度」（物理侧的展开见 [@griffiths2013, sec. 2.3]）。**读到任何 $\mathbf{X} = -\nabla Y$，脑中图像：从高山 $Y$ 往下冲的箭头场。**
 
 下面这张图演出梯度与等值面的关系。切换三个标量场，观察不变的规律：等值线（蓝）与梯度箭头（琥珀）处处垂直，箭头指向函数上升方向，等值线越密处箭头越长。
 
@@ -143,6 +143,18 @@ window.addEventListener('load', function () {
 ## 一个预告：$\nabla^2$
 
 把梯度「再散一次」就得到拉普拉斯算子 $\nabla^2 f = \nabla\cdot\nabla f = \partial^2 f/\partial x^2 + \partial^2 f/\partial y^2 + \partial^2 f/\partial z^2$——它量的是「这一点与周围平均值相比偏高还是偏低」。它的展开式现在就能算，但「散度」要到第 4 章才正式定义，届时你会看到 $\nabla^2$ 为什么统治了静电学（第 6 章）。此处先挂个号。
+
+## 出处与查表 {.unnumbered}
+
+本章对象的教材定位——引文是查表索引，不是阅读任务：
+
+| 本书对象 | 定位 |
+|---|---|
+| 偏导数与 Clairaut 定理 | [@stewart2016, sec. 14.3] |
+| 全微分与线性近似 | [@stewart2016, sec. 14.4] |
+| 多元链式法则 | [@stewart2016, sec. 14.5] |
+| 梯度与方向导数 | [@stewart2016, sec. 14.6] |
+| 势与场的物理模板 $\mathbf{E} = -\nabla\phi$ | [@griffiths2013, sec. 2.3] |
 
 ## 本章收束
 

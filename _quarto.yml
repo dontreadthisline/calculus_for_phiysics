@@ -3,6 +3,8 @@ project:
   output-dir: book
   resources: [resources]
 
+bibliography: references.bib
+
 book:
   title: "微积分的物理地图"
   subtitle: "为经典力学与电动力学重学微积分 — 一张自包含的语言地图"
@@ -23,6 +25,7 @@ format:
   indigo-atlas-html:
     code-copy: true
     include-in-header: back-to-landing.html
+    reference-location: section
     html-math-method:
       method: katex
       url: "resources/libs/katex/"
