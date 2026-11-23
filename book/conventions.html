@@ -21,7 +21,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -747,7 +767,7 @@ window.Quarto = {
 <tr class="even">
 <td>极角与方位角</td>
 <td>多种约定</td>
-<td><span class="math inline">\theta</span> 极角、<span class="math inline">\varphi</span> 方位角（Griffiths 惯例）</td>
+<td><span class="math inline">\theta</span> 极角、<span class="math inline">\varphi</span> 方位角（Griffiths 惯例 <span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 1.4</a>)</span>）</td>
 <td>从 Griffiths</td>
 </tr>
 <tr class="odd">
@@ -799,6 +819,11 @@ window.Quarto = {
 </table>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-griffiths2013" class="csl-entry" role="listitem">
+Griffiths, David J. 2013. <em>Introduction to Electrodynamics</em>. 4th ed. Boston: Pearson.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

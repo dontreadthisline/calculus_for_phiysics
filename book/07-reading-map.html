@@ -21,7 +21,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -669,6 +689,7 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
+<p>经典力学主线的章级定位汇总：<span class="citation" data-cites="taylor2005">(<a href="#ref-taylor2005" role="doc-biblioref">Taylor 2005</a>, chs.&nbsp;1-5, 8, and 11)</span>。</p>
 </section>
 <section id="电动力学阅读地图griffiths-谱系" class="level2" data-number="7.3">
 <h2 data-number="7.3" class="anchored" data-anchor-id="电动力学阅读地图griffiths-谱系"><span class="header-section-number">7.3</span> 电动力学阅读地图（Griffiths 谱系）</h2>
@@ -743,6 +764,7 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
+<p>电动力学主线的章级定位汇总：<span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013</a>, chs.&nbsp;1-5, 7, and 9)</span>。</p>
 </section>
 <section id="读不动诊断表" class="level2" data-number="7.4">
 <h2 data-number="7.4" class="anchored" data-anchor-id="读不动诊断表"><span class="header-section-number">7.4</span> 「读不动」诊断表</h2>
@@ -824,6 +846,14 @@ window.Quarto = {
 <p>去读吧。从任意一本经典力学或电动力学翻开第一章，遇到数学时回来查这张地图——每个符号你都认识，每座桥你都知道通向哪里。</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-griffiths2013" class="csl-entry" role="listitem">
+Griffiths, David J. 2013. <em>Introduction to Electrodynamics</em>. 4th ed. Boston: Pearson.
+</div>
+<div id="ref-taylor2005" class="csl-entry" role="listitem">
+Taylor, John R. 2005. <em>Classical Mechanics</em>. Sausalito: University Science Books.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

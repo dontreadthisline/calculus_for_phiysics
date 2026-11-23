@@ -30,6 +30,16 @@
     ]
   },
   {
+    "objectID": "index.html#引用纪律",
+    "href": "index.html#引用纪律",
+    "title": "微积分的物理地图",
+    "section": "引用纪律",
+    "text": "引用纪律\n本书采用结构化文献引用：严格的数学定义与公式在正文就地标注出处，每章末尾附「出处与查表」表。所有来源限于正式教材与专著（如 (Stewart 2016; Griffiths 2013)，全日录见各章文献表），不使用网络博客类来源。定位符以章级为主，仅对目录结构历版稳定的位置给出小节号。再次强调：引文是查表索引，不是阅读任务——你的阅读任务是本书本身。\n\n\n\n\nGriffiths, David J. 2013. Introduction to Electrodynamics. 4th ed. Boston: Pearson.\n\n\nStewart, James. 2016. Calculus: Early Transcendentals. 8th ed. Boston: Cengage Learning.",
+    "crumbs": [
+      "关于这本书"
+    ]
+  },
+  {
     "objectID": "conventions.html",
     "href": "conventions.html",
     "title": "符号与语言约定",
@@ -94,7 +104,7 @@
     "href": "conventions.html#记号冲突速查读物理书必背的一张表",
     "title": "符号与语言约定",
     "section": "记号冲突速查（读物理书必背的一张表）",
-    "text": "记号冲突速查（读物理书必背的一张表）\n\n\n\n\n\n\n\n\n\n冲突\n数学教材\n物理书\n本书法\n\n\n\n\n时间导数\n\\mathrm{d}x/\\mathrm{d}t\n\\dot{x}\n两用，力学语境多用 \\dot{x}\n\n\n偏导数的固定变量\n靠语境猜\n下标显式 (\\partial f/\\partial x)_T\n物理语境带下标\n\n\n\\partial V\n不出现\n区域 V 的边界\n边界算子\n\n\n极角与方位角\n多种约定\n\\theta 极角、\\varphi 方位角（Griffiths 惯例）\n从 Griffiths\n\n\n拉普拉斯\n\\Delta\n\\nabla^2\n\\nabla^2\n\n\n\\rho\n极坐标半径 / 密度 / 电荷密度\n语境区分\n语境区分，正文就近声明",
+    "text": "记号冲突速查（读物理书必背的一张表）\n\n\n\n\n\n\n\n\n\n冲突\n数学教材\n物理书\n本书法\n\n\n\n\n时间导数\n\\mathrm{d}x/\\mathrm{d}t\n\\dot{x}\n两用，力学语境多用 \\dot{x}\n\n\n偏导数的固定变量\n靠语境猜\n下标显式 (\\partial f/\\partial x)_T\n物理语境带下标\n\n\n\\partial V\n不出现\n区域 V 的边界\n边界算子\n\n\n极角与方位角\n多种约定\n\\theta 极角、\\varphi 方位角（Griffiths 惯例 (Griffiths 2013, sec. 1.4)）\n从 Griffiths\n\n\n拉普拉斯\n\\Delta\n\\nabla^2\n\\nabla^2\n\n\n\\rho\n极坐标半径 / 密度 / 电荷密度\n语境区分\n语境区分，正文就近声明",
     "crumbs": [
       "符号与语言约定"
     ]
@@ -104,7 +114,7 @@
     "href": "conventions.html#排版约定",
     "title": "符号与语言约定",
     "section": "排版约定",
-    "text": "排版约定\n\n\n\n\n\n\n\n形态\n指称\n\n\n\n\n斜体数学（x、\\mathbf{F}、\\nabla）\n数学对象\n\n\n直立 \\mathrm{d}、\\partial、\\operatorname{d}v\n算子与微分元（不与变量混淆）\n\n\n加粗中文\n正在定义或命名的概念\n\n\n式 (n.m)\n第 n 章第 m 号公式，正文按此引用",
+    "text": "排版约定\n\n\n\n\n\n\n\n形态\n指称\n\n\n\n\n斜体数学（x、\\mathbf{F}、\\nabla）\n数学对象\n\n\n直立 \\mathrm{d}、\\partial、\\operatorname{d}v\n算子与微分元（不与变量混淆）\n\n\n加粗中文\n正在定义或命名的概念\n\n\n式 (n.m)\n第 n 章第 m 号公式，正文按此引用\n\n\n\n\n\n\n\nGriffiths, David J. 2013. Introduction to Electrodynamics. 4th ed. Boston: Pearson.",
     "crumbs": [
       "符号与语言约定"
     ]
@@ -114,7 +124,7 @@
     "href": "01-two-moves.html",
     "title": "1  两个母动作",
     "section": "",
-    "text": "1.1 母动作一：切（局部线性化）\n你说一元微积分「基本能回忆起来」——很好，本章不复习它，而是重组它：导数和积分在教材里是相隔几章的两块内容，在物理书里它们是两个母动作，全部微积分只有这两个母动作，后面六章的一切对象（梯度、通量、方程的解）都是它们的变奏。把这两个动作想清楚，物理书里的公式就不再是孤立的符号串。\n物理离不开「率」：瞬时速度、瞬时功率、瞬时增长率。麻烦在于「瞬时」本身是悖论——速度是位移除以一段时间，瞬时意味着时间间隔为零，零除以零没有定义。导数的全部构造就是为了解开这个悖论：\nf'(x) \\;=\\; \\lim_{\\Delta x \\to 0} \\frac{f(x+\\Delta x) - f(x)}{\\Delta x} \\tag{1.1}\n它的几何形象是切线斜率，但物理里更有用的读法是放大镜：把 f 在 x 附近放大足够多倍，任何光滑曲线看起来都是直线。导数就是这条「放大后的直线」的斜率。一阶泰勒展开把这个承诺写成代数：\nf(x + \\Delta x) \\;=\\; f(x) + f'(x)\\,\\Delta x + O(\\Delta x^2) \\tag{1.2}\n读懂 (1.2) 就够了：物理推导里海量的「小量近似」全是它。单摆方程怎么来的？\\sin\\theta \\approx \\theta 就是 (1.2) 应用于 f=\\sin 在 x=0 处、取一阶。相对论里「低速极限退回牛顿力学」也是它。你不需要会算高阶泰勒展开的系数，只需要看到「\\approx」时知道：有人刚用了放大镜。",
+    "text": "1.1 母动作一：切（局部线性化）\n你说一元微积分「基本能回忆起来」——很好，本章不复习它，而是重组它：导数和积分在教材里是相隔几章的两块内容，在物理书里它们是两个母动作，全部微积分只有这两个母动作，后面六章的一切对象（梯度、通量、方程的解）都是它们的变奏。把这两个动作想清楚，物理书里的公式就不再是孤立的符号串。\n物理离不开「率」：瞬时速度、瞬时功率、瞬时增长率。麻烦在于「瞬时」本身是悖论——速度是位移除以一段时间，瞬时意味着时间间隔为零，零除以零没有定义。导数的全部构造就是为了解开这个悖论：\nf'(x) \\;=\\; \\lim_{\\Delta x \\to 0} \\frac{f(x+\\Delta x) - f(x)}{\\Delta x} \\tag{1.1}\n它的几何形象是切线斜率（教材定位：(Stewart 2016, ch. 2)；严格化的极限定义见 (Spivak 2008)），但物理里更有用的读法是放大镜：把 f 在 x 附近放大足够多倍，任何光滑曲线看起来都是直线。导数就是这条「放大后的直线」的斜率。一阶泰勒展开把这个承诺写成代数：\nf(x + \\Delta x) \\;=\\; f(x) + f'(x)\\,\\Delta x + O(\\Delta x^2) \\tag{1.2}\n读懂 (1.2) 就够了：物理推导里海量的「小量近似」全是它（泰勒定理的展开与余项见 (Stewart 2016, ch. 11)）。单摆方程怎么来的？\\sin\\theta \\approx \\theta 就是 (1.2) 应用于 f=\\sin 在 x=0 处、取一阶。相对论里「低速极限退回牛顿力学」也是它。你不需要会算高阶泰勒展开的系数，只需要看到「\\approx」时知道：有人刚用了放大镜。",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>两个母动作</span>"
     ]
@@ -134,7 +144,7 @@
     "href": "01-two-moves.html#母动作二积无穷累积",
     "title": "1  两个母动作",
     "section": "1.2 母动作二：积（无穷累积）",
-    "text": "1.2 母动作二：积（无穷累积）\n有了无穷小，第二个母动作回答「总账怎么算」：总功、总电荷、总路程，都是把无穷多个无穷小的贡献加起来。定积分的定义就是「切细、求和、取极限」：\n\n\\int_a^b f(x)\\,\\mathrm{d}x \\;=\\; \\lim_{N\\to\\infty} \\sum_{i=1}^{N} f(x_i)\\,\\Delta x, \\qquad \\Delta x = \\frac{b-a}{N} \\tag{1.4}\n\n注意积分号 \\int 就是拉长的 S——求和。黎曼和不是需要掌握的技巧，而是积分的语义：看到 \\int，脑中展开成 \\sum。\n物理书里积分有三种身份，认出身份就知道它在干什么：\n\n\n\n\n\n\n\n\n身份\n语义\n物理例子\n\n\n\n\n切片求和\n把连续分布切成微元求总量\n总电荷 \\int \\rho\\, \\mathrm{d}v、圆盘转动惯量\n\n\n路径累积\n沿路径逐段累积微小贡献\n功 W=\\int_C \\mathbf{F}\\cdot \\mathrm{d}\\mathbf{l}\n\n\n反导数\nFTC 的逆运算（下一段）\n「积出来」的技巧性用法\n\n\n\n前两种身份是物理的本职；第三种身份只是数学上的便利。你在物理书里遇到的 90% 的积分是前两种——它们甚至常常「积不出来」初等闭式，物理书照样写在那里，因为在物理里，把「总量 = 无穷求和」写对比把它算出重要。\n\n\n\n\n\n\nNote判据 B（看到积分）三连问\n\n\n\n\n积什么——被积函数是什么物理量的密度/分布？\n在哪测——积分元 \\mathrm{d}x、\\mathrm{d}A、\\mathrm{d}v 是沿什么（直线、面积、体积、路径）累积？\n界在哪——上下限/积分区域覆盖哪一段？\n\n三问答对，积分的物理意义就完整了，哪怕一步都算不出来。",
+    "text": "1.2 母动作二：积（无穷累积）\n有了无穷小，第二个母动作回答「总账怎么算」：总功、总电荷、总路程，都是把无穷多个无穷小的贡献加起来。定积分的定义就是「切细、求和、取极限」：\n\n\\int_a^b f(x)\\,\\mathrm{d}x \\;=\\; \\lim_{N\\to\\infty} \\sum_{i=1}^{N} f(x_i)\\,\\Delta x, \\qquad \\Delta x = \\frac{b-a}{N} \\tag{1.4}\n\n注意积分号 \\int 就是拉长的 S——求和。黎曼和不是需要掌握的技巧，而是积分的语义：看到 \\int，脑中展开成 \\sum。定积分的严格构造见 (Stewart 2016, ch. 5) 与 (Apostol 1967)。\n物理书里积分有三种身份，认出身份就知道它在干什么：\n\n\n\n\n\n\n\n\n身份\n语义\n物理例子\n\n\n\n\n切片求和\n把连续分布切成微元求总量\n总电荷 \\int \\rho\\, \\mathrm{d}v、圆盘转动惯量\n\n\n路径累积\n沿路径逐段累积微小贡献\n功 W=\\int_C \\mathbf{F}\\cdot \\mathrm{d}\\mathbf{l}\n\n\n反导数\nFTC 的逆运算（下一段）\n「积出来」的技巧性用法\n\n\n\n前两种身份是物理的本职；第三种身份只是数学上的便利。你在物理书里遇到的 90% 的积分是前两种——它们甚至常常「积不出来」初等闭式，物理书照样写在那里，因为在物理里，把「总量 = 无穷求和」写对比把它算出重要。\n\n\n\n\n\n\nNote判据 B（看到积分）三连问\n\n\n\n\n积什么——被积函数是什么物理量的密度/分布？\n在哪测——积分元 \\mathrm{d}x、\\mathrm{d}A、\\mathrm{d}v 是沿什么（直线、面积、体积、路径）累积？\n界在哪——上下限/积分区域覆盖哪一段？\n\n三问答对，积分的物理意义就完整了，哪怕一步都算不出来。",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>两个母动作</span>"
     ]
@@ -144,7 +154,7 @@
     "href": "01-two-moves.html#一座桥微积分基本定理",
     "title": "1  两个母动作",
     "section": "1.3 一座桥：微积分基本定理",
-    "text": "1.3 一座桥：微积分基本定理\n母动作一和母动作二看起来无关：一个切，一个加。FTC 说它们是同一件事的两个方向：\n\n\\frac{\\mathrm{d}}{\\mathrm{d}x} \\int_a^x f(t)\\,\\mathrm{d}t \\;=\\; f(x) \\tag{1.5}\n\n为什么成立，一句话就够（这是全书最重要的一句话的第一次出现）：累积到 x 的总量，再往前挪 \\mathrm{d}x，新增的就是这一片的大小 f(x)\\,\\mathrm{d}x——所以累积函数的增长率恰好是 f(x)。换个说法：\n\n边界的增量 = 最外层那一薄片的贡献。\n\n记住这句话。第 4 章你将看到格林、高斯、斯托克斯三大定理全是它的变奏：那时「边界」换成曲线/曲面，「最外层薄片」换成「源」，句子一模一样。\nFTC 的实用面是逆运算：若 F' = f，则 \\int_a^b f\\,\\mathrm{d}x = F(b) - F(a)。「求原函数」的技巧训练教材里占几百页，本书一页都不给——你只需要知道：任何定积分都等于某个原函数在两端的差，算不出原函数时数值积分、查表、乃至「这个积分就叫误差函数」都是物理书的合法操作。\n下面这张图同时演出两个母动作与那座桥：左图是分布 f（细粒度切换，看黎曼和收敛于曲线下的面积）；右图是从零累积到 x 的总量 F(x)=\\int_0^x f——注意 F 的斜率处处等于左边同一高度处的 f 值（这就是式 (1.5) 的动态版）。\n\n\n\n\nN = 4\n\n\nN = 8\n\n\nN = 16\n\n\nN = 64",
+    "text": "1.3 一座桥：微积分基本定理\n母动作一和母动作二看起来无关：一个切，一个加。FTC 说它们是同一件事的两个方向：\n\n\\frac{\\mathrm{d}}{\\mathrm{d}x} \\int_a^x f(t)\\,\\mathrm{d}t \\;=\\; f(x) \\tag{1.5}\n\n为什么成立，一句话就够（这是全书最重要的一句话的第一次出现）：累积到 x 的总量，再往前挪 \\mathrm{d}x，新增的就是这一片的大小 f(x)\\,\\mathrm{d}x——所以累积函数的增长率恰好是 f(x)（定理的严格叙述与证明见 (Stewart 2016, sec. 5.3; Apostol 1967)）。换个说法：\n\n边界的增量 = 最外层那一薄片的贡献。\n\n记住这句话。第 4 章你将看到格林、高斯、斯托克斯三大定理全是它的变奏：那时「边界」换成曲线/曲面，「最外层薄片」换成「源」，句子一模一样。\nFTC 的实用面是逆运算：若 F' = f，则 \\int_a^b f\\,\\mathrm{d}x = F(b) - F(a)。「求原函数」的技巧训练教材里占几百页，本书一页都不给——你只需要知道：任何定积分都等于某个原函数在两端的差，算不出原函数时数值积分、查表、乃至「这个积分就叫误差函数」都是物理书的合法操作。\n下面这张图同时演出两个母动作与那座桥：左图是分布 f（细粒度切换，看黎曼和收敛于曲线下的面积）；右图是从零累积到 x 的总量 F(x)=\\int_0^x f——注意 F 的斜率处处等于左边同一高度处的 f 值（这就是式 (1.5) 的动态版）。\n\n\n\n\nN = 4\n\n\nN = 8\n\n\nN = 16\n\n\nN = 64",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>两个母动作</span>"
     ]
@@ -160,11 +170,21 @@
     ]
   },
   {
+    "objectID": "01-two-moves.html#出处与查表",
+    "href": "01-two-moves.html#出处与查表",
+    "title": "1  两个母动作",
+    "section": "出处与查表",
+    "text": "出处与查表\n本章对象的教材定位——引文是查表索引，不是阅读任务：\n\n\n\n\n\n\n\n本书对象\n定位\n\n\n\n\n导数、切线、瞬时率\n(Stewart 2016, ch. 2)；严格化的极限定义 (Spivak 2008)\n\n\n泰勒近似\n(Stewart 2016, ch. 11)\n\n\n黎曼和与定积分\n(Stewart 2016, ch. 5)；积分先行的构造 (Apostol 1967)\n\n\n微积分基本定理\n(Stewart 2016, sec. 5.3)",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>两个母动作</span>"
+    ]
+  },
+  {
     "objectID": "01-two-moves.html#本章收束",
     "href": "01-two-moves.html#本章收束",
     "title": "1  两个母动作",
     "section": "1.5 本章收束",
-    "text": "1.5 本章收束\n\n导数 = 放大镜（局部线性化），积分 = 无穷求和（累积）；一切高阶对象都是二者的变奏。\n\\mathrm{d}x 是合法对象，微元 \\mathrm{d}q = \\rho\\,\\mathrm{d}v 是物理切块世界的手段。\nFTC：边界的增量 = 最外层薄片的贡献——这句话第 4 章将以更高大上的身份回来两次。\n计算技巧全部降级：近似认得出泰勒一阶，积分答得出三连问，足够读物理书。\n\n一维的语言至此完备。但物理量大多活在三维空间里：温度是「位置的函数」，电场是「位置 AND 方向的函数」。当自变量从一个数变成一组坐标，「导数」这个概念将发生第一次分裂——下一章处理这个分裂。",
+    "text": "1.5 本章收束\n\n导数 = 放大镜（局部线性化），积分 = 无穷求和（累积）；一切高阶对象都是二者的变奏。\n\\mathrm{d}x 是合法对象，微元 \\mathrm{d}q = \\rho\\,\\mathrm{d}v 是物理切块世界的手段。\nFTC：边界的增量 = 最外层薄片的贡献——这句话第 4 章将以更高大上的身份回来两次。\n计算技巧全部降级：近似认得出泰勒一阶，积分答得出三连问，足够读物理书。\n\n一维的语言至此完备。但物理量大多活在三维空间里：温度是「位置的函数」，电场是「位置 AND 方向的函数」。当自变量从一个数变成一组坐标，「导数」这个概念将发生第一次分裂——下一章处理这个分裂。\n\n\n\n\nApostol, Tom M. 1967. Calculus, Volume 1: One-Variable Calculus, with an Introduction to Linear Algebra. 2nd ed. New York: Wiley.\n\n\nSpivak, Michael. 2008. Calculus. 4th ed. Houston: Publish or Perish.\n\n\nStewart, James. 2016. Calculus: Early Transcendentals. 8th ed. Boston: Cengage Learning.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>两个母动作</span>"
     ]
@@ -174,7 +194,7 @@
     "href": "02-multivariable.html",
     "title": "2  多元与全微分",
     "section": "",
-    "text": "2.1 偏导：冻结切片的斜率\n第 1 章的语言只够描述「一个数随另一个数变化」。但物理量的自变量是空间（甚至时空）：温度 T(x,y,z)、电势 V(x,y,z) 是「每点一个数」的标量场。自变量从一个变成三个，「导数」这个概念立刻分裂——朝哪个方向的变化率？本章处理这次分裂：它产出三个新对象（偏导数、全微分、梯度），每一个都是读物理书的硬通货。\n处理多变量最笨也最有效的办法：一次只动一个。把 y,z 冻结成常数，f(x,y,z) 就退化成一元函数，照第 1 章求导，得到偏导数：\n\\frac{\\partial f}{\\partial x} \\;=\\; \\lim_{\\Delta x\\to 0} \\frac{f(x+\\Delta x,\\,y,\\,z) - f(x,\\,y,\\,z)}{\\Delta x} \\tag{2.1}\n几何形象：用平面 y=\\text{const} 切曲面，切口是一条曲线，\\partial f/\\partial x 是这条切口曲线的斜率。",
+    "text": "2.1 偏导：冻结切片的斜率\n第 1 章的语言只够描述「一个数随另一个数变化」。但物理量的自变量是空间（甚至时空）：温度 T(x,y,z)、电势 V(x,y,z) 是「每点一个数」的标量场。自变量从一个变成三个，「导数」这个概念立刻分裂——朝哪个方向的变化率？本章处理这次分裂：它产出三个新对象（偏导数、全微分、梯度），每一个都是读物理书的硬通货。\n处理多变量最笨也最有效的办法：一次只动一个。把 y,z 冻结成常数，f(x,y,z) 就退化成一元函数，照第 1 章求导，得到偏导数：\n\\frac{\\partial f}{\\partial x} \\;=\\; \\lim_{\\Delta x\\to 0} \\frac{f(x+\\Delta x,\\,y,\\,z) - f(x,\\,y,\\,z)}{\\Delta x} \\tag{2.1}\n几何形象：用平面 y=\\text{const} 切曲面，切口是一条曲线，\\partial f/\\partial x 是这条切口曲线的斜率（教材定位：(Stewart 2016, sec. 14.3)）。",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>多元与全微分</span>"
     ]
@@ -194,7 +214,7 @@
     "href": "02-multivariable.html#全微分所有变量一起动的总账",
     "title": "2  多元与全微分",
     "section": "2.2 全微分：所有变量一起动的总账",
-    "text": "2.2 全微分：所有变量一起动的总账\n偏导数一次动一个变量，但真实世界里变量一起动：气体膨胀时体积和温度同时变。全微分把所有小步的贡献加总：\n\n\\mathrm{d}f \\;=\\; \\frac{\\partial f}{\\partial x}\\mathrm{d}x + \\frac{\\partial f}{\\partial y}\\mathrm{d}y + \\frac{\\partial f}{\\partial z}\\mathrm{d}z \\tag{2.2}\n\n为什么是加法？因为在一阶（放大镜层面）每个变量各自贡献一份，交叉的影响是 \\mathrm{d}x\\,\\mathrm{d}y 这种二阶小量，无穷小层面可以丢弃——(2.2) 就是多元版的式 (1.3)，依然是「放大镜」承诺。\n物理里 \\mathrm{d}f 满地都是：热力学第一定律 \\mathrm{d}U = \\delta Q - P\\,\\mathrm{d}V（内能的总账）、分子动理论的 \\mathrm{d}\\mathbf{v}。读法：全微分是「一筐无穷小变化的线性报价单」——每个自变量动一点点，函数值按各偏导数报价。\n一个重要推论：好函数的混合偏导相等：\n\n\\frac{\\partial^2 f}{\\partial x\\,\\partial y} = \\frac{\\partial^2 f}{\\partial y\\,\\partial x} \\tag{2.3}\n\n（先动 x 再动 y，与先 y 后 x，结果一样。）你在物理书里会看到它被用来证明「保守力做功与路径无关」等大定理——认出它即可，证明不必背。",
+    "text": "2.2 全微分：所有变量一起动的总账\n偏导数一次动一个变量，但真实世界里变量一起动：气体膨胀时体积和温度同时变。全微分把所有小步的贡献加总：\n\n\\mathrm{d}f \\;=\\; \\frac{\\partial f}{\\partial x}\\mathrm{d}x + \\frac{\\partial f}{\\partial y}\\mathrm{d}y + \\frac{\\partial f}{\\partial z}\\mathrm{d}z \\tag{2.2}\n\n为什么是加法？因为在一阶（放大镜层面）每个变量各自贡献一份，交叉的影响是 \\mathrm{d}x\\,\\mathrm{d}y 这种二阶小量，无穷小层面可以丢弃——(2.2) 就是多元版的式 (1.3)，依然是「放大镜」承诺（全微分与线性近似的教材定位：(Stewart 2016, sec. 14.4)）。\n物理里 \\mathrm{d}f 满地都是：热力学第一定律 \\mathrm{d}U = \\delta Q - P\\,\\mathrm{d}V（内能的总账）、分子动理论的 \\mathrm{d}\\mathbf{v}。读法：全微分是「一筐无穷小变化的线性报价单」——每个自变量动一点点，函数值按各偏导数报价。\n一个重要推论：好函数的混合偏导相等：\n\n\\frac{\\partial^2 f}{\\partial x\\,\\partial y} = \\frac{\\partial^2 f}{\\partial y\\,\\partial x} \\tag{2.3}\n\n（先动 x 再动 y，与先 y 后 x，结果一样——此即 Clairaut 定理 (Stewart 2016, sec. 14.3)。）你在物理书里会看到它被用来证明「保守力做功与路径无关」等大定理——认出它即可，证明不必背。",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>多元与全微分</span>"
     ]
@@ -204,7 +224,7 @@
     "href": "02-multivariable.html#链式法则换变量的语法",
     "title": "2  多元与全微分",
     "section": "2.3 链式法则：换变量的语法",
-    "text": "2.3 链式法则：换变量的语法\n物理量常被写成不同自变量组的函数：压强既可看作 P(V,T) 也可看作 P(V,S)。换变量组时，链式法则是唯一的语法：\n\n\\mathrm{d}f = \\sum_i \\frac{\\partial f}{\\partial u_i}\\,\\mathrm{d}u_i \\quad\\text{（新变量组 } u_i \\text{ 的报价单）} \\tag{2.4}\n\n一元版本你记得：\\frac{\\mathrm{d}y}{\\mathrm{d}t} = \\frac{\\mathrm{d}y}{\\mathrm{d}x}\\frac{\\mathrm{d}x}{\\mathrm{d}t}（复合函数逐环传导）。多元版本只是把「逐环」变成「逐变量报价加总」。不必背：它就是「同一张报价单，用哪套货币单位重新开价」——第 3 章换极坐标、球坐标时，这个语法还要升级出 Jacobian。",
+    "text": "2.3 链式法则：换变量的语法\n物理量常被写成不同自变量组的函数：压强既可看作 P(V,T) 也可看作 P(V,S)。换变量组时，链式法则是唯一的语法：\n\n\\mathrm{d}f = \\sum_i \\frac{\\partial f}{\\partial u_i}\\,\\mathrm{d}u_i \\quad\\text{（新变量组 } u_i \\text{ 的报价单）} \\tag{2.4}\n\n一元版本你记得：\\frac{\\mathrm{d}y}{\\mathrm{d}t} = \\frac{\\mathrm{d}y}{\\mathrm{d}x}\\frac{\\mathrm{d}x}{\\mathrm{d}t}（复合函数逐环传导）。多元版本只是把「逐环」变成「逐变量报价加总」（教材定位：(Stewart 2016, sec. 14.5)）。不必背：它就是「同一张报价单，用哪套货币单位重新开价」——第 3 章换极坐标、球坐标时，这个语法还要升级出 Jacobian。",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>多元与全微分</span>"
     ]
@@ -214,7 +234,7 @@
     "href": "02-multivariable.html#梯度把报价单折叠成一个向量",
     "title": "2  多元与全微分",
     "section": "2.4 梯度：把报价单折叠成一个向量",
-    "text": "2.4 梯度：把报价单折叠成一个向量\n(2.2) 右边是三个乘积的和——这正是点积的形状。把它折叠：\n\n\\mathrm{d}f = \\underbrace{\\left( \\frac{\\partial f}{\\partial x},\\; \\frac{\\partial f}{\\partial y},\\; \\frac{\\partial f}{\\partial z} \\right)}_{\\nabla f \\text{（梯度）}} \\cdot \\underbrace{(\\mathrm{d}x,\\, \\mathrm{d}y,\\, \\mathrm{d}z)}_{\\mathrm{d}\\mathbf{l}} \\;=\\; \\nabla f \\cdot \\mathrm{d}\\mathbf{l} \\tag{2.5}\n\n\\nabla f（读 del f、grad f）是把三个偏导数打包成的向量。这个折叠不只是记号紧凑，它立刻送出两个几何结论，读物理书全靠这两条：\n\n梯度垂直于等值面：站在等值面 f=c 上挪一小步 \\mathrm{d}\\mathbf{l}，f 不变，\\mathrm{d}f = 0，即 \\nabla f \\cdot \\mathrm{d}\\mathbf{l} = 0——梯度与等值面上任何方向垂直。等值面（等温面、等势面）与梯度（热流、电场）的垂直关系就是这么来的。\n梯度指向上升最快方向：把 \\mathrm{d}\\mathbf{l} 取单位长度各方向试一遍，\\mathrm{d}f = \\nabla f \\cdot \\hat{\\mathbf{u}} 在 \\hat{\\mathbf{u}} 平行 \\nabla f 时最大。这个量就是方向导数：D_{\\hat{\\mathbf{u}}}f = \\nabla f \\cdot \\hat{\\mathbf{u}}——沿任意方向的斜率，都由梯度一个向量批发。\n\n物理身份（本书第一次正式出场表）：\n\n\n\n\n\n\n\n\n物理对象\n写法\n含义\n\n\n\n\n保守力\n\\mathbf{F} = -\\nabla V\n力指向势能下降最快方向（负号：往低处走）\n\n\n电场\n\\mathbf{E} = -\\nabla \\phi\n电场是电势的「下坡」方向；等势面 ⊥ 电场线\n\n\n热流\n\\mathbf{q} = -\\kappa \\nabla T\n热量从高温流向低温（傅里叶定律）\n\n\n\n三行共享一个模板「流量 = −系数 × 势的梯度」。读到任何 \\mathbf{X} = -\\nabla Y，脑中图像：从高山 Y 往下冲的箭头场。\n下面这张图演出梯度与等值面的关系。切换三个标量场，观察不变的规律：等值线（蓝）与梯度箭头（琥珀）处处垂直，箭头指向函数上升方向，等值线越密处箭头越长。\n\n\n\n\nf = x² + y² （碗）\n\n\nf = x + 0.7y （斜坡）\n\n\nf = x² − y² （鞍）",
+    "text": "2.4 梯度：把报价单折叠成一个向量\n(2.2) 右边是三个乘积的和——这正是点积的形状。把它折叠：\n\n\\mathrm{d}f = \\underbrace{\\left( \\frac{\\partial f}{\\partial x},\\; \\frac{\\partial f}{\\partial y},\\; \\frac{\\partial f}{\\partial z} \\right)}_{\\nabla f \\text{（梯度）}} \\cdot \\underbrace{(\\mathrm{d}x,\\, \\mathrm{d}y,\\, \\mathrm{d}z)}_{\\mathrm{d}\\mathbf{l}} \\;=\\; \\nabla f \\cdot \\mathrm{d}\\mathbf{l} \\tag{2.5}\n\n\\nabla f（读 del f、grad f）是把三个偏导数打包成的向量。这个折叠不只是记号紧凑，它立刻送出两个几何结论，读物理书全靠这两条：\n\n梯度垂直于等值面：站在等值面 f=c 上挪一小步 \\mathrm{d}\\mathbf{l}，f 不变，\\mathrm{d}f = 0，即 \\nabla f \\cdot \\mathrm{d}\\mathbf{l} = 0——梯度与等值面上任何方向垂直。等值面（等温面、等势面）与梯度（热流、电场）的垂直关系就是这么来的。\n梯度指向上升最快方向：把 \\mathrm{d}\\mathbf{l} 取单位长度各方向试一遍，\\mathrm{d}f = \\nabla f \\cdot \\hat{\\mathbf{u}} 在 \\hat{\\mathbf{u}} 平行 \\nabla f 时最大。这个量就是方向导数：D_{\\hat{\\mathbf{u}}}f = \\nabla f \\cdot \\hat{\\mathbf{u}}——沿任意方向的斜率，都由梯度一个向量批发（梯度与方向导数的完整讨论见 (Stewart 2016, sec. 14.6)）。\n\n物理身份（本书第一次正式出场表）：\n\n\n\n\n\n\n\n\n物理对象\n写法\n含义\n\n\n\n\n保守力\n\\mathbf{F} = -\\nabla V\n力指向势能下降最快方向（负号：往低处走）\n\n\n电场\n\\mathbf{E} = -\\nabla \\phi\n电场是电势的「下坡」方向；等势面 ⊥ 电场线\n\n\n热流\n\\mathbf{q} = -\\kappa \\nabla T\n热量从高温流向低温（傅里叶定律）\n\n\n\n三行共享一个模板「流量 = −系数 × 势的梯度」（物理侧的展开见 (Griffiths 2013, sec. 2.3)）。读到任何 \\mathbf{X} = -\\nabla Y，脑中图像：从高山 Y 往下冲的箭头场。\n下面这张图演出梯度与等值面的关系。切换三个标量场，观察不变的规律：等值线（蓝）与梯度箭头（琥珀）处处垂直，箭头指向函数上升方向，等值线越密处箭头越长。\n\n\n\n\nf = x² + y² （碗）\n\n\nf = x + 0.7y （斜坡）\n\n\nf = x² − y² （鞍）",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>多元与全微分</span>"
     ]
@@ -230,11 +250,21 @@
     ]
   },
   {
+    "objectID": "02-multivariable.html#出处与查表",
+    "href": "02-multivariable.html#出处与查表",
+    "title": "2  多元与全微分",
+    "section": "出处与查表",
+    "text": "出处与查表\n本章对象的教材定位——引文是查表索引，不是阅读任务：\n\n\n\n\n\n\n\n本书对象\n定位\n\n\n\n\n偏导数与 Clairaut 定理\n(Stewart 2016, sec. 14.3)\n\n\n全微分与线性近似\n(Stewart 2016, sec. 14.4)\n\n\n多元链式法则\n(Stewart 2016, sec. 14.5)\n\n\n梯度与方向导数\n(Stewart 2016, sec. 14.6)\n\n\n势与场的物理模板 \\mathbf{E} = -\\nabla\\phi\n(Griffiths 2013, sec. 2.3)",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>多元与全微分</span>"
+    ]
+  },
+  {
     "objectID": "02-multivariable.html#本章收束",
     "href": "02-multivariable.html#本章收束",
     "title": "2  多元与全微分",
     "section": "2.6 本章收束",
-    "text": "2.6 本章收束\n\n偏导 = 冻结切片的斜率，必须知道固定了谁（下标记法）。\n全微分 = 所有变量一起动的线性报价单；链式法则 = 换一套货币重开报价单。\n梯度 = 报价单折叠成的向量：垂直等值面、指向上坡；物理模板「流量 = -系数 \\times 势的梯度」。\n判据：见 \\partial 问「固定谁」，见 \\nabla f 想「等值面 + 下坡箭头」。\n\n标量场（每点一个数）的语言到此完备。但物理还有两大类对象没有着落：曲线（轨迹是空间中的一条线）与向量场（每点一个向量，如电场）。先处理曲线——因为曲线是「把空间装进数」的练习，它的答案（参数化）也是下一章换坐标的地基。",
+    "text": "2.6 本章收束\n\n偏导 = 冻结切片的斜率，必须知道固定了谁（下标记法）。\n全微分 = 所有变量一起动的线性报价单；链式法则 = 换一套货币重开报价单。\n梯度 = 报价单折叠成的向量：垂直等值面、指向上坡；物理模板「流量 = -系数 \\times 势的梯度」。\n判据：见 \\partial 问「固定谁」，见 \\nabla f 想「等值面 + 下坡箭头」。\n\n标量场（每点一个数）的语言到此完备。但物理还有两大类对象没有着落：曲线（轨迹是空间中的一条线）与向量场（每点一个向量，如电场）。先处理曲线——因为曲线是「把空间装进数」的练习，它的答案（参数化）也是下一章换坐标的地基。\n\n\n\n\nGriffiths, David J. 2013. Introduction to Electrodynamics. 4th ed. Boston: Pearson.\n\n\nStewart, James. 2016. Calculus: Early Transcendentals. 8th ed. Boston: Cengage Learning.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>多元与全微分</span>"
     ]
@@ -244,7 +274,7 @@
     "href": "03-parametrize.html",
     "title": "3  参数化与换坐标",
     "section": "",
-    "text": "3.1 参数曲线：运动学即参数化\n第 2 章结束时挂了两个号：曲线与向量场。先处理曲线，因为它是「把几何装进数」的第一次完整练习，而且它的解法——参数化——同时回答了另一个大问题：换坐标。这两件事在物理书里无处不在：轨道是曲线，球对称电荷选球坐标是换坐标，而两者的数学内核是同一个。\n描述曲线的最强办法不是解方程（x^2+y^2=1 只告诉你点集），而是引入一个跑动的参数——通常就是时间：\n\\mathbf{r}(t) = \\big(x(t),\\; y(t),\\; z(t)\\big) \\tag{3.1}\n一个函数同时给出整条轨迹。而运动学全部内容就是这条曲线的一二阶导数：\n\\mathbf{v} = \\frac{\\mathrm{d}\\mathbf{r}}{\\mathrm{d}t} = \\dot{\\mathbf{r}} \\quad(\\text{切向量，方向即运动方向}), \\qquad\n\\mathbf{a} = \\ddot{\\mathbf{r}} \\tag{3.2}\n读法：速度是一个向量——「这一瞬间朝哪、多快」。速率是它的长度 |\\mathbf{v}|。加速度还是它的导数，即使速率不变、方向在变（圆周运动的向心加速度就是纯方向变化的加速度——第 5 章讲振子时会用到这个直觉）。\n参数化的直接产出是弧长。一小段时间 \\mathrm{d}t 内挪过的位移是勾股定理 \\mathrm{d}s = \\sqrt{\\mathrm{d}x^2+\\mathrm{d}y^2+\\mathrm{d}z^2}，除以 \\mathrm{d}t 即速率，于是：\n\\mathrm{d}s = |\\mathbf{v}|\\,\\mathrm{d}t, \\qquad\ns = \\int_{t_0}^{t_1} |\\mathbf{v}(t)|\\,\\mathrm{d}t \\tag{3.3}\n弧长积分几乎永远积不出闭式，物理书毫不在意——重要的是语义：路程 = 速率对时间的累积（第 1 章判据 B 的直接应用）。",
+    "text": "3.1 参数曲线：运动学即参数化\n第 2 章结束时挂了两个号：曲线与向量场。先处理曲线，因为它是「把几何装进数」的第一次完整练习，而且它的解法——参数化——同时回答了另一个大问题：换坐标。这两件事在物理书里无处不在：轨道是曲线，球对称电荷选球坐标是换坐标，而两者的数学内核是同一个。\n描述曲线的最强办法不是解方程（x^2+y^2=1 只告诉你点集），而是引入一个跑动的参数——通常就是时间：\n\\mathbf{r}(t) = \\big(x(t),\\; y(t),\\; z(t)\\big) \\tag{3.1}\n一个函数同时给出整条轨迹。而运动学全部内容就是这条曲线的一二阶导数：\n\\mathbf{v} = \\frac{\\mathrm{d}\\mathbf{r}}{\\mathrm{d}t} = \\dot{\\mathbf{r}} \\quad(\\text{切向量，方向即运动方向}), \\qquad\n\\mathbf{a} = \\ddot{\\mathbf{r}} \\tag{3.2}\n读法：速度是一个向量——「这一瞬间朝哪、多快」。速率是它的长度 |\\mathbf{v}|。加速度还是它的导数，即使速率不变、方向在变（圆周运动的向心加速度就是纯方向变化的加速度——第 5 章讲振子时会用到这个直觉；向量函数微积分的教材定位：(Stewart 2016, ch. 13)）。\n参数化的直接产出是弧长。一小段时间 \\mathrm{d}t 内挪过的位移是勾股定理 \\mathrm{d}s = \\sqrt{\\mathrm{d}x^2+\\mathrm{d}y^2+\\mathrm{d}z^2}，除以 \\mathrm{d}t 即速率，于是：\n\\mathrm{d}s = |\\mathbf{v}|\\,\\mathrm{d}t, \\qquad\ns = \\int_{t_0}^{t_1} |\\mathbf{v}(t)|\\,\\mathrm{d}t \\tag{3.3}\n弧长积分几乎永远积不出闭式，物理书毫不在意——重要的是语义：路程 = 速率对时间的累积（第 1 章判据 B 的直接应用；弧长公式见 (Stewart 2016, sec. 13.3)）。",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>参数化与换坐标</span>"
     ]
@@ -254,7 +284,7 @@
     "href": "03-parametrize.html#极坐标给中心力场定制的坐标",
     "title": "3  参数化与换坐标",
     "section": "3.2 极坐标：给中心力场定制的坐标",
-    "text": "3.2 极坐标：给中心力场定制的坐标\n平面上一点有两种报名字的方式：直角 (x,y)，或「多远 + 朝哪」(r,\\varphi)：\n\nx = r\\cos\\varphi, \\qquad y = r\\sin\\varphi \\tag{3.4}\n\n换坐标的动机从来不是数学趣味，是对称性：开普勒问题里力永远指向前方，圆的方程在直角坐标是 x^2+y^2=r^2、在极坐标是 r=\\text{const}。轨道方程、等势面、边界条件在「对的坐标」里短一个数量级——换坐标 = 挑一个让物理量简单的报名方式。\n但极坐标有一个暗礁，力学书反复被它绊倒读者：极坐标的单位向量 \\hat{\\mathbf{r}}, \\hat{\\boldsymbol{\\varphi}} 随位置转动。直角坐标的 \\hat{\\mathbf{x}} 永远朝东，而 \\hat{\\mathbf{r}} 在原点右边朝右、在原点上边朝上——它是「活的」。求导时它不再为零，于是速度展开成两项：\n\n\\mathbf{v} = \\dot{r}\\,\\hat{\\mathbf{r}} + r\\dot{\\varphi}\\,\\hat{\\boldsymbol{\\varphi}} \\tag{3.5}\n\n第一项：离原点的距离在变（径向速度）。第二项：距离不变但方向在转（横向速度，r\\dot\\varphi 是角速度乘半径）。不必会推导 (3.5)，但必须认得它——中心力问题的全部推导都从这个展开开始，认不出它，开普勒一章就是天书。\n\n3.2.1 面积元：\\mathrm{d}A = r\\,\\mathrm{d}r\\,\\mathrm{d}\\varphi 的来历\n在极坐标里做面积分（第 4 章马上要大量做），小块面积不是 \\mathrm{d}r\\,\\mathrm{d}\\varphi。几何理由：以原点为心取一小格，径向边长 \\mathrm{d}r，弧向边长不是 \\mathrm{d}\\varphi 而是弧长 r\\,\\mathrm{d}\\varphi（半径乘角度）：\n\n\\mathrm{d}A = r\\,\\mathrm{d}r\\,\\mathrm{d}\\varphi \\tag{3.6}\n\n同样的格子，离原点越远越大——像切披萨，靠边的楔形块面积更大。\n\n\n3.2.2 柱坐标与球坐标\n三维对称性升级，坐标跟着升级。柱坐标 = 平面极坐标 +\\,z，体积元直接继承 (3.6)：\n\n\\mathrm{d}v = r\\,\\mathrm{d}r\\,\\mathrm{d}\\varphi\\,\\mathrm{d}z \\qquad(\\text{柱}) \\tag{3.7}\n\n球坐标 (r,\\theta,\\varphi)：半径 r、极角 \\theta（自 +z 轴量起）、方位角 \\varphi（绕 z 轴）。换算：\n\nx = r\\sin\\theta\\cos\\varphi,\\quad y = r\\sin\\theta\\sin\\varphi,\\quad z = r\\cos\\theta \\tag{3.8}\n\n体积元的记忆锚点是小砖块的三条边：\n\n\n\n\n\n\n\n\n边\n长度\n理由\n\n\n\n\n径向\n\\mathrm{d}r\n沿半径走\n\n\n沿经线（\\theta 方向）\nr\\,\\mathrm{d}\\theta\n大圆弧长 = 半径 × 角\n\n\n沿纬线（\\varphi 方向）\nr\\sin\\theta\\,\\mathrm{d}\\varphi\n纬圈半径不是 r，是 r\\sin\\theta\n\n\n\n\n\\mathrm{d}v = r^2 \\sin\\theta\\;\\mathrm{d}r\\,\\mathrm{d}\\theta\\,\\mathrm{d}\\varphi \\qquad(\\text{球}) \\tag{3.9}\n\n忘记 r^2\\sin\\theta 时不要背公式，回来想「纬圈的半径被 \\sin\\theta 打折」：在北极 \\theta=0，纬圈缩成一点，\\sin\\theta=0，那一小格没有体积。",
+    "text": "3.2 极坐标：给中心力场定制的坐标\n平面上一点有两种报名字的方式：直角 (x,y)，或「多远 + 朝哪」(r,\\varphi)：\n\nx = r\\cos\\varphi, \\qquad y = r\\sin\\varphi \\tag{3.4}\n\n换坐标的动机从来不是数学趣味，是对称性：开普勒问题里力永远指向前方，圆的方程在直角坐标是 x^2+y^2=r^2、在极坐标是 r=\\text{const}。轨道方程、等势面、边界条件在「对的坐标」里短一个数量级——换坐标 = 挑一个让物理量简单的报名方式。\n但极坐标有一个暗礁，力学书反复被它绊倒读者：极坐标的单位向量 \\hat{\\mathbf{r}}, \\hat{\\boldsymbol{\\varphi}} 随位置转动。直角坐标的 \\hat{\\mathbf{x}} 永远朝东，而 \\hat{\\mathbf{r}} 在原点右边朝右、在原点上边朝上——它是「活的」。求导时它不再为零，于是速度展开成两项：\n\n\\mathbf{v} = \\dot{r}\\,\\hat{\\mathbf{r}} + r\\dot{\\varphi}\\,\\hat{\\boldsymbol{\\varphi}} \\tag{3.5}\n\n第一项：离原点的距离在变（径向速度）。第二项：距离不变但方向在转（横向速度，r\\dot\\varphi 是角速度乘半径）。不必会推导 (3.5)，但必须认得它——中心力问题的全部推导都从这个展开开始，认不出它，开普勒一章就是天书（极坐标运动学的推导见 (Taylor 2005, ch. 8)）。\n\n3.2.1 面积元：\\mathrm{d}A = r\\,\\mathrm{d}r\\,\\mathrm{d}\\varphi 的来历\n在极坐标里做面积分（第 4 章马上要大量做），小块面积不是 \\mathrm{d}r\\,\\mathrm{d}\\varphi。几何理由：以原点为心取一小格，径向边长 \\mathrm{d}r，弧向边长不是 \\mathrm{d}\\varphi 而是弧长 r\\,\\mathrm{d}\\varphi（半径乘角度）：\n\n\\mathrm{d}A = r\\,\\mathrm{d}r\\,\\mathrm{d}\\varphi \\tag{3.6}\n\n同样的格子，离原点越远越大——像切披萨，靠边的楔形块面积更大（极坐标面积与弧长：(Stewart 2016, sec. 10.4)）。\n\n\n3.2.2 柱坐标与球坐标\n三维对称性升级，坐标跟着升级。柱坐标 = 平面极坐标 +\\,z，体积元直接继承 (3.6)：\n\n\\mathrm{d}v = r\\,\\mathrm{d}r\\,\\mathrm{d}\\varphi\\,\\mathrm{d}z \\qquad(\\text{柱}) \\tag{3.7}\n\n球坐标 (r,\\theta,\\varphi)：半径 r、极角 \\theta（自 +z 轴量起）、方位角 \\varphi（绕 z 轴）。换算：\n\nx = r\\sin\\theta\\cos\\varphi,\\quad y = r\\sin\\theta\\sin\\varphi,\\quad z = r\\cos\\theta \\tag{3.8}\n\n体积元的记忆锚点是小砖块的三条边：\n\n\n\n\n\n\n\n\n边\n长度\n理由\n\n\n\n\n径向\n\\mathrm{d}r\n沿半径走\n\n\n沿经线（\\theta 方向）\nr\\,\\mathrm{d}\\theta\n大圆弧长 = 半径 × 角\n\n\n沿纬线（\\varphi 方向）\nr\\sin\\theta\\,\\mathrm{d}\\varphi\n纬圈半径不是 r，是 r\\sin\\theta\n\n\n\n\n\\mathrm{d}v = r^2 \\sin\\theta\\;\\mathrm{d}r\\,\\mathrm{d}\\theta\\,\\mathrm{d}\\varphi \\qquad(\\text{球}) \\tag{3.9}\n\n忘记 r^2\\sin\\theta 时不要背公式，回来想「纬圈的半径被 \\sin\\theta 打折」：在北极 \\theta=0，纬圈缩成一点，\\sin\\theta=0，那一小格没有体积（柱面与球面坐标的体积元：(Stewart 2016, secs. 15.7–15.8)；物理书的写法见 (Griffiths 2013, sec. 1.4)）。",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>参数化与换坐标</span>"
     ]
@@ -264,7 +294,17 @@
     "href": "03-parametrize.html#jacobian换坐标的汇率",
     "title": "3  参数化与换坐标",
     "section": "3.3 Jacobian：换坐标的汇率",
-    "text": "3.3 Jacobian：换坐标的汇率\n(3.6) 与 (3.9) 里多出来的 r 与 r^2\\sin\\theta 不是孤例，是普遍规律的实例。回到一元换元（你应该记得）：\n\n\\int f(x)\\,\\mathrm{d}x = \\int f\\big(x(u)\\big)\\,\\frac{\\mathrm{d}x}{\\mathrm{d}u}\\,\\mathrm{d}u \\tag{3.10}\n\n\\frac{\\mathrm{d}x}{\\mathrm{d}u} 是长度汇率：新货币的一单位值旧货币多少钱。多元时「汇率」变成矩阵——Jacobian 矩阵 J，其行列式的绝对值给出体积汇率：\n\n\\mathrm{d}x\\,\\mathrm{d}y = \\left|\\det\\frac{\\partial(x,y)}{\\partial(u,v)}\\right| \\mathrm{d}u\\,\\mathrm{d}v \\tag{3.11}\n\n为什么是行列式？第 2 章说过：放大镜层面一切映射都是线性的，而线性映射把面积/体积伸缩的倍数恰好等于其矩阵行列式（叉积的面积意义）。极坐标的 Jacobian：\\partial(x,y)/\\partial(r,\\varphi) = r（两个三角函数偏导组成的矩阵，行列式算出来是 r\\cos^2\\varphi + r\\sin^2\\varphi = r）——(3.6) 复现；球坐标同理得 r^2\\sin\\theta——(3.9) 复现。\n下面这张图把「汇率」演出来看：左图是 (r,\\varphi) 平面上的均匀网格，右图是它映射到 (x,y) 后的极网格。同一组格线，格子大小不再均匀——高亮同一个 (\\mathrm{d}r,\\mathrm{d}\\varphi) 单元，看它映射后随 r 增大而变宽。Jacobian 就是「右格面积 / 左格面积」，它恰好等于 r。\n\n\n\n\nr = 0.7\n\n\nr = 1.5\n\n\nr = 2.3\n\n\n\n\n\n\n\n\n\n\n\n\nNote判据 D（换坐标积分）三步\n\n\n\n\n函数换写：被积函数用新坐标表出（x = r\\cos\\varphi 等）；\n积分元换算：乘上 Jacobian（r^2\\sin\\theta 之类），这一步绝不能忘，忘掉就是差几个数量级；\n区域重述：积分限用新坐标的语言重写（球对称时常常变成三个常数限，这正是换坐标的全部回报）。\n\n\n\n顺带收尾：参数曲线与换坐标是同一件事——都是「用一组数跑过另一组数」的映射 (u,v)\\to(x,y)。运动学是「时间跑过空间」，极坐标是「网格跑过平面」，Jacobian 是所有这类映射共用的汇率。",
+    "text": "3.3 Jacobian：换坐标的汇率\n(3.6) 与 (3.9) 里多出来的 r 与 r^2\\sin\\theta 不是孤例，是普遍规律的实例。回到一元换元（你应该记得）：\n\n\\int f(x)\\,\\mathrm{d}x = \\int f\\big(x(u)\\big)\\,\\frac{\\mathrm{d}x}{\\mathrm{d}u}\\,\\mathrm{d}u \\tag{3.10}\n\n\\frac{\\mathrm{d}x}{\\mathrm{d}u} 是长度汇率：新货币的一单位值旧货币多少钱。多元时「汇率」变成矩阵——Jacobian 矩阵 J，其行列式的绝对值给出体积汇率：\n\n\\mathrm{d}x\\,\\mathrm{d}y = \\left|\\det\\frac{\\partial(x,y)}{\\partial(u,v)}\\right| \\mathrm{d}u\\,\\mathrm{d}v \\tag{3.11}\n\n为什么是行列式？第 2 章说过：放大镜层面一切映射都是线性的，而线性映射把面积/体积伸缩的倍数恰好等于其矩阵行列式（叉积的面积意义）。极坐标的 Jacobian：\\partial(x,y)/\\partial(r,\\varphi) = r（两个三角函数偏导组成的矩阵，行列式算出来是 r\\cos^2\\varphi + r\\sin^2\\varphi = r）——(3.6) 复现；球坐标同理得 r^2\\sin\\theta——(3.9) 复现（换元定理与行列式的来历：(Stewart 2016, sec. 15.9)）。\n下面这张图把「汇率」演出来看：左图是 (r,\\varphi) 平面上的均匀网格，右图是它映射到 (x,y) 后的极网格。同一组格线，格子大小不再均匀——高亮同一个 (\\mathrm{d}r,\\mathrm{d}\\varphi) 单元，看它映射后随 r 增大而变宽。Jacobian 就是「右格面积 / 左格面积」，它恰好等于 r。\n\n\n\n\nr = 0.7\n\n\nr = 1.5\n\n\nr = 2.3\n\n\n\n\n\n\n\n\n\n\n\n\nNote判据 D（换坐标积分）三步\n\n\n\n\n函数换写：被积函数用新坐标表出（x = r\\cos\\varphi 等）；\n积分元换算：乘上 Jacobian（r^2\\sin\\theta 之类），这一步绝不能忘，忘掉就是差几个数量级；\n区域重述：积分限用新坐标的语言重写（球对称时常常变成三个常数限，这正是换坐标的全部回报）。\n\n\n\n顺带收尾：参数曲线与换坐标是同一件事——都是「用一组数跑过另一组数」的映射 (u,v)\\to(x,y)。运动学是「时间跑过空间」，极坐标是「网格跑过平面」，Jacobian 是所有这类映射共用的汇率。",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>参数化与换坐标</span>"
+    ]
+  },
+  {
+    "objectID": "03-parametrize.html#出处与查表",
+    "href": "03-parametrize.html#出处与查表",
+    "title": "3  参数化与换坐标",
+    "section": "出处与查表",
+    "text": "出处与查表\n本章对象的教材定位——引文是查表索引，不是阅读任务：\n\n\n\n\n\n\n\n本书对象\n定位\n\n\n\n\n参数曲线、速度、加速度\n(Stewart 2016, ch. 13)\n\n\n弧长\n(Stewart 2016, sec. 13.3)\n\n\n极坐标运动学（活单位向量）\n(Taylor 2005, ch. 8)\n\n\n极坐标面积元\n(Stewart 2016, sec. 10.4)\n\n\n柱/球坐标体积元\n(Stewart 2016, secs. 15.7–15.8); (Griffiths 2013, sec. 1.4)\n\n\nJacobian 换元\n(Stewart 2016, sec. 15.9)",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>参数化与换坐标</span>"
     ]
@@ -274,7 +314,7 @@
     "href": "03-parametrize.html#本章收束",
     "title": "3  参数化与换坐标",
     "section": "3.4 本章收束",
-    "text": "3.4 本章收束\n\n参数化把曲线变成向量函数：\\dot{\\mathbf{r}} 即速度、\\ddot{\\mathbf{r}} 即加速度、|\\dot{\\mathbf{r}}|\\,\\mathrm{d}t 即路程微元。\n极坐标的单位向量是活的，速度有两项 \\dot r\\,\\hat{\\mathbf r} + r\\dot\\varphi\\,\\hat{\\boldsymbol\\varphi}——认得它，开普勒不再是天书。\n体积元公式不背：径向 \\mathrm{d}r、经线 r\\,\\mathrm{d}\\theta、纬线 r\\sin\\theta\\,\\mathrm{d}\\varphi，三条边相乘。\nJacobian = 体积汇率 = 行列式：换坐标积分的三步之一，最不能省的一步。\n\n现在万事俱备：第 2 章的标量场语言、本章的曲线坐标与积分元。下一章引入最后一位主角——向量场（每点一个向量），然后把「切」与「积」两个母动作在三维空间里全部装配起来，你将拿到读麦克斯韦方程组的全部门票。",
+    "text": "3.4 本章收束\n\n参数化把曲线变成向量函数：\\dot{\\mathbf{r}} 即速度、\\ddot{\\mathbf{r}} 即加速度、|\\dot{\\mathbf{r}}|\\,\\mathrm{d}t 即路程微元。\n极坐标的单位向量是活的，速度有两项 \\dot r\\,\\hat{\\mathbf r} + r\\dot\\varphi\\,\\hat{\\boldsymbol\\varphi}——认得它，开普勒不再是天书。\n体积元公式不背：径向 \\mathrm{d}r、经线 r\\,\\mathrm{d}\\theta、纬线 r\\sin\\theta\\,\\mathrm{d}\\varphi，三条边相乘。\nJacobian = 体积汇率 = 行列式：换坐标积分的三步之一，最不能省的一步。\n\n现在万事俱备：第 2 章的标量场语言、本章的曲线坐标与积分元。下一章引入最后一位主角——向量场（每点一个向量），然后把「切」与「积」两个母动作在三维空间里全部装配起来，你将拿到读麦克斯韦方程组的全部门票。\n\n\n\n\nGriffiths, David J. 2013. Introduction to Electrodynamics. 4th ed. Boston: Pearson.\n\n\nStewart, James. 2016. Calculus: Early Transcendentals. 8th ed. Boston: Cengage Learning.\n\n\nTaylor, John R. 2005. Classical Mechanics. Sausalito: University Science Books.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>参数化与换坐标</span>"
     ]
@@ -284,7 +324,7 @@
     "href": "04-vector-field.html",
     "title": "4  向量场与三大定理",
     "section": "",
-    "text": "4.1 场与场线\n现在引入最后一位主角。标量场是「每点一个数」（温度、电势），向量场是每点一个向量：河流每点的流速、空间每点的电场、引力场。电动力学的本体就是向量场——麦克斯韦方程组的每个符号都是本章的对象。学完本章，你会发现四个「大定理」其实是第 1 章那座桥（FTC）的三次高维重建：边界上的量 = 内部源的累积。\n\\mathbf{F}(x,y,z) = \\big(F_x,\\; F_y,\\; F_z\\big) \\qquad \\text{每个分量都是位置的函数} \\tag{4.1}\n直觉工具是场线：一条处处与场向量相切的曲线。两条读图规则：场线的方向 = 场的方向；场线的密度 = 场的强度（电场线越密处电场越强）。物理书大量用场线做定性论证，你也需要——本章的高斯定理先在场线语言里「看见」，再用公式说出。\n场的微积分 = 两个母动作装配到场上。「切」的变奏是散度与旋度（局部量），「积」的变奏是线积分与通量（整体量），两个定理把它们缝合。",
+    "text": "4.1 场与场线\n现在引入最后一位主角。标量场是「每点一个数」（温度、电势），向量场是每点一个向量：河流每点的流速、空间每点的电场、引力场。电动力学的本体就是向量场——麦克斯韦方程组的每个符号都是本章的对象。学完本章，你会发现四个「大定理」其实是第 1 章那座桥（FTC）的三次高维重建：边界上的量 = 内部源的累积。\n\\mathbf{F}(x,y,z) = \\big(F_x,\\; F_y,\\; F_z\\big) \\qquad \\text{每个分量都是位置的函数} \\tag{4.1}\n直觉工具是场线:一条处处与场向量相切的曲线。两条读图规则:场线的方向 = 场的方向;场线的密度 = 场的强度(电场线越密处电场越强)。物理书大量用场线做定性论证，你也需要——本章的高斯定理先在场线语言里「看见」，再用公式说出（向量场与场线的教材定位：(Stewart 2016, sec. 16.1)；最生动的物理讲法是 (Feynman, Leighton, and Sands 2010)）。\n场的微积分 = 两个母动作装配到场上。「切」的变奏是散度与旋度（局部量），「积」的变奏是线积分与通量（整体量），两个定理把它们缝合。",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>向量场与三大定理</span>"
     ]
@@ -294,7 +334,7 @@
     "href": "04-vector-field.html#两种积分沿线累积-穿面累积",
     "title": "4  向量场与三大定理",
     "section": "4.2 两种积分：沿线累积 & 穿面累积",
-    "text": "4.2 两种积分：沿线累积 & 穿面累积\n线积分：沿曲线 C 累积场的切向分量。一小步位移 \\mathrm{d}\\mathbf{l}（沿切线方向的小向量），场的贡献是 \\mathbf{F}\\cdot\\mathrm{d}\\mathbf{l}（第 2 章点积：投影乘长度）：\n\n\\int_C \\mathbf{F}\\cdot\\mathrm{d}\\mathbf{l} \\qquad \\text{物理身份：功（力沿路径的累积）} \\tag{4.2}\n\n曲线闭合（绕一圈）时叫环流 \\oint_C \\mathbf{F}\\cdot\\mathrm{d}\\mathbf{l}：绕这一圈，场净推了你多少——漩涡的强弱。\n通量：穿过曲面 S 累积场的法向分量。一小片面元 \\mathrm{d}\\mathbf{A} = \\hat{\\mathbf{n}}\\,\\mathrm{d}A（\\hat{\\mathbf n} 是法向单位向量），场的贡献是 \\mathbf{F}\\cdot\\mathrm{d}\\mathbf{A}：\n\n\\int_S \\mathbf{F}\\cdot\\mathrm{d}\\mathbf{A} \\qquad \\text{物理身份：单位时间穿过面的流量} \\tag{4.3}\n\n闭合曲面上（如气球表面）法向约定为向外，此时的通量问的是：这片封闭区域净涌出多少东西——这是散度登场的入口。\n\n\n\n\n\n\nNote判据 E（见闭合积分号）两连问\n\n\n\n\n积分元是 \\mathrm{d}\\mathbf{l}（沿线，量环流）还是 \\mathrm{d}\\mathbf{A}（穿面，量通量）？\n曲线/曲面闭合吗？闭合 → 可以调用高斯/斯托克斯把边界积分换成内部积分（几乎总是更简单）。",
+    "text": "4.2 两种积分：沿线累积 & 穿面累积\n线积分：沿曲线 C 累积场的切向分量。一小步位移 \\mathrm{d}\\mathbf{l}（沿切线方向的小向量），场的贡献是 \\mathbf{F}\\cdot\\mathrm{d}\\mathbf{l}（第 2 章点积：投影乘长度）：\n\n\\int_C \\mathbf{F}\\cdot\\mathrm{d}\\mathbf{l} \\qquad \\text{物理身份：功（力沿路径的累积）} \\tag{4.2}\n\n曲线闭合（绕一圈）时叫环流 \\oint_C \\mathbf{F}\\cdot\\mathrm{d}\\mathbf{l}：绕这一圈，场净推了你多少——漩涡的强弱。\n通量：穿过曲面 S 累积场的法向分量。一小片面元 \\mathrm{d}\\mathbf{A} = \\hat{\\mathbf{n}}\\,\\mathrm{d}A（\\hat{\\mathbf n} 是法向单位向量），场的贡献是 \\mathbf{F}\\cdot\\mathrm{d}\\mathbf{A}：\n\n\\int_S \\mathbf{F}\\cdot\\mathrm{d}\\mathbf{A} \\qquad \\text{物理身份：单位时间穿过面的流量} \\tag{4.3}\n\n闭合曲面上(如气球表面)法向约定为向外,此时的通量问的是:这片封闭区域净涌出多少东西——这是散度登场的入口（线积分与通量的严格定义：(Stewart 2016, sec. 16.2 and 16.7)）。\n\n\n\n\n\n\nNote判据 E（见闭合积分号）两连问\n\n\n\n\n积分元是 \\mathrm{d}\\mathbf{l}（沿线，量环流）还是 \\mathrm{d}\\mathbf{A}（穿面，量通量）？\n曲线/曲面闭合吗？闭合 → 可以调用高斯/斯托克斯把边界积分换成内部积分（几乎总是更简单）。",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>向量场与三大定理</span>"
     ]
@@ -304,7 +344,7 @@
     "href": "04-vector-field.html#散度局部源强度",
     "title": "4  向量场与三大定理",
     "section": "4.3 散度：局部源强度",
-    "text": "4.3 散度：局部源强度\n想知道某一点是不是场的源头（比如这一点有没有电荷），造一个包围它的小闭合面，测净流出通量，再除以体积取极限：\n\n\\nabla\\cdot\\mathbf{F} \\;=\\; \\lim_{V\\to 0} \\frac{1}{V} \\oint_{\\partial V} \\mathbf{F}\\cdot\\mathrm{d}\\mathbf{A}\n\\qquad \\text{（单位体积的净流出量）} \\tag{4.4}\n\n（\\partial V 读作「V 的边界」——边界算子见符号约定。）它是标量：正 = 源（净涌出，如正电荷），负 = 汇（净吸入，如负电荷），零 = 无源（流进多少流出多少）。直角坐标下可算出 \\nabla\\cdot\\mathbf{F} = \\partial F_x/\\partial x + \\partial F_y/\\partial y + \\partial F_z/\\partial z——形式上像「\\nabla 这个向量点乘 \\mathbf{F}」，这只是记号巧合帮记忆，语义永远是 (4.4)。\n高斯散度定理（FTC 变奏一号）：把 (4.4) 反过来用——不取极限，闭合面的总通量等于内部所有源的累积：\n\n\\oint_{\\partial V} \\mathbf{F}\\cdot\\mathrm{d}\\mathbf{A} \\;=\\; \\int_V (\\nabla\\cdot\\mathbf{F})\\, \\mathrm{d}v \\tag{4.5}\n\n读出来正是那句话：边界（表面）上的量 = 内部源的累积。场线语言里它是一次数数游戏：穿出的线数 = 内部发出的线数，与面选得多歪多圆无关。物理的第一次兑付是高斯定律 \\oint \\mathbf{E}\\cdot\\mathrm{d}\\mathbf{A} = Q_{\\text{enc}}/\\varepsilon_0：数穿出闭合面的电场线，就数出了内部电荷总量——这是计算对称电场最强的一招。\n\n\n\n\n\n\n上图就是高斯定律的场线版：左面板，电荷在面内，所有场线穿出——数线即数电荷；右面板，电荷在面外，每条穿入的线必然再穿出（场线不会凭空消失），净通量为零。这就是 \\nabla\\cdot\\mathbf{E} = \\rho/\\varepsilon_0 的全部直觉：电荷是电场线的源，散度数的是源。",
+    "text": "4.3 散度：局部源强度\n想知道某一点是不是场的源头（比如这一点有没有电荷），造一个包围它的小闭合面，测净流出通量，再除以体积取极限：\n\n\\nabla\\cdot\\mathbf{F} \\;=\\; \\lim_{V\\to 0} \\frac{1}{V} \\oint_{\\partial V} \\mathbf{F}\\cdot\\mathrm{d}\\mathbf{A}\n\\qquad \\text{（单位体积的净流出量）} \\tag{4.4}\n\n(\\partial V 读作「V 的边界」–边界算子见符号约定。)它是标量:正 = 源(净涌出,如正电荷),负 = 汇(净吸入,如负电荷),零 = 无源(流进多少流出多少)。直角坐标下可算出 \\nabla\\cdot\\mathbf{F} = \\partial F_x/\\partial x + \\partial F_y/\\partial y + \\partial F_z/\\partial z–形式上像「\\nabla 这个向量点乘 \\mathbf{F}」，这只是记号巧合帮记忆，语义永远是 (4.4)（散度的定义与坐标公式：(Stewart 2016, sec. 16.5; Griffiths 2013, sec. 1.2)）。\n高斯散度定理（FTC 变奏一号）：把 (4.4) 反过来用——不取极限，闭合面的总通量等于内部所有源的累积：\n\n\\oint_{\\partial V} \\mathbf{F}\\cdot\\mathrm{d}\\mathbf{A} \\;=\\; \\int_V (\\nabla\\cdot\\mathbf{F})\\, \\mathrm{d}v \\tag{4.5}\n\n读出来正是那句话:边界（表面）上的量 = 内部源的累积。场线语言里它是一次数数游戏：穿出的线数 = 内部发出的线数，与面选得多歪多圆无关（散度定理：(Stewart 2016, sec. 16.9; Griffiths 2013, sec. 1.3)）。物理的第一次兑付是高斯定律 \\oint \\mathbf{E}\\cdot\\mathrm{d}\\mathbf{A} = Q_{\\text{enc}}/\\varepsilon_0:数穿出闭合面的电场线,就数出了内部电荷总量–这是计算对称电场最强的一招。\n\n\n\n\n\n\n上图就是高斯定律的场线版：左面板，电荷在面内，所有场线穿出——数线即数电荷；右面板，电荷在面外，每条穿入的线必然再穿出（场线不会凭空消失），净通量为零。这就是 \\nabla\\cdot\\mathbf{E} = \\rho/\\varepsilon_0 的全部直觉：电荷是电场线的源，散度数的是源。",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>向量场与三大定理</span>"
     ]
@@ -314,7 +354,7 @@
     "href": "04-vector-field.html#旋度局部涡旋强度",
     "title": "4  向量场与三大定理",
     "section": "4.4 旋度：局部涡旋强度",
-    "text": "4.4 旋度：局部涡旋强度\n散度问「这一点是不是源头」，旋度问「这一点是不是漩涡」——即使流速大小处处相同，河道拐弯处放一个小水车也会转。构造：小水车放在场里，各方向转动的净推动取极限。数学定义（斯托克斯的微分形式）：\n\n(\\nabla\\times\\mathbf{F})\\cdot\\hat{\\mathbf{n}} \\;=\\; \\lim_{A\\to 0} \\frac{1}{A} \\oint_{\\partial A} \\mathbf{F}\\cdot\\mathrm{d}\\mathbf{l}\n\\qquad \\text{（单位面积的环流）} \\tag{4.6}\n\n它是向量（水车的转轴方向，右手定则定指向），长度是转速。物理身份：磁场 (\\nabla\\times\\mathbf{B}=\\mu_0\\mathbf{J}，电流是磁场的「涡源」)、流体涡旋、科里奥利力。\n斯托克斯定理（FTC 变奏二号）：边界环路上的环流 = 张在该边界上的任意曲面内旋度的累积：\n\n\\oint_{\\partial S} \\mathbf{F}\\cdot\\mathrm{d}\\mathbf{l} \\;=\\; \\int_S (\\nabla\\times\\mathbf{F})\\cdot\\mathrm{d}\\mathbf{A} \\tag{4.7}\n\n还是那句话：边界上的量（回路环流）= 内部源的累积（旋度通量）。物理兑付：安培环路定理 \\oint \\mathbf{B}\\cdot\\mathrm{d}\\mathbf{l} = \\mu_0 I_{\\text{enc}}——绕回路一圈量到的磁场环流，数出的是穿过回路的电流。\n（格林定理：斯托克斯在平面上的特例，二维场的环流-旋度关系。读到时知道它是「自己人」即可。）",
+    "text": "4.4 旋度：局部涡旋强度\n散度问「这一点是不是源头」，旋度问「这一点是不是漩涡」——即使流速大小处处相同，河道拐弯处放一个小水车也会转。构造：小水车放在场里，各方向转动的净推动取极限。数学定义（斯托克斯的微分形式）：\n\n(\\nabla\\times\\mathbf{F})\\cdot\\hat{\\mathbf{n}} \\;=\\; \\lim_{A\\to 0} \\frac{1}{A} \\oint_{\\partial A} \\mathbf{F}\\cdot\\mathrm{d}\\mathbf{l}\n\\qquad \\text{（单位面积的环流）} \\tag{4.6}\n\n它是向量(水车的转轴方向,右手定则定指向),长度是转速（旋度：(Stewart 2016, sec. 16.5; Griffiths 2013, sec. 1.2)）。物理身份：磁场 (\\nabla\\times\\mathbf{B}=\\mu_0\\mathbf{J}，电流是磁场的「涡源」）、流体涡旋、科里奥利力。\n斯托克斯定理（FTC 变奏二号）：边界环路上的环流 = 张在该边界上的任意曲面内旋度的累积：\n\n\\oint_{\\partial S} \\mathbf{F}\\cdot\\mathrm{d}\\mathbf{l} \\;=\\; \\int_S (\\nabla\\times\\mathbf{F})\\cdot\\mathrm{d}\\mathbf{A} \\tag{4.7}\n\n还是那句话：边界上的量（回路环流）= 内部源的累积（旋度通量）（斯托克斯定理：(Stewart 2016, sec. 16.8)）。物理兑付：安培环路定理 \\oint \\mathbf{B}\\cdot\\mathrm{d}\\mathbf{l} = \\mu_0 I_{\\text{enc}}–绕回路一圈量到的磁场环流,数出的是穿过回路的电流。\n（格林定理：斯托克斯在平面上的特例，二维场的环流-旋度关系。读到时知道它是「自己人」即可。）",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>向量场与三大定理</span>"
     ]
@@ -324,7 +364,7 @@
     "href": "04-vector-field.html#大统一一座桥的四次化身",
     "title": "4  向量场与三大定理",
     "section": "4.5 大统一：一座桥的四次化身",
-    "text": "4.5 大统一：一座桥的四次化身\n\n\n\n\n\n\n\n\n\n定理\n边界上的量\n内部的源\n维度\n\n\n\n\nFTC (1.5)\n区间两端的 F 值差\n\\int_a^b f\\,\\mathrm{d}x\n1\n\n\n格林\n平面闭曲线的环流/通量\n面积分（旋度/散度）\n2\n\n\n高斯 (4.5)\n闭合面通量\n\\int_V \\nabla\\cdot\\mathbf{F}\\,\\mathrm{d}v\n3\n\n\n斯托克斯 (4.7)\n闭合回路环流\n\\int_S \\nabla\\times\\mathbf{F}\\cdot\\mathrm{d}\\mathbf{A}\n任意\n\n\n\n四行共享一个模板：把边界上的测量，换成内部密度的累积。为什么物理热爱它们：边界测量往往困难（曲面上的积分），内部密度往往是「定律本身」（\\rho、\\mathbf{J}）——定理把难的换成简单的。麦克斯韦方程组有积分、微分两套写法且物理书随时互译，桥梁就是 (4.5) 与 (4.7)。",
+    "text": "4.5 大统一：一座桥的四次化身\n\n\n\n\n\n\n\n\n\n定理\n边界上的量\n内部的源\n维度\n\n\n\n\nFTC (1.5)\n区间两端的 F 值差\n\\int_a^b f\\,\\mathrm{d}x\n1\n\n\n格林\n平面闭曲线的环流/通量\n面积分（旋度/散度）\n2\n\n\n高斯 (4.5)\n闭合面通量\n\\int_V \\nabla\\cdot\\mathbf{F}\\,\\mathrm{d}v\n3\n\n\n斯托克斯 (4.7)\n闭合回路环流\n\\int_S \\nabla\\times\\mathbf{F}\\cdot\\mathrm{d}\\mathbf{A}\n任意\n\n\n\n四行共享一个模板:把边界上的测量,换成内部密度的累积。为什么物理热爱它们：边界测量往往困难（曲面上的积分），内部密度往往是「定律本身」（\\rho、\\mathbf{J}）——定理把难的换成简单的（四个定理在微分流形语言下的统一形式见 (Spivak 1965, ch. 4)）。麦克斯韦方程组有积分、微分两套写法且物理书随时互译,桥梁就是 (4.5) 与 (4.7)。",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>向量场与三大定理</span>"
     ]
@@ -334,7 +374,7 @@
     "href": "04-vector-field.html#nabla-算子速查",
     "title": "4  向量场与三大定理",
     "section": "4.6 \\nabla 算子速查",
-    "text": "4.6 \\nabla 算子速查\n\n\n\n\n\n\n\n\n表达式\n类型\n语义一句话\n\n\n\n\n\\nabla f\n标量 → 向量\n上坡方向（第 2 章）\n\n\n\\nabla\\cdot\\mathbf{F}\n向量 → 标量\n源强度 (4.4)\n\n\n\\nabla\\times\\mathbf{F}\n向量 → 向量\n涡强度 (4.6)\n\n\n\\nabla^2 f\n标量 → 标量\n与周围平均值之差（\\nabla\\cdot\\nabla f）\n\n\n\\nabla\\cdot(\\nabla\\times\\mathbf{F}) = 0\n恒等式\n涡无源（漩涡线不凭空出发）\n\n\n\\nabla\\times(\\nabla f) = \\mathbf{0}\n恒等式\n坡无涡（下坡场绕圈做功为零 ⇒ 保守力）\n\n\n\n最后一条恒等式值得多说一句：\\nabla\\times(\\nabla f) = 0 是「保守力」的微分语言——力是势的梯度（\\mathbf{F}=-\\nabla V，第 2 章）时自动无旋，绕任何闭合回路做功为零。静电学全书建立在这条上。",
+    "text": "4.6 \\nabla 算子速查\n\n\n\n\n\n\n\n\n表达式\n类型\n语义一句话\n\n\n\n\n\\nabla f\n标量 → 向量\n上坡方向（第 2 章）\n\n\n\\nabla\\cdot\\mathbf{F}\n向量 → 标量\n源强度 (4.4)\n\n\n\\nabla\\times\\mathbf{F}\n向量 → 向量\n涡强度 (4.6)\n\n\n\\nabla^2 f\n标量 → 标量\n与周围平均值之差（\\nabla\\cdot\\nabla f）\n\n\n\\nabla\\cdot(\\nabla\\times\\mathbf{F}) = 0\n恒等式\n涡无源（漩涡线不凭空出发）\n\n\n\\nabla\\times(\\nabla f) = \\mathbf{0}\n恒等式\n坡无涡（下坡场绕圈做功为零 ⇒ 保守力）\n\n\n\n最后一条恒等式值得多说一句:\\nabla\\times(\\nabla f) = 0 是「保守力」的微分语言–力是势的梯度(\\mathbf{F}=-\\nabla V,第 2 章)时自动无旋,绕任何闭合回路做功为零。静电学全书建立在这条上（恒等式与势论的关系：(Griffiths 2013, sec. 1.6)）。",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>向量场与三大定理</span>"
     ]
@@ -344,7 +384,17 @@
     "href": "04-vector-field.html#验收现场读麦克斯韦方程组",
     "title": "4  向量场与三大定理",
     "section": "4.7 验收现场：读麦克斯韦方程组",
-    "text": "4.7 验收现场：读麦克斯韦方程组\n拿出真正的物理书页验收。微分形式四条，逐条翻译：\n\n\\nabla\\cdot\\mathbf{E} = \\frac{\\rho}{\\varepsilon_0}\n\\qquad\\text{电荷是电场线的源；正电荷发线，负电荷收线（高斯定律）} \\tag{4.8}\n\n\n\\nabla\\cdot\\mathbf{B} = 0\n\\qquad\\text{磁场无源：磁单极子不存在，磁感线永远闭合} \\tag{4.9}\n\n\n\\nabla\\times\\mathbf{E} = -\\frac{\\partial\\mathbf{B}}{\\partial t}\n\\qquad\\text{磁场变化时，空间出现涡旋电场（法拉第：变化磁通周围有环流）} \\tag{4.10}\n\n\n\\nabla\\times\\mathbf{B} = \\mu_0\\mathbf{J} + \\mu_0\\varepsilon_0\\frac{\\partial\\mathbf{E}}{\\partial t}\n\\qquad\\text{电流与变化的电场都是磁场的涡源（安培–麦克斯韦）} \\tag{4.11}\n\n四个符号全部到位：\\nabla\\cdot 与 \\nabla\\times 是本章的两个局部量，\\partial/\\partial t 是第 1 章的率，\\mathbf{E},\\mathbf{B} 是两个向量场，右边的 \\rho,\\mathbf{J} 是源。没有一个符号超出前四章——这四行是本书前半部分的期末考试，你现在每一行都能读出物理内容。物理书里它们还会以积分形式出现（对任意闭合面/回路），互译工具就是 (4.5) 与 (4.7)。",
+    "text": "4.7 验收现场：读麦克斯韦方程组\n拿出真正的物理书页验收。微分形式四条，逐条翻译：\n\n\\nabla\\cdot\\mathbf{E} = \\frac{\\rho}{\\varepsilon_0}\n\\qquad\\text{电荷是电场线的源；正电荷发线，负电荷收线（高斯定律）} \\tag{4.8}\n\n\n\\nabla\\cdot\\mathbf{B} = 0\n\\qquad\\text{磁场无源：磁单极子不存在，磁感线永远闭合} \\tag{4.9}\n\n\n\\nabla\\times\\mathbf{E} = -\\frac{\\partial\\mathbf{B}}{\\partial t}\n\\qquad\\text{磁场变化时，空间出现涡旋电场（法拉第：变化磁通周围有环流）} \\tag{4.10}\n\n\n\\nabla\\times\\mathbf{B} = \\mu_0\\mathbf{J} + \\mu_0\\varepsilon_0\\frac{\\partial\\mathbf{E}}{\\partial t}\n\\qquad\\text{电流与变化的电场都是磁场的涡源（安培–麦克斯韦）} \\tag{4.11}\n\n四个符号全部到位:\\nabla\\cdot 与 \\nabla\\times 是本章的两个局部量,\\partial/\\partial t 是第 1 章的率,\\mathbf{E},\\mathbf{B} 是两个向量场,右边的 \\rho,\\mathbf{J} 是源。没有一个符号超出前四章–这四行是本书前半部分的期末考试,你现在每一行都能读出物理内容。物理书里它们还会以积分形式出现（对任意闭合面/回路），互译工具就是 (4.5) 与 (4.7)（方程组的推导与逐条讨论：(Griffiths 2013, sec. 7.3)）。",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>向量场与三大定理</span>"
+    ]
+  },
+  {
+    "objectID": "04-vector-field.html#出处与查表",
+    "href": "04-vector-field.html#出处与查表",
+    "title": "4  向量场与三大定理",
+    "section": "出处与查表",
+    "text": "出处与查表\n本章对象的教材定位——引文是查表索引，不是阅读任务：\n\n\n\n本书对象\n定位\n\n\n\n\n向量场、场线\n(Stewart 2016, sec. 16.1); (Feynman, Leighton, and Sands 2010)\n\n\n线积分\n(Stewart 2016, sec. 16.2)\n\n\n通量与面积分\n(Stewart 2016, sec. 16.7)\n\n\n散度与旋度\n(Stewart 2016, sec. 16.5); (Griffiths 2013, sec. 1.2)\n\n\n高斯散度定理\n(Stewart 2016, sec. 16.9); (Griffiths 2013, sec. 1.3)\n\n\n斯托克斯定理\n(Stewart 2016, sec. 16.8)\n\n\n三大定理的统一形式\n(Spivak 1965, ch. 4)\n\n\n麦克斯韦方程组\n(Griffiths 2013, sec. 7.3)",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>向量场与三大定理</span>"
     ]
@@ -354,7 +404,7 @@
     "href": "04-vector-field.html#本章收束",
     "title": "4  向量场与三大定理",
     "section": "4.8 本章收束",
-    "text": "4.8 本章收束\n\n向量场 = 每点一个向量；场线方向给方向、密度给强度。\n两种整体量：通量（穿面，法向累积）、环流（沿线，切向累积）；两个局部量：散度（源，标量）、旋度（涡，向量）。\n高斯与斯托克斯把整体量与局部量缝合，都是 FTC 的化身：边界上的量 = 内部源的累积。\n麦克斯韦四条 = 场语言的完整句子，逐条可读。\n\n至此，「描述场」的语言全部齐备。但物理书的另一半是运动与演化：定律给出方程，问题变成「从这个方程里读出运动」。方程里带导数、未知的是函数——这就是微分方程，下一章从 F = m\\ddot{x} 开始。",
+    "text": "4.8 本章收束\n\n向量场 = 每点一个向量;场线方向给方向、密度给强度。\n两种整体量：通量（穿面，法向累积）、环流（沿线，切向累积）；两个局部量：散度（源，标量）、旋度（涡，向量）。\n高斯与斯托克斯把整体量与局部量缝合，都是 FTC 的化身：边界上的量 = 内部源的累积。\n麦克斯韦四条 = 场语言的完整句子，逐条可读。\n\n至此，「描述场」的语言全部齐备。但物理书的另一半是运动与演化：定律给出方程，问题变成「从这个方程里读出运动」。方程里带导数、未知的是函数——这就是微分方程，下一章从 F = m\\ddot{x} 开始。\n\n\n\n\nFeynman, Richard P., Robert B. Leighton, and Matthew Sands. 2010. The Feynman Lectures on Physics, Volume II: Mainly Electromagnetism and Matter. New Millennium. New York: Basic Books.\n\n\nGriffiths, David J. 2013. Introduction to Electrodynamics. 4th ed. Boston: Pearson.\n\n\nSpivak, Michael. 1965. Calculus on Manifolds: A Modern Approach to Classical Theorems of Advanced Calculus. New York: W. A. Benjamin.\n\n\nStewart, James. 2016. Calculus: Early Transcendentals. 8th ed. Boston: Cengage Learning.",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>向量场与三大定理</span>"
     ]
@@ -364,7 +414,7 @@
     "href": "05-ode.html",
     "title": "5  定律变成方程：常微分方程",
     "section": "",
-    "text": "5.1 定律 → 方程\n前四章的语言都是描述：描述场、描述变化率。但物理书的正戏是演化：给系统定律，问它接下来怎么动。而物理定律几乎全部写成「变化率之间的关系」——牛顿第二定律、热力学、麦克斯韦（含时间那一半）。把定律写下来，得到的不是公式而是方程：方程里藏着未知的函数及其导数。本章教你「读」这种方程——它的解长什么样、结构如何、初值条件扮演什么角色。计算技巧降到最低：读物理书要的是认出解的形状，不是亲手解。\nm\\ddot{x} = F(x, \\dot{x}, t) \\qquad \\text{牛顿第二定律：一个二阶常微分方程（ODE）} \\tag{5.1}\n「常」微分方程：未知函数 x(t) 只有一个自变量（时间）。(5.1) 不是拿来「代入求值」的公式——它是一道考题：找一个函数 x(t)，代入后它的二阶导数恰好等于 F/m。物理定律为什么总是这个形状？因为定律是局域的陈述：此刻的位置和速度决定此刻的加速度，下一步由下一步的定律接着管——「变化率驱动演化」是物理世界的基本合同。\n「解方程」在 ODE 语境下意味着：找函数。这就是你在物理书里看到的 x(t) = A\\cos(\\omega t + \\varphi_0) 的身份——它是方程 (5.6) 的通解。",
+    "text": "5.1 定律 → 方程\n前四章的语言都是描述：描述场、描述变化率。但物理书的正戏是演化：给系统定律，问它接下来怎么动。而物理定律几乎全部写成「变化率之间的关系」——牛顿第二定律、热力学、麦克斯韦（含时间那一半）。把定律写下来，得到的不是公式而是方程：方程里藏着未知的函数及其导数。本章教你「读」这种方程——它的解长什么样、结构如何、初值条件扮演什么角色。计算技巧降到最低：读物理书要的是认出解的形状，不是亲手解。\nm\\ddot{x} = F(x, \\dot{x}, t) \\qquad \\text{牛顿第二定律：一个二阶常微分方程（ODE）} \\tag{5.1}\n「常」微分方程：未知函数 x(t) 只有一个自变量（时间）。(5.1) 不是拿来「代入求值」的公式——它是一道考题：找一个函数 x(t)，代入后它的二阶导数恰好等于 F/m。物理定律为什么总是这个形状？因为定律是局域的陈述：此刻的位置和速度决定此刻的加速度，下一步由下一步的定律接着管——「变化率驱动演化」是物理世界的基本合同。\n「解方程」在 ODE 语境下意味着：找函数。这就是你在物理书里看到的 x(t) = A\\cos(\\omega t + \\varphi_0) 的身份——它是方程 (5.3) 在 \\gamma=f=0 情形的通解（牛顿第二定律作为 ODE 的展开见 (Taylor 2005, ch. 1)）。",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>定律变成方程：常微分方程</span>"
     ]
@@ -374,7 +424,7 @@
     "href": "05-ode.html#一阶方程指数是宇宙的默认解",
     "title": "5  定律变成方程：常微分方程",
     "section": "5.2 一阶方程：指数是宇宙的默认解",
-    "text": "5.2 一阶方程：指数是宇宙的默认解\n最简单的 ODE 族里，两个成员覆盖了物理书的大半入门场景。\n可分离变量：\\frac{\\mathrm{d}y}{\\mathrm{d}t} = g(y)\\,h(t)。变量除法把导数拆开、两边各自积分（第 1 章母动作二）。原型是放射性衰变：\n\n\\frac{\\mathrm{d}N}{\\mathrm{d}t} = -\\lambda N \\;\\;\\Longrightarrow\\;\\; N(t) = N_0\\, e^{-\\lambda t} \\tag{5.2}\n\n读法：衰变率正比于现存数量——越多衰得越快，于是指数衰减。「率的值正比于当前的值」⇒ 指数解，这是全书最值得背的一句话级的规律（电容放电、牛顿冷却、光吸收全是它）。\n一阶线性：\\frac{\\mathrm{d}y}{\\mathrm{d}t} + P(t)\\,y = Q(t)。有个万能的积分因子技巧，本书不讲——你只需认出形状与解的定性图像：暂态（齐次部分衰减掉）+ 稳态（跟着外源走），见下文「结构」一节。\n初值条件：注意 (5.2) 里的 N_0——方程本身没有固定它。通解是函数族，初值负责挑出其中一个。一阶方程需要一个初值（N(0)=N_0）。",
+    "text": "5.2 一阶方程：指数是宇宙的默认解\n最简单的 ODE 族里，两个成员覆盖了物理书的大半入门场景。\n可分离变量：\\frac{\\mathrm{d}y}{\\mathrm{d}t} = g(y)\\,h(t)。变量除法把导数拆开、两边各自积分（第 1 章母动作二）。原型是放射性衰变：\n\n\\frac{\\mathrm{d}N}{\\mathrm{d}t} = -\\lambda N \\;\\;\\Longrightarrow\\;\\; N(t) = N_0\\, e^{-\\lambda t} \\tag{5.2}\n\n读法：衰变率正比于现存数量——越多衰得越快，于是指数衰减。「率的值正比于当前的值」⇒ 指数解，这是全书最值得背的一句话级的规律（电容放电、牛顿冷却、光吸收全是它；分离变量与一阶方程的教材定位：(Stewart 2016, ch. 9)）。\n一阶线性：\\frac{\\mathrm{d}y}{\\mathrm{d}t} + P(t)\\,y = Q(t)。有个万能的积分因子技巧，本书不讲——你只需认出形状与解的定性图像：暂态（齐次部分衰减掉）+ 稳态（跟着外源走），见下文「结构」一节。\n初值条件：注意 (5.2) 里的 N_0——方程本身没有固定它。通解是函数族，初值负责挑出其中一个。一阶方程需要一个初值（N(0)=N_0）。",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>定律变成方程：常微分方程</span>"
     ]
@@ -384,7 +434,7 @@
     "href": "05-ode.html#二阶常系数谐振子全家",
     "title": "5  定律变成方程：常微分方程",
     "section": "5.3 二阶常系数：谐振子全家",
-    "text": "5.3 二阶常系数：谐振子全家\n力学与电路的骨干方程：\n\n\\ddot{x} + \\gamma\\,\\dot{x} + \\omega_0^2\\, x = f(t) \\qquad\n(\\text{自由振动 } \\gamma=f=0;\\; \\text{阻尼 } \\gamma&gt;0;\\; \\text{受迫 } f\\neq 0) \\tag{5.3}\n\n它来自弹簧 m\\ddot{x} = -kx（加上阻尼、外力），覆盖单摆小角度、LC 电路、分子振动、桥梁、地震仪。怎么解不重要，为什么解法有效值得看一眼——一行就够：猜 x = e^{rt}，因为指数函数是「求导的不动点」（\\frac{\\mathrm{d}}{\\mathrm{d}t}e^{rt} = r\\,e^{rt}，形状不变），代入后 e^{rt} 从方程里约掉，剩下一个代数方程：\n\nr^2 + \\gamma\\, r + \\omega_0^2 = 0 \\qquad \\text{（特征方程）} \\tag{5.4}\n\n二阶 ODE 降成二次方程，根 r_{1,2} 给出两个解 e^{r_1 t}, e^{r_2 t}。判别式分三种情形，每种对应一种看得见的运动：\n\n\n\n\n\n\n\n\n\n判别式\n根\n解的形状\n物理名字\n\n\n\n\n\\gamma^2 &lt; 4\\omega_0^2\n共轭复根 -\\gamma/2 \\pm i\\omega'\ne^{-\\gamma t/2}\\cos(\\omega' t + \\varphi_0)\n欠阻尼：振荡着衰减\n\n\n\\gamma^2 = 4\\omega_0^2\n重根\n(A + Bt)\\,e^{-\\gamma t/2}\n临界阻尼：不振荡，最快归位（门吸、仪表指针）\n\n\n\\gamma^2 &gt; 4\\omega_0^2\n两负实根\nA e^{r_1 t} + B e^{r_2 t}\n过阻尼：缓慢爬回（浓糖浆里的弹簧）\n\n\n\n复根怎么给出振荡？欧拉公式 e^{i\\theta} = \\cos\\theta + i\\sin\\theta——复指数的实部就是振荡。「振荡 = 频率取虚数的指数」，虚数不是玄学，是特征方程在告诉你「这个系统在振动」。\n结构定理（线性 ODE 的组织方式，物理书的地基）：\n\ny_{\\text{通解}} = y_h \\;(\\text{齐次通解，含待定常数}) + y_p \\;(\\text{任一特解}) \\tag{5.5}\n\n齐次部分 y_h 是系统自己的运动模式（自然频率、衰减率），特解 y_p 是外源逼出来的响应。受迫振动的标准图景由此读出：刚启动时两者都在（暂态），阻尼磨掉 y_h 后只剩 y_p（稳态）；外源频率逼近 \\omega_0 时 y_p 的振幅暴涨（共振）。读 RLC 电路、受迫振动、散射共振，全是这一个结构。\n为什么解可以叠加以至「通解 = 齐次 + 特解」？因为方程线性：解的线性组合还是解（叠加原理）。线性从哪来？定律本身线性（弹簧力 \\propto 位移）。非线性 ODE（如大角度单摆）没有这个结构，解也不可叠加——物理书对它们的态度通常是「小角度近似线性化」（第 1 章放大镜又出场）。\n初值条件：二阶方程需要两个（如 x(0) 与 \\dot{x}(0)：初始位置与初始速度）。直觉：预测未来需要知道「现在在哪 + 现在往哪冲」，缺一不可。通解里恰好有两个待定常数，两个条件恰好锁定它们——这不是巧合，是「阶数 = 所需初值个数」的一般规律。",
+    "text": "5.3 二阶常系数：谐振子全家\n力学与电路的骨干方程：\n\n\\ddot{x} + \\gamma\\,\\dot{x} + \\omega_0^2\\, x = f(t) \\qquad\n(\\text{自由振动 } \\gamma=f=0;\\; \\text{阻尼 } \\gamma&gt;0;\\; \\text{受迫 } f\\neq 0) \\tag{5.3}\n\n它来自弹簧 m\\ddot{x} = -kx（加上阻尼、外力），覆盖单摆小角度、LC 电路、分子振动、桥梁、地震仪。怎么解不重要，为什么解法有效值得看一眼——一行就够：猜 x = e^{rt}，因为指数函数是「求导的不动点」（\\frac{\\mathrm{d}}{\\mathrm{d}t}e^{rt} = r\\,e^{rt}，形状不变），代入后 e^{rt} 从方程里约掉，剩下一个代数方程：\n\nr^2 + \\gamma\\, r + \\omega_0^2 = 0 \\qquad \\text{（特征方程）} \\tag{5.4}\n\n二阶 ODE 降成二次方程，根 r_{1,2} 给出两个解 e^{r_1 t}, e^{r_2 t}。判别式分三种情形，每种对应一种看得见的运动：\n\n\n\n\n\n\n\n\n\n判别式\n根\n解的形状\n物理名字\n\n\n\n\n\\gamma^2 &lt; 4\\omega_0^2\n共轭复根 -\\gamma/2 \\pm i\\omega'\ne^{-\\gamma t/2}\\cos(\\omega' t + \\varphi_0)\n欠阻尼：振荡着衰减\n\n\n\\gamma^2 = 4\\omega_0^2\n重根\n(A + Bt)\\,e^{-\\gamma t/2}\n临界阻尼：不振荡，最快归位（门吸、仪表指针）\n\n\n\\gamma^2 &gt; 4\\omega_0^2\n两负实根\nA e^{r_1 t} + B e^{r_2 t}\n过阻尼：缓慢爬回（浓糖浆里的弹簧）\n\n\n\n复根怎么给出振荡？欧拉公式 e^{i\\theta} = \\cos\\theta + i\\sin\\theta——复指数的实部就是振荡（复数与欧拉公式的系统处理：(Boas 2006, ch. 2)）。「振荡 = 频率取虚数的指数」，虚数不是玄学，是特征方程在告诉你「这个系统在振动」。\n结构定理（线性 ODE 的组织方式，物理书的地基）：\n\ny_{\\text{通解}} = y_h \\;(\\text{齐次通解，含待定常数}) + y_p \\;(\\text{任一特解}) \\tag{5.5}\n\n齐次部分 y_h 是系统自己的运动模式（自然频率、衰减率），特解 y_p 是外源逼出来的响应。受迫振动的标准图景由此读出：刚启动时两者都在（暂态），阻尼磨掉 y_h 后只剩 y_p（稳态）；外源频率逼近 \\omega_0 时 y_p 的振幅暴涨（共振）。读 RLC 电路、受迫振动、散射共振，全是这一个结构（受迫振动与共振的展开：(Taylor 2005, ch. 5)）。\n为什么解可以叠加以至「通解 = 齐次 + 特解」？因为方程线性：解的线性组合还是解（叠加原理）。线性从哪来？定律本身线性（弹簧力 \\propto 位移）。非线性 ODE（如大角度单摆）没有这个结构，解也不可叠加——物理书对它们的态度通常是「小角度近似线性化」（第 1 章放大镜又出场）。\n初值条件：二阶方程需要两个（如 x(0) 与 \\dot{x}(0)：初始位置与初始速度）。直觉：预测未来需要知道「现在在哪 + 现在往哪冲」，缺一不可。通解里恰好有两个待定常数，两个条件恰好锁定它们——这不是巧合，是「阶数 = 所需初值个数」的一般规律。",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>定律变成方程：常微分方程</span>"
     ]
@@ -394,7 +444,7 @@
     "href": "05-ode.html#定性分析不解也读得出",
     "title": "5  定律变成方程：常微分方程",
     "section": "5.4 定性分析：不解也读得出",
-    "text": "5.4 定性分析：不解也读得出\n物理书大量出现「不解方程，直接判断」的段落，工具是相图：以 (x, \\dot{x}) 为坐标画轨迹族。两个够用的读法：\n\n平衡点（F=0 的点）：附近轨迹被推开的 = 不稳定（倒立摆）；被吸住的 = 稳定（碗底）。\\frac{\\mathrm{d}}{\\mathrm{d}t}（能量）&lt; 0 恒成立的系统必然滑向平衡（阻尼耗散）。\n轨道不交叉：相图轨迹互不相交（同一初值只有一个未来——决定论）。\n\n下面这张图把 (5.3) 的三种阻尼画在一起对比——同一个 \\omega_0，不同的 \\gamma，曲线自己讲完了三行表格：\n\n\n\n\n欠阻尼 γ=0.15\n\n\n临界阻尼 γ=1.0\n\n\n过阻尼 γ=1.8",
+    "text": "5.4 定性分析：不解也读得出\n物理书大量出现「不解方程，直接判断」的段落，工具是相图：以 (x, \\dot{x}) 为坐标画轨迹族（定性方法的系统训练：(Strogatz 2015, ch. 2)）。两个够用的读法：\n\n平衡点（F=0 的点）：附近轨迹被推开的 = 不稳定（倒立摆）；被吸住的 = 稳定（碗底）。\\frac{\\mathrm{d}}{\\mathrm{d}t}（能量）&lt; 0 恒成立的系统必然滑向平衡（阻尼耗散）。\n轨道不交叉：相图轨迹互不相交（同一初值只有一个未来——决定论）。\n\n下面这张图把 (5.3) 的三种阻尼画在一起对比——同一个 \\omega_0，不同的 \\gamma，曲线自己讲完了三行表格：\n\n\n\n\n欠阻尼 γ=0.15\n\n\n临界阻尼 γ=1.0\n\n\n过阻尼 γ=1.8",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>定律变成方程：常微分方程</span>"
     ]
@@ -404,7 +454,17 @@
     "href": "05-ode.html#耦合方程组一瞥",
     "title": "5  定律变成方程：常微分方程",
     "section": "5.5 耦合方程组一瞥",
-    "text": "5.5 耦合方程组一瞥\n两个自由度互相影响（两节车厢挂弹簧、双摆小角度）时，得到方程组：\\ddot{x}_1 依赖 x_1, x_2。线性代数登场：找简正模式——两个特殊「步调」，各以固定频率同步振动；一般运动 = 模式的叠加（把矩阵对角化的物理名字）。读到「简正模式」「本征频率」时认出它：矩阵本征值问题穿着力学的衣服，第 6 章它还会以分离变量的身份回来。\n\n\n\n\n\n\nNote判据 F（见微分方程）三连问\n\n\n\n\n几阶？ 最高导数阶数 = 需要的初值/边界条件个数。\n线性吗？ 线性 ⇒ 解可叠加（y_h + y_p、模式分解全合法）；非线性 ⇒ 只能定性或数值。\n齐次吗？ 有外源（非齐次）⇒ 解 = 自由衰减的模式 + 被逼出的稳态响应。",
+    "text": "5.5 耦合方程组一瞥\n两个自由度互相影响（两节车厢挂弹簧、双摆小角度）时，得到方程组：\\ddot{x}_1 依赖 x_1, x_2。线性代数登场：找简正模式——两个特殊「步调」，各以固定频率同步振动；一般运动 = 模式的叠加（把矩阵对角化的物理名字）。读到「简正模式」「本征频率」时认出它：矩阵本征值问题穿着力学的衣服，第 6 章它还会以分离变量的身份回来（简正模式的教学展开：(Taylor 2005, ch. 11)）。\n\n\n\n\n\n\nNote判据 F（见微分方程）三连问\n\n\n\n\n几阶？ 最高导数阶数 = 需要的初值/边界条件个数。\n线性吗？ 线性 ⇒ 解可叠加（y_h + y_p、模式分解全合法）；非线性 ⇒ 只能定性或数值。\n齐次吗？ 有外源（非齐次）⇒ 解 = 自由衰减的模式 + 被逼出的稳态响应。",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>定律变成方程：常微分方程</span>"
+    ]
+  },
+  {
+    "objectID": "05-ode.html#出处与查表",
+    "href": "05-ode.html#出处与查表",
+    "title": "5  定律变成方程：常微分方程",
+    "section": "出处与查表",
+    "text": "出处与查表\n本章对象的教材定位——引文是查表索引，不是阅读任务：\n\n\n\n本书对象\n定位\n\n\n\n\n牛顿第二定律作为 ODE\n(Taylor 2005, ch. 1)\n\n\n分离变量、一阶方程\n(Stewart 2016, ch. 9)\n\n\n二阶常系数与特征方程\n(Stewart 2016, ch. 17)\n\n\n复数与欧拉公式\n(Boas 2006, ch. 2)\n\n\ny_h + y_p 结构\n(Stewart 2016, sec. 17.2)\n\n\n受迫振动、共振\n(Taylor 2005, ch. 5)\n\n\n相图与稳定性\n(Strogatz 2015, ch. 2)\n\n\n简正模式\n(Taylor 2005, ch. 11)",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>定律变成方程：常微分方程</span>"
     ]
@@ -414,7 +474,7 @@
     "href": "05-ode.html#本章收束",
     "title": "5  定律变成方程：常微分方程",
     "section": "5.6 本章收束",
-    "text": "5.6 本章收束\n\n定律 = 变化率的局域合同，写下来就是 ODE；解是函数族，初值挑出唯一成员。\n「率正比于当前值」⇒ 指数；「回复力」⇒ 振荡（复特征根）；两者都在说特征方程。\n结构定理 y = y_h + y_p 是受迫振动、共振、暂态/稳态的统一读法。\n二阶要两个初值（位置 + 速度）；相图不解方程也能读出稳定性。\n\nODE 的自变量只有时间。但一根振动的弦：每个位置 x 都有自己的时间故事 u(x,t)——未知函数有两个自变量，方程里同时出现对 x 与对 t 的导数。这就是偏微分方程，物理数学的最后一座山，也是电动力学后半本的地基。",
+    "text": "5.6 本章收束\n\n定律 = 变化率的局域合同，写下来就是 ODE；解是函数族，初值挑出唯一成员。\n「率正比于当前值」⇒ 指数；「回复力」⇒ 振荡（复特征根）；两者都在说特征方程。\n结构定理 y = y_h + y_p 是受迫振动、共振、暂态/稳态的统一读法。\n二阶要两个初值（位置 + 速度）；相图不解方程也能读出稳定性。\n\nODE 的自变量只有时间。但一根振动的弦：每个位置 x 都有自己的时间故事 u(x,t)——未知函数有两个自变量，方程里同时出现对 x 与对 t 的导数。这就是偏微分方程，物理数学的最后一座山，也是电动力学后半本的地基。\n\n\n\n\nBoas, Mary L. 2006. Mathematical Methods in the Physical Sciences. 3rd ed. Hoboken: Wiley.\n\n\nStewart, James. 2016. Calculus: Early Transcendentals. 8th ed. Boston: Cengage Learning.\n\n\nStrogatz, Steven H. 2015. Nonlinear Dynamics and Chaos: With Applications to Physics, Biology, Chemistry, and Engineering. 2nd ed. Boulder: Westview Press.\n\n\nTaylor, John R. 2005. Classical Mechanics. Sausalito: University Science Books.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>定律变成方程：常微分方程</span>"
     ]
@@ -424,7 +484,7 @@
     "href": "06-pde.html",
     "title": "6  时空一起说话：偏微分方程",
     "section": "",
-    "text": "6.1 PDE 的生成语法：守恒律 + 局部定律\nODE 的世界里系统由几个数描述（一个质点的位置）。但连续世界——振动的弦、发热的棒、带电的空间——每一点都有自己的状态，未知函数是 u(x,t)、T(\\mathbf{r},t)、V(\\mathbf{r})：自变量是时空本身。方程里同时出现对不同变量的偏导数，这就是偏微分方程（PDE）。你在第 6 章的立场不变：不训练求解，而是掌握三件事——PDE 怎么从物理长出来、解的通用结构是什么、边界条件凭什么挑出解。这三件事就是「列方程组」能力在连续世界的版本。\n三大方程不是天上掉下来的，每一条都是同一个两步模板的产物：守恒律（某量不灭）+ 局部定律（流量怎么由场决定）。看一遍生成过程，你对「列方程」就脱敏了。\n热方程。第一步（能量守恒）：任意区域内热能的变化 = 流入边界的热量（第 4 章高斯定理把边界积分换成内部积分，立刻出场）。第二步（傅里叶定律，第 2 章模板）：热流 \\mathbf{q} = -\\kappa\\nabla T，从高温流向低温。两步合起来：\n\\frac{\\partial T}{\\partial t} \\;=\\; \\alpha\\, \\nabla^2 T \\qquad \\text{（扩散方程）} \\tag{6.1}\n读法：一点的温度变化，正比于它与周围平均温度的差距（\\nabla^2 的语义，第 4 章）。比周围热就降温，比周围冷就升温——扩散的全部哲学。\n波动方程。把牛顿第二定律用于连续介质（弦的每一小段：质量 × 加速度 = 张力带来的净回复力）：\n\\frac{\\partial^2 u}{\\partial t^2} \\;=\\; c^2\\, \\nabla^2 u \\qquad \\text{（波动方程，} c \\text{ 即波速）} \\tag{6.2}\n读法：一点的加速度，正比于它与周围平均位置的差距。电磁波「是光」的推导（麦克斯韦方程组推出 (6.2)、c = 1/\\sqrt{\\mu_0\\varepsilon_0}）就是电动力学的高光时刻——届时你已有全部语言。\n拉普拉斯 / 泊松方程。静态（\\partial/\\partial t = 0）且无源的电势世界：\n\\nabla^2 V = 0 \\;(\\text{拉普拉斯，无源}), \\qquad\n\\nabla^2 V = -\\frac{\\rho}{\\varepsilon_0} \\;(\\text{泊松，有源}) \\tag{6.3}\n来历一步：高斯定律 (4.8) 的 \\mathbf{E}=\\nabla\\phi（第 2 章）代入 \\nabla\\cdot\\mathbf{E}=\\rho/\\varepsilon_0。这就是「电动力学全书都在解泊松方程」的原因：静电学 = 泊松方程 + 边界条件。\\nabla^2 V=0 的解有一个漂亮的定性性质：没有极值（比周围高就降温/高就被拉平）——电势的峰谷只能长在边界或电荷上。",
+    "text": "6.1 PDE 的生成语法：守恒律 + 局部定律\nODE 的世界里系统由几个数描述（一个质点的位置）。但连续世界——振动的弦、发热的棒、带电的空间——每一点都有自己的状态，未知函数是 u(x,t)、T(\\mathbf{r},t)、V(\\mathbf{r})：自变量是时空本身。方程里同时出现对不同变量的偏导数，这就是偏微分方程（PDE）。你在第 6 章的立场不变：不训练求解，而是掌握三件事——PDE 怎么从物理长出来、解的通用结构是什么、边界条件凭什么挑出解。这三件事就是「列方程组」能力在连续世界的版本。\n三大方程不是天上掉下来的，每一条都是同一个两步模板的产物：守恒律（某量不灭）+ 局部定律（流量怎么由场决定）。看一遍生成过程，你对「列方程」就脱敏了。\n热方程。第一步（能量守恒）：任意区域内热能的变化 = 流入边界的热量（第 4 章高斯定理把边界积分换成内部积分，立刻出场）。第二步（傅里叶定律，第 2 章模板）：热流 \\mathbf{q} = -\\kappa\\nabla T，从高温流向低温。两步合起来：\n\\frac{\\partial T}{\\partial t} \\;=\\; \\alpha\\, \\nabla^2 T \\qquad \\text{（扩散方程）} \\tag{6.1}\n读法：一点的温度变化，正比于它与周围平均温度的差距（\\nabla^2 的语义，第 4 章）。比周围热就降温，比周围冷就升温——扩散的全部哲学（热方程的推导：(Strauss 2008, ch. 2; Boas 2006, ch. 13)）。\n波动方程。把牛顿第二定律用于连续介质（弦的每一小段：质量 × 加速度 = 张力带来的净回复力）：\n\\frac{\\partial^2 u}{\\partial t^2} \\;=\\; c^2\\, \\nabla^2 u \\qquad \\text{（波动方程，} c \\text{ 即波速）} \\tag{6.2}\n读法：一点的加速度，正比于它与周围平均位置的差距。电磁波「是光」的推导（麦克斯韦方程组推出 (6.2)、c = 1/\\sqrt{\\mu_0\\varepsilon_0}）就是电动力学的高光时刻——届时你已有全部语言（波动方程：(Strauss 2008, ch. 2)；电磁波的版本：(Griffiths 2013, ch. 9)）。\n拉普拉斯 / 泊松方程。静态（\\partial/\\partial t = 0）且无源的电势世界：\n\\nabla^2 V = 0 \\;(\\text{拉普拉斯，无源}), \\qquad\n\\nabla^2 V = -\\frac{\\rho}{\\varepsilon_0} \\;(\\text{泊松，有源}) \\tag{6.3}\n来历一步：高斯定律 (4.8) 的 \\mathbf{E}=\\nabla\\phi（第 2 章）代入 \\nabla\\cdot\\mathbf{E}=\\rho/\\varepsilon_0。这就是「电动力学全书都在解泊松方程」的原因：静电学 = 泊松方程 + 边界条件（两个方程的来历：(Griffiths 2013, sec. 2.2 and 3.1)）。\\nabla^2 V=0 的解有一个漂亮的定性性质：没有极值（比周围高就降温/高就被拉平）——电势的峰谷只能长在边界或电荷上。",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>时空一起说话：偏微分方程</span>"
     ]
@@ -434,7 +494,7 @@
     "href": "06-pde.html#边界条件解的锚",
     "title": "6  时空一起说话：偏微分方程",
     "section": "6.2 边界条件：解的锚",
-    "text": "6.2 边界条件：解的锚\nPDE 是局部合同（每点每刻的变化率），只靠它推不出全局——就像知道每个人的性格推不出整个社会的分布。全局信息由边界条件供给，三种常用类型：\n\n\n\n\n\n\n\n\n类型\n给定什么\n例子\n\n\n\n\n狄利克雷\n边界上的值\n导体表面电势恒定\n\n\n诺伊曼\n边界上的法向导数\n边界上的电场（面电荷）\n\n\n初值（柯西）\nt=0 时刻的整个场（波动方程还要初速度——二阶时间导数，第 5 章规矩）\n拨弦的初始形状\n\n\n\n唯一性定理（读物理书的免死金牌）：满足方程 + 边界条件的解只有一个。它的实用意义是：无论你用对称性猜出来、用镜子凑出来还是查表查出来的函数，只要验证它满足方程和边界，它就是正解——物理书「猜测—验证—收工」的解法全部合法。",
+    "text": "6.2 边界条件：解的锚\nPDE 是局部合同（每点每刻的变化率），只靠它推不出全局——就像知道每个人的性格推不出整个社会的分布。全局信息由边界条件供给（三类条件的类型学：(Strauss 2008, ch. 4)），三种常用类型：\n\n\n\n\n\n\n\n\n类型\n给定什么\n例子\n\n\n\n\n狄利克雷\n边界上的值\n导体表面电势恒定\n\n\n诺伊曼\n边界上的法向导数\n边界上的电场（面电荷）\n\n\n初值（柯西）\nt=0 时刻的整个场（波动方程还要初速度——二阶时间导数，第 5 章规矩）\n拨弦的初始形状\n\n\n\n唯一性定理（读物理书的免死金牌）：满足方程 + 边界条件的解只有一个（静电唯一性定理及其证明：(Griffiths 2013, sec. 3.1)）。它的实用意义是：无论你用对称性猜出来、用镜子凑出来还是查表查出来的函数，只要验证它满足方程和边界，它就是正解——物理书「猜测—验证—收工」的解法全部合法。",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>时空一起说话：偏微分方程</span>"
     ]
@@ -444,7 +504,7 @@
     "href": "06-pde.html#分离变量把-pde-降级成-ode",
     "title": "6  时空一起说话：偏微分方程",
     "section": "6.3 分离变量：把 PDE 降级成 ODE",
-    "text": "6.3 分离变量：把 PDE 降级成 ODE\n三大方程的通用解法骨架是分离变量：假设解可以写成单变量函数的乘积（弦的驻波：u(x,t) = X(x)\\,T(t)），代入波动方程：\n\n\\frac{1}{c^2}\\frac{T''(t)}{T(t)} = \\frac{X''(x)}{X(x)} \\tag{6.4}\n\n左边只是 t 的函数，右边只是 x 的函数，两者相等——唯一可能是都等于常数（分离常数 \\lambda）。一个 PDE 裂解成两个 ODE：\n\nT'' = -\\lambda c^2 T, \\qquad X'' = -\\lambda X \\tag{6.5}\n\n而 ODE 是第 5 章的地盘。分离变量的本质：让「时间节奏」与「空间形状」分家——驻波正是这种分家的物理形象：整条弦以同一频率呼吸，形状不变只剩幅度起伏。\n为什么「假设乘积解」不亏？因为方程线性：乘积解可以叠加成一般解（第 5 章叠加原理的连续版）。于是 PDE 的解 = 无穷个模式之和，这就是本征模式展开——傅里叶级数、勒让德多项式、球谐函数，全是它在不同坐标/边界下的产出。",
+    "text": "6.3 分离变量：把 PDE 降级成 ODE\n三大方程的通用解法骨架是分离变量：假设解可以写成单变量函数的乘积（弦的驻波：u(x,t) = X(x)\\,T(t)），代入波动方程：\n\n\\frac{1}{c^2}\\frac{T''(t)}{T(t)} = \\frac{X''(x)}{X(x)} \\tag{6.4}\n\n左边只是 t 的函数，右边只是 x 的函数，两者相等——唯一可能是都等于常数（分离常数 \\lambda）。一个 PDE 裂解成两个 ODE：\n\nT'' = -\\lambda c^2 T, \\qquad X'' = -\\lambda X \\tag{6.5}\n\n而 ODE 是第 5 章的地盘。分离变量的本质：让「时间节奏」与「空间形状」分家——驻波正是这种分家的物理形象：整条弦以同一频率呼吸，形状不变只剩幅度起伏（分离变量法：(Strauss 2008, ch. 4)；静电问题的版本：(Griffiths 2013, sec. 3.3)）。\n为什么「假设乘积解」不亏？因为方程线性：乘积解可以叠加成一般解（第 5 章叠加原理的连续版）。于是 PDE 的解 = 无穷个模式之和，这就是本征模式展开——傅里叶级数、勒让德多项式、球谐函数，全是它在不同坐标/边界下的产出。",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>时空一起说话：偏微分方程</span>"
     ]
@@ -454,7 +514,7 @@
     "href": "06-pde.html#本征值边界条件筛出离散频率",
     "title": "6  时空一起说话：偏微分方程",
     "section": "6.4 本征值：边界条件筛出离散频率",
-    "text": "6.4 本征值：边界条件筛出离散频率\n两端固定的弦要求 X(0)=X(L)=0（狄利克雷）。X''=-\\lambda X 的解 \\sin(\\sqrt{\\lambda}\\,x) 要在两端归零，必须 \\sqrt{\\lambda}\\,L = n\\pi：\n\n\\lambda_n = \\left(\\frac{n\\pi}{L}\\right)^2, \\qquad u_n(x,t) = \\sin\\!\\left(\\frac{n\\pi x}{L}\\right)\\cos(\\omega_n t), \\quad n = 1,2,3,\\ldots \\tag{6.6}\n\n边界条件筛出离散的 \\lambda——吉他弦只有特定频率、原子只有特定能级（量子力学里同一个机制）、热管只有特定衰减模式。\\lambda_n 叫本征值，对应的形状叫本征函数。读到「本征值问题」，翻译成「边界条件在给合法频率发牌照」。\n下面这张图演出模式叠加的力量：两端固定的弦上的方波初始形状 = 无穷多个驻波模式的和。逐档加入更多模式，看和曲线逼近方波——每一档新加入的模式就是式 (6.6) 的一项：\n\n\n\n\n前 1 项\n\n\n前 3 项\n\n\n前 7 项\n\n\n前 15 项\n\n\n前 41 项\n\n\n\n\n\n\n（图中可见的「过冲尖峰」叫吉布斯现象：不连续形状的级数在跳变处永远留一点毛刺——认得即可。）",
+    "text": "6.4 本征值：边界条件筛出离散频率\n两端固定的弦要求 X(0)=X(L)=0（狄利克雷）。X''=-\\lambda X 的解 \\sin(\\sqrt{\\lambda}\\,x) 要在两端归零，必须 \\sqrt{\\lambda}\\,L = n\\pi：\n\n\\lambda_n = \\left(\\frac{n\\pi}{L}\\right)^2, \\qquad u_n(x,t) = \\sin\\!\\left(\\frac{n\\pi x}{L}\\right)\\cos(\\omega_n t), \\quad n = 1,2,3,\\ldots \\tag{6.6}\n\n边界条件筛出离散的 \\lambda——吉他弦只有特定频率、原子只有特定能级（量子力学里同一个机制）、热管只有特定衰减模式。\\lambda_n 叫本征值，对应的形状叫本征函数（本征值问题与傅里叶级数：(Strauss 2008, ch. 5)）。读到「本征值问题」，翻译成「边界条件在给合法频率发牌照」。\n下面这张图演出模式叠加的力量：两端固定的弦上的方波初始形状 = 无穷多个驻波模式的和。逐档加入更多模式，看和曲线逼近方波——每一档新加入的模式就是式 (6.6) 的一项：\n\n\n\n\n前 1 项\n\n\n前 3 项\n\n\n前 7 项\n\n\n前 15 项\n\n\n前 41 项\n\n\n\n\n\n\n（图中可见的「过冲尖峰」叫吉布斯现象：不连续形状的级数在跳变处永远留一点毛刺——认得即可 (Strauss 2008, ch. 5)。）",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>时空一起说话：偏微分方程</span>"
     ]
@@ -464,7 +524,17 @@
     "href": "06-pde.html#球坐标与认脸清单",
     "title": "6  时空一起说话：偏微分方程",
     "section": "6.5 球坐标与「认脸」清单",
-    "text": "6.5 球坐标与「认脸」清单\n静电学的球形问题（带电球、壳、偶极子）需要球坐标下的 \\nabla^2，分离变量产出两串特殊函数。本书不给公式，只给认脸卡片——读物理书时认出身份即可，正如第 1 章的承诺：算不出来不要紧，认得出就行。\n\n\n\n\n\n\n\n\n对象\n身份\n一句话\n\n\n\n\n\\sin,\\ \\cos\n直角坐标的本征函数\n均匀弦上的驻波\n\n\ne^{im\\varphi}\n方位角方向的本征函数\n绕轴转一圈要贴合自己\n\n\n勒让德多项式 P_l(\\cos\\theta)\n极角方向的本征函数（轴对称时）\n球面上的「驻波」，l=0 常数、l=1 就是 \\cos\\theta\n\n\n球谐函数 Y_l^m(\\theta,\\varphi)\n整个球面的本征函数\n原子轨道形状的来源\n\n\n贝塞尔函数 J_n\n柱坐标径向的本征函数\n圆鼓面的驻波\n\n\n\n物理书里「解 = \\sum_l A_l r^l P_l(\\cos\\theta)」这样的表达式，读法：一般解 = 合法模式的线性叠加，系数由边界条件定——永远是第 5 章 y_h + y_p 结构的高维版。\n\n\n\n\n\n\nNote判据 G（见 PDE）三连问\n\n\n\n\n哪个方程？ 三大方程（扩散/波动/泊松）对号——先认出「变化率 ↔︎ 与周围平均之差」的句式。\n什么坐标？ 对称性决定（球对称 → 球坐标），Jacobian 与特殊函数跟着坐标走。\n什么边界？ 狄利克雷/诺伊曼/初值——边界发牌照，唯一性定理保证牌照唯一。",
+    "text": "6.5 球坐标与「认脸」清单\n静电学的球形问题（带电球、壳、偶极子）需要球坐标下的 \\nabla^2，分离变量产出两串特殊函数。本书不给公式，只给认脸卡片——读物理书时认出身份即可，正如第 1 章的承诺：算不出来不要紧，认得出就行。\n\n\n\n\n\n\n\n\n对象\n身份\n一句话\n\n\n\n\n\\sin,\\ \\cos\n直角坐标的本征函数\n均匀弦上的驻波\n\n\ne^{im\\varphi}\n方位角方向的本征函数\n绕轴转一圈要贴合自己\n\n\n勒让德多项式 P_l(\\cos\\theta)\n极角方向的本征函数（轴对称时）\n球面上的「驻波」，l=0 常数、l=1 就是 \\cos\\theta\n\n\n球谐函数 Y_l^m(\\theta,\\varphi)\n整个球面的本征函数\n原子轨道形状的来源\n\n\n贝塞尔函数 J_n\n柱坐标径向的本征函数\n圆鼓面的驻波\n\n\n\n物理书里「解 = \\sum_l A_l r^l P_l(\\cos\\theta)」这样的表达式，读法：一般解 = 合法模式的线性叠加，系数由边界条件定——永远是第 5 章 y_h + y_p 结构的高维版（勒让德多项式的系统处理：(Arfken, Weber, and Harris 2013, ch. 15)；球谐、贝塞尔同族的处理：(Arfken, Weber, and Harris 2013)）。\n\n\n\n\n\n\nNote判据 G（见 PDE）三连问\n\n\n\n\n哪个方程？ 三大方程（扩散/波动/泊松）对号——先认出「变化率 ↔︎ 与周围平均之差」的句式。\n什么坐标？ 对称性决定（球对称 → 球坐标），Jacobian 与特殊函数跟着坐标走。\n什么边界？ 狄利克雷/诺伊曼/初值——边界发牌照，唯一性定理保证牌照唯一。",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>时空一起说话：偏微分方程</span>"
+    ]
+  },
+  {
+    "objectID": "06-pde.html#出处与查表",
+    "href": "06-pde.html#出处与查表",
+    "title": "6  时空一起说话：偏微分方程",
+    "section": "出处与查表",
+    "text": "出处与查表\n本章对象的教材定位——引文是查表索引，不是阅读任务：\n\n\n\n本书对象\n定位\n\n\n\n\n热方程（扩散）\n(Strauss 2008, ch. 2); (Boas 2006, ch. 13)\n\n\n波动方程\n(Strauss 2008, ch. 2); (Griffiths 2013, ch. 9)\n\n\n拉普拉斯与泊松方程\n(Griffiths 2013, sec. 2.2 and 3.1)\n\n\n边界条件类型学\n(Strauss 2008, ch. 4)\n\n\n唯一性定理\n(Griffiths 2013, sec. 3.1)\n\n\n分离变量\n(Strauss 2008, ch. 4); (Griffiths 2013, sec. 3.3)\n\n\n本征值与傅里叶级数\n(Strauss 2008, ch. 5)\n\n\n勒让德、球谐、贝塞尔\n(Arfken, Weber, and Harris 2013, ch. 15); (Arfken, Weber, and Harris 2013)",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>时空一起说话：偏微分方程</span>"
     ]
@@ -474,7 +544,7 @@
     "href": "06-pde.html#本章收束",
     "title": "6  时空一起说话：偏微分方程",
     "section": "6.6 本章收束",
-    "text": "6.6 本章收束\n\nPDE = 守恒律 + 局部定律的产出；三大方程各背一句读法（扩散：向平均值靠拢；波动：回复力来自与周围平均之差；泊松：电荷是电势的源）。\n分离变量 = 时间节奏与空间形状分家，PDE 降级为 ODE；线性 ⇒ 模式叠加。\n边界条件筛出离散本征值——「离散频率」是连续世界里边界的功劳。\n特殊函数 = 各坐标下的 sin/cos，认脸不背诵。\n\n至此，六个因果链走完：两个母动作 → 多元 → 坐标 → 场 → ODE → PDE。语言集齐，最后一章是出发前的装备清点：把经典力学与电动力学的典型章节逐一映射到这些工具上，附一张「读不动」时的自查表。",
+    "text": "6.6 本章收束\n\nPDE = 守恒律 + 局部定律的产出；三大方程各背一句读法（扩散：向平均值靠拢；波动：回复力来自与周围平均之差；泊松：电荷是电势的源）。\n分离变量 = 时间节奏与空间形状分家，PDE 降级为 ODE；线性 ⇒ 模式叠加。\n边界条件筛出离散本征值——「离散频率」是连续世界里边界的功劳。\n特殊函数 = 各坐标下的 sin/cos，认脸不背诵。\n\n至此，六个因果链走完：两个母动作 → 多元 → 坐标 → 场 → ODE → PDE。语言集齐，最后一章是出发前的装备清点：把经典力学与电动力学的典型章节逐一映射到这些工具上，附一张「读不动」时的自查表。\n\n\n\n\nArfken, George B., Hans J. Weber, and Frank E. Harris. 2013. Mathematical Methods for Physicists: A Comprehensive Guide. 7th ed. Waltham: Academic Press.\n\n\nBoas, Mary L. 2006. Mathematical Methods in the Physical Sciences. 3rd ed. Hoboken: Wiley.\n\n\nGriffiths, David J. 2013. Introduction to Electrodynamics. 4th ed. Boston: Pearson.\n\n\nStrauss, Walter A. 2008. Partial Differential Equations: An Introduction. 2nd ed. Hoboken: Wiley.",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>时空一起说话：偏微分方程</span>"
     ]
@@ -504,7 +574,7 @@
     "href": "07-reading-map.html#经典力学阅读地图",
     "title": "7  阅读地图",
     "section": "7.2 经典力学阅读地图",
-    "text": "7.2 经典力学阅读地图\n\n\n\n\n\n\n\n\n章节\n消耗的工具\n预热要点\n\n\n\n\n运动学（抛体、圆周）\n参数曲线 (3.1)–(3.3)\n位置求导链：\\mathbf{r}\\to\\mathbf{v}\\to\\mathbf{a}；向心加速度 = 纯方向变化\n\n\n牛顿定律应用\nODE 一阶/二阶 (5.1)–(5.2)\n定律即方程；初值挑解\n\n\n功与能\n线积分 (4.2)、梯度 (2 章)\nW=\\int\\mathbf{F}\\cdot\\mathrm{d}\\mathbf{l}；保守力 \\Leftrightarrow \\nabla\\times\\mathbf{F}=0\n\n\n振动\n谐振子全家 (5.3)–(5.5)\n特征方程三情形；共振 = 外源频率逼近本征频率\n\n\n中心力/开普勒\n极坐标速度两项 (3.5)、有效势\n\\dot r\\,\\hat{\\mathbf r} + r\\dot\\varphi\\,\\hat{\\boldsymbol\\varphi}；角动量守恒杀掉一个维度\n\n\n刚体/转动\n叉积、柱坐标 (3.7)\n转动惯量 = 分散质量对轴的积分（切片求和）\n\n\n拉格朗日力学（进阶）\n全微分 (2.2)、变分\n\\mathrm{d}f 报价单变成 \\delta S 作用量；数学内核是第 2 章的全微分",
+    "text": "7.2 经典力学阅读地图\n\n\n\n\n\n\n\n\n章节\n消耗的工具\n预热要点\n\n\n\n\n运动学（抛体、圆周）\n参数曲线 (3.1)–(3.3)\n位置求导链：\\mathbf{r}\\to\\mathbf{v}\\to\\mathbf{a}；向心加速度 = 纯方向变化\n\n\n牛顿定律应用\nODE 一阶/二阶 (5.1)–(5.2)\n定律即方程；初值挑解\n\n\n功与能\n线积分 (4.2)、梯度 (2 章)\nW=\\int\\mathbf{F}\\cdot\\mathrm{d}\\mathbf{l}；保守力 \\Leftrightarrow \\nabla\\times\\mathbf{F}=0\n\n\n振动\n谐振子全家 (5.3)–(5.5)\n特征方程三情形；共振 = 外源频率逼近本征频率\n\n\n中心力/开普勒\n极坐标速度两项 (3.5)、有效势\n\\dot r\\,\\hat{\\mathbf r} + r\\dot\\varphi\\,\\hat{\\boldsymbol\\varphi}；角动量守恒杀掉一个维度\n\n\n刚体/转动\n叉积、柱坐标 (3.7)\n转动惯量 = 分散质量对轴的积分（切片求和）\n\n\n拉格朗日力学（进阶）\n全微分 (2.2)、变分\n\\mathrm{d}f 报价单变成 \\delta S 作用量；数学内核是第 2 章的全微分\n\n\n\n经典力学主线的章级定位汇总：(Taylor 2005, chs. 1-5, 8, and 11)。",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>阅读地图</span>"
     ]
@@ -514,7 +584,7 @@
     "href": "07-reading-map.html#电动力学阅读地图griffiths-谱系",
     "title": "7  阅读地图",
     "section": "7.3 电动力学阅读地图（Griffiths 谱系）",
-    "text": "7.3 电动力学阅读地图（Griffiths 谱系）\n\n\n\n\n\n\n\n\n章节\n消耗的工具\n预热要点\n\n\n\n\n矢量分析（第 1 章）\n全部第 2–4 章\n这章就是本书 2/3/4 章的教材版，可直接当复习读\n\n\n静电学：库仑与场\n梯度、场线\n\\mathbf{E}=-\\nabla\\phi；场线密度 = 强度\n\n\n静电学：高斯定律\n散度 + 高斯定理 (4.5)\n对称性选面 → 场通量 = 内部电荷；数场线图（第 4 章）\n\n\n静电学：势\n泊松方程 (6.3)、唯一性定理\n解 = 猜 + 验证即收工；镜像法的合法性来源\n\n\n静电学：边界条件\n诺伊曼/狄利克雷\n\\mathbf{E} 的切向连续、法向跳变（面电荷）\n\n\n多极展开\n勒让德 P_l、模式叠加\n1/|\\mathbf{r}-\\mathbf{r}'| 按 r^l P_l 展开——认脸卡片\n\n\n静磁学\n旋度 + 斯托克斯 (4.7)\n\\nabla\\times\\mathbf{B}=\\mu_0\\mathbf{J}；安培环路 = 磁场版高斯招\n\n\n电磁感应\n麦克斯韦 (4.10)\n变化磁通 → 涡旋电场；环流语言\n\n\n麦克斯韦方程组\n(4.8)–(4.11) 全部\n四条逐句读（第 4 章已验收）；互译工具 = 两大定理\n\n\n电磁波\n波动方程 (6.2)\n从麦克斯韦推出 c；PDE 句式「回复力 = 与周围平均之差」\n\n\n辐射（进阶）\n延迟势、球谐\n语言相同，只是积分更凶——按三连问读",
+    "text": "7.3 电动力学阅读地图（Griffiths 谱系）\n\n\n\n\n\n\n\n\n章节\n消耗的工具\n预热要点\n\n\n\n\n矢量分析（第 1 章）\n全部第 2–4 章\n这章就是本书 2/3/4 章的教材版，可直接当复习读\n\n\n静电学：库仑与场\n梯度、场线\n\\mathbf{E}=-\\nabla\\phi；场线密度 = 强度\n\n\n静电学：高斯定律\n散度 + 高斯定理 (4.5)\n对称性选面 → 场通量 = 内部电荷；数场线图（第 4 章）\n\n\n静电学：势\n泊松方程 (6.3)、唯一性定理\n解 = 猜 + 验证即收工；镜像法的合法性来源\n\n\n静电学：边界条件\n诺伊曼/狄利克雷\n\\mathbf{E} 的切向连续、法向跳变（面电荷）\n\n\n多极展开\n勒让德 P_l、模式叠加\n1/|\\mathbf{r}-\\mathbf{r}'| 按 r^l P_l 展开——认脸卡片\n\n\n静磁学\n旋度 + 斯托克斯 (4.7)\n\\nabla\\times\\mathbf{B}=\\mu_0\\mathbf{J}；安培环路 = 磁场版高斯招\n\n\n电磁感应\n麦克斯韦 (4.10)\n变化磁通 → 涡旋电场；环流语言\n\n\n麦克斯韦方程组\n(4.8)–(4.11) 全部\n四条逐句读（第 4 章已验收）；互译工具 = 两大定理\n\n\n电磁波\n波动方程 (6.2)\n从麦克斯韦推出 c；PDE 句式「回复力 = 与周围平均之差」\n\n\n辐射（进阶）\n延迟势、球谐\n语言相同，只是积分更凶——按三连问读\n\n\n\n电动力学主线的章级定位汇总：(Griffiths 2013, chs. 1-5, 7, and 9)。",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>阅读地图</span>"
     ]
@@ -534,7 +604,7 @@
     "href": "07-reading-map.html#最后的话",
     "title": "7  阅读地图",
     "section": "7.5 最后的话",
-    "text": "7.5 最后的话\n回到开篇的类比：你学的是把应用题翻译成方程组的能力——现在这套翻译术已经完整：物理场景 → 变化率的关系（定律）→ 场的语言（梯度/散度/旋度）→ 方程（ODE/PDE）→ 解的结构（模式叠加 + 条件挑解）。计算肌肉萎缩无妨：积分可以查表，特殊函数可以认脸，数值可以交给机器。语言不通才是读不动物理书的唯一原因，而这个障碍现在没有了。\n去读吧。从任意一本经典力学或电动力学翻开第一章，遇到数学时回来查这张地图——每个符号你都认识，每座桥你都知道通向哪里。",
+    "text": "7.5 最后的话\n回到开篇的类比：你学的是把应用题翻译成方程组的能力——现在这套翻译术已经完整：物理场景 → 变化率的关系（定律）→ 场的语言（梯度/散度/旋度）→ 方程（ODE/PDE）→ 解的结构（模式叠加 + 条件挑解）。计算肌肉萎缩无妨：积分可以查表，特殊函数可以认脸，数值可以交给机器。语言不通才是读不动物理书的唯一原因，而这个障碍现在没有了。\n去读吧。从任意一本经典力学或电动力学翻开第一章，遇到数学时回来查这张地图——每个符号你都认识，每座桥你都知道通向哪里。\n\n\n\n\nGriffiths, David J. 2013. Introduction to Electrodynamics. 4th ed. Boston: Pearson.\n\n\nTaylor, John R. 2005. Classical Mechanics. Sausalito: University Science Books.",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>阅读地图</span>"
     ]

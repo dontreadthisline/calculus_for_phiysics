@@ -21,7 +21,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -458,6 +478,7 @@ window.Quarto = {
   <li><a href="#柱坐标与球坐标" id="toc-柱坐标与球坐标" class="nav-link" data-scroll-target="#柱坐标与球坐标"><span class="header-section-number">3.2.2</span> 柱坐标与球坐标</a></li>
   </ul></li>
   <li><a href="#jacobian换坐标的汇率" id="toc-jacobian换坐标的汇率" class="nav-link" data-scroll-target="#jacobian换坐标的汇率"><span class="header-section-number">3.3</span> Jacobian：换坐标的汇率</a></li>
+  <li><a href="#出处与查表" id="toc-出处与查表" class="nav-link" data-scroll-target="#出处与查表">出处与查表</a></li>
   <li><a href="#本章收束" id="toc-本章收束" class="nav-link" data-scroll-target="#本章收束"><span class="header-section-number">3.4</span> 本章收束</a></li>
   </ul>
 </nav>
@@ -509,13 +530,13 @@ window.Quarto = {
 \mathbf{v} = \frac{\mathrm{d}\mathbf{r}}{\mathrm{d}t} = \dot{\mathbf{r}} \quad(\text{切向量，方向即运动方向}), \qquad
 \mathbf{a} = \ddot{\mathbf{r}} \tag{3.2}
 </span></p>
-<p><strong>读法</strong>：速度是一个向量——「这一瞬间朝哪、多快」。速率是它的长度 <span class="math inline">|\mathbf{v}|</span>。加速度还是它的导数，即使速率不变、方向在变（圆周运动的向心加速度就是纯方向变化的加速度——第 5 章讲振子时会用到这个直觉）。</p>
+<p><strong>读法</strong>：速度是一个向量——「这一瞬间朝哪、多快」。速率是它的长度 <span class="math inline">|\mathbf{v}|</span>。加速度还是它的导数，即使速率不变、方向在变（圆周运动的向心加速度就是纯方向变化的加速度——第 5 章讲振子时会用到这个直觉；向量函数微积分的教材定位：<span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016</a>, ch.&nbsp;13)</span>）。</p>
 <p>参数化的直接产出是<strong>弧长</strong>。一小段时间 <span class="math inline">\mathrm{d}t</span> 内挪过的位移是勾股定理 <span class="math inline">\mathrm{d}s = \sqrt{\mathrm{d}x^2+\mathrm{d}y^2+\mathrm{d}z^2}</span>，除以 <span class="math inline">\mathrm{d}t</span> 即速率，于是：</p>
 <p><span class="math display">
 \mathrm{d}s = |\mathbf{v}|\,\mathrm{d}t, \qquad
 s = \int_{t_0}^{t_1} |\mathbf{v}(t)|\,\mathrm{d}t \tag{3.3}
 </span></p>
-<p>弧长积分几乎永远积不出闭式，物理书毫不在意——重要的是<strong>语义</strong>：路程 = 速率对时间的累积（第 1 章判据 B 的直接应用）。</p>
+<p>弧长积分几乎永远积不出闭式，物理书毫不在意——重要的是<strong>语义</strong>：路程 = 速率对时间的累积（第 1 章判据 B 的直接应用；弧长公式见 <span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 13.3</a>)</span>）。</p>
 </section>
 <section id="极坐标给中心力场定制的坐标" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="极坐标给中心力场定制的坐标"><span class="header-section-number">3.2</span> 极坐标：给中心力场定制的坐标</h2>
@@ -528,14 +549,14 @@ x = r\cos\varphi, \qquad y = r\sin\varphi \tag{3.4}
 <p><span class="math display">
 \mathbf{v} = \dot{r}\,\hat{\mathbf{r}} + r\dot{\varphi}\,\hat{\boldsymbol{\varphi}} \tag{3.5}
 </span></p>
-<p>第一项：离原点的距离在变（径向速度）。第二项：距离不变但方向在转（横向速度，<span class="math inline">r\dot\varphi</span> 是角速度乘半径）。<strong>不必会推导 (3.5)，但必须认得它</strong>——中心力问题的全部推导都从这个展开开始，认不出它，开普勒一章就是天书。</p>
+<p>第一项：离原点的距离在变（径向速度）。第二项：距离不变但方向在转（横向速度，<span class="math inline">r\dot\varphi</span> 是角速度乘半径）。<strong>不必会推导 (3.5)，但必须认得它</strong>——中心力问题的全部推导都从这个展开开始，认不出它，开普勒一章就是天书（极坐标运动学的推导见 <span class="citation" data-cites="taylor2005">(<a href="#ref-taylor2005" role="doc-biblioref">Taylor 2005</a>, ch.&nbsp;8)</span>）。</p>
 <section id="面积元mathrmda-rmathrmdrmathrmdvarphi-的来历" class="level3" data-number="3.2.1">
 <h3 data-number="3.2.1" class="anchored" data-anchor-id="面积元mathrmda-rmathrmdrmathrmdvarphi-的来历"><span class="header-section-number">3.2.1</span> 面积元：<span class="math inline">\mathrm{d}A = r\,\mathrm{d}r\,\mathrm{d}\varphi</span> 的来历</h3>
 <p>在极坐标里做面积分（第 4 章马上要大量做），小块面积不是 <span class="math inline">\mathrm{d}r\,\mathrm{d}\varphi</span>。几何理由：以原点为心取一小格，径向边长 <span class="math inline">\mathrm{d}r</span>，弧向边长不是 <span class="math inline">\mathrm{d}\varphi</span> 而是<strong>弧长</strong> <span class="math inline">r\,\mathrm{d}\varphi</span>（半径乘角度）：</p>
 <p><span class="math display">
 \mathrm{d}A = r\,\mathrm{d}r\,\mathrm{d}\varphi \tag{3.6}
 </span></p>
-<p>同样的格子，离原点越远越大——像切披萨，靠边的楔形块面积更大。</p>
+<p>同样的格子，离原点越远越大——像切披萨，靠边的楔形块面积更大（极坐标面积与弧长：<span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 10.4</a>)</span>）。</p>
 </section>
 <section id="柱坐标与球坐标" class="level3" data-number="3.2.2">
 <h3 data-number="3.2.2" class="anchored" data-anchor-id="柱坐标与球坐标"><span class="header-section-number">3.2.2</span> 柱坐标与球坐标</h3>
@@ -582,7 +603,7 @@ x = r\sin\theta\cos\varphi,\quad y = r\sin\theta\sin\varphi,\quad z = r\cos\thet
 <p><span class="math display">
 \mathrm{d}v = r^2 \sin\theta\;\mathrm{d}r\,\mathrm{d}\theta\,\mathrm{d}\varphi \qquad(\text{球}) \tag{3.9}
 </span></p>
-<p>忘记 <span class="math inline">r^2\sin\theta</span> 时不要背公式，回来想「纬圈的半径被 <span class="math inline">\sin\theta</span> 打折」：在北极 <span class="math inline">\theta=0</span>，纬圈缩成一点，<span class="math inline">\sin\theta=0</span>，那一小格没有体积。</p>
+<p>忘记 <span class="math inline">r^2\sin\theta</span> 时不要背公式，回来想「纬圈的半径被 <span class="math inline">\sin\theta</span> 打折」：在北极 <span class="math inline">\theta=0</span>，纬圈缩成一点，<span class="math inline">\sin\theta=0</span>，那一小格没有体积（柱面与球面坐标的体积元：<span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, secs. 15.7–15.8</a>)</span>；物理书的写法见 <span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 1.4</a>)</span>）。</p>
 </section>
 </section>
 <section id="jacobian换坐标的汇率" class="level2" data-number="3.3">
@@ -595,7 +616,7 @@ x = r\sin\theta\cos\varphi,\quad y = r\sin\theta\sin\varphi,\quad z = r\cos\thet
 <p><span class="math display">
 \mathrm{d}x\,\mathrm{d}y = \left|\det\frac{\partial(x,y)}{\partial(u,v)}\right| \mathrm{d}u\,\mathrm{d}v \tag{3.11}
 </span></p>
-<p>为什么是行列式？第 2 章说过：放大镜层面一切映射都是线性的，而<strong>线性映射把面积/体积伸缩的倍数恰好等于其矩阵行列式</strong>（叉积的面积意义）。极坐标的 Jacobian：<span class="math inline">\partial(x,y)/\partial(r,\varphi) = r</span>（两个三角函数偏导组成的矩阵，行列式算出来是 <span class="math inline">r\cos^2\varphi + r\sin^2\varphi = r</span>）——(3.6) 复现；球坐标同理得 <span class="math inline">r^2\sin\theta</span>——(3.9) 复现。</p>
+<p>为什么是行列式？第 2 章说过：放大镜层面一切映射都是线性的，而<strong>线性映射把面积/体积伸缩的倍数恰好等于其矩阵行列式</strong>（叉积的面积意义）。极坐标的 Jacobian：<span class="math inline">\partial(x,y)/\partial(r,\varphi) = r</span>（两个三角函数偏导组成的矩阵，行列式算出来是 <span class="math inline">r\cos^2\varphi + r\sin^2\varphi = r</span>）——(3.6) 复现；球坐标同理得 <span class="math inline">r^2\sin\theta</span>——(3.9) 复现（换元定理与行列式的来历：<span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 15.9</a>)</span>）。</p>
 <p>下面这张图把「汇率」演出来看：左图是 <span class="math inline">(r,\varphi)</span> 平面上的<strong>均匀</strong>网格，右图是它映射到 <span class="math inline">(x,y)</span> 后的极网格。同一组格线，格子大小不再均匀——高亮同一个 <span class="math inline">(\mathrm{d}r,\mathrm{d}\varphi)</span> 单元，看它映射后随 <span class="math inline">r</span> 增大而变宽。<strong>Jacobian 就是「右格面积 / 左格面积」，它恰好等于 <span class="math inline">r</span>。</strong></p>
 <div class="jac-fig" aria-hidden="true">
 <style>
@@ -691,6 +712,48 @@ window.addEventListener('load', function () {
 </div>
 <p>顺带收尾：<strong>参数曲线与换坐标是同一件事</strong>——都是「用一组数跑过另一组数」的映射 <span class="math inline">(u,v)\to(x,y)</span>。运动学是「时间跑过空间」，极坐标是「网格跑过平面」，Jacobian 是所有这类映射共用的汇率。</p>
 </section>
+<section id="出处与查表" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="出处与查表">出处与查表</h2>
+<p>本章对象的教材定位——引文是查表索引，不是阅读任务：</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>本书对象</th>
+<th>定位</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>参数曲线、速度、加速度</td>
+<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016</a>, ch.&nbsp;13)</span></td>
+</tr>
+<tr class="even">
+<td>弧长</td>
+<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 13.3</a>)</span></td>
+</tr>
+<tr class="odd">
+<td>极坐标运动学（活单位向量）</td>
+<td><span class="citation" data-cites="taylor2005">(<a href="#ref-taylor2005" role="doc-biblioref">Taylor 2005</a>, ch.&nbsp;8)</span></td>
+</tr>
+<tr class="even">
+<td>极坐标面积元</td>
+<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 10.4</a>)</span></td>
+</tr>
+<tr class="odd">
+<td>柱/球坐标体积元</td>
+<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, secs. 15.7–15.8</a>)</span>; <span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 1.4</a>)</span></td>
+</tr>
+<tr class="even">
+<td>Jacobian 换元</td>
+<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 15.9</a>)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
 <section id="本章收束" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="本章收束"><span class="header-section-number">3.4</span> 本章收束</h2>
 <ul>
@@ -702,6 +765,17 @@ window.addEventListener('load', function () {
 <p>现在万事俱备：第 2 章的标量场语言、本章的曲线坐标与积分元。下一章引入最后一位主角——<strong>向量场</strong>（每点一个向量），然后把「切」与「积」两个母动作在三维空间里全部装配起来，你将拿到读麦克斯韦方程组的全部门票。</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-griffiths2013" class="csl-entry" role="listitem">
+Griffiths, David J. 2013. <em>Introduction to Electrodynamics</em>. 4th ed. Boston: Pearson.
+</div>
+<div id="ref-stewart2016" class="csl-entry" role="listitem">
+Stewart, James. 2016. <em>Calculus: Early Transcendentals</em>. 8th ed. Boston: Cengage Learning.
+</div>
+<div id="ref-taylor2005" class="csl-entry" role="listitem">
+Taylor, John R. 2005. <em>Classical Mechanics</em>. Sausalito: University Science Books.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

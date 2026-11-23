@@ -21,7 +21,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -458,6 +478,7 @@ window.Quarto = {
   <li><a href="#母动作二积无穷累积" id="toc-母动作二积无穷累积" class="nav-link" data-scroll-target="#母动作二积无穷累积"><span class="header-section-number">1.2</span> 母动作二：积（无穷累积）</a></li>
   <li><a href="#一座桥微积分基本定理" id="toc-一座桥微积分基本定理" class="nav-link" data-scroll-target="#一座桥微积分基本定理"><span class="header-section-number">1.3</span> 一座桥：微积分基本定理</a></li>
   <li><a href="#物理书里的即时验收" id="toc-物理书里的即时验收" class="nav-link" data-scroll-target="#物理书里的即时验收"><span class="header-section-number">1.4</span> 物理书里的即时验收</a></li>
+  <li><a href="#出处与查表" id="toc-出处与查表" class="nav-link" data-scroll-target="#出处与查表">出处与查表</a></li>
   <li><a href="#本章收束" id="toc-本章收束" class="nav-link" data-scroll-target="#本章收束"><span class="header-section-number">1.5</span> 本章收束</a></li>
   </ul>
 </nav>
@@ -504,11 +525,11 @@ window.Quarto = {
 <p><span class="math display">
 f'(x) \;=\; \lim_{\Delta x \to 0} \frac{f(x+\Delta x) - f(x)}{\Delta x} \tag{1.1}
 </span></p>
-<p>它的几何形象是切线斜率，但物理里更有用的读法是<strong>放大镜</strong>：把 <span class="math inline">f</span> 在 <span class="math inline">x</span> 附近放大足够多倍，任何光滑曲线看起来都是直线。导数就是这条「放大后的直线」的斜率。一阶泰勒展开把这个承诺写成代数：</p>
+<p>它的几何形象是切线斜率（教材定位：<span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016</a>, ch.&nbsp;2)</span>；严格化的极限定义见 <span class="citation" data-cites="spivak2008">(<a href="#ref-spivak2008" role="doc-biblioref">Spivak 2008</a>)</span>），但物理里更有用的读法是<strong>放大镜</strong>：把 <span class="math inline">f</span> 在 <span class="math inline">x</span> 附近放大足够多倍，任何光滑曲线看起来都是直线。导数就是这条「放大后的直线」的斜率。一阶泰勒展开把这个承诺写成代数：</p>
 <p><span class="math display">
 f(x + \Delta x) \;=\; f(x) + f'(x)\,\Delta x + O(\Delta x^2) \tag{1.2}
 </span></p>
-<p><strong>读懂 (1.2) 就够了</strong>：物理推导里海量的「小量近似」全是它。单摆方程怎么来的？<span class="math inline">\sin\theta \approx \theta</span> 就是 (1.2) 应用于 <span class="math inline">f=\sin</span> 在 <span class="math inline">x=0</span> 处、取一阶。相对论里「低速极限退回牛顿力学」也是它。你不需要会算高阶泰勒展开的系数，只需要看到「<span class="math inline">\approx</span>」时知道：<strong>有人刚用了放大镜</strong>。</p>
+<p><strong>读懂 (1.2) 就够了</strong>：物理推导里海量的「小量近似」全是它（泰勒定理的展开与余项见 <span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016</a>, ch.&nbsp;11)</span>）。单摆方程怎么来的？<span class="math inline">\sin\theta \approx \theta</span> 就是 (1.2) 应用于 <span class="math inline">f=\sin</span> 在 <span class="math inline">x=0</span> 处、取一阶。相对论里「低速极限退回牛顿力学」也是它。你不需要会算高阶泰勒展开的系数，只需要看到「<span class="math inline">\approx</span>」时知道：<strong>有人刚用了放大镜</strong>。</p>
 <div class="callout callout-style-default callout-note callout-titled" title="判据 A（看到导数）">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -537,7 +558,7 @@ f(x + \Delta x) \;=\; f(x) + f'(x)\,\Delta x + O(\Delta x^2) \tag{1.2}
 <p><span class="math display">
 \int_a^b f(x)\,\mathrm{d}x \;=\; \lim_{N\to\infty} \sum_{i=1}^{N} f(x_i)\,\Delta x, \qquad \Delta x = \frac{b-a}{N} \tag{1.4}
 </span></p>
-<p>注意积分号 <span class="math inline">\int</span> 就是拉长的 S——<strong>求和</strong>。黎曼和不是需要掌握的技巧，而是积分的<strong>语义</strong>：看到 <span class="math inline">\int</span>，脑中展开成 <span class="math inline">\sum</span>。</p>
+<p>注意积分号 <span class="math inline">\int</span> 就是拉长的 S——<strong>求和</strong>。黎曼和不是需要掌握的技巧，而是积分的<strong>语义</strong>：看到 <span class="math inline">\int</span>，脑中展开成 <span class="math inline">\sum</span>。定积分的严格构造见 <span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016</a>, ch.&nbsp;5)</span> 与 <span class="citation" data-cites="apostol1967">(<a href="#ref-apostol1967" role="doc-biblioref">Apostol 1967</a>)</span>。</p>
 <p>物理书里积分有三种身份，认出身份就知道它在干什么：</p>
 <table class="caption-top table">
 <colgroup>
@@ -596,7 +617,7 @@ f(x + \Delta x) \;=\; f(x) + f'(x)\,\Delta x + O(\Delta x^2) \tag{1.2}
 <p><span class="math display">
 \frac{\mathrm{d}}{\mathrm{d}x} \int_a^x f(t)\,\mathrm{d}t \;=\; f(x) \tag{1.5}
 </span></p>
-<p>为什么成立，一句话就够（这是全书最重要的一句话的第一次出现）：<strong>累积到 <span class="math inline">x</span> 的总量，再往前挪 <span class="math inline">\mathrm{d}x</span>，新增的就是这一片的大小 <span class="math inline">f(x)\,\mathrm{d}x</span></strong>——所以累积函数的增长率恰好是 <span class="math inline">f(x)</span>。换个说法：</p>
+<p>为什么成立，一句话就够（这是全书最重要的一句话的第一次出现）：<strong>累积到 <span class="math inline">x</span> 的总量，再往前挪 <span class="math inline">\mathrm{d}x</span>，新增的就是这一片的大小 <span class="math inline">f(x)\,\mathrm{d}x</span></strong>——所以累积函数的增长率恰好是 <span class="math inline">f(x)</span>（定理的严格叙述与证明见 <span class="citation" data-cites="stewart2016 apostol1967">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 5.3</a>; <a href="#ref-apostol1967" role="doc-biblioref">Apostol 1967</a>)</span>）。换个说法：</p>
 <blockquote class="blockquote">
 <p><strong>边界的增量 = 最外层那一薄片的贡献。</strong></p>
 </blockquote>
@@ -695,6 +716,40 @@ F = -kx \qquad\Longrightarrow\qquad m\ddot{x} = -kx \tag{1.6}
 </span></p>
 <p>左到右只做了一次「翻译」：牛顿第二定律 <span class="math inline">F = m\ddot{x}</span>（力 = 质量乘加速度，加速度是位置对时间的二阶导数）。这不是积分也不是求导，是<strong>把物理定律用导数语言写出</strong>——第 5 章的主戏「定律变方程」在这里预演。(1.6) 右边带着未知函数 <span class="math inline">\ddot{x}</span>，它是一个<strong>方程</strong>而非公式：给定 <span class="math inline">x(t)</span> 它能检验对错，但不能直接算出 <span class="math inline">x(t)</span>。怎么从方程里读出运动，就是第 5 章的事。</p>
 </section>
+<section id="出处与查表" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="出处与查表">出处与查表</h2>
+<p>本章对象的教材定位——引文是查表索引，不是阅读任务：</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>本书对象</th>
+<th>定位</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>导数、切线、瞬时率</td>
+<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016</a>, ch.&nbsp;2)</span>；严格化的极限定义 <span class="citation" data-cites="spivak2008">(<a href="#ref-spivak2008" role="doc-biblioref">Spivak 2008</a>)</span></td>
+</tr>
+<tr class="even">
+<td>泰勒近似</td>
+<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016</a>, ch.&nbsp;11)</span></td>
+</tr>
+<tr class="odd">
+<td>黎曼和与定积分</td>
+<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016</a>, ch.&nbsp;5)</span>；积分先行的构造 <span class="citation" data-cites="apostol1967">(<a href="#ref-apostol1967" role="doc-biblioref">Apostol 1967</a>)</span></td>
+</tr>
+<tr class="even">
+<td>微积分基本定理</td>
+<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 5.3</a>)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
 <section id="本章收束" class="level2" data-number="1.5">
 <h2 data-number="1.5" class="anchored" data-anchor-id="本章收束"><span class="header-section-number">1.5</span> 本章收束</h2>
 <ul>
@@ -706,6 +761,17 @@ F = -kx \qquad\Longrightarrow\qquad m\ddot{x} = -kx \tag{1.6}
 <p>一维的语言至此完备。但物理量大多活在三维空间里：温度是「位置的函数」，电场是「位置 AND 方向的函数」。当自变量从一个数变成一组坐标，「导数」这个概念将发生第一次分裂——下一章处理这个分裂。</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-apostol1967" class="csl-entry" role="listitem">
+Apostol, Tom M. 1967. <em>Calculus, Volume 1: One-Variable Calculus, with an Introduction to Linear Algebra</em>. 2nd ed. New York: Wiley.
+</div>
+<div id="ref-spivak2008" class="csl-entry" role="listitem">
+Spivak, Michael. 2008. <em>Calculus</em>. 4th ed. Houston: Publish or Perish.
+</div>
+<div id="ref-stewart2016" class="csl-entry" role="listitem">
+Stewart, James. 2016. <em>Calculus: Early Transcendentals</em>. 8th ed. Boston: Cengage Learning.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

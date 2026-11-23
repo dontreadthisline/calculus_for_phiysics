@@ -21,7 +21,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -456,6 +476,7 @@ window.Quarto = {
   <li><a href="#分离变量把-pde-降级成-ode" id="toc-分离变量把-pde-降级成-ode" class="nav-link" data-scroll-target="#分离变量把-pde-降级成-ode"><span class="header-section-number">6.3</span> 分离变量：把 PDE 降级成 ODE</a></li>
   <li><a href="#本征值边界条件筛出离散频率" id="toc-本征值边界条件筛出离散频率" class="nav-link" data-scroll-target="#本征值边界条件筛出离散频率"><span class="header-section-number">6.4</span> 本征值：边界条件筛出离散频率</a></li>
   <li><a href="#球坐标与认脸清单" id="toc-球坐标与认脸清单" class="nav-link" data-scroll-target="#球坐标与认脸清单"><span class="header-section-number">6.5</span> 球坐标与「认脸」清单</a></li>
+  <li><a href="#出处与查表" id="toc-出处与查表" class="nav-link" data-scroll-target="#出处与查表">出处与查表</a></li>
   <li><a href="#本章收束" id="toc-本章收束" class="nav-link" data-scroll-target="#本章收束"><span class="header-section-number">6.6</span> 本章收束</a></li>
   </ul>
 </nav>
@@ -503,22 +524,22 @@ window.Quarto = {
 <p><span class="math display">
 \frac{\partial T}{\partial t} \;=\; \alpha\, \nabla^2 T \qquad \text{（扩散方程）} \tag{6.1}
 </span></p>
-<p>读法：<strong>一点的温度变化，正比于它与周围平均温度的差距</strong>（<span class="math inline">\nabla^2</span> 的语义，第 4 章）。比周围热就降温，比周围冷就升温——扩散的全部哲学。</p>
+<p>读法：<strong>一点的温度变化，正比于它与周围平均温度的差距</strong>（<span class="math inline">\nabla^2</span> 的语义，第 4 章）。比周围热就降温，比周围冷就升温——扩散的全部哲学（热方程的推导：<span class="citation" data-cites="strauss2008 boas2006">(<a href="#ref-strauss2008" role="doc-biblioref">Strauss 2008</a>, ch.&nbsp;2; <a href="#ref-boas2006" role="doc-biblioref">Boas 2006</a>, ch.&nbsp;13)</span>）。</p>
 <p><strong>波动方程</strong>。把牛顿第二定律用于连续介质（弦的每一小段：质量 × 加速度 = 张力带来的净回复力）：</p>
 <p><span class="math display">
 \frac{\partial^2 u}{\partial t^2} \;=\; c^2\, \nabla^2 u \qquad \text{（波动方程，} c \text{ 即波速）} \tag{6.2}
 </span></p>
-<p>读法：一点的加速度，正比于它与周围平均位置的差距。电磁波「是光」的推导（麦克斯韦方程组推出 (6.2)、<span class="math inline">c = 1/\sqrt{\mu_0\varepsilon_0}</span>）就是电动力学的高光时刻——届时你已有全部语言。</p>
+<p>读法：一点的加速度，正比于它与周围平均位置的差距。电磁波「是光」的推导（麦克斯韦方程组推出 (6.2)、<span class="math inline">c = 1/\sqrt{\mu_0\varepsilon_0}</span>）就是电动力学的高光时刻——届时你已有全部语言（波动方程：<span class="citation" data-cites="strauss2008">(<a href="#ref-strauss2008" role="doc-biblioref">Strauss 2008</a>, ch.&nbsp;2)</span>；电磁波的版本：<span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013</a>, ch.&nbsp;9)</span>）。</p>
 <p><strong>拉普拉斯 / 泊松方程</strong>。静态（<span class="math inline">\partial/\partial t = 0</span>）且无源的电势世界：</p>
 <p><span class="math display">
 \nabla^2 V = 0 \;(\text{拉普拉斯，无源}), \qquad
 \nabla^2 V = -\frac{\rho}{\varepsilon_0} \;(\text{泊松，有源}) \tag{6.3}
 </span></p>
-<p>来历一步：高斯定律 (4.8) 的 <span class="math inline">\mathbf{E}=\nabla\phi</span>（第 2 章）代入 <span class="math inline">\nabla\cdot\mathbf{E}=\rho/\varepsilon_0</span>。<strong>这就是「电动力学全书都在解泊松方程」的原因</strong>：静电学 = 泊松方程 + 边界条件。<span class="math inline">\nabla^2 V=0</span> 的解有一个漂亮的定性性质：<strong>没有极值</strong>（比周围高就降温/高就被拉平）——电势的峰谷只能长在边界或电荷上。</p>
+<p>来历一步：高斯定律 (4.8) 的 <span class="math inline">\mathbf{E}=\nabla\phi</span>（第 2 章）代入 <span class="math inline">\nabla\cdot\mathbf{E}=\rho/\varepsilon_0</span>。<strong>这就是「电动力学全书都在解泊松方程」的原因</strong>：静电学 = 泊松方程 + 边界条件（两个方程的来历：<span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 2.2</a> and 3.1)</span>）。<span class="math inline">\nabla^2 V=0</span> 的解有一个漂亮的定性性质：<strong>没有极值</strong>（比周围高就降温/高就被拉平）——电势的峰谷只能长在边界或电荷上。</p>
 </section>
 <section id="边界条件解的锚" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="边界条件解的锚"><span class="header-section-number">6.2</span> 边界条件：解的锚</h2>
-<p>PDE 是<strong>局部</strong>合同（每点每刻的变化率），只靠它推不出全局——就像知道每个人的性格推不出整个社会的分布。全局信息由<strong>边界条件</strong>供给，三种常用类型：</p>
+<p>PDE 是<strong>局部</strong>合同（每点每刻的变化率），只靠它推不出全局——就像知道每个人的性格推不出整个社会的分布。全局信息由<strong>边界条件</strong>供给（三类条件的类型学：<span class="citation" data-cites="strauss2008">(<a href="#ref-strauss2008" role="doc-biblioref">Strauss 2008</a>, ch.&nbsp;4)</span>），三种常用类型：</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -550,7 +571,7 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<p><strong>唯一性定理</strong>（读物理书的免死金牌）：满足方程 + 边界条件的解<strong>只有一个</strong>。它的实用意义是：无论你用对称性猜出来、用镜子凑出来还是查表查出来的函数，只要验证它满足方程和边界，它就是<strong>正解</strong>——物理书「猜测—验证—收工」的解法全部合法。</p>
+<p><strong>唯一性定理</strong>（读物理书的免死金牌）：满足方程 + 边界条件的解<strong>只有一个</strong>（静电唯一性定理及其证明：<span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 3.1</a>)</span>）。它的实用意义是：无论你用对称性猜出来、用镜子凑出来还是查表查出来的函数，只要验证它满足方程和边界，它就是<strong>正解</strong>——物理书「猜测—验证—收工」的解法全部合法。</p>
 </section>
 <section id="分离变量把-pde-降级成-ode" class="level2" data-number="6.3">
 <h2 data-number="6.3" class="anchored" data-anchor-id="分离变量把-pde-降级成-ode"><span class="header-section-number">6.3</span> 分离变量：把 PDE 降级成 ODE</h2>
@@ -562,7 +583,7 @@ window.Quarto = {
 <p><span class="math display">
 T'' = -\lambda c^2 T, \qquad X'' = -\lambda X \tag{6.5}
 </span></p>
-<p>而 ODE 是第 5 章的地盘。<strong>分离变量的本质：让「时间节奏」与「空间形状」分家</strong>——驻波正是这种分家的物理形象：整条弦以同一频率呼吸，形状不变只剩幅度起伏。</p>
+<p>而 ODE 是第 5 章的地盘。<strong>分离变量的本质：让「时间节奏」与「空间形状」分家</strong>——驻波正是这种分家的物理形象：整条弦以同一频率呼吸，形状不变只剩幅度起伏（分离变量法：<span class="citation" data-cites="strauss2008">(<a href="#ref-strauss2008" role="doc-biblioref">Strauss 2008</a>, ch.&nbsp;4)</span>；静电问题的版本：<span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 3.3</a>)</span>）。</p>
 <p>为什么「假设乘积解」不亏？因为方程<strong>线性</strong>：乘积解可以叠加成一般解（第 5 章叠加原理的连续版）。于是 PDE 的解 = 无穷个模式之和，这就是<strong>本征模式展开</strong>——傅里叶级数、勒让德多项式、球谐函数，全是它在不同坐标/边界下的产出。</p>
 </section>
 <section id="本征值边界条件筛出离散频率" class="level2" data-number="6.4">
@@ -571,7 +592,7 @@ T'' = -\lambda c^2 T, \qquad X'' = -\lambda X \tag{6.5}
 <p><span class="math display">
 \lambda_n = \left(\frac{n\pi}{L}\right)^2, \qquad u_n(x,t) = \sin\!\left(\frac{n\pi x}{L}\right)\cos(\omega_n t), \quad n = 1,2,3,\ldots \tag{6.6}
 </span></p>
-<p><strong>边界条件筛出离散的 <span class="math inline">\lambda</span></strong>——吉他弦只有特定频率、原子只有特定能级（量子力学里同一个机制）、热管只有特定衰减模式。<span class="math inline">\lambda_n</span> 叫本征值，对应的形状叫本征函数。读到「本征值问题」，翻译成「边界条件在给合法频率发牌照」。</p>
+<p><strong>边界条件筛出离散的 <span class="math inline">\lambda</span></strong>——吉他弦只有特定频率、原子只有特定能级（量子力学里同一个机制）、热管只有特定衰减模式。<span class="math inline">\lambda_n</span> 叫本征值，对应的形状叫本征函数（本征值问题与傅里叶级数：<span class="citation" data-cites="strauss2008">(<a href="#ref-strauss2008" role="doc-biblioref">Strauss 2008</a>, ch.&nbsp;5)</span>）。读到「本征值问题」，翻译成「边界条件在给合法频率发牌照」。</p>
 <p>下面这张图演出模式叠加的力量：两端固定的弦上的方波初始形状 = 无穷多个驻波模式的和。逐档加入更多模式，看和曲线逼近方波——<strong>每一档新加入的模式就是式 (6.6) 的一项</strong>：</p>
 <div class="mode-fig" aria-hidden="true">
 <style>
@@ -650,7 +671,7 @@ window.addEventListener('load', function () {
 });
 </script>
 </div>
-<p>（图中可见的「过冲尖峰」叫吉布斯现象：不连续形状的级数在跳变处永远留一点毛刺——认得即可。）</p>
+<p>（图中可见的「过冲尖峰」叫吉布斯现象：不连续形状的级数在跳变处永远留一点毛刺——认得即可 <span class="citation" data-cites="strauss2008">(<a href="#ref-strauss2008" role="doc-biblioref">Strauss 2008</a>, ch.&nbsp;5)</span>。）</p>
 </section>
 <section id="球坐标与认脸清单" class="level2" data-number="6.5">
 <h2 data-number="6.5" class="anchored" data-anchor-id="球坐标与认脸清单"><span class="header-section-number">6.5</span> 球坐标与「认脸」清单</h2>
@@ -696,7 +717,7 @@ window.addEventListener('load', function () {
 </tr>
 </tbody>
 </table>
-<p>物理书里「解 = <span class="math inline">\sum_l A_l r^l P_l(\cos\theta)</span>」这样的表达式，读法：<strong>一般解 = 合法模式的线性叠加，系数由边界条件定</strong>——永远是第 5 章 <span class="math inline">y_h + y_p</span> 结构的高维版。</p>
+<p>物理书里「解 = <span class="math inline">\sum_l A_l r^l P_l(\cos\theta)</span>」这样的表达式，读法：<strong>一般解 = 合法模式的线性叠加，系数由边界条件定</strong>——永远是第 5 章 <span class="math inline">y_h + y_p</span> 结构的高维版（勒让德多项式的系统处理：<span class="citation" data-cites="arfken2013">(<a href="#ref-arfken2013" role="doc-biblioref">Arfken, Weber, and Harris 2013</a>, ch.&nbsp;15)</span>；球谐、贝塞尔同族的处理：<span class="citation" data-cites="arfken2013">(<a href="#ref-arfken2013" role="doc-biblioref">Arfken, Weber, and Harris 2013</a>)</span>）。</p>
 <div class="callout callout-style-default callout-note callout-titled" title="判据 G（见 PDE）三连问">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -715,6 +736,52 @@ window.addEventListener('load', function () {
 </div>
 </div>
 </section>
+<section id="出处与查表" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="出处与查表">出处与查表</h2>
+<p>本章对象的教材定位——引文是查表索引，不是阅读任务：</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>本书对象</th>
+<th>定位</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>热方程（扩散）</td>
+<td><span class="citation" data-cites="strauss2008">(<a href="#ref-strauss2008" role="doc-biblioref">Strauss 2008</a>, ch.&nbsp;2)</span>; <span class="citation" data-cites="boas2006">(<a href="#ref-boas2006" role="doc-biblioref">Boas 2006</a>, ch.&nbsp;13)</span></td>
+</tr>
+<tr class="even">
+<td>波动方程</td>
+<td><span class="citation" data-cites="strauss2008">(<a href="#ref-strauss2008" role="doc-biblioref">Strauss 2008</a>, ch.&nbsp;2)</span>; <span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013</a>, ch.&nbsp;9)</span></td>
+</tr>
+<tr class="odd">
+<td>拉普拉斯与泊松方程</td>
+<td><span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 2.2</a> and 3.1)</span></td>
+</tr>
+<tr class="even">
+<td>边界条件类型学</td>
+<td><span class="citation" data-cites="strauss2008">(<a href="#ref-strauss2008" role="doc-biblioref">Strauss 2008</a>, ch.&nbsp;4)</span></td>
+</tr>
+<tr class="odd">
+<td>唯一性定理</td>
+<td><span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 3.1</a>)</span></td>
+</tr>
+<tr class="even">
+<td>分离变量</td>
+<td><span class="citation" data-cites="strauss2008">(<a href="#ref-strauss2008" role="doc-biblioref">Strauss 2008</a>, ch.&nbsp;4)</span>; <span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 3.3</a>)</span></td>
+</tr>
+<tr class="odd">
+<td>本征值与傅里叶级数</td>
+<td><span class="citation" data-cites="strauss2008">(<a href="#ref-strauss2008" role="doc-biblioref">Strauss 2008</a>, ch.&nbsp;5)</span></td>
+</tr>
+<tr class="even">
+<td>勒让德、球谐、贝塞尔</td>
+<td><span class="citation" data-cites="arfken2013">(<a href="#ref-arfken2013" role="doc-biblioref">Arfken, Weber, and Harris 2013</a>, ch.&nbsp;15)</span>; <span class="citation" data-cites="arfken2013">(<a href="#ref-arfken2013" role="doc-biblioref">Arfken, Weber, and Harris 2013</a>)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
 <section id="本章收束" class="level2" data-number="6.6">
 <h2 data-number="6.6" class="anchored" data-anchor-id="本章收束"><span class="header-section-number">6.6</span> 本章收束</h2>
 <ul>
@@ -726,6 +793,20 @@ window.addEventListener('load', function () {
 <p>至此，六个因果链走完：两个母动作 → 多元 → 坐标 → 场 → ODE → PDE。语言集齐，最后一章是出发前的装备清点：把经典力学与电动力学的典型章节逐一映射到这些工具上，附一张「读不动」时的自查表。</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-arfken2013" class="csl-entry" role="listitem">
+Arfken, George B., Hans J. Weber, and Frank E. Harris. 2013. <em>Mathematical Methods for Physicists: A Comprehensive Guide</em>. 7th ed. Waltham: Academic Press.
+</div>
+<div id="ref-boas2006" class="csl-entry" role="listitem">
+Boas, Mary L. 2006. <em>Mathematical Methods in the Physical Sciences</em>. 3rd ed. Hoboken: Wiley.
+</div>
+<div id="ref-griffiths2013" class="csl-entry" role="listitem">
+Griffiths, David J. 2013. <em>Introduction to Electrodynamics</em>. 4th ed. Boston: Pearson.
+</div>
+<div id="ref-strauss2008" class="csl-entry" role="listitem">
+Strauss, Walter A. 2008. <em>Partial Differential Equations: An Introduction</em>. 2nd ed. Hoboken: Wiley.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

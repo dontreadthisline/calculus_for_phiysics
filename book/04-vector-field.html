@@ -21,7 +21,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -458,6 +478,7 @@ window.Quarto = {
   <li><a href="#大统一一座桥的四次化身" id="toc-大统一一座桥的四次化身" class="nav-link" data-scroll-target="#大统一一座桥的四次化身"><span class="header-section-number">4.5</span> 大统一：一座桥的四次化身</a></li>
   <li><a href="#nabla-算子速查" id="toc-nabla-算子速查" class="nav-link" data-scroll-target="#nabla-算子速查"><span class="header-section-number">4.6</span> <span class="math inline">\nabla</span> 算子速查</a></li>
   <li><a href="#验收现场读麦克斯韦方程组" id="toc-验收现场读麦克斯韦方程组" class="nav-link" data-scroll-target="#验收现场读麦克斯韦方程组"><span class="header-section-number">4.7</span> 验收现场：读麦克斯韦方程组</a></li>
+  <li><a href="#出处与查表" id="toc-出处与查表" class="nav-link" data-scroll-target="#出处与查表">出处与查表</a></li>
   <li><a href="#本章收束" id="toc-本章收束" class="nav-link" data-scroll-target="#本章收束"><span class="header-section-number">4.8</span> 本章收束</a></li>
   </ul>
 </nav>
@@ -503,7 +524,7 @@ window.Quarto = {
 <p><span class="math display">
 \mathbf{F}(x,y,z) = \big(F_x,\; F_y,\; F_z\big) \qquad \text{每个分量都是位置的函数} \tag{4.1}
 </span></p>
-<p>直觉工具是<strong>场线</strong>：一条处处与场向量相切的曲线。两条读图规则：<strong>场线的方向 = 场的方向；场线的密度 = 场的强度</strong>（电场线越密处电场越强）。物理书大量用场线做定性论证，你也需要——本章的高斯定理先在场线语言里「看见」，再用公式说出。</p>
+<p>直觉工具是<strong>场线</strong>:一条处处与场向量相切的曲线。两条读图规则:<strong>场线的方向 = 场的方向;场线的密度 = 场的强度</strong>(电场线越密处电场越强)。物理书大量用场线做定性论证，你也需要——本章的高斯定理先在场线语言里「看见」，再用公式说出（向量场与场线的教材定位：<span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 16.1</a>)</span>；最生动的物理讲法是 <span class="citation" data-cites="feynman2010">(<a href="#ref-feynman2010" role="doc-biblioref">Feynman, Leighton, and Sands 2010</a>)</span>）。</p>
 <p>场的微积分 = 两个母动作装配到场上。「切」的变奏是散度与旋度（局部量），「积」的变奏是线积分与通量（整体量），两个定理把它们缝合。</p>
 </section>
 <section id="两种积分沿线累积-穿面累积" class="level2" data-number="4.2">
@@ -517,7 +538,7 @@ window.Quarto = {
 <p><span class="math display">
 \int_S \mathbf{F}\cdot\mathrm{d}\mathbf{A} \qquad \text{物理身份：单位时间穿过面的流量} \tag{4.3}
 </span></p>
-<p>闭合曲面上（如气球表面）法向约定为<strong>向外</strong>，此时的通量问的是：<strong>这片封闭区域净涌出多少东西</strong>——这是散度登场的入口。</p>
+<p>闭合曲面上(如气球表面)法向约定为<strong>向外</strong>,此时的通量问的是:<strong>这片封闭区域净涌出多少东西</strong>——这是散度登场的入口（线积分与通量的严格定义：<span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 16.2</a> and 16.7)</span>）。</p>
 <div class="callout callout-style-default callout-note callout-titled" title="判据 E（见闭合积分号）两连问">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -542,12 +563,12 @@ window.Quarto = {
 \nabla\cdot\mathbf{F} \;=\; \lim_{V\to 0} \frac{1}{V} \oint_{\partial V} \mathbf{F}\cdot\mathrm{d}\mathbf{A}
 \qquad \text{（单位体积的净流出量）} \tag{4.4}
 </span></p>
-<p>（<span class="math inline">\partial V</span> 读作「<span class="math inline">V</span> 的边界」——边界算子见符号约定。）它是标量：正 = 源（净涌出，如正电荷），负 = 汇（净吸入，如负电荷），零 = 无源（流进多少流出多少）。直角坐标下可算出 <span class="math inline">\nabla\cdot\mathbf{F} = \partial F_x/\partial x + \partial F_y/\partial y + \partial F_z/\partial z</span>——形式上像「<span class="math inline">\nabla</span> 这个向量点乘 <span class="math inline">\mathbf{F}</span>」，这只是记号巧合帮记忆，语义永远是 (4.4)。</p>
+<p>(<span class="math inline">\partial V</span> 读作「<span class="math inline">V</span> 的边界」–边界算子见符号约定。)它是标量:正 = 源(净涌出,如正电荷),负 = 汇(净吸入,如负电荷),零 = 无源(流进多少流出多少)。直角坐标下可算出 <span class="math inline">\nabla\cdot\mathbf{F} = \partial F_x/\partial x + \partial F_y/\partial y + \partial F_z/\partial z</span>–形式上像「<span class="math inline">\nabla</span> 这个向量点乘 <span class="math inline">\mathbf{F}</span>」，这只是记号巧合帮记忆，语义永远是 (4.4)（散度的定义与坐标公式：<span class="citation" data-cites="stewart2016 griffiths2013">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 16.5</a>; <a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 1.2</a>)</span>）。</p>
 <p><strong>高斯散度定理</strong>（FTC 变奏一号）：把 (4.4) 反过来用——不取极限，闭合面的总通量等于内部所有源的累积：</p>
 <p><span class="math display">
 \oint_{\partial V} \mathbf{F}\cdot\mathrm{d}\mathbf{A} \;=\; \int_V (\nabla\cdot\mathbf{F})\, \mathrm{d}v \tag{4.5}
 </span></p>
-<p>读出来正是那句话：<strong>边界（表面）上的量 = 内部源的累积</strong>。场线语言里它是一次数数游戏：穿出的线数 = 内部发出的线数，与面选得多歪多圆无关。物理的第一次兑付是高斯定律 <span class="math inline">\oint \mathbf{E}\cdot\mathrm{d}\mathbf{A} = Q_{\text{enc}}/\varepsilon_0</span>：<strong>数穿出闭合面的电场线，就数出了内部电荷总量</strong>——这是计算对称电场最强的一招。</p>
+<p>读出来正是那句话:<strong>边界（表面）上的量 = 内部源的累积</strong>。场线语言里它是一次数数游戏：穿出的线数 = 内部发出的线数，与面选得多歪多圆无关（散度定理：<span class="citation" data-cites="stewart2016 griffiths2013">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 16.9</a>; <a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 1.3</a>)</span>）。物理的第一次兑付是高斯定律 <span class="math inline">\oint \mathbf{E}\cdot\mathrm{d}\mathbf{A} = Q_{\text{enc}}/\varepsilon_0</span>:<strong>数穿出闭合面的电场线,就数出了内部电荷总量</strong>–这是计算对称电场最强的一招。</p>
 <div class="gau-fig" aria-hidden="true">
 <style>
 .gau-fig { margin: 1.6em 0; }
@@ -624,12 +645,12 @@ window.addEventListener('load', function () {
 (\nabla\times\mathbf{F})\cdot\hat{\mathbf{n}} \;=\; \lim_{A\to 0} \frac{1}{A} \oint_{\partial A} \mathbf{F}\cdot\mathrm{d}\mathbf{l}
 \qquad \text{（单位面积的环流）} \tag{4.6}
 </span></p>
-<p>它是<strong>向量</strong>（水车的转轴方向，右手定则定指向），长度是转速。物理身份：磁场 (<span class="math inline">\nabla\times\mathbf{B}=\mu_0\mathbf{J}</span>，电流是磁场的「涡源」)、流体涡旋、科里奥利力。</p>
+<p>它是<strong>向量</strong>(水车的转轴方向,右手定则定指向),长度是转速（旋度：<span class="citation" data-cites="stewart2016 griffiths2013">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 16.5</a>; <a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 1.2</a>)</span>）。物理身份：磁场 (<span class="math inline">\nabla\times\mathbf{B}=\mu_0\mathbf{J}</span>，电流是磁场的「涡源」）、流体涡旋、科里奥利力。</p>
 <p><strong>斯托克斯定理</strong>（FTC 变奏二号）：边界环路上的环流 = 张在该边界上的任意曲面内旋度的累积：</p>
 <p><span class="math display">
 \oint_{\partial S} \mathbf{F}\cdot\mathrm{d}\mathbf{l} \;=\; \int_S (\nabla\times\mathbf{F})\cdot\mathrm{d}\mathbf{A} \tag{4.7}
 </span></p>
-<p>还是那句话：<strong>边界上的量（回路环流）= 内部源的累积（旋度通量）</strong>。物理兑付：安培环路定理 <span class="math inline">\oint \mathbf{B}\cdot\mathrm{d}\mathbf{l} = \mu_0 I_{\text{enc}}</span>——绕回路一圈量到的磁场环流，数出的是穿过回路的电流。</p>
+<p>还是那句话：<strong>边界上的量（回路环流）= 内部源的累积（旋度通量）</strong>（斯托克斯定理：<span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 16.8</a>)</span>）。物理兑付：安培环路定理 <span class="math inline">\oint \mathbf{B}\cdot\mathrm{d}\mathbf{l} = \mu_0 I_{\text{enc}}</span>–绕回路一圈量到的磁场环流,数出的是穿过回路的电流。</p>
 <p>（格林定理：斯托克斯在平面上的特例，二维场的环流-旋度关系。读到时知道它是「自己人」即可。）</p>
 </section>
 <section id="大统一一座桥的四次化身" class="level2" data-number="4.5">
@@ -676,7 +697,7 @@ window.addEventListener('load', function () {
 </tr>
 </tbody>
 </table>
-<p>四行共享一个模板：<strong>把边界上的测量，换成内部密度的累积</strong>。为什么物理热爱它们：边界测量往往困难（曲面上的积分），内部密度往往是「定律本身」（<span class="math inline">\rho</span>、<span class="math inline">\mathbf{J}</span>）——定理把难的换成简单的。麦克斯韦方程组有积分、微分两套写法且物理书随时互译，桥梁就是 (4.5) 与 (4.7)。</p>
+<p>四行共享一个模板:<strong>把边界上的测量,换成内部密度的累积</strong>。为什么物理热爱它们：边界测量往往困难（曲面上的积分），内部密度往往是「定律本身」（<span class="math inline">\rho</span>、<span class="math inline">\mathbf{J}</span>）——定理把难的换成简单的（四个定理在微分流形语言下的统一形式见 <span class="citation" data-cites="spivak1965">(<a href="#ref-spivak1965" role="doc-biblioref">Spivak 1965</a>, ch.&nbsp;4)</span>）。麦克斯韦方程组有积分、微分两套写法且物理书随时互译,桥梁就是 (4.5) 与 (4.7)。</p>
 </section>
 <section id="nabla-算子速查" class="level2" data-number="4.6">
 <h2 data-number="4.6" class="anchored" data-anchor-id="nabla-算子速查"><span class="header-section-number">4.6</span> <span class="math inline">\nabla</span> 算子速查</h2>
@@ -726,7 +747,7 @@ window.addEventListener('load', function () {
 </tr>
 </tbody>
 </table>
-<p>最后一条恒等式值得多说一句：<span class="math inline">\nabla\times(\nabla f) = 0</span> 是「<strong>保守力</strong>」的微分语言——力是势的梯度（<span class="math inline">\mathbf{F}=-\nabla V</span>，第 2 章）时自动无旋，绕任何闭合回路做功为零。静电学全书建立在这条上。</p>
+<p>最后一条恒等式值得多说一句:<span class="math inline">\nabla\times(\nabla f) = 0</span> 是「<strong>保守力</strong>」的微分语言–力是势的梯度(<span class="math inline">\mathbf{F}=-\nabla V</span>,第 2 章)时自动无旋,绕任何闭合回路做功为零。静电学全书建立在这条上（恒等式与势论的关系：<span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 1.6</a>)</span>）。</p>
 </section>
 <section id="验收现场读麦克斯韦方程组" class="level2" data-number="4.7">
 <h2 data-number="4.7" class="anchored" data-anchor-id="验收现场读麦克斯韦方程组"><span class="header-section-number">4.7</span> 验收现场：读麦克斯韦方程组</h2>
@@ -747,12 +768,58 @@ window.addEventListener('load', function () {
 \nabla\times\mathbf{B} = \mu_0\mathbf{J} + \mu_0\varepsilon_0\frac{\partial\mathbf{E}}{\partial t}
 \qquad\text{电流与变化的电场都是磁场的涡源（安培–麦克斯韦）} \tag{4.11}
 </span></p>
-<p>四个符号全部到位：<span class="math inline">\nabla\cdot</span> 与 <span class="math inline">\nabla\times</span> 是本章的两个局部量，<span class="math inline">\partial/\partial t</span> 是第 1 章的率，<span class="math inline">\mathbf{E},\mathbf{B}</span> 是两个向量场，右边的 <span class="math inline">\rho,\mathbf{J}</span> 是源。<strong>没有一个符号超出前四章</strong>——这四行是本书前半部分的期末考试，你现在每一行都能读出物理内容。物理书里它们还会以积分形式出现（对任意闭合面/回路），互译工具就是 (4.5) 与 (4.7)。</p>
+<p>四个符号全部到位:<span class="math inline">\nabla\cdot</span> 与 <span class="math inline">\nabla\times</span> 是本章的两个局部量,<span class="math inline">\partial/\partial t</span> 是第 1 章的率,<span class="math inline">\mathbf{E},\mathbf{B}</span> 是两个向量场,右边的 <span class="math inline">\rho,\mathbf{J}</span> 是源。<strong>没有一个符号超出前四章</strong>–这四行是本书前半部分的期末考试,你现在每一行都能读出物理内容。物理书里它们还会以积分形式出现（对任意闭合面/回路），互译工具就是 (4.5) 与 (4.7)（方程组的推导与逐条讨论：<span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 7.3</a>)</span>）。</p>
+</section>
+<section id="出处与查表" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="出处与查表">出处与查表</h2>
+<p>本章对象的教材定位——引文是查表索引，不是阅读任务：</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>本书对象</th>
+<th>定位</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>向量场、场线</td>
+<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 16.1</a>)</span>; <span class="citation" data-cites="feynman2010">(<a href="#ref-feynman2010" role="doc-biblioref">Feynman, Leighton, and Sands 2010</a>)</span></td>
+</tr>
+<tr class="even">
+<td>线积分</td>
+<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 16.2</a>)</span></td>
+</tr>
+<tr class="odd">
+<td>通量与面积分</td>
+<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 16.7</a>)</span></td>
+</tr>
+<tr class="even">
+<td>散度与旋度</td>
+<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 16.5</a>)</span>; <span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 1.2</a>)</span></td>
+</tr>
+<tr class="odd">
+<td>高斯散度定理</td>
+<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 16.9</a>)</span>; <span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 1.3</a>)</span></td>
+</tr>
+<tr class="even">
+<td>斯托克斯定理</td>
+<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 16.8</a>)</span></td>
+</tr>
+<tr class="odd">
+<td>三大定理的统一形式</td>
+<td><span class="citation" data-cites="spivak1965">(<a href="#ref-spivak1965" role="doc-biblioref">Spivak 1965</a>, ch.&nbsp;4)</span></td>
+</tr>
+<tr class="even">
+<td>麦克斯韦方程组</td>
+<td><span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 7.3</a>)</span></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="本章收束" class="level2" data-number="4.8">
 <h2 data-number="4.8" class="anchored" data-anchor-id="本章收束"><span class="header-section-number">4.8</span> 本章收束</h2>
 <ul>
-<li>向量场 = 每点一个向量；场线方向给方向、密度给强度。</li>
+<li>向量场 = 每点一个向量;场线方向给方向、密度给强度。</li>
 <li>两种整体量：通量（穿面，法向累积）、环流（沿线，切向累积）；两个局部量：散度（源，标量）、旋度（涡，向量）。</li>
 <li>高斯与斯托克斯把整体量与局部量缝合，都是 FTC 的化身：<strong>边界上的量 = 内部源的累积</strong>。</li>
 <li>麦克斯韦四条 = 场语言的完整句子，逐条可读。</li>
@@ -760,6 +827,20 @@ window.addEventListener('load', function () {
 <p>至此，「描述场」的语言全部齐备。但物理书的另一半是<strong>运动与演化</strong>：定律给出方程，问题变成「从这个方程里读出运动」。方程里带导数、未知的是函数——这就是微分方程，下一章从 <span class="math inline">F = m\ddot{x}</span> 开始。</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-feynman2010" class="csl-entry" role="listitem">
+Feynman, Richard P., Robert B. Leighton, and Matthew Sands. 2010. <em>The Feynman Lectures on Physics, Volume II: Mainly Electromagnetism and Matter</em>. New Millennium. New York: Basic Books.
+</div>
+<div id="ref-griffiths2013" class="csl-entry" role="listitem">
+Griffiths, David J. 2013. <em>Introduction to Electrodynamics</em>. 4th ed. Boston: Pearson.
+</div>
+<div id="ref-spivak1965" class="csl-entry" role="listitem">
+Spivak, Michael. 1965. <em>Calculus on Manifolds: A Modern Approach to Classical Theorems of Advanced Calculus</em>. New York: W. A. Benjamin.
+</div>
+<div id="ref-stewart2016" class="csl-entry" role="listitem">
+Stewart, James. 2016. <em>Calculus: Early Transcendentals</em>. 8th ed. Boston: Cengage Learning.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
