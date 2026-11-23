@@ -326,6 +326,7 @@ document.addEventListener('DOMContentLoaded', function () {
   nav.insertBefore(a, nav.firstChild);
 });
 </script>
+<script defer="" src="resources/js/kx.js"></script>
 
   <script defer="" src="resources/libs/katex/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
@@ -575,8 +576,11 @@ window.Quarto = {
 \mathrm{d}x\,\mathrm{d}y = \left|\det\frac{\partial(x,y)}{\partial(u,v)}\right| \mathrm{d}u\,\mathrm{d}v \tag{7.5}
 </span></p>
 <p>为什么是行列式？放大镜层面一切映射都是线性的（第 1 讲），而线性映射把面积/体积伸缩的倍数恰好等于其矩阵行列式（叉积的面积意义）。极坐标验证：<span class="math inline">\partial(x,y)/\partial(r,\varphi) = r</span>（两个三角函数偏导组成的矩阵，行列式算出来是 <span class="math inline">r\cos^2\varphi + r\sin^2\varphi = r</span>）——(7.3) 的 <span class="math inline">r</span> 复现；球坐标同理得 <span class="math inline">r^2\sin\theta</span>（换元定理与行列式的来历：<span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 15.9</a>)</span>）。</p>
-<p>下面这张图把「汇率」演出来看：左图是 <span class="math inline">(r,\varphi)</span> 平面上的<strong>均匀</strong>网格，右图是它映射到 <span class="math inline">(x,y)</span> 后的极网格。同一组格线，格子大小不再均匀——高亮同一个 <span class="math inline">(\mathrm{d}r,\mathrm{d}\varphi)</span> 单元，看它映射后随 <span class="math inline">r</span> 增大而变宽。<strong>Jacobian 就是「右格面积 / 左格面积」，它恰好等于 <span class="math inline">r</span>。</strong></p>
-<div class="jac-fig" aria-hidden="true">
+<p><a href="#fig-jacobian" class="quarto-xref">图&nbsp;<span>7.1</span></a> 把「汇率」演出来看：左图是 <span class="math inline">(r,\varphi)</span> 平面上的<strong>均匀</strong>网格，右图是它映射到 <span class="math inline">(x,y)</span> 后的极网格。同一组格线，格子大小不再均匀——高亮同一个 <span class="math inline">(\mathrm{d}r,\mathrm{d}\varphi)</span> 单元，看它映射后随 <span class="math inline">r</span> 增大而变宽。<strong>Jacobian 就是「右格面积 / 左格面积」，它恰好等于 <span class="math inline">r</span>。</strong></p>
+<div id="fig-jacobian" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-jacobian-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="jac-fig">
 <style>
 .jac-fig { margin: 1.6em 0; }
 .jac-fig svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
@@ -599,50 +603,13 @@ r = 2.3
 </div>
 <svg id="jacsvg" viewbox="0 0 680 300" width="680" height="300">
 </svg>
-<script>
-window.addEventListener('load', function () {
-  if (typeof Sketch === 'undefined') return;
-  const svg = document.getElementById('jacsvg');
-  const P = { ink: '#3a4aa8', deep: '#2c3a8c', amber: '#bf8700', green: '#1a7f37', dim: '#9aa1b9' };
-  const RS = [0.7, 1.5, 2.3], FIS = 0.55;
-  const DR = 0.45, DFI = 0.32;
-  const lx = r => 30 + (r-0.2)/2.6*280, ly = p => 265 - p/Math.PI*230;
-  const rx = x => 380 + x/3.1*140, ry = y => 250 - y/2.9*220;
-  window.jSet = function (k) {
-    [0,1,2].forEach(i => { const b = document.getElementById('jb'+i); if (b) b.className = i==k ? 'on' : ''; });
-    while (svg.firstChild) svg.removeChild(svg.firstChild);
-    const s = Sketch(svg), r0 = RS[k];
-    s.path(`M30 35 L310 35 L310 265 L30 265 Z`, { stroke: 'rgba(154,161,185,.5)', width: 1.1 });
-    for (let r = 0.65; r < 2.8; r += 0.65) s.path(`M${lx(r)} 35 L${lx(r)} 265`, { stroke: 'rgba(154,161,185,.35)', width: 1 });
-    for (let p = Math.PI/4; p < Math.PI; p += Math.PI/4) s.path(`M30 ${ly(p)} L310 ${ly(p)}`, { stroke: 'rgba(154,161,185,.35)', width: 1 });
-    s.label(170, 288, '(r, φ) 平面 — 均匀格子', { size: 15, color: P.dim });
-    s.path(`M${lx(r0)} ${ly(FIS)} L${lx(r0+DR)} ${ly(FIS)} L${lx(r0+DR)} ${ly(FIS+DFI)} L${lx(r0)} ${ly(FIS+DFI)} Z`,
-           { stroke: P.amber, width: 2, fill: 'rgba(191,135,0,.15)', rough: false });
-    s.label(lx(r0+DR)+34, ly(FIS+DFI/2), 'dr·dφ', { size: 15, color: P.amber, mono: true });
-    for (let r = 0.65; r < 2.9; r += 0.65) {
-      let d = '';
-      for (let p = 0; p <= Math.PI + .01; p += .1) {
-        d += (d ? ' L' : 'M') + rx(r*Math.cos(p)) + ' ' + ry(r*Math.sin(p)); }
-      s.path(d, { stroke: 'rgba(58,74,168,.5)', width: 1.1 });
-    }
-    for (let p = 0; p <= Math.PI + .01; p += Math.PI/4)
-      s.path(`M${rx(0)} ${ry(0)} L${rx(2.8*Math.cos(p))} ${ry(2.8*Math.sin(p))}`, { stroke: 'rgba(58,74,168,.5)', width: 1.1 });
-    s.dot(rx(0), ry(0), P.deep, 3.5);
-    const cell = (rr, pp) => [rx(rr*Math.cos(pp)), ry(rr*Math.sin(pp))];
-    let d = '';
-    for (let p = FIS; p <= FIS+DFI+.001; p += .05) { const q = cell(r0, p); d += (d ? ' L' : 'M') + q[0] + ' ' + q[1]; }
-    for (let r = r0; r <= r0+DR+.001; r += .05)     { const q = cell(r, FIS+DFI); d += ' L' + q[0] + ' ' + q[1]; }
-    for (let p = FIS+DFI; p >= FIS-.001; p -= .05)  { const q = cell(r0+DR, p); d += ' L' + q[0] + ' ' + q[1]; }
-    for (let r = r0+DR; r >= r0-.001; r -= .05)     { const q = cell(r, FIS); d += ' L' + q[0] + ' ' + q[1]; }
-    s.path(d + ' Z', { stroke: P.amber, width: 2, fill: 'rgba(191,135,0,.2)', rough: false });
-    s.label((rx(0)+rx(2.6))/2 + 10, 288, '(x, y) 平面 — 格子随 r 变宽,  面积比 = r', { size: 15, color: P.deep });
-    s.label(rx(1.9), ry(1.9) - 22, '汇率 |det J| = ' + r0.toFixed(1), { size: 16, color: P.amber, mono: true });
-    s.path(`M315 150 L365 150`, { stroke: P.green, width: 1.6, arrow: true });
-    s.label(340, 136, '(r,φ)→(x,y)', { size: 12.5, color: P.green });
-  };
-  jSet(0);
-});
-</script>
+<script defer="" src="resources/js/figs/jacobian.js?v=2"></script>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-jacobian-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+图&nbsp;7.1: <span class="math inline">(r,\varphi)</span> 平面的均匀网格（左）映射为 <span class="math inline">(x,y)</span> 平面的极网格（右）：高亮单元的面积比即 Jacobian <span class="math inline">|\det J| = r</span>。
+</figcaption>
+</figure>
 </div>
 <div class="callout callout-style-default callout-note callout-titled" title="判据 M（换坐标积分）三步">
 <div class="callout-header d-flex align-content-center">

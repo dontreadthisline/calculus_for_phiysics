@@ -326,6 +326,7 @@ document.addEventListener('DOMContentLoaded', function () {
   nav.insertBefore(a, nav.firstChild);
 });
 </script>
+<script defer="" src="resources/js/kx.js"></script>
 
   <script defer="" src="resources/libs/katex/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
@@ -566,43 +567,23 @@ window.Quarto = {
 \qquad \text{（单位面积的环流）} \tag{6.3}
 </span></p>
 <p>它是<strong>向量</strong>（水车的转轴方向，右手定则定指向），长度是转速。物理身份：磁场（<span class="math inline">\nabla\times\mathbf{B}=\mu_0\mathbf{J}</span>，电流是磁场的「涡源」）、流体涡旋、科里奥利力（旋度：<span class="citation" data-cites="stewart2016 griffiths2013">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 16.5</a>; <a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 1.2</a>)</span>）。</p>
-<div class="dv-fig" aria-hidden="true">
+<div id="fig-divcurl" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-divcurl-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="dv-fig">
 <style>
 .dv-fig { margin: 1.6em 0; }
 .dv-fig svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
 </style>
 <svg id="dvsvg" viewbox="0 0 620 220" width="620" height="220">
 </svg>
-<script>
-window.addEventListener('load', function () {
-  if (typeof Sketch === 'undefined') return;
-  const svg = document.getElementById('dvsvg');
-  const P = { ink: '#3a4aa8', deep: '#2c3a8c', amber: '#bf8700', green: '#1a7f37', dim: '#9aa1b9' };
-  const s = Sketch(svg);
-  /* 左: 散度小盒 — 净流出 */
-  const bx = 150, by = 120, w = 66, h = 54;
-  s.path(`M${bx-w} ${by-h} L${bx+w} ${by-h} L${bx+w} ${by+h} L${bx-w} ${by+h} Z`, { stroke: 'rgba(58,74,168,.75)', width: 1.8 });
-  s.dot(bx, by, P.amber, 6);
-  [[-38,-52,34,-78],[-6,-56,0,-84],[40,-52,52,-76],[-44,56,-56,82],[30,56,42,82]].forEach(([x1,y1,x2,y2]) =>
-    s.path(`M${bx+x1} ${by+y1} L${bx+x2} ${by+y2}`, { stroke: P.green, width: 1.7, arrow: true, rough: false }));
-  s.path(`M${bx-64} ${by-30} L${bx-36} ${by-24}`, { stroke: 'rgba(154,161,185,.8)', width: 1.4, arrow: true, rough: false });
-  s.label(bx, 205, '散度: 数小盒的净流出', { size: 15, color: P.deep });
-  s.label(bx, 26, '∇·F > 0 — 源', { size: 15, color: P.green });
-  /* 右: 旋度水车 — 环流 */
-  const cx = 465, cy = 120, R = 62;
-  let circ = '';
-  for (let a = 0; a <= 6.45; a += .12) circ += (circ ? ' L' : 'M') + (cx + R*Math.cos(a)) + ' ' + (cy - R*Math.sin(a));
-  s.path(circ + ' Z', { stroke: 'rgba(58,74,168,.3)', width: 1.2, rough: false });
-  for (let i = 0; i < 8; i++) {
-    const a = i/8*2*Math.PI, x = cx + R*Math.cos(a), y = cy - R*Math.sin(a);
-    const tx = -Math.sin(a), ty = -Math.cos(a);
-    s.path(`M${x - tx*18} ${y - ty*18} L${x + tx*18} ${y + ty*18}`, { stroke: P.green, width: 1.7, arrow: true, rough: false });
-  }
-  s.dot(cx, cy, P.amber, 6);
-  s.label(cx, 205, '旋度: 数小水车的净推转', { size: 15, color: P.deep });
-  s.label(cx, 26, '∇×F ≠ 0 — 涡', { size: 15, color: P.green });
-});
-</script>
+<script defer="" src="resources/js/figs/divcurl.js?v=2"></script>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-divcurl-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+图&nbsp;6.1: 散度的小盒实验（左：数净流出，<span class="math inline">\nabla\cdot\mathbf{F}&gt;0</span> 为源）与旋度的水车实验（右：数净推转，<span class="math inline">\nabla\times\mathbf{F}\neq 0</span> 为涡）。
+</figcaption>
+</figure>
 </div>
 </section>
 <section id="nabla2与周围平均之差" class="level2" data-number="6.4">

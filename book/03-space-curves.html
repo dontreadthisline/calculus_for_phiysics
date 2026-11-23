@@ -326,6 +326,7 @@ document.addEventListener('DOMContentLoaded', function () {
   nav.insertBefore(a, nav.firstChild);
 });
 </script>
+<script defer="" src="resources/js/kx.js"></script>
 
   <script defer="" src="resources/libs/katex/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
@@ -621,8 +622,11 @@ s = \int_{t_0}^{t_1} |\mathbf{v}(t)|\,\mathrm{d}t \tag{3.3}
 <li><strong>法向分量</strong> <span class="math inline">v^2/\rho</span>：方向变多急。它与速度平方成正比（弯道限速的数学理由），与曲率半径成反比。</li>
 </ul>
 <p>两个特例直接回收前文的伏笔：匀速圆周运动 <span class="math inline">\dot v = 0</span>、<span class="math inline">\rho = R</span>，<span class="math inline">\mathbf{a} = v^2/R</span> 指向圆心——<strong>第 1、2 讲反复借用的「向心加速度」在这里拿到完整来历</strong>；匀速直线 <span class="math inline">\kappa=0</span> 且 <span class="math inline">\dot v=0</span>，加速度为零——牛顿第一定律是 (3.6) 的退化情形。变速率圆周（例如单摆）则是两项并存：切向改变快慢、法向负责拐弯。这一分解是力学书「自然坐标系」的全部内容（运动学分解的教材展开：<span class="citation" data-cites="stewart2016 taylor2005">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 13.4</a>; <a href="#ref-taylor2005" role="doc-biblioref">Taylor 2005</a>, ch.&nbsp;1)</span>）。</p>
-<p>下图演出这套几何：质点沿轨迹运动（光点），采样点上画出单位切向 <span class="math inline">\hat{\mathbf{T}}</span>（绿，恒指运动方向）、主法向 <span class="math inline">\hat{\mathbf{N}}</span>（琥珀，恒指凹侧）与加速度 <span class="math inline">\mathbf{a}</span>（灰）。观察两件事：<span class="math inline">\hat{\mathbf{N}}</span> 永远指向凹侧；<span class="math inline">\mathbf{a}</span> 总在 <span class="math inline">\hat{\mathbf{T}}</span> 与 <span class="math inline">\hat{\mathbf{N}}</span> 张成的扇区内——它就是两份贡献的向量和。</p>
-<div class="curv-fig" aria-hidden="true">
+<p><a href="#fig-curvature" class="quarto-xref">图&nbsp;<span>3.1</span></a> 演出这套几何：质点沿轨迹运动（光点），采样点上画出单位切向 <span class="math inline">\hat{\mathbf{T}}</span>（绿，恒指运动方向）、主法向 <span class="math inline">\hat{\mathbf{N}}</span>（琥珀，恒指凹侧）与加速度 <span class="math inline">\mathbf{a}</span>（灰）。观察两件事：<span class="math inline">\hat{\mathbf{N}}</span> 永远指向凹侧；<span class="math inline">\mathbf{a}</span> 总在 <span class="math inline">\hat{\mathbf{T}}</span> 与 <span class="math inline">\hat{\mathbf{N}}</span> 张成的扇区内——它就是两份贡献的向量和。</p>
+<div id="fig-curvature" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-curvature-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="curv-fig">
 <style>
 .curv-fig { margin: 1.6em 0; }
 .curv-fig svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
@@ -642,52 +646,13 @@ s = \int_{t_0}^{t_1} |\mathbf{v}(t)|\,\mathrm{d}t \tag{3.3}
 </div>
 <svg id="curvsvg" viewbox="0 0 640 300" width="640" height="300">
 </svg>
-<script>
-window.addEventListener('load', function () {
-  if (typeof Sketch === 'undefined') return;
-  const svg = document.getElementById('curvsvg');
-  const P = { ink: '#3a4aa8', deep: '#2c3a8c', amber: '#bf8700', green: '#1a7f37', dim: '#9aa1b9' };
-  const CURVES = [
-    { name: '椭圆 r(t) = (a cos t, b sin t)   匀参数 ≠ 匀速率: 近轴处更快',
-      r: t => [2.9*Math.cos(t), 1.7*Math.sin(t)], t0: 0, t1: 2*Math.PI, n: 10 },
-    { name: '螺线 r(t) = (t cos 3t, t sin 3t)   曲率随位置变化: 越外越"直"',
-      r: t => [(t/2.35)*Math.cos(3*t), (t/2.35)*Math.sin(3*t)], t0: 0.45, t1: 2.25, n: 9 },
-  ];
-  const px = x => 320 + x/3.6*290, py = y => 160 - y/2.4*115;
-  const deriv = (f, t, h) => { const a = f(t-h), b = f(t+h);
-    return [(b[0]-a[0])/(2*h), (b[1]-a[1])/(2*h)]; };
-  const deriv2 = (f, t, h) => { const c = f(t), d1 = deriv(f, t-h, h), d2 = deriv(f, t+h, h);
-    return [(d2[0] + d1[0] - 2*c[0])/(h*h), (d2[1] + d1[1] - 2*c[1])/(h*h)]; };
-  window.cvSet = function (k) {
-    [0,1].forEach(i => { const b = document.getElementById('cvb'+i); if (b) b.className = i==k ? 'on' : ''; });
-    while (svg.firstChild) svg.removeChild(svg.firstChild);
-    const s = Sketch(svg), C = CURVES[k], h = 0.001;
-    let d = '';
-    for (let t = C.t0; t <= C.t1 + .001; t += (C.t1-C.t0)/240) {
-      const [x, y] = C.r(t); d += (d ? ' L' : 'M') + px(x) + ' ' + py(y); }
-    s.path(d, { stroke: P.deep, width: 2 });
-    for (let i = 0; i < C.n; i++) {
-      const t = C.t0 + (i + .5) * (C.t1 - C.t0) / C.n;
-      const v = deriv(C.r, t, h), a = deriv2(C.r, t, h);
-      const [x, y] = C.r(t);
-      const [Tx, Ty] = [v[0]/Math.hypot(...v), v[1]/Math.hypot(...v)];
-      const dTt = [ (deriv(C.r, t+h, h)[0]/Math.hypot(...deriv(C.r, t+h, h)) - Tx)/h,
-                    (deriv(C.r, t+h, h)[1]/Math.hypot(...deriv(C.r, t+h, h)) - Ty)/h ];
-      const [Nx, Ny] = [ dTt[0]/Math.hypot(...dTt), dTt[1]/Math.hypot(...dTt) ];
-      s.path(`M${px(x)} ${py(y)} L${px(x)+Tx*30} ${py(y)-Ty*30}`, { stroke: P.green, width: 2, arrow: true, rough: false });
-      s.path(`M${px(x)} ${py(y)} L${px(x)+Nx*22} ${py(y)-Ny*22}`, { stroke: P.amber, width: 1.8, arrow: true, rough: false });
-      const ascale = 30 / Math.max(Math.hypot(a[0], a[1]), 1e-9) * Math.min(Math.hypot(a[0], a[1]), 1.6);
-      s.path(`M${px(x)} ${py(y)} L${px(x)+a[0]*ascale} ${py(y)-a[1]*ascale}`,
-             { stroke: 'rgba(107,114,128,.8)', width: 1.5, arrow: true, rough: false });
-      s.dot(px(x), py(y), P.deep, 3);
-    }
-    s.label(320, 285, C.name, { size: 14, color: P.deep });
-    s.label(320, 34, '绿: T̂ (切向)   琥珀: N̂ (凹侧)   灰: a = v̇ T̂ + (v²/ρ) N̂', { size: 14, color: P.dim });
-    s.pulse(d, { t0: 0.4, travel: 3.4, period: 8, color: P.deep });
-  };
-  cvSet(0);
-});
-</script>
+<script defer="" src="resources/js/figs/curvature.js?v=2"></script>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-curvature-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+图&nbsp;3.1: 轨迹上的单位切向 <span class="math inline">\hat{\mathbf{T}}</span>（绿）、主法向 <span class="math inline">\hat{\mathbf{N}}</span>（琥珀）与加速度 <span class="math inline">\mathbf{a}</span>（灰）：加速度恒落在 <span class="math inline">\hat{\mathbf{T}}</span> 与 <span class="math inline">\hat{\mathbf{N}}</span> 张成的扇区内，即式 (3.6) 的两份贡献。
+</figcaption>
+</figure>
 </div>
 <div class="callout callout-style-default callout-note callout-titled" title="判据 C1（读运动学）">
 <div class="callout-header d-flex align-content-center">

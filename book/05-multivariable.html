@@ -326,6 +326,7 @@ document.addEventListener('DOMContentLoaded', function () {
   nav.insertBefore(a, nav.firstChild);
 });
 </script>
+<script defer="" src="resources/js/kx.js"></script>
 
   <script defer="" src="resources/libs/katex/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
@@ -651,8 +652,11 @@ J = \begin{pmatrix} \partial f_1/\partial x_1 &amp; \cdots &amp; \partial f_1/\p
 </tbody>
 </table>
 <p>三行共享一个模板「流量 = −系数 × 势的梯度」（物理侧的展开见 <span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 2.3</a>)</span>）。<strong>读到任何 <span class="math inline">\mathbf{X} = -\nabla Y</span>，脑中图像：从高山 <span class="math inline">Y</span> 往下冲的箭头场。</strong></p>
-<p>下面这张图演出梯度与等值面的关系。切换三个标量场，观察不变的规律：等值线（蓝）与梯度箭头（琥珀）处处垂直，箭头指向函数上升方向，等值线越密处箭头越长。</p>
-<div class="grad-fig" aria-hidden="true">
+<p><a href="#fig-gradient" class="quarto-xref">图&nbsp;<span>5.1</span></a> 演出梯度与等值面的关系。切换三个标量场，观察不变的规律：等值线（蓝）与梯度箭头（琥珀）处处垂直，箭头指向函数上升方向，等值线越密处箭头越长。</p>
+<div id="fig-gradient" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-gradient-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="grad-fig">
 <style>
 .grad-fig { margin: 1.6em 0; }
 .grad-fig svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
@@ -675,53 +679,13 @@ f = x² − y² （鞍）
 </div>
 <svg id="gradsvg" viewbox="0 0 360 350" width="360" height="350">
 </svg>
-<script>
-window.addEventListener('load', function () {
-  if (typeof Sketch === 'undefined') return;
-  const svg = document.getElementById('gradsvg');
-  const P = { ink: '#3a4aa8', deep: '#2c3a8c', amber: '#bf8700', green: '#1a7f37', dim: '#9aa1b9' };
-  const W = 2.4, px = x => 180 + x/W*150, py = y => 185 - y/W*150;  /* 世界 [-2.4,2.4] */
-  const FIELDS = [
-    { name: 'f = x²+y²',  f: (x,y)=>x*x+y*y,   g: (x,y)=>[2*x, 2*y],
-      levels: [0.5, 1.2, 2.2, 3.5, 5],   /* 圆 */
-      iso(s) { const r = s; let d = '';
-        for (let a = 0; a <= 6.4; a += .12) { const X = px(r*Math.cos(a)), Y = py(r*Math.sin(a));
-          d += (d ? ' L' : 'M') + X + ' ' + Y; } return d; } },
-    { name: 'f = x+0.7y', f: (x,y)=>x+0.7*y,   g: (x,y)=>[1, 0.7],
-      levels: [-2, -1, 0, 1, 2],         /* 平行线 */
-      iso(c) { return `M${px(-2.4)} ${py((c+2.4)/0.7)} L${px(5.4)} ${py((c-2.4)/0.7)}`; } },
-    { name: 'f = x²−y²',  f: (x,y)=>x*x-y*y,   g: (x,y)=>[2*x, -2*y],
-      levels: [-3, -1.2, 1.2, 3],        /* 双曲线两支 */
-      iso(c) { let d1 = '', d2 = '';
-        for (let y = -2.2; y <= 2.21; y += .12) {
-          const x2 = y*y + c; if (x2 < 0.02) continue; const x = Math.sqrt(x2);
-          d1 += (d1 ? ' L' : 'M') + px(x) + ' ' + py(y);
-          d2 += (d2 ? ' L' : 'M') + px(-x) + ' ' + py(y); }
-        return d1 + ' ' + d2; } },
-  ];
-  window.gSet = function (k) {
-    [0,1,2].forEach(i => { const b = document.getElementById('gb'+i); if (b) b.className = i==k ? 'on' : ''; });
-    while (svg.firstChild) svg.removeChild(svg.firstChild);
-    const s = Sketch(svg), F = FIELDS[k];
-    s.path(`M${px(-2.4)} ${py(-2.4)} L${px(5.4)} ${py(-2.4)} L${px(5.4)} ${py(5.4)} L${px(-2.4)} ${py(5.4)} Z`,
-           { stroke: 'rgba(154,161,185,.6)', width: 1.2 });
-    F.levels.forEach(c => s.path(F.iso(c), { stroke: 'rgba(58,74,168,.75)', width: 1.6 }));
-    /* 梯度箭头场: 长度∝|∇f|, 上限 26px */
-    for (let gx = -2; gx <= 2; gx += 1) for (let gy = -2; gy <= 2; gy += 1) {
-      if (Math.abs(gx) < .01 && Math.abs(gy) < .01 && k == 0) continue;
-      const [gxv, gyv] = F.g(gx, gy), L = Math.hypot(gxv, gyv);
-      if (L < 0.05) continue;
-      const ux = gxv/L, uy = gyv/L, len = Math.min(6 + 9*L, 26);
-      const x0 = px(gx) - ux*len/2, y0 = py(gy) + uy*len/2;      /* 屏幕y向下 */
-      s.path(`M${x0} ${y0} L${x0 + ux*len} ${y0 - uy*len}`,
-             { stroke: P.amber, width: 2, arrow: true, rough: false });
-    }
-    s.label(180, 330, FIELDS[k].name + '   蓝线: 等值线   琥珀: ∇f（⊥等值线, 指上升）', { size: 14, color: P.deep });
-    s.label(180, 346, '等值线越密 ⇒ 箭头越长（坡越陡）', { size: 13, color: P.dim });
-  };
-  gSet(0);
-});
-</script>
+<script defer="" src="resources/js/figs/gradient.js?v=2"></script>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gradient-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+图&nbsp;5.1: 三个标量场的等值线（蓝）与梯度箭头（琥珀）：梯度处处垂直等值线、指向上升方向；等值线越密处箭头越长。
+</figcaption>
+</figure>
 </div>
 </section>
 <section id="一个预告nabla2" class="level2" data-number="5.7">

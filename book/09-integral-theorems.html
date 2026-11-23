@@ -326,6 +326,7 @@ document.addEventListener('DOMContentLoaded', function () {
   nav.insertBefore(a, nav.firstChild);
 });
 </script>
+<script defer="" src="resources/js/kx.js"></script>
 
   <script defer="" src="resources/libs/katex/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
@@ -547,70 +548,24 @@ window.Quarto = {
 \oint_{\partial V} \mathbf{F}\cdot\mathrm{d}\mathbf{A} \;=\; \iiint_V (\nabla\cdot\mathbf{F})\, \mathrm{d}v \tag{9.1}
 </span></p>
 <p>读出来正是 FTC 那句话：<strong>边界（表面）上的量 = 内部源的累积</strong>。场线语言里它是一次数数游戏：穿出的线数 = 内部发出的线数，与面选得多歪多圆无关（散度定理：<span class="citation" data-cites="stewart2016 griffiths2013">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 16.9</a>; <a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 1.3</a>)</span>）。</p>
-<p>物理的第一次兑付是高斯定律 <span class="math inline">\oint \mathbf{E}\cdot\mathrm{d}\mathbf{A} = Q_{\text{enc}}/\varepsilon_0</span>：<strong>数穿出闭合面的电场线，就数出了内部电荷总量</strong>——这是计算对称电场最强的一招。下图就是它的场线版：</p>
-<div class="gau-fig" aria-hidden="true">
+<p>物理的第一次兑付是高斯定律 <span class="math inline">\oint \mathbf{E}\cdot\mathrm{d}\mathbf{A} = Q_{\text{enc}}/\varepsilon_0</span>：<strong>数穿出闭合面的电场线，就数出了内部电荷总量</strong>——这是计算对称电场最强的一招。见 <a href="#fig-gauss" class="quarto-xref">图&nbsp;<span>9.1</span></a>。</p>
+<div id="fig-gauss" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-gauss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="gau-fig">
 <style>
 .gau-fig { margin: 1.6em 0; }
 .gau-fig svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
 </style>
-<svg id="gaussvg" viewbox="0 0 680 290" width="680" height="290">
+<svg id="gaussvg" viewbox="0 0 680 300" width="680" height="300">
 </svg>
-<script>
-window.addEventListener('load', function () {
-  if (typeof Sketch === 'undefined') return;
-  const svg = document.getElementById('gaussvg');
-  const P = { ink: '#3a4aa8', deep: '#2c3a8c', amber: '#bf8700', green: '#1a7f37', dim: '#9aa1b9' };
-  const s = Sketch(svg);
-  function panel(cx, qy, qin) {
-    const cy = 150, R = 92;
-    let circle = '';
-    for (let a = 0; a <= 6.4; a += .15) circle += (circle ? ' L' : 'M') + (cx + R*Math.cos(a)) + ' ' + (cy + R*Math.sin(a));
-    s.path(circle + ' Z', { stroke: 'rgba(58,74,168,.8)', width: 1.8 });
-    s.label(cx, cy + R + 24, '高斯面', { size: 14, color: P.deep });
-    const qx = qin ? cx : cx + R + 78;
-    s.dot(qx, qy, P.amber, 7);
-    s.label(qx, qy - 14, '+q', { size: 15, color: P.amber, mono: true });
-    const hits = [];
-    for (let i = 0; i < 12; i++) {
-      const a = i/12*2*Math.PI, L = 150;
-      const ex = qx + L*Math.cos(a), ey = qy + L*Math.sin(a);
-      s.path(`M${qx + 10*Math.cos(a)} ${qy + 10*Math.sin(a)} L${ex} ${ey}`,
-             { stroke: 'rgba(191,135,0,.5)', width: 1.2, rough: false });
-      const dx = ex - qx, dy = ey - qy;
-      const fx = qx - cx, fy = qy - cy;
-      const A = dx*dx + dy*dy, B = 2*(fx*dx + fy*dy), C = fx*fx + fy*fy - R*R;
-      const disc = B*B - 4*A*C;
-      if (disc > 0) {
-        [(-B - Math.sqrt(disc))/(2*A), (-B + Math.sqrt(disc))/(2*A)].forEach(t => {
-          if (t > 0.05 && t < 1) {
-            const px = qx + t*dx, py = qy + t*dy;
-            s.path(`M${px - 9*Math.cos(a)} ${py - 9*Math.sin(a)} L${px} ${py}`,
-                   { stroke: P.green, width: 1.6, arrow: true, rough: false });
-            hits.push([a, px, py]);
-          }
-        });
-      }
-    }
-    return hits;
-  }
-  const hL = panel(170, 150, true);
-  panel(510, 150, false);
-  s.label(170, 40, '电荷在面内：每条线都穿出', { size: 15, color: P.deep });
-  s.label(510, 40, '电荷在面外：穿入 = 穿出', { size: 15, color: P.deep });
-  s.label(170, 272, '∮ E·dA = q/ε₀  （净通量 > 0）', { size: 14.5, color: P.green, mono: true });
-  s.label(510, 272, '∮ E·dA = 0  （净通量 = 0）', { size: 14.5, color: P.green, mono: true });
-  if (hL.length) { const [a, px, py] = hL[0];
-    s.pulse(`M170 150 L${px} ${py}`, { t0: 0.5, travel: 1.2, period: 5, color: P.green }); }
-  const qxr = 510 + 92 + 78;
-  const through = [-0.35, -0.15, 0.15, 0.35];
-  through.forEach((da, i) => {
-    const a = Math.PI + da;
-    const ex = qxr + 150*Math.cos(a), ey = 150 + 150*Math.sin(a);
-    s.pulse(`M${qxr + 10*Math.cos(a)} ${150 + 10*Math.sin(a)} L${ex} ${ey}`,
-            { t0: 1.2 + i*0.4, travel: 1.6, period: 6, color: P.green });
-  });
-});
-</script>
+<script defer="" src="resources/js/figs/gauss.js?v=2"></script>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gauss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+图&nbsp;9.1: 高斯定律的场线计数：电荷在面内（左）每条场线穿出，净通量 <span class="math inline">q/\varepsilon_0</span>；电荷在面外（右）穿入必再穿出，净通量为零。
+</figcaption>
+</figure>
 </div>
 <p>左面板：电荷在面内，所有场线穿出——数线即数电荷；右面板：电荷在面外，每条穿入的线必然再穿出（场线不凭空消失），净通量为零。<strong>这就是 <span class="math inline">\nabla\cdot\mathbf{E} = \rho/\varepsilon_0</span> 的全部直觉</strong>：电荷是电场线的源，散度数的是源。</p>
 </section>
