@@ -1,0 +1,20 @@
+<div class="ftc-fig">
+<style>
+.ftc-fig { margin: 1.6em 0; }
+.ftc-fig svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+.ftc-fig .ftc-bar { display: flex; gap: .5em; margin-bottom: .6em; justify-content: center; }
+.ftc-fig .ftc-bar button { font: 500 .85em -apple-system,"PingFang SC",sans-serif; padding: .32em 1em;
+  border: 1px solid #ddd8ce; border-radius: 6px; background: #fff; color: #24292f; cursor: pointer; }
+.ftc-fig .ftc-bar button:hover { border-color: #3a4aa8; color: #3a4aa8; }
+.ftc-fig .ftc-bar button.on { border-color: #3a4aa8; color: #fff; background: #3a4aa8; }
+</style>
+<div class="ftc-bar">
+<button onclick="rmSet(4)" id="rmb4">N = 4</button>
+<button onclick="rmSet(8)" id="rmb8">N = 8</button>
+<button onclick="rmSet(16)" id="rmb16">N = 16</button>
+<button onclick="rmSet(64)" id="rmb64" class="on">N = 64</button>
+</div>
+
+<svg id="ftcsvg" viewBox="0 0 660 270" width="660" height="270"></svg>
+<script defer src="resources/js/figs/ftc.js?v=2"></script>
+</div>

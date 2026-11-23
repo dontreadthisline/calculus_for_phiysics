@@ -5,6 +5,12 @@ project:
 
 bibliography: references.bib
 
+crossref:
+  fig-title: "图"
+  fig-prefix: "图"
+  tbl-title: "表"
+  tbl-prefix: "表"
+
 book:
   title: "微积分的物理地图"
   subtitle: "为经典力学与电动力学重学微积分 — 一张自包含的语言地图"
@@ -28,7 +34,7 @@ book:
 format:
   indigo-atlas-html:
     code-copy: true
-    include-in-header: back-to-landing.html
+    include-in-header: [back-to-landing.html, kx-head.html]
     reference-location: section
     html-math-method:
       method: katex

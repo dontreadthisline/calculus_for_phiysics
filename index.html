@@ -97,6 +97,7 @@ nav .links a { color: var(--dim); } nav .links a:hover { color: var(--accent); }
 </style>
 <link rel="stylesheet" href="book/resources/libs/katex/katex.min.css">
 <script defer src="book/resources/libs/katex/katex.min.js" onload="renderFx()"></script>
+<script defer src="book/resources/js/kx.js"></script>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute"><defs>
@@ -167,7 +168,7 @@ nav .links a { color: var(--dim); } nav .links a:hover { color: var(--accent); }
     <div class="iso-cell">
       <div class="n">母动作一</div>
       <div class="t">切 — 局部线性化</div>
-      <div class="v"><svg width="100%" viewBox="0 0 230 210" style="max-width:260px">
+      <div class="v"><svg id="isoCutSvg" width="100%" viewBox="0 0 230 210" style="max-width:260px">
         <g filter="url(#rough)">
           <path d="M20 180 C 60 170, 90 130, 130 92 S 190 38, 210 22" stroke="#3a4aa8" stroke-width="2" fill="none"/>
           <path d="M52 168 L 172 40" stroke="#bf8700" stroke-width="1.8" marker-end="url(#ah)" transform="translate(14,2)"/>
@@ -175,15 +176,13 @@ nav .links a { color: var(--dim); } nav .links a:hover { color: var(--accent); }
           <line x1="130" y1="66" x2="196" y2="96" stroke="rgba(154,161,185,.7)" stroke-width="1.1"/>
         </g>
         <circle cx="113" cy="81" r="4" fill="#bf8700"/>
-        <text x="196" y="92" font-family="Caveat,cursive" font-size="17" fill="#9aa1b9" text-anchor="middle">放大后是直线</text>
-        <text x="60" y="200" font-family="ui-monospace,Menlo,monospace" font-size="13" fill="#2c3a8c">f(x+Δx) ≈ f(x) + f′(x)Δx</text>
       </svg></div>
       <div class="cap">导数是放大镜；一切「率」与「小量近似」都是它</div>
     </div>
     <div class="iso-cell">
       <div class="n">母动作二</div>
       <div class="t">积 — 无穷累积</div>
-      <div class="v"><svg width="100%" viewBox="0 0 230 210" style="max-width:260px">
+      <div class="v"><svg id="isoIntSvg" width="100%" viewBox="0 0 230 210" style="max-width:260px">
         <g filter="url(#rough)">
           <path d="M25 190 L 205 190" stroke="#9aa1b9" stroke-width="1.4"/>
           <rect x="40"  y="132" width="24" height="58" fill="rgba(191,135,0,.12)" stroke="rgba(191,135,0,.5)"/>
@@ -194,8 +193,6 @@ nav .links a { color: var(--dim); } nav .links a:hover { color: var(--accent); }
           <rect x="160" y="34"  width="24" height="156" fill="rgba(191,135,0,.12)" stroke="rgba(191,135,0,.5)"/>
           <path d="M40 138 C 80 128, 120 96, 184 40" stroke="#3a4aa8" stroke-width="2" fill="none"/>
         </g>
-        <text x="185" y="24" font-family="Caveat,cursive" font-size="20" fill="#9aa1b9" text-anchor="middle">∫ 就是拉长的 Σ</text>
-        <text x="60" y="14" font-family="ui-monospace,Menlo,monospace" font-size="13" fill="#2c3a8c">∫ f dx = lim Σ f(xᵢ)Δx</text>
       </svg></div>
       <div class="cap">总电荷、总功、路程 — 积什么、在哪测、界在哪</div>
     </div>
@@ -241,6 +238,14 @@ function renderFx() {
     katex.render(MX[id], document.getElementById(id), { throwOnError: false });
   });
 }
+
+/* iso 两格的公式: KaTeX 进 SVG */
+window.addEventListener('load', function () {
+  var c = document.getElementById('isoCutSvg');
+  if (c && window.kx) kx(c, 115, 199, 'f(x+\\Delta x)\\;\\approx\\;f(x)+f\'(x)\\,\\Delta x', { fs: 13, color: '#2c3a8c' });
+  var n = document.getElementById('isoIntSvg');
+  if (n && window.kx) kx(n, 115, 13, '\\int f\\,\\mathrm{d}x\\;=\\;\\lim\\sum f(x_i)\\,\\Delta x', { fs: 13, color: '#2c3a8c' });
+});
 
 /* 第三屏: 路线 + 章节 */
 (function () {

@@ -78,70 +78,13 @@ $$
 
 两个特例直接回收前文的伏笔：匀速圆周运动 $\dot v = 0$、$\rho = R$，$\mathbf{a} = v^2/R$ 指向圆心——**第 1、2 讲反复借用的「向心加速度」在这里拿到完整来历**；匀速直线 $\kappa=0$ 且 $\dot v=0$，加速度为零——牛顿第一定律是 (3.6) 的退化情形。变速率圆周（例如单摆）则是两项并存：切向改变快慢、法向负责拐弯。这一分解是力学书「自然坐标系」的全部内容（运动学分解的教材展开：[@stewart2016, sec. 13.4; @taylor2005, ch. 1]）。
 
-下图演出这套几何：质点沿轨迹运动（光点），采样点上画出单位切向 $\hat{\mathbf{T}}$（绿，恒指运动方向）、主法向 $\hat{\mathbf{N}}$（琥珀，恒指凹侧）与加速度 $\mathbf{a}$（灰）。观察两件事：$\hat{\mathbf{N}}$ 永远指向凹侧；$\mathbf{a}$ 总在 $\hat{\mathbf{T}}$ 与 $\hat{\mathbf{N}}$ 张成的扇区内——它就是两份贡献的向量和。
+@fig-curvature 演出这套几何：质点沿轨迹运动（光点），采样点上画出单位切向 $\hat{\mathbf{T}}$（绿，恒指运动方向）、主法向 $\hat{\mathbf{N}}$（琥珀，恒指凹侧）与加速度 $\mathbf{a}$（灰）。观察两件事：$\hat{\mathbf{N}}$ 永远指向凹侧；$\mathbf{a}$ 总在 $\hat{\mathbf{T}}$ 与 $\hat{\mathbf{N}}$ 张成的扇区内——它就是两份贡献的向量和。
 
-<div class="curv-fig" aria-hidden="true">
-<style>
-.curv-fig { margin: 1.6em 0; }
-.curv-fig svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
-.curv-fig .c-bar { display: flex; gap: .5em; margin-bottom: .6em; justify-content: center; }
-.curv-fig .c-bar button { font: 500 .85em -apple-system,"PingFang SC",sans-serif; padding: .32em 1em;
-  border: 1px solid #ddd8ce; border-radius: 6px; background: #fff; color: #24292f; cursor: pointer; }
-.curv-fig .c-bar button:hover { border-color: #3a4aa8; color: #3a4aa8; }
-.curv-fig .c-bar button.on { border-color: #3a4aa8; color: #fff; background: #3a4aa8; }
-</style>
-<div class="c-bar">
-<button onclick="cvSet(0)" id="cvb0" class="on">椭圆轨道</button>
-<button onclick="cvSet(1)" id="cvb1">平面螺线</button>
-</div>
-<svg id="curvsvg" viewBox="0 0 640 300" width="640" height="300"></svg>
-<script>
-window.addEventListener('load', function () {
-  if (typeof Sketch === 'undefined') return;
-  const svg = document.getElementById('curvsvg');
-  const P = { ink: '#3a4aa8', deep: '#2c3a8c', amber: '#bf8700', green: '#1a7f37', dim: '#9aa1b9' };
-  const CURVES = [
-    { name: '椭圆 r(t) = (a cos t, b sin t)   匀参数 ≠ 匀速率: 近轴处更快',
-      r: t => [2.9*Math.cos(t), 1.7*Math.sin(t)], t0: 0, t1: 2*Math.PI, n: 10 },
-    { name: '螺线 r(t) = (t cos 3t, t sin 3t)   曲率随位置变化: 越外越"直"',
-      r: t => [(t/2.35)*Math.cos(3*t), (t/2.35)*Math.sin(3*t)], t0: 0.45, t1: 2.25, n: 9 },
-  ];
-  const px = x => 320 + x/3.6*290, py = y => 160 - y/2.4*115;
-  const deriv = (f, t, h) => { const a = f(t-h), b = f(t+h);
-    return [(b[0]-a[0])/(2*h), (b[1]-a[1])/(2*h)]; };
-  const deriv2 = (f, t, h) => { const c = f(t), d1 = deriv(f, t-h, h), d2 = deriv(f, t+h, h);
-    return [(d2[0] + d1[0] - 2*c[0])/(h*h), (d2[1] + d1[1] - 2*c[1])/(h*h)]; };
-  window.cvSet = function (k) {
-    [0,1].forEach(i => { const b = document.getElementById('cvb'+i); if (b) b.className = i==k ? 'on' : ''; });
-    while (svg.firstChild) svg.removeChild(svg.firstChild);
-    const s = Sketch(svg), C = CURVES[k], h = 0.001;
-    let d = '';
-    for (let t = C.t0; t <= C.t1 + .001; t += (C.t1-C.t0)/240) {
-      const [x, y] = C.r(t); d += (d ? ' L' : 'M') + px(x) + ' ' + py(y); }
-    s.path(d, { stroke: P.deep, width: 2 });
-    for (let i = 0; i < C.n; i++) {
-      const t = C.t0 + (i + .5) * (C.t1 - C.t0) / C.n;
-      const v = deriv(C.r, t, h), a = deriv2(C.r, t, h);
-      const [x, y] = C.r(t);
-      const [Tx, Ty] = [v[0]/Math.hypot(...v), v[1]/Math.hypot(...v)];
-      const dTt = [ (deriv(C.r, t+h, h)[0]/Math.hypot(...deriv(C.r, t+h, h)) - Tx)/h,
-                    (deriv(C.r, t+h, h)[1]/Math.hypot(...deriv(C.r, t+h, h)) - Ty)/h ];
-      const [Nx, Ny] = [ dTt[0]/Math.hypot(...dTt), dTt[1]/Math.hypot(...dTt) ];
-      s.path(`M${px(x)} ${py(y)} L${px(x)+Tx*30} ${py(y)-Ty*30}`, { stroke: P.green, width: 2, arrow: true, rough: false });
-      s.path(`M${px(x)} ${py(y)} L${px(x)+Nx*22} ${py(y)-Ny*22}`, { stroke: P.amber, width: 1.8, arrow: true, rough: false });
-      const ascale = 30 / Math.max(Math.hypot(a[0], a[1]), 1e-9) * Math.min(Math.hypot(a[0], a[1]), 1.6);
-      s.path(`M${px(x)} ${py(y)} L${px(x)+a[0]*ascale} ${py(y)-a[1]*ascale}`,
-             { stroke: 'rgba(107,114,128,.8)', width: 1.5, arrow: true, rough: false });
-      s.dot(px(x), py(y), P.deep, 3);
-    }
-    s.label(320, 285, C.name, { size: 14, color: P.deep });
-    s.label(320, 34, '绿: T̂ (切向)   琥珀: N̂ (凹侧)   灰: a = v̇ T̂ + (v²/ρ) N̂', { size: 14, color: P.dim });
-    s.pulse(d, { t0: 0.4, travel: 3.4, period: 8, color: P.deep });
-  };
-  cvSet(0);
-});
-</script>
-</div>
+::: {#fig-curvature}
+{{< include figs/curvature.html >}}
+
+轨迹上的单位切向 $\hat{\mathbf{T}}$（绿）、主法向 $\hat{\mathbf{N}}$（琥珀）与加速度 $\mathbf{a}$（灰）：加速度恒落在 $\hat{\mathbf{T}}$ 与 $\hat{\mathbf{N}}$ 张成的扇区内，即式 (3.6) 的两份贡献。
+:::
 
 ::: {.callout-note title="判据 C1（读运动学）"}
 看到轨迹问题先分层：问的是**几何**（切向、曲率——只依赖轨迹）还是**物理**（速率、加速度——依赖运动规律）？看到 $v^2/\rho$ 立即翻译成「转弯加速度」；看到「向心」立即想 $v^2/R$ 是 (3.6) 的特例。

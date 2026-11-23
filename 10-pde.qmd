@@ -75,74 +75,13 @@ $$
 
 **边界条件筛出离散的 $\lambda$**——吉他弦只有特定频率、原子只有特定能级（量子力学里同一个机制）、热管只有特定衰减模式。$\lambda_n$ 叫本征值，对应的形状叫本征函数（本征值问题与傅里叶级数：[@strauss2008, ch. 5]）。读到「本征值问题」，翻译成「边界条件在给合法频率发牌照」。
 
-下面这张图演出模式叠加的力量：两端固定的弦上的方波初始形状 = 无穷多个驻波模式的和。逐档加入更多模式，看和曲线逼近方波——**每一档新加入的模式就是式 (10.6) 的一项**：
+@fig-modes 演出模式叠加的力量：两端固定的弦上的方波初始形状 = 无穷多个驻波模式的和。逐档加入更多模式，看和曲线逼近方波——**每一档新加入的模式就是式 (10.6) 的一项**：
 
-<div class="mode-fig" aria-hidden="true">
-<style>
-.mode-fig { margin: 1.6em 0; }
-.mode-fig svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
-.mode-fig .m-bar { display: flex; gap: .5em; margin-bottom: .6em; justify-content: center; flex-wrap: wrap; }
-.mode-fig .m-bar button { font: 500 .85em -apple-system,"PingFang SC",sans-serif; padding: .32em 1em;
-  border: 1px solid #ddd8ce; border-radius: 6px; background: #fff; color: #24292f; cursor: pointer; }
-.mode-fig .m-bar button:hover { border-color: #3a4aa8; color: #3a4aa8; }
-.mode-fig .m-bar button.on { border-color: #3a4aa8; color: #fff; background: #3a4aa8; }
-</style>
-<div class="m-bar">
-<button onclick="mSet(1)" id="mb1" class="on">前 1 项</button>
-<button onclick="mSet(3)" id="mb3">前 3 项</button>
-<button onclick="mSet(7)" id="mb7">前 7 项</button>
-<button onclick="mSet(15)" id="mb15">前 15 项</button>
-<button onclick="mSet(41)" id="mb41">前 41 项</button>
-</div>
-<svg id="modesvg" viewBox="0 0 640 270" width="640" height="270"></svg>
-<script>
-window.addEventListener('load', function () {
-  if (typeof Sketch === 'undefined') return;
-  const svg = document.getElementById('modesvg');
-  const P = { ink: '#3a4aa8', deep: '#2c3a8c', amber: '#bf8700', green: '#1a7f37', dim: '#9aa1b9' };
-  const px = x => 45 + x/(2*Math.PI)*550, py = v => 135 - v*88;
-  const sq = x => (x < Math.PI ? 1 : -1) * 0.82;          /* 方波目标 */
-  window.mSet = function (N) {
-    [1,3,7,15,41].forEach(n => { const b = document.getElementById('mb'+n); if (b) b.className = n==N ? 'on' : ''; });
-    while (svg.firstChild) svg.removeChild(svg.firstChild);
-    const s = Sketch(svg);
-    /* 边框: 两端固定的弦 */
-    s.path(`M${px(0)} ${py(0)} L${px(2*Math.PI)} ${py(0)}`, { stroke: 'rgba(154,161,185,.5)', width: 1.2 });
-    s.dot(px(0), py(0), P.dim, 4); s.dot(px(2*Math.PI), py(0), P.dim, 4);
-    /* 方波 (虚线参考) */
-    let dref = `M${px(0)} ${py(sq(0.01))}`;
-    for (let x = 0.02; x <= Math.PI - .02; x += .04) dref += ` L${px(x)} ${py(sq(x))}`;
-    dref += ` L${px(Math.PI+.02)} ${py(sq(Math.PI+.02))}`;
-    for (let x = Math.PI + .04; x <= 2*Math.PI; x += .04) dref += ` L${px(x)} ${py(sq(x))}`;
-    s.path(dref, { stroke: 'rgba(191,135,0,.55)', width: 1.3, rough: false });
-    /* 各模式 (淡) + 累加 (浓) */
-    let shown = 0, n = 1;
-    while (shown < N) {                                     /* 只画前 5 条模式线避免糊 */
-      if (shown < 5) {
-        let dm = '';
-        for (let x = 0; x <= 2*Math.PI + .01; x += .05)
-          dm += (dm ? ' L' : 'M') + px(x) + ' ' + py(4/(n*Math.PI)*Math.sin(n*x)*0.82);
-        s.path(dm, { stroke: 'rgba(26,127,55,.3)', width: 1, rough: false });
-      }
-      shown++; n += 2;
-    }
-    let d = '';
-    n = 1; let acc = 0;
-    for (let x = 0; x <= 2*Math.PI + .01; x += .02) {
-      let sum = 0; n = 1; let cnt = 0;
-      while (cnt < N) { sum += 4/(n*Math.PI)*Math.sin(n*x); n += 2; cnt++; }
-      d += (d ? ' L' : 'M') + px(x) + ' ' + py(sum*0.82);
-    }
-    s.path(d, { stroke: P.deep, width: 2.2 });
-    s.pulse(d, { t0: 0.4, travel: 3.2, period: 8, color: P.deep });
-    s.label(320, 30, '驻波模式叠出方波初始形状', { size: 16, color: P.deep });
-    s.label(320, 252, '深蓝: 前 ' + N + ' 项之和     淡绿: 各模式 sin(nx)     琥珀虚线: 目标方波', { size: 13.5, color: P.dim });
-    s.label(320, 236, 'λ = (nπ/L)² — 边界条件只发离散牌照', { size: 13.5, color: P.green });
-  };
-  mSet(1);
-});
-</script>
-</div>
+::: {#fig-modes}
+{{< include figs/modes.html >}}
+
+驻波模式叠加逼近方波初始形状：每档新增一项 $\sin(n\pi x/L)$，边界条件只发离散牌照 $\lambda_n = (n\pi/L)^2$。
+:::
 
 （图中可见的「过冲尖峰」叫吉布斯现象：不连续形状的级数在跳变处永远留一点毛刺——认得即可 [@strauss2008, ch. 5]。）
 
