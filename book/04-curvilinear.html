@@ -8,7 +8,7 @@
 
 <meta name="description" content="不训练计算肌肉，只重建语言能力：两个母动作、一座桥、坐标无关性与「定律→方程」的翻译术，从一元串联走到向量场、ODE、PDE，直通物理书页。">
 
-<title>5&nbsp; 定律变成方程：常微分方程 – 微积分的物理地图</title>
+<title>4&nbsp; 曲线坐标系 – 微积分的物理地图</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -51,8 +51,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./06-pde.html" rel="next">
-<link href="./04-vector-field.html" rel="prev">
+<link href="./05-multivariable.html" rel="next">
+<link href="./03-space-curves.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -382,7 +382,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-ode.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">定律变成方程：常微分方程</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-curvilinear.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">曲线坐标系</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -421,44 +421,68 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-two-moves.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">两个母动作</span></span></a>
+  <a href="./01-fundamentals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">微积分基本思想</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-multivariable.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">多元与全微分</span></span></a>
+  <a href="./02-ode.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">常微分方程与动力学</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-parametrize.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">参数化与换坐标</span></span></a>
+  <a href="./03-space-curves.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">参数方程与空间曲线</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-vector-field.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">向量场与三大定理</span></span></a>
+  <a href="./04-curvilinear.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">曲线坐标系</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-ode.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">定律变成方程：常微分方程</span></span></a>
+  <a href="./05-multivariable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">多元与全微分</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-pde.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">时空一起说话：偏微分方程</span></span></a>
+  <a href="./06-vector-fields.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">向量场与 <span class="math inline">\nabla</span> 算子</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-reading-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">阅读地图</span></span></a>
+  <a href="./07-multiple-integrals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">多重积分</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-line-surface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">曲线积分与曲面积分</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-integral-theorems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">积分定理</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-pde.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">时空一起说话：偏微分方程</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reading-map.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">阅读地图</span></span></a>
   </div>
 </li>
     </ul>
@@ -471,13 +495,12 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#定律-方程" id="toc-定律-方程" class="nav-link active" data-scroll-target="#定律-方程"><span class="header-section-number">5.1</span> 定律 → 方程</a></li>
-  <li><a href="#一阶方程指数是宇宙的默认解" id="toc-一阶方程指数是宇宙的默认解" class="nav-link" data-scroll-target="#一阶方程指数是宇宙的默认解"><span class="header-section-number">5.2</span> 一阶方程：指数是宇宙的默认解</a></li>
-  <li><a href="#二阶常系数谐振子全家" id="toc-二阶常系数谐振子全家" class="nav-link" data-scroll-target="#二阶常系数谐振子全家"><span class="header-section-number">5.3</span> 二阶常系数：谐振子全家</a></li>
-  <li><a href="#定性分析不解也读得出" id="toc-定性分析不解也读得出" class="nav-link" data-scroll-target="#定性分析不解也读得出"><span class="header-section-number">5.4</span> 定性分析：不解也读得出</a></li>
-  <li><a href="#耦合方程组一瞥" id="toc-耦合方程组一瞥" class="nav-link" data-scroll-target="#耦合方程组一瞥"><span class="header-section-number">5.5</span> 耦合方程组一瞥</a></li>
+  <li><a href="#极坐标与活基向量" id="toc-极坐标与活基向量" class="nav-link active" data-scroll-target="#极坐标与活基向量"><span class="header-section-number">4.1</span> 极坐标与活基向量</a></li>
+  <li><a href="#极坐标运动学速度与加速度" id="toc-极坐标运动学速度与加速度" class="nav-link" data-scroll-target="#极坐标运动学速度与加速度"><span class="header-section-number">4.2</span> 极坐标运动学：速度与加速度</a></li>
+  <li><a href="#柱坐标与球坐标" id="toc-柱坐标与球坐标" class="nav-link" data-scroll-target="#柱坐标与球坐标"><span class="header-section-number">4.3</span> 柱坐标与球坐标</a></li>
+  <li><a href="#坐标自带的度量面积元与体积元" id="toc-坐标自带的度量面积元与体积元" class="nav-link" data-scroll-target="#坐标自带的度量面积元与体积元"><span class="header-section-number">4.4</span> 坐标自带的度量：面积元与体积元</a></li>
   <li><a href="#出处与查表" id="toc-出处与查表" class="nav-link" data-scroll-target="#出处与查表">出处与查表</a></li>
-  <li><a href="#本章收束" id="toc-本章收束" class="nav-link" data-scroll-target="#本章收束"><span class="header-section-number">5.6</span> 本章收束</a></li>
+  <li><a href="#本讲收束" id="toc-本讲收束" class="nav-link" data-scroll-target="#本讲收束"><span class="header-section-number">4.5</span> 本讲收束</a></li>
   </ul>
 </nav>
     </div>
@@ -486,7 +509,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-ode" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">定律变成方程：常微分方程</span></span></h1>
+<h1 class="title"><span id="sec-curvilinear" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">曲线坐标系</span></span></h1>
 </div>
 
 
@@ -503,199 +526,180 @@ window.Quarto = {
 </header>
 
 
-<p>前四章的语言都是<strong>描述</strong>：描述场、描述变化率。但物理书的正戏是<strong>演化</strong>：给系统定律，问它接下来怎么动。而物理定律几乎全部写成「变化率之间的关系」——牛顿第二定律、热力学、麦克斯韦（含时间那一半）。把定律写下来，得到的不是公式而是<strong>方程</strong>：方程里藏着未知的函数及其导数。本章教你「读」这种方程——它的解长什么样、结构如何、初值条件扮演什么角色。计算技巧降到最低：读物理书要的是<strong>认出解的形状</strong>，不是亲手解。</p>
-<div class="callout callout-style-default callout-important callout-titled" title="本章问题">
+<p>第 3 讲末尾的麻烦是普遍的：直角坐标不是天然的，只是最常用的一种报名方式。中心力的问题里力永远指向前方，圆的方程在直角坐标是 <span class="math inline">x^2+y^2=r^2</span>、在极坐标是 <span class="math inline">r=\text{const}</span>；球对称电荷在直角坐标要三个变量纠缠、在球坐标只剩一个。<strong>换坐标 = 挑一个让物理量简单的报名方式</strong>，动机从来不是数学趣味，是对称性。本讲处理换坐标的全部语言：会转动的基向量、曲线坐标下的运动学、以及坐标自带的「度量」——面积元与体积元。</p>
+<div class="callout callout-style-default callout-important callout-titled" title="本讲问题">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>本章问题
+<span class="screen-reader-only">Important</span>本讲问题
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><span class="math inline">F = ma</span> 为什么是「方程」而不是「公式」？微分方程的解为什么是一<strong>族</strong>函数而不是一个？「齐次通解 + 特解」这个结构从哪里来，为什么初值/边界条件能从解族中挑出唯一的那个？</p>
+<p>极坐标的单位向量为什么是「活的」、它的时间导数怎么算，速度凭什么分成两项？柱/球坐标的运动学表达式长什么样？以及：为什么球坐标的体积元是 <span class="math inline">r^2\sin\theta\,\mathrm{d}r\,\mathrm{d}\theta\,\mathrm{d}\varphi</span>——多出来的因子从哪来？</p>
 </div>
 </div>
-<section id="定律-方程" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="定律-方程"><span class="header-section-number">5.1</span> 定律 → 方程</h2>
+<section id="极坐标与活基向量" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="极坐标与活基向量"><span class="header-section-number">4.1</span> 极坐标与活基向量</h2>
+<p>平面上一点有两种报名方式：直角 <span class="math inline">(x,y)</span>，或「多远 + 朝哪」<span class="math inline">(r,\varphi)</span>：</p>
 <p><span class="math display">
-m\ddot{x} = F(x, \dot{x}, t) \qquad \text{牛顿第二定律：一个二阶常微分方程（ODE）} \tag{5.1}
+x = r\cos\varphi, \qquad y = r\sin\varphi \tag{4.1}
 </span></p>
-<p>「常」微分方程：未知函数 <span class="math inline">x(t)</span> 只有一个自变量（时间）。(5.1) 不是拿来「代入求值」的公式——它是一道<strong>考题</strong>：找一个函数 <span class="math inline">x(t)</span>，代入后它的二阶导数恰好等于 <span class="math inline">F/m</span>。物理定律为什么总是这个形状？因为定律是<strong>局域</strong>的陈述：此刻的位置和速度决定此刻的加速度，下一步由下一步的定律接着管——「变化率驱动演化」是物理世界的基本合同。</p>
-<p>「解方程」在 ODE 语境下意味着：<strong>找函数</strong>。这就是你在物理书里看到的 <span class="math inline">x(t) = A\cos(\omega t + \varphi_0)</span> 的身份——它是方程 (5.3) 在 <span class="math inline">\gamma=f=0</span> 情形的<strong>通解</strong>（牛顿第二定律作为 ODE 的展开见 <span class="citation" data-cites="taylor2005">(<a href="#ref-taylor2005" role="doc-biblioref">Taylor 2005</a>, ch.&nbsp;1)</span>）。</p>
+<p>直角坐标的基向量 <span class="math inline">\hat{\mathbf{x}}, \hat{\mathbf{y}}</span> 是<strong>钉死的</strong>（<span class="math inline">\hat{\mathbf{x}}</span> 永远朝东）。极坐标的基向量 <span class="math inline">\hat{\mathbf{r}}, \hat{\boldsymbol{\varphi}}</span> 定义在<strong>每个点上</strong>：<span class="math inline">\hat{\mathbf{r}}</span> 指离原点向外的方向，<span class="math inline">\hat{\boldsymbol{\varphi}}</span> 指逆时针切向。它们随位置转动——<strong>活的基向量</strong>：</p>
+<p><span class="math display">
+\hat{\mathbf{r}} = (\cos\varphi,\; \sin\varphi), \qquad \hat{\boldsymbol{\varphi}} = (-\sin\varphi,\; \cos\varphi) \tag{4.2}
+</span></p>
+<p>活的基向量在求导时不再为零，这是力学书无数推导的暗礁。好消息是它的导数只要两行就能算清——对时间求导（链式法则，第 1 讲），注意 <span class="math inline">\varphi</span> 本身随时间变：</p>
+<p><span class="math display">
+\frac{\mathrm{d}\hat{\mathbf{r}}}{\mathrm{d}t} = \dot\varphi\,(-\sin\varphi,\; \cos\varphi) = \dot\varphi\,\hat{\boldsymbol{\varphi}}, \qquad
+\frac{\mathrm{d}\hat{\boldsymbol{\varphi}}}{\mathrm{d}t} = -\dot\varphi\,\hat{\mathbf{r}} \tag{4.3}
+</span></p>
+<p>读法：<strong>基向量以角速度 <span class="math inline">\dot\varphi</span> 旋转</strong>，导数就是「旋转 × 转过 <span class="math inline">90°</span> 的伙伴」。这两行是极坐标一切运动学的发动机。</p>
 </section>
-<section id="一阶方程指数是宇宙的默认解" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="一阶方程指数是宇宙的默认解"><span class="header-section-number">5.2</span> 一阶方程：指数是宇宙的默认解</h2>
-<p>最简单的 ODE 族里，两个成员覆盖了物理书的大半入门场景。</p>
-<p><strong>可分离变量</strong>：<span class="math inline">\frac{\mathrm{d}y}{\mathrm{d}t} = g(y)\,h(t)</span>。变量除法把导数拆开、两边各自积分（第 1 章母动作二）。原型是放射性衰变：</p>
+<section id="极坐标运动学速度与加速度" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="极坐标运动学速度与加速度"><span class="header-section-number">4.2</span> 极坐标运动学：速度与加速度</h2>
+<p>位置 <span class="math inline">\mathbf{r} = r\,\hat{\mathbf{r}}</span>（极坐标里位置永远只有径向分量）。对时间求导，乘积法则 + (4.3)：</p>
 <p><span class="math display">
-\frac{\mathrm{d}N}{\mathrm{d}t} = -\lambda N \;\;\Longrightarrow\;\; N(t) = N_0\, e^{-\lambda t} \tag{5.2}
+\mathbf{v} = \dot{r}\,\hat{\mathbf{r}} + r\,\dot\varphi\,\hat{\boldsymbol{\varphi}} \tag{4.4}
 </span></p>
-<p>读法：衰变率正比于现存数量——越多衰得越快，于是指数衰减。<strong>「率的值正比于当前的值」⇒ 指数解</strong>，这是全书最值得背的一句话级的规律（电容放电、牛顿冷却、光吸收全是它；分离变量与一阶方程的教材定位：<span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016</a>, ch.&nbsp;9)</span>）。</p>
-<p><strong>一阶线性</strong>：<span class="math inline">\frac{\mathrm{d}y}{\mathrm{d}t} + P(t)\,y = Q(t)</span>。有个万能的积分因子技巧，本书不讲——你只需认出形状与解的定性图像：暂态（齐次部分衰减掉）+ 稳态（跟着外源走），见下文「结构」一节。</p>
-<p><strong>初值条件</strong>：注意 (5.2) 里的 <span class="math inline">N_0</span>——方程本身没有固定它。<strong>通解是函数族，初值负责挑出其中一个</strong>。一阶方程需要一个初值（<span class="math inline">N(0)=N_0</span>）。</p>
+<p>第一项：离原点的距离在变（径向速度）。第二项：距离不变但方向在转（横向速度，<span class="math inline">r\dot\varphi</span> = 半径 × 角速度）。<strong>认得 (4.4) 是读开普勒一章的门票</strong>——中心力问题的全部推导都从这个展开开始。</p>
+<p>再求导一次（同两件工具），得极坐标加速度：</p>
+<p><span class="math display">
+\mathbf{a} = \underbrace{(\ddot{r} - r\dot\varphi^2)}_{\text{径向}}\hat{\mathbf{r}} \;+\; \underbrace{(r\ddot\varphi + 2\dot{r}\dot\varphi)}_{\text{横向}}\hat{\boldsymbol{\varphi}} \tag{4.5}
+</span></p>
+<p>不必会推导，但要认得出三个熟面孔：径向里的 <span class="math inline">-r\dot\varphi^2</span> 就是向心加速度（第 3 讲 <span class="math inline">v^2/\rho</span> 在 <span class="math inline">r</span> 不变时的化身，<span class="math inline">v = r\dot\varphi</span>）；横向的 <span class="math inline">2\dot r\dot\varphi</span> 叫科里奥利项（转盘上行走者被「甩」的效应）；真正的新加速度只有 <span class="math inline">\ddot r</span>。运动学的完整推导见 <span class="citation" data-cites="taylor2005">(<a href="#ref-taylor2005" role="doc-biblioref">Taylor 2005</a>, ch.&nbsp;8)</span>。</p>
 </section>
-<section id="二阶常系数谐振子全家" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="二阶常系数谐振子全家"><span class="header-section-number">5.3</span> 二阶常系数：谐振子全家</h2>
-<p>力学与电路的骨干方程：</p>
+<section id="柱坐标与球坐标" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="柱坐标与球坐标"><span class="header-section-number">4.3</span> 柱坐标与球坐标</h2>
+<p>三维对称性升级，坐标跟着升级。<strong>柱坐标</strong> <span class="math inline">=</span> 平面极坐标 <span class="math inline">+\,z</span>，基向量 <span class="math inline">\hat{\mathbf{r}}, \hat{\boldsymbol{\varphi}}, \hat{\mathbf{z}}</span>，运动学直接继承 (4.4)(4.5)：</p>
 <p><span class="math display">
-\ddot{x} + \gamma\,\dot{x} + \omega_0^2\, x = f(t) \qquad
-(\text{自由振动 } \gamma=f=0;\; \text{阻尼 } \gamma&gt;0;\; \text{受迫 } f\neq 0) \tag{5.3}
+\mathbf{v} = \dot r\,\hat{\mathbf{r}} + r\dot\varphi\,\hat{\boldsymbol{\varphi}} + \dot z\,\hat{\mathbf{z}}, \qquad
+\mathbf{a} = a_{\text{极坐标}} + \ddot z\,\hat{\mathbf{z}} \tag{4.6}
 </span></p>
-<p>它来自弹簧 <span class="math inline">m\ddot{x} = -kx</span>（加上阻尼、外力），覆盖单摆小角度、LC 电路、分子振动、桥梁、地震仪。<strong>怎么解不重要，为什么解法有效值得看一眼</strong>——一行就够：猜 <span class="math inline">x = e^{rt}</span>，因为指数函数是「求导的不动点」（<span class="math inline">\frac{\mathrm{d}}{\mathrm{d}t}e^{rt} = r\,e^{rt}</span>，形状不变），代入后 <span class="math inline">e^{rt}</span> 从方程里约掉，剩下一个<strong>代数</strong>方程：</p>
+<p><strong>球坐标</strong> <span class="math inline">(r,\theta,\varphi)</span>：半径 <span class="math inline">r</span>、极角 <span class="math inline">\theta</span>（自 <span class="math inline">+z</span> 量起）、方位角 <span class="math inline">\varphi</span>（绕 <span class="math inline">z</span> 轴）。换算：</p>
 <p><span class="math display">
-r^2 + \gamma\, r + \omega_0^2 = 0 \qquad \text{（特征方程）} \tag{5.4}
+x = r\sin\theta\cos\varphi,\quad y = r\sin\theta\sin\varphi,\quad z = r\cos\theta \tag{4.7}
 </span></p>
-<p>二阶 ODE 降成二次方程，根 <span class="math inline">r_{1,2}</span> 给出两个解 <span class="math inline">e^{r_1 t}, e^{r_2 t}</span>。判别式分三种情形，每种对应一种<strong>看得见的运动</strong>：</p>
+<p>速度是三项（每项 = 该坐标变化率 × 对应「杠杆臂」）：</p>
+<p><span class="math display">
+\mathbf{v} = \dot r\,\hat{\mathbf{r}} + r\dot\theta\,\hat{\boldsymbol{\theta}} + r\sin\theta\,\dot\varphi\,\hat{\boldsymbol{\varphi}} \tag{4.8}
+</span></p>
+<p><span class="math inline">\sin\theta</span> 出现的理由与体积元里同源：纬圈半径被 <span class="math inline">\theta</span> 打折（见下节）。球坐标的<strong>加速度</strong>全式很长，物理书（如 <span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 1.4</a>)</span> 的坐标表）把它当附表使用——认读立场：知道它存在、知道每个字母什么意思、需要时查表，不背。基向量体系与各坐标算子的完整表格见 <span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 1.4</a>)</span>。</p>
+</section>
+<section id="坐标自带的度量面积元与体积元" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="坐标自带的度量面积元与体积元"><span class="header-section-number">4.4</span> 坐标自带的度量：面积元与体积元</h2>
+<p>坐标不只报名，还自带「量面积/体积的尺子」。极坐标下取一小格：径向边长 <span class="math inline">\mathrm{d}r</span>，弧向边长不是 <span class="math inline">\mathrm{d}\varphi</span> 而是<strong>弧长</strong> <span class="math inline">r\,\mathrm{d}\varphi</span>（半径乘角度）：</p>
+<p><span class="math display">
+\mathrm{d}A = r\,\mathrm{d}r\,\mathrm{d}\varphi \tag{4.9}
+</span></p>
+<p>同样的格子，离原点越远越大——像切披萨，靠边的楔形块面积更大（极坐标面积：<span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 10.4</a>)</span>）。柱坐标体积元直接继承：</p>
+<p><span class="math display">
+\mathrm{d}v = r\,\mathrm{d}r\,\mathrm{d}\varphi\,\mathrm{d}z \qquad(\text{柱}) \tag{4.10}
+</span></p>
+<p>球坐标体积元的记忆锚点是<strong>小砖块的三条边</strong>：</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>判别式</th>
-<th>根</th>
-<th>解的形状</th>
-<th>物理名字</th>
+<th>边</th>
+<th>长度</th>
+<th>理由</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><span class="math inline">\gamma^2 &lt; 4\omega_0^2</span></td>
-<td>共轭复根 <span class="math inline">-\gamma/2 \pm i\omega'</span></td>
-<td><span class="math inline">e^{-\gamma t/2}\cos(\omega' t + \varphi_0)</span></td>
-<td><strong>欠阻尼</strong>：振荡着衰减</td>
+<td>径向</td>
+<td><span class="math inline">\mathrm{d}r</span></td>
+<td>沿半径走</td>
 </tr>
 <tr class="even">
-<td><span class="math inline">\gamma^2 = 4\omega_0^2</span></td>
-<td>重根</td>
-<td><span class="math inline">(A + Bt)\,e^{-\gamma t/2}</span></td>
-<td><strong>临界阻尼</strong>：不振荡，最快归位（门吸、仪表指针）</td>
+<td>沿经线（<span class="math inline">\theta</span> 方向）</td>
+<td><span class="math inline">r\,\mathrm{d}\theta</span></td>
+<td>大圆弧长 = 半径 × 角</td>
 </tr>
 <tr class="odd">
-<td><span class="math inline">\gamma^2 &gt; 4\omega_0^2</span></td>
-<td>两负实根</td>
-<td><span class="math inline">A e^{r_1 t} + B e^{r_2 t}</span></td>
-<td><strong>过阻尼</strong>：缓慢爬回（浓糖浆里的弹簧）</td>
+<td>沿纬线（<span class="math inline">\varphi</span> 方向）</td>
+<td><span class="math inline">r\sin\theta\,\mathrm{d}\varphi</span></td>
+<td>纬圈半径不是 <span class="math inline">r</span>，是 <span class="math inline">r\sin\theta</span></td>
 </tr>
 </tbody>
 </table>
-<p>复根怎么给出振荡？欧拉公式 <span class="math inline">e^{i\theta} = \cos\theta + i\sin\theta</span>——复指数的实部就是振荡（复数与欧拉公式的系统处理：<span class="citation" data-cites="boas2006">(<a href="#ref-boas2006" role="doc-biblioref">Boas 2006</a>, ch.&nbsp;2)</span>）。<strong>「振荡 = 频率取虚数的指数」</strong>，虚数不是玄学，是特征方程在告诉你「这个系统在振动」。</p>
-<p><strong>结构定理</strong>（线性 ODE 的组织方式，物理书的地基）：</p>
 <p><span class="math display">
-y_{\text{通解}} = y_h \;(\text{齐次通解，含待定常数}) + y_p \;(\text{任一特解}) \tag{5.5}
+\mathrm{d}v = r^2 \sin\theta\;\mathrm{d}r\,\mathrm{d}\theta\,\mathrm{d}\varphi \qquad(\text{球}) \tag{4.11}
 </span></p>
-<p>齐次部分 <span class="math inline">y_h</span> 是系统<strong>自己的</strong>运动模式（自然频率、衰减率），特解 <span class="math inline">y_p</span> 是外源<strong>逼出来的</strong>响应。受迫振动的标准图景由此读出：刚启动时两者都在（<strong>暂态</strong>），阻尼磨掉 <span class="math inline">y_h</span> 后只剩 <span class="math inline">y_p</span>（<strong>稳态</strong>）；外源频率逼近 <span class="math inline">\omega_0</span> 时 <span class="math inline">y_p</span> 的振幅暴涨（<strong>共振</strong>）。读 RLC 电路、受迫振动、散射共振，全是这一个结构（受迫振动与共振的展开：<span class="citation" data-cites="taylor2005">(<a href="#ref-taylor2005" role="doc-biblioref">Taylor 2005</a>, ch.&nbsp;5)</span>）。</p>
-<p>为什么解可以叠加以至「通解 = 齐次 + 特解」？因为方程<strong>线性</strong>：解的线性组合还是解（叠加原理）。线性从哪来？定律本身线性（弹簧力 <span class="math inline">\propto</span> 位移）。非线性 ODE（如大角度单摆）没有这个结构，解也不可叠加——物理书对它们的态度通常是「小角度近似线性化」（第 1 章放大镜又出场）。</p>
-<p><strong>初值条件</strong>：二阶方程需要<strong>两个</strong>（如 <span class="math inline">x(0)</span> 与 <span class="math inline">\dot{x}(0)</span>：初始位置与初始速度）。直觉：预测未来需要知道「现在在哪 + 现在往哪冲」，缺一不可。通解里恰好有两个待定常数，两个条件恰好锁定它们——这不是巧合，是「阶数 = 所需初值个数」的一般规律。</p>
-</section>
-<section id="定性分析不解也读得出" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="定性分析不解也读得出"><span class="header-section-number">5.4</span> 定性分析：不解也读得出</h2>
-<p>物理书大量出现「不解方程，直接判断」的段落，工具是<strong>相图</strong>：以 <span class="math inline">(x, \dot{x})</span> 为坐标画轨迹族（定性方法的系统训练：<span class="citation" data-cites="strogatz2015">(<a href="#ref-strogatz2015" role="doc-biblioref">Strogatz 2015</a>, ch.&nbsp;2)</span>）。两个够用的读法：</p>
-<ul>
-<li><strong>平衡点</strong>（<span class="math inline">F=0</span> 的点）：附近轨迹被推开的 = 不稳定（倒立摆）；被吸住的 = 稳定（碗底）。<span class="math inline">\frac{\mathrm{d}}{\mathrm{d}t}</span>（能量）<span class="math inline">&lt; 0</span> 恒成立的系统必然滑向平衡（阻尼耗散）。</li>
-<li><strong>轨道不交叉</strong>：相图轨迹互不相交（同一初值只有一个未来——决定论）。</li>
-</ul>
-<p>下面这张图把 (5.3) 的三种阻尼画在一起对比——同一个 <span class="math inline">\omega_0</span>，不同的 <span class="math inline">\gamma</span>，曲线自己讲完了三行表格：</p>
-<div class="damp-fig" aria-hidden="true">
+<p>忘记 <span class="math inline">r^2\sin\theta</span> 时不要背公式，回来想「纬圈的半径被 <span class="math inline">\sin\theta</span> 打折」：在北极 <span class="math inline">\theta=0</span>，纬圈缩成一点，<span class="math inline">\sin\theta=0</span>，那一小格没有体积（柱面与球面坐标的体积元：<span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, secs. 15.7–15.8</a>)</span>；物理书的写法见 <span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 1.4</a>)</span>）。</p>
+<p>这些多出来的因子 (<span class="math inline">r</span>、<span class="math inline">r^2\sin\theta</span>) 有个统一的名字——<strong>Jacobian</strong>（换坐标的汇率）。第 7 讲做多重积分换元时，它会作为主角正式登场。</p>
+<div class="basis-fig" aria-hidden="true">
 <style>
-.damp-fig { margin: 1.6em 0; }
-.damp-fig svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
-.damp-fig .d-bar { display: flex; gap: .5em; margin-bottom: .6em; justify-content: center; }
-.damp-fig .d-bar button { font: 500 .85em -apple-system,"PingFang SC",sans-serif; padding: .32em 1em;
-  border: 1px solid #ddd8ce; border-radius: 6px; background: #fff; color: #24292f; cursor: pointer; }
-.damp-fig .d-bar button:hover { border-color: #3a4aa8; color: #3a4aa8; }
-.damp-fig .d-bar button.on { border-color: #3a4aa8; color: #fff; background: #3a4aa8; }
+.basis-fig { margin: 1.6em 0; }
+.basis-fig svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
 </style>
-<div class="d-bar">
-<button onclick="dSet(0)" id="db0" class="on">
-欠阻尼 γ=0.15
-</button>
-<button onclick="dSet(1)" id="db1">
-临界阻尼 γ=1.0
-</button>
-<button onclick="dSet(2)" id="db2">
-过阻尼 γ=1.8
-</button>
-</div>
-<svg id="dampsvg" viewbox="0 0 640 280" width="640" height="280">
+<svg id="basissvg" viewbox="0 0 560 240" width="560" height="240">
 </svg>
 <script>
 window.addEventListener('load', function () {
   if (typeof Sketch === 'undefined') return;
-  const svg = document.getElementById('dampsvg');
+  const svg = document.getElementById('basissvg');
   const P = { ink: '#3a4aa8', deep: '#2c3a8c', amber: '#bf8700', green: '#1a7f37', dim: '#9aa1b9' };
-  const CASES = [
-    { g: 0.15, name: '欠阻尼 γ=0.15 — 振荡衰减', note: '复根: 包络 e^{−γt/2} × 振荡', color: P.ink },
-    { g: 1.0,  name: '临界阻尼 γ=1.0 — 最快无振荡归位', note: '重根: (1+t)e^{−t}', color: P.green },
-    { g: 1.8,  name: '过阻尼 γ=1.8 — 缓慢爬回', note: '两负实根: 慢根拖尾', color: P.amber },
-  ];
-  const px = t => 40 + t/20*580, py = x => 140 - x*95;
-  window.dSet = function (k) {
-    [0,1,2].forEach(i => { const b = document.getElementById('db'+i); if (b) b.className = i==k ? 'on' : ''; });
-    while (svg.firstChild) svg.removeChild(svg.firstChild);
-    const s = Sketch(svg), C = CASES[k], g = C.g;
-    s.path(`M40 ${py(0)} L620 ${py(0)}`, { stroke: 'rgba(154,161,185,.5)', width: 1.2 });
-    s.path(`M40 ${py(1)} L620 ${py(1)}`, { stroke: 'rgba(154,161,185,.25)', width: 1, rough: false });
-    s.path(`M40 ${py(-1)} L620 ${py(-1)}`, { stroke: 'rgba(154,161,185,.25)', width: 1, rough: false });
-    s.label(624, py(1)+4, 'x₀', { size: 12, color: P.dim, anchor: 'end' });
-    let x, d = '';
-    for (let t = 0; t <= 20.001; t += 0.08) {
-      if (C.g === 1.0) x = (1 + t)*Math.exp(-t);
-      else if (C.g < 1) { const w = Math.sqrt(1 - g*g/4);
-        x = Math.exp(-g*t/2)*(Math.cos(w*t) + (g/(2*w))*Math.sin(w*t)); }
-      else { const q = Math.sqrt(g*g/4 - 1), r1 = -g/2 + q, r2 = -g/2 - q;
-        const C1 = r2/(r2 - r1), C2 = 1 - C1; x = C1*Math.exp(r1*t) + C2*Math.exp(r2*t); }
-      d += (d ? ' L' : 'M') + px(t) + ' ' + py(x);
-    }
-    s.path(d, { stroke: C.color, width: 2.2 });
-    if (C.g < 1) {                                   /* 包络 ±e^{−γt/2} */
-      let up = '', dn = '';
-      for (let t = 0; t <= 20.001; t += 0.2) {
-        const e = Math.exp(-g*t/2);
-        up += (up ? ' L' : 'M') + px(t) + ' ' + py(e);
-        dn += (dn ? ' L' : 'M') + px(t) + ' ' + py(-e); }
-      s.path(up, { stroke: 'rgba(58,74,168,.35)', width: 1.1, rough: false });
-      s.path(dn, { stroke: 'rgba(58,74,168,.35)', width: 1.1, rough: false });
-    }
-    s.label(330, 34, C.name, { size: 16, color: C.color });
-    s.label(330, 266, C.note + '   （初值 x(0)=1, ẋ(0)=0 — 两个条件锁定两个常数）', { size: 13.5, color: P.dim });
-    s.pulse(d, { t0: 0.4, travel: 3.4, period: 8, color: C.color });
-  };
-  dSet(0);
+  const s = Sketch(svg);
+  const O = [140, 150], R = 95;
+  let circ = '';
+  for (let a = 0; a <= 6.45; a += .15) circ += (circ ? ' L' : 'M') + (O[0] + R*Math.cos(a)) + ' ' + (O[1] - R*Math.sin(a));
+  s.path(circ + ' Z', { stroke: 'rgba(154,161,185,.55)', width: 1.2 });
+  s.dot(O[0], O[1], P.dim, 3.5);
+  s.label(O[0], O[1] + 20, '原点', { size: 13, color: P.dim });
+  function basis(phi, tag) {
+    const x = O[0] + R*Math.cos(phi), y = O[1] - R*Math.sin(phi);
+    s.path(`M${x} ${y} L${x + 62*Math.cos(phi)} ${y - 62*Math.sin(phi)}`,
+           { stroke: P.green, width: 2.2, arrow: true, rough: false });
+    s.path(`M${x} ${y} L${x + 48*Math.sin(phi)} ${y + 48*Math.cos(phi)}`,
+           { stroke: P.amber, width: 2, arrow: true, rough: false });
+    s.dot(x, y, P.deep, 4.5);
+    s.label(x + 78*Math.cos(phi), y - 78*Math.sin(phi) - 4, 'r̂', { size: 17, color: P.green, mono: true });
+    s.label(x + 60*Math.sin(phi), y + 62*Math.cos(phi), 'φ̂', { size: 17, color: P.amber, mono: true });
+    s.label(x + 14*Math.cos(phi + 1.9), y - 14*Math.sin(phi + 1.9), tag, { size: 13, color: P.deep });
+  }
+  basis(0.72, 'P₁');
+  basis(2.22, 'P₂');
+  /* 弧上脉冲: P1 -> P2 展示基向量随位置转动 */
+  let arc = '';
+  for (let a = 0.72; a <= 2.22; a += .05) arc += (arc ? ' L' : 'M') + (O[0] + R*Math.cos(a)) + ' ' + (O[1] - R*Math.sin(a));
+  s.pulse(arc, { t0: 0.5, travel: 2.2, period: 6, color: P.deep });
+  s.label(430, 60, '同一套基向量定义,', { size: 15, color: P.deep, anchor: 'start' });
+  s.label(430, 84, '随位置整体旋转 —', { size: 15, color: P.deep, anchor: 'start' });
+  s.label(430, 108, '「活」的基向量:', { size: 15, color: P.deep, anchor: 'start' });
+  s.label(430, 138, 'd r̂ / dt = φ̇ φ̂', { size: 15, color: P.green, anchor: 'start', mono: true });
+  s.label(430, 168, '求导不再为零', { size: 14, color: P.dim, anchor: 'start' });
 });
 </script>
 </div>
-</section>
-<section id="耦合方程组一瞥" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="耦合方程组一瞥"><span class="header-section-number">5.5</span> 耦合方程组一瞥</h2>
-<p>两个自由度互相影响（两节车厢挂弹簧、双摆小角度）时，得到<strong>方程组</strong>：<span class="math inline">\ddot{x}_1</span> 依赖 <span class="math inline">x_1, x_2</span>。线性代数登场：找<strong>简正模式</strong>——两个特殊「步调」，各以固定频率同步振动；一般运动 = 模式的叠加（把矩阵对角化的物理名字）。读到「简正模式」「本征频率」时认出它：<strong>矩阵本征值问题穿着力学的衣服</strong>，第 6 章它还会以分离变量的身份回来（简正模式的教学展开：<span class="citation" data-cites="taylor2005">(<a href="#ref-taylor2005" role="doc-biblioref">Taylor 2005</a>, ch.&nbsp;11)</span>）。</p>
-<div class="callout callout-style-default callout-note callout-titled" title="判据 F（见微分方程）三连问">
+<div class="callout callout-style-default callout-note callout-titled" title="判据 C2（见曲线坐标）">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>判据 F（见微分方程）三连问
+<span class="screen-reader-only">Note</span>判据 C2（见曲线坐标）
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ol type="1">
-<li><strong>几阶？</strong> 最高导数阶数 = 需要的初值/边界条件个数。</li>
-<li><strong>线性吗？</strong> 线性 ⇒ 解可叠加（<span class="math inline">y_h + y_p</span>、模式分解全合法）；非线性 ⇒ 只能定性或数值。</li>
-<li><strong>齐次吗？</strong> 有外源（非齐次）⇒ 解 = 自由衰减的模式 + 被逼出的稳态响应。</li>
-</ol>
+<p>看到 <span class="math inline">\hat{\mathbf{r}}, \hat{\boldsymbol{\varphi}}, \hat{\boldsymbol{\theta}}</span> 先问：<strong>这里它们在转吗？</strong>对时间求导时活基向量要按 (4.3) 补上转动项；看到 <span class="math inline">r^2\sin\theta</span> 或 <span class="math inline">r\,\mathrm{d}\varphi</span> 先翻译成「纬圈/圆弧半径打折」。换坐标的完整三步（函数换写、积分元乘汇率、区域重述）在第 7 讲正式立规。</p>
 </div>
 </div>
 </section>
 <section id="出处与查表" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="出处与查表">出处与查表</h2>
-<p>本章对象的教材定位——引文是查表索引，不是阅读任务：</p>
+<p>本讲对象的教材定位——引文是查表索引，不是阅读任务：</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>本书对象</th>
@@ -704,60 +708,45 @@ window.addEventListener('load', function () {
 </thead>
 <tbody>
 <tr class="odd">
-<td>牛顿第二定律作为 ODE</td>
-<td><span class="citation" data-cites="taylor2005">(<a href="#ref-taylor2005" role="doc-biblioref">Taylor 2005</a>, ch.&nbsp;1)</span></td>
+<td>极坐标</td>
+<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 10.3</a>)</span></td>
 </tr>
 <tr class="even">
-<td>分离变量、一阶方程</td>
-<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016</a>, ch.&nbsp;9)</span></td>
+<td>活基向量与极坐标运动学</td>
+<td><span class="citation" data-cites="taylor2005">(<a href="#ref-taylor2005" role="doc-biblioref">Taylor 2005</a>, ch.&nbsp;8)</span></td>
 </tr>
 <tr class="odd">
-<td>二阶常系数与特征方程</td>
-<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016</a>, ch.&nbsp;17)</span></td>
+<td>柱/球坐标与体积元</td>
+<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, secs. 15.7–15.8</a>)</span>; <span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 1.4</a>)</span></td>
 </tr>
 <tr class="even">
-<td>复数与欧拉公式</td>
-<td><span class="citation" data-cites="boas2006">(<a href="#ref-boas2006" role="doc-biblioref">Boas 2006</a>, ch.&nbsp;2)</span></td>
+<td>极坐标面积元</td>
+<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 10.4</a>)</span></td>
 </tr>
 <tr class="odd">
-<td><span class="math inline">y_h + y_p</span> 结构</td>
-<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 17.2</a>)</span></td>
-</tr>
-<tr class="even">
-<td>受迫振动、共振</td>
-<td><span class="citation" data-cites="taylor2005">(<a href="#ref-taylor2005" role="doc-biblioref">Taylor 2005</a>, ch.&nbsp;5)</span></td>
-</tr>
-<tr class="odd">
-<td>相图与稳定性</td>
-<td><span class="citation" data-cites="strogatz2015">(<a href="#ref-strogatz2015" role="doc-biblioref">Strogatz 2015</a>, ch.&nbsp;2)</span></td>
-</tr>
-<tr class="even">
-<td>简正模式</td>
-<td><span class="citation" data-cites="taylor2005">(<a href="#ref-taylor2005" role="doc-biblioref">Taylor 2005</a>, ch.&nbsp;11)</span></td>
+<td>球坐标基向量与算子表</td>
+<td><span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 1.4</a>)</span></td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="本章收束" class="level2" data-number="5.6">
-<h2 data-number="5.6" class="anchored" data-anchor-id="本章收束"><span class="header-section-number">5.6</span> 本章收束</h2>
+<section id="本讲收束" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="本讲收束"><span class="header-section-number">4.5</span> 本讲收束</h2>
 <ul>
-<li>定律 = 变化率的局域合同，写下来就是 ODE；解是<strong>函数族</strong>，初值挑出唯一成员。</li>
-<li>「率正比于当前值」⇒ 指数；「回复力」⇒ 振荡（复特征根）；两者都在说特征方程。</li>
-<li>结构定理 <span class="math inline">y = y_h + y_p</span> 是受迫振动、共振、暂态/稳态的统一读法。</li>
-<li>二阶要两个初值（位置 + 速度）；相图不解方程也能读出稳定性。</li>
+<li>换坐标的动机是对称；极/柱/球是一族「朝哪多远」式报名。</li>
+<li>基向量是活的：<span class="math inline">\mathrm{d}\hat{\mathbf{r}}/\mathrm{d}t = \dot\varphi\,\hat{\boldsymbol{\varphi}}</span>——极坐标运动学的发动机。</li>
+<li><span class="math inline">\mathbf{v} = \dot r\,\hat{\mathbf{r}} + r\dot\varphi\,\hat{\boldsymbol{\varphi}}</span>；加速度全式认得出 <span class="math inline">-r\dot\varphi^2</span>（向心）与 <span class="math inline">2\dot r\dot\varphi</span>（科里奥利）即可。</li>
+<li>体积元不背公式：三条边相乘，纬圈半径被 <span class="math inline">\sin\theta</span> 打折；多出来的因子叫 Jacobian，第 7 讲见。</li>
 </ul>
-<p>ODE 的自变量只有时间。但一根振动的弦：每个位置 <span class="math inline">x</span> 都有自己的时间故事 <span class="math inline">u(x,t)</span>——未知函数有<strong>两个</strong>自变量，方程里同时出现对 <span class="math inline">x</span> 与对 <span class="math inline">t</span> 的导数。这就是偏微分方程，物理数学的最后一座山，也是电动力学后半本的地基。</p>
+<p>坐标描述了「位置」。但物理量大多挂在位置上：温度 <span class="math inline">T(\mathbf{r})</span>、电势 <span class="math inline">V(\mathbf{r})</span>——每点一个数；流速场、电场——每点一个向量。当「位置本身」成为函数的自变量，第 1 讲的两个母动作将全面升级：下一讲，多元函数。</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-boas2006" class="csl-entry" role="listitem">
-Boas, Mary L. 2006. <em>Mathematical Methods in the Physical Sciences</em>. 3rd ed. Hoboken: Wiley.
+<div id="ref-griffiths2013" class="csl-entry" role="listitem">
+Griffiths, David J. 2013. <em>Introduction to Electrodynamics</em>. 4th ed. Boston: Pearson.
 </div>
 <div id="ref-stewart2016" class="csl-entry" role="listitem">
 Stewart, James. 2016. <em>Calculus: Early Transcendentals</em>. 8th ed. Boston: Cengage Learning.
-</div>
-<div id="ref-strogatz2015" class="csl-entry" role="listitem">
-Strogatz, Steven H. 2015. <em>Nonlinear Dynamics and Chaos: With Applications to Physics, Biology, Chemistry, and Engineering</em>. 2nd ed. Boulder: Westview Press.
 </div>
 <div id="ref-taylor2005" class="csl-entry" role="listitem">
 Taylor, John R. 2005. <em>Classical Mechanics</em>. Sausalito: University Science Books.
@@ -1168,13 +1157,13 @@ Taylor, John R. 2005. <em>Classical Mechanics</em>. Sausalito: University Scienc
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./04-vector-field.html" class="pagination-link" aria-label="向量场与三大定理">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">向量场与三大定理</span></span>
+      <a href="./03-space-curves.html" class="pagination-link" aria-label="参数方程与空间曲线">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">参数方程与空间曲线</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./06-pde.html" class="pagination-link" aria-label="时空一起说话：偏微分方程">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">时空一起说话：偏微分方程</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./05-multivariable.html" class="pagination-link" aria-label="多元与全微分">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">多元与全微分</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

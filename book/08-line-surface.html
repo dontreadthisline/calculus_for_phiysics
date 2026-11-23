@@ -8,7 +8,7 @@
 
 <meta name="description" content="不训练计算肌肉，只重建语言能力：两个母动作、一座桥、坐标无关性与「定律→方程」的翻译术，从一元串联走到向量场、ODE、PDE，直通物理书页。">
 
-<title>6&nbsp; 时空一起说话：偏微分方程 – 微积分的物理地图</title>
+<title>8&nbsp; 曲线积分与曲面积分 – 微积分的物理地图</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -51,8 +51,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./07-reading-map.html" rel="next">
-<link href="./05-ode.html" rel="prev">
+<link href="./09-integral-theorems.html" rel="next">
+<link href="./07-multiple-integrals.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -382,7 +382,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./06-pde.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">时空一起说话：偏微分方程</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./08-line-surface.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">曲线积分与曲面积分</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -421,44 +421,68 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-two-moves.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">两个母动作</span></span></a>
+  <a href="./01-fundamentals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">微积分基本思想</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-multivariable.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">多元与全微分</span></span></a>
+  <a href="./02-ode.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">常微分方程与动力学</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-parametrize.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">参数化与换坐标</span></span></a>
+  <a href="./03-space-curves.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">参数方程与空间曲线</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-vector-field.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">向量场与三大定理</span></span></a>
+  <a href="./04-curvilinear.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">曲线坐标系</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-ode.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">定律变成方程：常微分方程</span></span></a>
+  <a href="./05-multivariable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">多元与全微分</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-pde.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">时空一起说话：偏微分方程</span></span></a>
+  <a href="./06-vector-fields.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">向量场与 <span class="math inline">\nabla</span> 算子</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-reading-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">阅读地图</span></span></a>
+  <a href="./07-multiple-integrals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">多重积分</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-line-surface.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">曲线积分与曲面积分</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-integral-theorems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">积分定理</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-pde.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">时空一起说话：偏微分方程</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reading-map.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">阅读地图</span></span></a>
   </div>
 </li>
     </ul>
@@ -471,13 +495,11 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#pde-的生成语法守恒律-局部定律" id="toc-pde-的生成语法守恒律-局部定律" class="nav-link active" data-scroll-target="#pde-的生成语法守恒律-局部定律"><span class="header-section-number">6.1</span> PDE 的生成语法：守恒律 + 局部定律</a></li>
-  <li><a href="#边界条件解的锚" id="toc-边界条件解的锚" class="nav-link" data-scroll-target="#边界条件解的锚"><span class="header-section-number">6.2</span> 边界条件：解的锚</a></li>
-  <li><a href="#分离变量把-pde-降级成-ode" id="toc-分离变量把-pde-降级成-ode" class="nav-link" data-scroll-target="#分离变量把-pde-降级成-ode"><span class="header-section-number">6.3</span> 分离变量：把 PDE 降级成 ODE</a></li>
-  <li><a href="#本征值边界条件筛出离散频率" id="toc-本征值边界条件筛出离散频率" class="nav-link" data-scroll-target="#本征值边界条件筛出离散频率"><span class="header-section-number">6.4</span> 本征值：边界条件筛出离散频率</a></li>
-  <li><a href="#球坐标与认脸清单" id="toc-球坐标与认脸清单" class="nav-link" data-scroll-target="#球坐标与认脸清单"><span class="header-section-number">6.5</span> 球坐标与「认脸」清单</a></li>
+  <li><a href="#曲线积分的两种问法" id="toc-曲线积分的两种问法" class="nav-link active" data-scroll-target="#曲线积分的两种问法"><span class="header-section-number">8.1</span> 曲线积分的两种问法</a></li>
+  <li><a href="#曲面积分的两种问法" id="toc-曲面积分的两种问法" class="nav-link" data-scroll-target="#曲面积分的两种问法"><span class="header-section-number">8.2</span> 曲面积分的两种问法</a></li>
+  <li><a href="#微元总表" id="toc-微元总表" class="nav-link" data-scroll-target="#微元总表"><span class="header-section-number">8.3</span> 微元总表</a></li>
   <li><a href="#出处与查表" id="toc-出处与查表" class="nav-link" data-scroll-target="#出处与查表">出处与查表</a></li>
-  <li><a href="#本章收束" id="toc-本章收束" class="nav-link" data-scroll-target="#本章收束"><span class="header-section-number">6.6</span> 本章收束</a></li>
+  <li><a href="#本讲收束" id="toc-本讲收束" class="nav-link" data-scroll-target="#本讲收束"><span class="header-section-number">8.4</span> 本讲收束</a></li>
   </ul>
 </nav>
     </div>
@@ -486,7 +508,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-pde" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">时空一起说话：偏微分方程</span></span></h1>
+<h1 class="title"><span id="sec-line-surface" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">曲线积分与曲面积分</span></span></h1>
 </div>
 
 
@@ -503,242 +525,127 @@ window.Quarto = {
 </header>
 
 
-<p>ODE 的世界里系统由几个数描述（一个质点的位置）。但连续世界——振动的弦、发热的棒、带电的空间——每一点都有自己的状态，未知函数是 <span class="math inline">u(x,t)</span>、<span class="math inline">T(\mathbf{r},t)</span>、<span class="math inline">V(\mathbf{r})</span>：<strong>自变量是时空本身</strong>。方程里同时出现对不同变量的偏导数，这就是偏微分方程（PDE）。你在第 6 章的立场不变：不训练求解，而是掌握三件事——PDE 怎么从物理<strong>长出来</strong>、解的<strong>通用结构</strong>是什么、边界条件凭什么<strong>挑</strong>出解。这三件事就是「列方程组」能力在连续世界的版本。</p>
-<div class="callout callout-style-default callout-important callout-titled" title="本章问题">
+<p>第 7 讲学会了「在区域内部累积」。但两大物理量不住在区域内部：<strong>功</strong>沿路径累积（力作用在位移上，位移是曲线），<strong>通量</strong>穿曲面累积（流速穿过面，面是二维的）。它们的积分区域比立体低一维——是曲线与曲面。本讲给这两类积分完整语言，并澄清一套国内教材特有、但物理书不用的术语（第一类/第二类），让你双语畅通。</p>
+<div class="callout callout-style-default callout-important callout-titled" title="本讲问题">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>本章问题
+<span class="screen-reader-only">Important</span>本讲问题
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>热方程、波动方程、拉普拉斯方程为什么是「三大方程」，它们各自从哪条守恒律生成？分离变量凭什么能把 PDE 拆成一串熟悉的 ODE？为什么吉他弦的频率是离散的——边界条件在其中扮演什么角色？</p>
+<p>沿曲线累积什么、穿曲面累积什么？标量微元 <span class="math inline">\mathrm{d}s</span>、<span class="math inline">\mathrm{d}S</span> 与向量微元 <span class="math inline">\mathrm{d}\mathbf{r}</span>、<span class="math inline">\mathrm{d}\mathbf{A}</span> 差在哪一行字上？为什么「第一类与第二类」其实是同一个框架的标量版和向量版？</p>
 </div>
 </div>
-<section id="pde-的生成语法守恒律-局部定律" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="pde-的生成语法守恒律-局部定律"><span class="header-section-number">6.1</span> PDE 的生成语法：守恒律 + 局部定律</h2>
-<p>三大方程不是天上掉下来的，每一条都是同一个两步模板的产物：<strong>守恒律（某量不灭）+ 局部定律（流量怎么由场决定）</strong>。看一遍生成过程，你对「列方程」就脱敏了。</p>
-<p><strong>热方程</strong>。第一步（能量守恒）：任意区域内热能的变化 = 流入边界的热量（第 4 章高斯定理把边界积分换成内部积分，立刻出场）。第二步（傅里叶定律，第 2 章模板）：热流 <span class="math inline">\mathbf{q} = -\kappa\nabla T</span>，从高温流向低温。两步合起来：</p>
+<section id="曲线积分的两种问法" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="曲线积分的两种问法"><span class="header-section-number">8.1</span> 曲线积分的两种问法</h2>
+<p><strong>问法一：沿曲线累积标量。</strong>曲线是一根有密度分布的细线（<span class="math inline">\lambda(\mathbf{r})</span> 线密度），总质量是多少？微元是第 3 讲的弧长微元 <span class="math inline">\mathrm{d}s</span>：</p>
 <p><span class="math display">
-\frac{\partial T}{\partial t} \;=\; \alpha\, \nabla^2 T \qquad \text{（扩散方程）} \tag{6.1}
+\int_C f\,\mathrm{d}s \qquad \text{（「第一类曲线积分」：对弧长积分）} \tag{8.1}
 </span></p>
-<p>读法：<strong>一点的温度变化，正比于它与周围平均温度的差距</strong>（<span class="math inline">\nabla^2</span> 的语义，第 4 章）。比周围热就降温，比周围冷就升温——扩散的全部哲学（热方程的推导：<span class="citation" data-cites="strauss2008 boas2006">(<a href="#ref-strauss2008" role="doc-biblioref">Strauss 2008</a>, ch.&nbsp;2; <a href="#ref-boas2006" role="doc-biblioref">Boas 2006</a>, ch.&nbsp;13)</span>）。</p>
-<p><strong>波动方程</strong>。把牛顿第二定律用于连续介质（弦的每一小段：质量 × 加速度 = 张力带来的净回复力）：</p>
+<p><strong>问法二：沿曲线累积切向分量。</strong>力 <span class="math inline">\mathbf{F}</span> 沿路径 <span class="math inline">C</span> 做多少功？每一小步位移是向量 <span class="math inline">\mathrm{d}\mathbf{r} = \hat{\mathbf{T}}\,\mathrm{d}s</span>（沿切向），力的贡献是点积 <span class="math inline">\mathbf{F}\cdot\mathrm{d}\mathbf{r}</span>（投影乘长度，第 5 讲）：</p>
 <p><span class="math display">
-\frac{\partial^2 u}{\partial t^2} \;=\; c^2\, \nabla^2 u \qquad \text{（波动方程，} c \text{ 即波速）} \tag{6.2}
+W = \int_C \mathbf{F}\cdot\mathrm{d}\mathbf{r} = \int_C \mathbf{F}\cdot\hat{\mathbf{T}}\; \mathrm{d}s \qquad \text{（「第二类曲线积分」：对坐标积分）} \tag{8.2}
 </span></p>
-<p>读法：一点的加速度，正比于它与周围平均位置的差距。电磁波「是光」的推导（麦克斯韦方程组推出 (6.2)、<span class="math inline">c = 1/\sqrt{\mu_0\varepsilon_0}</span>）就是电动力学的高光时刻——届时你已有全部语言（波动方程：<span class="citation" data-cites="strauss2008">(<a href="#ref-strauss2008" role="doc-biblioref">Strauss 2008</a>, ch.&nbsp;2)</span>；电磁波的版本：<span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013</a>, ch.&nbsp;9)</span>）。</p>
-<p><strong>拉普拉斯 / 泊松方程</strong>。静态（<span class="math inline">\partial/\partial t = 0</span>）且无源的电势世界：</p>
-<p><span class="math display">
-\nabla^2 V = 0 \;(\text{拉普拉斯，无源}), \qquad
-\nabla^2 V = -\frac{\rho}{\varepsilon_0} \;(\text{泊松，有源}) \tag{6.3}
-</span></p>
-<p>来历一步：高斯定律 (4.8) 的 <span class="math inline">\mathbf{E}=\nabla\phi</span>（第 2 章）代入 <span class="math inline">\nabla\cdot\mathbf{E}=\rho/\varepsilon_0</span>。<strong>这就是「电动力学全书都在解泊松方程」的原因</strong>：静电学 = 泊松方程 + 边界条件（两个方程的来历：<span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 2.2</a> and 3.1)</span>）。<span class="math inline">\nabla^2 V=0</span> 的解有一个漂亮的定性性质：<strong>没有极值</strong>（比周围高就降温/高就被拉平）——电势的峰谷只能长在边界或电荷上。</p>
+<p>两个问法的关系一眼看穿：<strong>第二类 = 把向量场先投到切向，再做第一类</strong>。<span class="math inline">\mathrm{d}s</span> 是标量（不问方向），<span class="math inline">\mathrm{d}\mathbf{r}</span> 是向量（带方向——反向走同一条线，<span class="math inline">\mathrm{d}\mathbf{r}</span> 变号，功变号）。曲线闭合（绕一圈）时 (8.2) 叫<strong>环流</strong> <span class="math inline">\oint_C \mathbf{F}\cdot\mathrm{d}\mathbf{r}</span>：绕这一圈场净推了你多少——漩涡的强弱（曲线积分：<span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 16.2</a>)</span>）。</p>
+<p><strong>方向约定</strong>：第一类与走向无关（质量不变号）；第二类与走向有关，闭合曲线默认逆时针（从法向正侧看）。</p>
 </section>
-<section id="边界条件解的锚" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="边界条件解的锚"><span class="header-section-number">6.2</span> 边界条件：解的锚</h2>
-<p>PDE 是<strong>局部</strong>合同（每点每刻的变化率），只靠它推不出全局——就像知道每个人的性格推不出整个社会的分布。全局信息由<strong>边界条件</strong>供给（三类条件的类型学：<span class="citation" data-cites="strauss2008">(<a href="#ref-strauss2008" role="doc-biblioref">Strauss 2008</a>, ch.&nbsp;4)</span>），三种常用类型：</p>
+<section id="曲面积分的两种问法" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="曲面积分的两种问法"><span class="header-section-number">8.2</span> 曲面积分的两种问法</h2>
+<p>曲面 <span class="math inline">S</span> 用两个参数描述（第 3 讲参数曲线的升维）：<span class="math inline">\mathbf{r}(u,v)</span>——经纬度铺出一张网。面积微元由两张切向量的叉积给出（叉积的模 = 平行四边形面积）：</p>
+<p><span class="math display">
+\mathrm{d}S = \left|\frac{\partial\mathbf{r}}{\partial u}\times\frac{\partial\mathbf{r}}{\partial v}\right|\mathrm{d}u\,\mathrm{d}v \qquad \text{（标量面积元，认读即可，不必会推）} \tag{8.3}
+</span></p>
+<p><strong>问法一：沿曲面累积标量。</strong>薄壳（有面密度 <span class="math inline">\sigma</span> 的曲面）总质量：</p>
+<p><span class="math display">
+\iint_S f\,\mathrm{d}S \qquad \text{（「第一类曲面积分」：对面积积分）} \tag{8.4}
+</span></p>
+<p><strong>问法二：穿曲面累积法向分量。</strong>流速场单位时间穿过面 <span class="math inline">S</span> 的流量——每小片面元 <span class="math inline">\mathrm{d}\mathbf{A} = \hat{\mathbf{n}}\,\mathrm{d}S</span>（<span class="math inline">\hat{\mathbf{n}}</span> 法向单位向量），场的贡献是法向分量：</p>
+<p><span class="math display">
+\Phi = \iint_S \mathbf{F}\cdot\mathrm{d}\mathbf{A} = \iint_S \mathbf{F}\cdot\hat{\mathbf{n}}\; \mathrm{d}S \qquad \text{（「第二类曲面积分」：通量）} \tag{8.5}
+</span></p>
+<p>同样的结构：<strong>第二类 = 向量场投到法向，再做第一类</strong>。闭合曲面（气球表面）法向约定<strong>向外</strong>，通量问的是「封闭区域净涌出多少」——这是散度定义 (6.2) 的入口，也是下一讲高斯定理的入口（曲面积分与通量：<span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 16.7</a>)</span>；参数曲面：<span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 16.6</a>)</span>）。</p>
+</section>
+<section id="微元总表" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="微元总表"><span class="header-section-number">8.3</span> 微元总表</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
 </colgroup>
 <thead>
 <tr class="header">
+<th>微元</th>
 <th>类型</th>
-<th>给定什么</th>
-<th>例子</th>
+<th>语义</th>
+<th>配套积分</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>狄利克雷</td>
-<td>边界上的<strong>值</strong></td>
-<td>导体表面电势恒定</td>
+<td><span class="math inline">\mathrm{d}t</span>、<span class="math inline">\mathrm{d}x</span></td>
+<td>标量</td>
+<td>时间/长度微元</td>
+<td>一元累积</td>
 </tr>
 <tr class="even">
-<td>诺伊曼</td>
-<td>边界上的<strong>法向导数</strong></td>
-<td>边界上的电场（面电荷）</td>
+<td><span class="math inline">\mathrm{d}A</span>、<span class="math inline">\mathrm{d}v</span></td>
+<td>标量</td>
+<td>面积/体积微元（第 7 讲）</td>
+<td>重积分</td>
 </tr>
 <tr class="odd">
-<td>初值（柯西）</td>
-<td><span class="math inline">t=0</span> 时刻的整个场（波动方程还要初速度——二阶时间导数，第 5 章规矩）</td>
-<td>拨弦的初始形状</td>
+<td><span class="math inline">\mathrm{d}s</span></td>
+<td>标量</td>
+<td><strong>弧长</strong>微元（第 3 讲，恒正）</td>
+<td>第一类线积分</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\mathrm{d}S</span></td>
+<td>标量</td>
+<td><strong>曲面面积</strong>微元 (8.3)，恒正</td>
+<td>第一类面积分</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\mathrm{d}\mathbf{r} = \hat{\mathbf{T}}\,\mathrm{d}s</span></td>
+<td>向量</td>
+<td>位移微元（沿切向）</td>
+<td>第二类线积分（功、环流）</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\mathrm{d}\mathbf{A} = \hat{\mathbf{n}}\,\mathrm{d}S</span></td>
+<td>向量</td>
+<td>有向面元（沿法向）</td>
+<td>第二类面积分（通量）</td>
 </tr>
 </tbody>
 </table>
-<p><strong>唯一性定理</strong>（读物理书的免死金牌）：满足方程 + 边界条件的解<strong>只有一个</strong>（静电唯一性定理及其证明：<span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 3.1</a>)</span>）。它的实用意义是：无论你用对称性猜出来、用镜子凑出来还是查表查出来的函数，只要验证它满足方程和边界，它就是<strong>正解</strong>——物理书「猜测—验证—收工」的解法全部合法。</p>
-</section>
-<section id="分离变量把-pde-降级成-ode" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="分离变量把-pde-降级成-ode"><span class="header-section-number">6.3</span> 分离变量：把 PDE 降级成 ODE</h2>
-<p>三大方程的通用解法骨架是<strong>分离变量</strong>：假设解可以写成单变量函数的乘积（弦的驻波：<span class="math inline">u(x,t) = X(x)\,T(t)</span>），代入波动方程：</p>
-<p><span class="math display">
-\frac{1}{c^2}\frac{T''(t)}{T(t)} = \frac{X''(x)}{X(x)} \tag{6.4}
-</span></p>
-<p>左边只是 <span class="math inline">t</span> 的函数，右边只是 <span class="math inline">x</span> 的函数，两者相等——唯一可能是<strong>都等于常数</strong>（分离常数 <span class="math inline">\lambda</span>）。一个 PDE 裂解成两个 ODE：</p>
-<p><span class="math display">
-T'' = -\lambda c^2 T, \qquad X'' = -\lambda X \tag{6.5}
-</span></p>
-<p>而 ODE 是第 5 章的地盘。<strong>分离变量的本质：让「时间节奏」与「空间形状」分家</strong>——驻波正是这种分家的物理形象：整条弦以同一频率呼吸，形状不变只剩幅度起伏（分离变量法：<span class="citation" data-cites="strauss2008">(<a href="#ref-strauss2008" role="doc-biblioref">Strauss 2008</a>, ch.&nbsp;4)</span>；静电问题的版本：<span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 3.3</a>)</span>）。</p>
-<p>为什么「假设乘积解」不亏？因为方程<strong>线性</strong>：乘积解可以叠加成一般解（第 5 章叠加原理的连续版）。于是 PDE 的解 = 无穷个模式之和，这就是<strong>本征模式展开</strong>——傅里叶级数、勒让德多项式、球谐函数，全是它在不同坐标/边界下的产出。</p>
-</section>
-<section id="本征值边界条件筛出离散频率" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="本征值边界条件筛出离散频率"><span class="header-section-number">6.4</span> 本征值：边界条件筛出离散频率</h2>
-<p>两端固定的弦要求 <span class="math inline">X(0)=X(L)=0</span>（狄利克雷）。<span class="math inline">X''=-\lambda X</span> 的解 <span class="math inline">\sin(\sqrt{\lambda}\,x)</span> 要在两端归零，必须 <span class="math inline">\sqrt{\lambda}\,L = n\pi</span>：</p>
-<p><span class="math display">
-\lambda_n = \left(\frac{n\pi}{L}\right)^2, \qquad u_n(x,t) = \sin\!\left(\frac{n\pi x}{L}\right)\cos(\omega_n t), \quad n = 1,2,3,\ldots \tag{6.6}
-</span></p>
-<p><strong>边界条件筛出离散的 <span class="math inline">\lambda</span></strong>——吉他弦只有特定频率、原子只有特定能级（量子力学里同一个机制）、热管只有特定衰减模式。<span class="math inline">\lambda_n</span> 叫本征值，对应的形状叫本征函数（本征值问题与傅里叶级数：<span class="citation" data-cites="strauss2008">(<a href="#ref-strauss2008" role="doc-biblioref">Strauss 2008</a>, ch.&nbsp;5)</span>）。读到「本征值问题」，翻译成「边界条件在给合法频率发牌照」。</p>
-<p>下面这张图演出模式叠加的力量：两端固定的弦上的方波初始形状 = 无穷多个驻波模式的和。逐档加入更多模式，看和曲线逼近方波——<strong>每一档新加入的模式就是式 (6.6) 的一项</strong>：</p>
-<div class="mode-fig" aria-hidden="true">
-<style>
-.mode-fig { margin: 1.6em 0; }
-.mode-fig svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
-.mode-fig .m-bar { display: flex; gap: .5em; margin-bottom: .6em; justify-content: center; flex-wrap: wrap; }
-.mode-fig .m-bar button { font: 500 .85em -apple-system,"PingFang SC",sans-serif; padding: .32em 1em;
-  border: 1px solid #ddd8ce; border-radius: 6px; background: #fff; color: #24292f; cursor: pointer; }
-.mode-fig .m-bar button:hover { border-color: #3a4aa8; color: #3a4aa8; }
-.mode-fig .m-bar button.on { border-color: #3a4aa8; color: #fff; background: #3a4aa8; }
-</style>
-<div class="m-bar">
-<button onclick="mSet(1)" id="mb1" class="on">
-前 1 项
-</button>
-<button onclick="mSet(3)" id="mb3">
-前 3 项
-</button>
-<button onclick="mSet(7)" id="mb7">
-前 7 项
-</button>
-<button onclick="mSet(15)" id="mb15">
-前 15 项
-</button>
-<button onclick="mSet(41)" id="mb41">
-前 41 项
-</button>
-</div>
-<svg id="modesvg" viewbox="0 0 640 270" width="640" height="270">
-</svg>
-<script>
-window.addEventListener('load', function () {
-  if (typeof Sketch === 'undefined') return;
-  const svg = document.getElementById('modesvg');
-  const P = { ink: '#3a4aa8', deep: '#2c3a8c', amber: '#bf8700', green: '#1a7f37', dim: '#9aa1b9' };
-  const px = x => 45 + x/(2*Math.PI)*550, py = v => 135 - v*88;
-  const sq = x => (x < Math.PI ? 1 : -1) * 0.82;          /* 方波目标 */
-  window.mSet = function (N) {
-    [1,3,7,15,41].forEach(n => { const b = document.getElementById('mb'+n); if (b) b.className = n==N ? 'on' : ''; });
-    while (svg.firstChild) svg.removeChild(svg.firstChild);
-    const s = Sketch(svg);
-    /* 边框: 两端固定的弦 */
-    s.path(`M${px(0)} ${py(0)} L${px(2*Math.PI)} ${py(0)}`, { stroke: 'rgba(154,161,185,.5)', width: 1.2 });
-    s.dot(px(0), py(0), P.dim, 4); s.dot(px(2*Math.PI), py(0), P.dim, 4);
-    /* 方波 (虚线参考) */
-    let dref = `M${px(0)} ${py(sq(0.01))}`;
-    for (let x = 0.02; x <= Math.PI - .02; x += .04) dref += ` L${px(x)} ${py(sq(x))}`;
-    dref += ` L${px(Math.PI+.02)} ${py(sq(Math.PI+.02))}`;
-    for (let x = Math.PI + .04; x <= 2*Math.PI; x += .04) dref += ` L${px(x)} ${py(sq(x))}`;
-    s.path(dref, { stroke: 'rgba(191,135,0,.55)', width: 1.3, rough: false });
-    /* 各模式 (淡) + 累加 (浓) */
-    let shown = 0, n = 1;
-    while (shown < N) {                                     /* 只画前 5 条模式线避免糊 */
-      if (shown < 5) {
-        let dm = '';
-        for (let x = 0; x <= 2*Math.PI + .01; x += .05)
-          dm += (dm ? ' L' : 'M') + px(x) + ' ' + py(4/(n*Math.PI)*Math.sin(n*x)*0.82);
-        s.path(dm, { stroke: 'rgba(26,127,55,.3)', width: 1, rough: false });
-      }
-      shown++; n += 2;
-    }
-    let d = '';
-    n = 1; let acc = 0;
-    for (let x = 0; x <= 2*Math.PI + .01; x += .02) {
-      let sum = 0; n = 1; let cnt = 0;
-      while (cnt < N) { sum += 4/(n*Math.PI)*Math.sin(n*x); n += 2; cnt++; }
-      d += (d ? ' L' : 'M') + px(x) + ' ' + py(sum*0.82);
-    }
-    s.path(d, { stroke: P.deep, width: 2.2 });
-    s.pulse(d, { t0: 0.4, travel: 3.2, period: 8, color: P.deep });
-    s.label(320, 30, '驻波模式叠出方波初始形状', { size: 16, color: P.deep });
-    s.label(320, 252, '深蓝: 前 ' + N + ' 项之和     淡绿: 各模式 sin(nx)     琥珀虚线: 目标方波', { size: 13.5, color: P.dim });
-    s.label(320, 236, 'λ = (nπ/L)² — 边界条件只发离散牌照', { size: 13.5, color: P.green });
-  };
-  mSet(1);
-});
-</script>
-</div>
-<p>（图中可见的「过冲尖峰」叫吉布斯现象：不连续形状的级数在跳变处永远留一点毛刺——认得即可 <span class="citation" data-cites="strauss2008">(<a href="#ref-strauss2008" role="doc-biblioref">Strauss 2008</a>, ch.&nbsp;5)</span>。）</p>
-</section>
-<section id="球坐标与认脸清单" class="level2" data-number="6.5">
-<h2 data-number="6.5" class="anchored" data-anchor-id="球坐标与认脸清单"><span class="header-section-number">6.5</span> 球坐标与「认脸」清单</h2>
-<p>静电学的球形问题（带电球、壳、偶极子）需要球坐标下的 <span class="math inline">\nabla^2</span>，分离变量产出两串特殊函数。<strong>本书不给公式，只给认脸卡片</strong>——读物理书时认出身份即可，正如第 1 章的承诺：算不出来不要紧，认得出就行。</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>对象</th>
-<th>身份</th>
-<th>一句话</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\sin,\ \cos</span></td>
-<td>直角坐标的本征函数</td>
-<td>均匀弦上的驻波</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">e^{im\varphi}</span></td>
-<td>方位角方向的本征函数</td>
-<td>绕轴转一圈要贴合自己</td>
-</tr>
-<tr class="odd">
-<td>勒让德多项式 <span class="math inline">P_l(\cos\theta)</span></td>
-<td>极角方向的本征函数（轴对称时）</td>
-<td>球面上的「驻波」，<span class="math inline">l=0</span> 常数、<span class="math inline">l=1</span> 就是 <span class="math inline">\cos\theta</span></td>
-</tr>
-<tr class="even">
-<td>球谐函数 <span class="math inline">Y_l^m(\theta,\varphi)</span></td>
-<td>整个球面的本征函数</td>
-<td>原子轨道形状的来源</td>
-</tr>
-<tr class="odd">
-<td>贝塞尔函数 <span class="math inline">J_n</span></td>
-<td>柱坐标径向的本征函数</td>
-<td>圆鼓面的驻波</td>
-</tr>
-</tbody>
-</table>
-<p>物理书里「解 = <span class="math inline">\sum_l A_l r^l P_l(\cos\theta)</span>」这样的表达式，读法：<strong>一般解 = 合法模式的线性叠加，系数由边界条件定</strong>——永远是第 5 章 <span class="math inline">y_h + y_p</span> 结构的高维版（勒让德多项式的系统处理：<span class="citation" data-cites="arfken2013">(<a href="#ref-arfken2013" role="doc-biblioref">Arfken, Weber, and Harris 2013</a>, ch.&nbsp;15)</span>；球谐、贝塞尔同族的处理：<span class="citation" data-cites="arfken2013">(<a href="#ref-arfken2013" role="doc-biblioref">Arfken, Weber, and Harris 2013</a>)</span>）。</p>
-<div class="callout callout-style-default callout-note callout-titled" title="判据 G（见 PDE）三连问">
+<p>一行字记牢区分：<strong>粗体带方向（切向/法向），细体只有大小</strong>。物理书里 <span class="math inline">\mathrm{d}\mathbf{l}</span> 与 <span class="math inline">\mathrm{d}\mathbf{r}</span> 同义（位移微元），<span class="math inline">\mathrm{d}\mathbf{S}</span> 与 <span class="math inline">\mathrm{d}\mathbf{A}</span> 同义（有向面元）——见符号约定章。</p>
+<div class="callout callout-style-default callout-note callout-titled" title="判据 E（见 $\oint$ 或 $\iint_S$）两连问">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>判据 G（见 PDE）三连问
+<span class="screen-reader-only">Note</span>判据 E（见 <span class="math inline">\oint</span> 或 <span class="math inline">\iint_S</span>）两连问
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li><strong>哪个方程？</strong> 三大方程（扩散/波动/泊松）对号——先认出「变化率 ↔︎ 与周围平均之差」的句式。</li>
-<li><strong>什么坐标？</strong> 对称性决定（球对称 → 球坐标），Jacobian 与特殊函数跟着坐标走。</li>
-<li><strong>什么边界？</strong> 狄利克雷/诺伊曼/初值——边界发牌照，唯一性定理保证牌照唯一。</li>
+<li>积分元是 <span class="math inline">\mathrm{d}\mathbf{r}</span>（沿线、量环流/功）还是 <span class="math inline">\mathrm{d}\mathbf{A}</span>（穿面、量通量）？标量微元（<span class="math inline">\mathrm{d}s</span>、<span class="math inline">\mathrm{d}S</span>）则是质量型累积，与方向无关。</li>
+<li>曲线/曲面闭合吗？闭合 → 下一讲的定理可以把边界积分换成内部积分（几乎总是更简单）。</li>
 </ol>
 </div>
 </div>
+<p>保守场的预告（第 6 讲埋的线）：若 <span class="math inline">\mathbf{F} = -\nabla V</span>，则 <span class="math inline">\int_C \mathbf{F}\cdot\mathrm{d}\mathbf{r} = V(\text{起点}) - V(\text{终点})</span>——功只看两端、与路径无关，绕闭合回路恒为零。为什么？下一讲的斯托克斯定理给出结构性答案。</p>
 </section>
 <section id="出处与查表" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="出处与查表">出处与查表</h2>
-<p>本章对象的教材定位——引文是查表索引，不是阅读任务：</p>
+<p>本讲对象的教材定位——引文是查表索引，不是阅读任务：</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -748,63 +655,40 @@ window.addEventListener('load', function () {
 </thead>
 <tbody>
 <tr class="odd">
-<td>热方程（扩散）</td>
-<td><span class="citation" data-cites="strauss2008">(<a href="#ref-strauss2008" role="doc-biblioref">Strauss 2008</a>, ch.&nbsp;2)</span>; <span class="citation" data-cites="boas2006">(<a href="#ref-boas2006" role="doc-biblioref">Boas 2006</a>, ch.&nbsp;13)</span></td>
+<td>曲线积分（两类）</td>
+<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 16.2</a>)</span></td>
 </tr>
 <tr class="even">
-<td>波动方程</td>
-<td><span class="citation" data-cites="strauss2008">(<a href="#ref-strauss2008" role="doc-biblioref">Strauss 2008</a>, ch.&nbsp;2)</span>; <span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013</a>, ch.&nbsp;9)</span></td>
+<td>参数曲面与面积元</td>
+<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 16.6</a>)</span></td>
 </tr>
 <tr class="odd">
-<td>拉普拉斯与泊松方程</td>
-<td><span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 2.2</a> and 3.1)</span></td>
+<td>通量与曲面积分</td>
+<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 16.7</a>)</span></td>
 </tr>
 <tr class="even">
-<td>边界条件类型学</td>
-<td><span class="citation" data-cites="strauss2008">(<a href="#ref-strauss2008" role="doc-biblioref">Strauss 2008</a>, ch.&nbsp;4)</span></td>
-</tr>
-<tr class="odd">
-<td>唯一性定理</td>
-<td><span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 3.1</a>)</span></td>
-</tr>
-<tr class="even">
-<td>分离变量</td>
-<td><span class="citation" data-cites="strauss2008">(<a href="#ref-strauss2008" role="doc-biblioref">Strauss 2008</a>, ch.&nbsp;4)</span>; <span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 3.3</a>)</span></td>
-</tr>
-<tr class="odd">
-<td>本征值与傅里叶级数</td>
-<td><span class="citation" data-cites="strauss2008">(<a href="#ref-strauss2008" role="doc-biblioref">Strauss 2008</a>, ch.&nbsp;5)</span></td>
-</tr>
-<tr class="even">
-<td>勒让德、球谐、贝塞尔</td>
-<td><span class="citation" data-cites="arfken2013">(<a href="#ref-arfken2013" role="doc-biblioref">Arfken, Weber, and Harris 2013</a>, ch.&nbsp;15)</span>; <span class="citation" data-cites="arfken2013">(<a href="#ref-arfken2013" role="doc-biblioref">Arfken, Weber, and Harris 2013</a>)</span></td>
+<td>环流、路径无关（物理侧）</td>
+<td><span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 1.3</a>)</span></td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="本章收束" class="level2" data-number="6.6">
-<h2 data-number="6.6" class="anchored" data-anchor-id="本章收束"><span class="header-section-number">6.6</span> 本章收束</h2>
+<section id="本讲收束" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="本讲收束"><span class="header-section-number">8.4</span> 本讲收束</h2>
 <ul>
-<li>PDE = 守恒律 + 局部定律的产出；三大方程各背一句读法（扩散：向平均值靠拢；波动：回复力来自与周围平均之差；泊松：电荷是电势的源）。</li>
-<li>分离变量 = 时间节奏与空间形状分家，PDE 降级为 ODE；线性 ⇒ 模式叠加。</li>
-<li>边界条件筛出离散本征值——「离散频率」是连续世界里边界的功劳。</li>
-<li>特殊函数 = 各坐标下的 sin/cos，认脸不背诵。</li>
+<li>线积分/面积分各有两种问法：标量版（质量型，<span class="math inline">\mathrm{d}s</span>/<span class="math inline">\mathrm{d}S</span>）与向量版（功/通量，<span class="math inline">\mathrm{d}\mathbf{r}</span>/<span class="math inline">\mathrm{d}\mathbf{A}</span>）；「第一类/第二类」是国内教材对这两种问法的编号。</li>
+<li>向量微元 = 标量微元 × 单位方向（切向 <span class="math inline">\hat{\mathbf{T}}</span> / 法向 <span class="math inline">\hat{\mathbf{n}}</span>）；闭合面法向向外。</li>
+<li>保守场的功与路径无关——预告待定理解释。</li>
 </ul>
-<p>至此，六个因果链走完：两个母动作 → 多元 → 坐标 → 场 → ODE → PDE。语言集齐，最后一章是出发前的装备清点：把经典力学与电动力学的典型章节逐一映射到这些工具上，附一张「读不动」时的自查表。</p>
+<p>现在手里有两组对象：第 6 讲的<strong>局部算子</strong>（散度、旋度）与本讲的<strong>边界积分</strong>（通量、环流）。它们之间藏着全微积分最深的血缘：边界上的积分 = 内部算子的积分——格林、斯托克斯、高斯，同一座桥的三次重建。下一讲，也是 FT C 的加冕礼。</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-arfken2013" class="csl-entry" role="listitem">
-Arfken, George B., Hans J. Weber, and Frank E. Harris. 2013. <em>Mathematical Methods for Physicists: A Comprehensive Guide</em>. 7th ed. Waltham: Academic Press.
-</div>
-<div id="ref-boas2006" class="csl-entry" role="listitem">
-Boas, Mary L. 2006. <em>Mathematical Methods in the Physical Sciences</em>. 3rd ed. Hoboken: Wiley.
-</div>
 <div id="ref-griffiths2013" class="csl-entry" role="listitem">
 Griffiths, David J. 2013. <em>Introduction to Electrodynamics</em>. 4th ed. Boston: Pearson.
 </div>
-<div id="ref-strauss2008" class="csl-entry" role="listitem">
-Strauss, Walter A. 2008. <em>Partial Differential Equations: An Introduction</em>. 2nd ed. Hoboken: Wiley.
+<div id="ref-stewart2016" class="csl-entry" role="listitem">
+Stewart, James. 2016. <em>Calculus: Early Transcendentals</em>. 8th ed. Boston: Cengage Learning.
 </div>
 </div>
 </section>
@@ -1212,13 +1096,13 @@ Strauss, Walter A. 2008. <em>Partial Differential Equations: An Introduction</em
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./05-ode.html" class="pagination-link" aria-label="定律变成方程：常微分方程">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">定律变成方程：常微分方程</span></span>
+      <a href="./07-multiple-integrals.html" class="pagination-link" aria-label="多重积分">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">多重积分</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./07-reading-map.html" class="pagination-link" aria-label="阅读地图">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">阅读地图</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./09-integral-theorems.html" class="pagination-link" aria-label="积分定理">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">积分定理</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

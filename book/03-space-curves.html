@@ -8,7 +8,7 @@
 
 <meta name="description" content="不训练计算肌肉，只重建语言能力：两个母动作、一座桥、坐标无关性与「定律→方程」的翻译术，从一元串联走到向量场、ODE、PDE，直通物理书页。">
 
-<title>4&nbsp; 向量场与三大定理 – 微积分的物理地图</title>
+<title>3&nbsp; 参数方程与空间曲线 – 微积分的物理地图</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -51,8 +51,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./05-ode.html" rel="next">
-<link href="./03-parametrize.html" rel="prev">
+<link href="./04-curvilinear.html" rel="next">
+<link href="./02-ode.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -382,7 +382,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-vector-field.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">向量场与三大定理</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03-space-curves.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">参数方程与空间曲线</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -421,44 +421,68 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-two-moves.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">两个母动作</span></span></a>
+  <a href="./01-fundamentals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">微积分基本思想</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-multivariable.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">多元与全微分</span></span></a>
+  <a href="./02-ode.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">常微分方程与动力学</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-parametrize.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">参数化与换坐标</span></span></a>
+  <a href="./03-space-curves.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">参数方程与空间曲线</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-vector-field.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">向量场与三大定理</span></span></a>
+  <a href="./04-curvilinear.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">曲线坐标系</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-ode.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">定律变成方程：常微分方程</span></span></a>
+  <a href="./05-multivariable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">多元与全微分</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-pde.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">时空一起说话：偏微分方程</span></span></a>
+  <a href="./06-vector-fields.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">向量场与 <span class="math inline">\nabla</span> 算子</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-reading-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">阅读地图</span></span></a>
+  <a href="./07-multiple-integrals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">多重积分</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-line-surface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">曲线积分与曲面积分</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-integral-theorems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">积分定理</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-pde.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">时空一起说话：偏微分方程</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reading-map.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">阅读地图</span></span></a>
   </div>
 </li>
     </ul>
@@ -471,15 +495,12 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#场与场线" id="toc-场与场线" class="nav-link active" data-scroll-target="#场与场线"><span class="header-section-number">4.1</span> 场与场线</a></li>
-  <li><a href="#两种积分沿线累积-穿面累积" id="toc-两种积分沿线累积-穿面累积" class="nav-link" data-scroll-target="#两种积分沿线累积-穿面累积"><span class="header-section-number">4.2</span> 两种积分：沿线累积 &amp; 穿面累积</a></li>
-  <li><a href="#散度局部源强度" id="toc-散度局部源强度" class="nav-link" data-scroll-target="#散度局部源强度"><span class="header-section-number">4.3</span> 散度：局部源强度</a></li>
-  <li><a href="#旋度局部涡旋强度" id="toc-旋度局部涡旋强度" class="nav-link" data-scroll-target="#旋度局部涡旋强度"><span class="header-section-number">4.4</span> 旋度：局部涡旋强度</a></li>
-  <li><a href="#大统一一座桥的四次化身" id="toc-大统一一座桥的四次化身" class="nav-link" data-scroll-target="#大统一一座桥的四次化身"><span class="header-section-number">4.5</span> 大统一：一座桥的四次化身</a></li>
-  <li><a href="#nabla-算子速查" id="toc-nabla-算子速查" class="nav-link" data-scroll-target="#nabla-算子速查"><span class="header-section-number">4.6</span> <span class="math inline">\nabla</span> 算子速查</a></li>
-  <li><a href="#验收现场读麦克斯韦方程组" id="toc-验收现场读麦克斯韦方程组" class="nav-link" data-scroll-target="#验收现场读麦克斯韦方程组"><span class="header-section-number">4.7</span> 验收现场：读麦克斯韦方程组</a></li>
+  <li><a href="#参数曲线轨迹参数化运动规律" id="toc-参数曲线轨迹参数化运动规律" class="nav-link active" data-scroll-target="#参数曲线轨迹参数化运动规律"><span class="header-section-number">3.1</span> 参数曲线：轨迹、参数化、运动规律</a></li>
+  <li><a href="#位置速度加速度" id="toc-位置速度加速度" class="nav-link" data-scroll-target="#位置速度加速度"><span class="header-section-number">3.2</span> 位置、速度、加速度</a></li>
+  <li><a href="#切向量与曲率轨迹的两个几何量" id="toc-切向量与曲率轨迹的两个几何量" class="nav-link" data-scroll-target="#切向量与曲率轨迹的两个几何量"><span class="header-section-number">3.3</span> 切向量与曲率：轨迹的两个几何量</a></li>
+  <li><a href="#加速度的几何分解变速-转弯" id="toc-加速度的几何分解变速-转弯" class="nav-link" data-scroll-target="#加速度的几何分解变速-转弯"><span class="header-section-number">3.4</span> 加速度的几何分解：变速 + 转弯</a></li>
   <li><a href="#出处与查表" id="toc-出处与查表" class="nav-link" data-scroll-target="#出处与查表">出处与查表</a></li>
-  <li><a href="#本章收束" id="toc-本章收束" class="nav-link" data-scroll-target="#本章收束"><span class="header-section-number">4.8</span> 本章收束</a></li>
+  <li><a href="#本讲收束" id="toc-本讲收束" class="nav-link" data-scroll-target="#本讲收束"><span class="header-section-number">3.5</span> 本讲收束</a></li>
   </ul>
 </nav>
     </div>
@@ -488,7 +509,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-vector-field" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">向量场与三大定理</span></span></h1>
+<h1 class="title"><span id="sec-space-curves" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">参数方程与空间曲线</span></span></h1>
 </div>
 
 
@@ -505,275 +526,191 @@ window.Quarto = {
 </header>
 
 
-<p>现在引入最后一位主角。标量场是「每点一个数」（温度、电势），向量场是<strong>每点一个向量</strong>：河流每点的流速、空间每点的电场、引力场。电动力学的本体就是向量场——麦克斯韦方程组的每个符号都是本章的对象。学完本章，你会发现四个「大定理」其实是第 1 章那座桥（FTC）的三次高维重建：<strong>边界上的量 = 内部源的累积</strong>。</p>
-<div class="callout callout-style-default callout-important callout-titled" title="本章问题">
+<p>第 2 讲的解 <span class="math inline">x(t)</span> 只是一维的数。完整的运动是 <span class="math inline">\mathbf{r}(t)</span>——空间中的一条<strong>曲线</strong>：轨道是它，轨迹是它，弹簧振子的往复、行星的椭圆、带电粒子在磁场里的螺旋，全是它。本讲把轨迹当作几何对象来读：它朝哪（切向）、弯得多急（曲率）、加速度怎么沿几何方向分解。这是力学书运动学章节的全部钥匙。</p>
+<div class="callout callout-style-default callout-important callout-titled" title="本讲问题">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>本章问题
+<span class="screen-reader-only">Important</span>本讲问题
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>散度与旋度到底在量什么，凭什么一个是标量一个是向量？线积分、通量、环流三种积分各自累积什么？以及：格林、高斯、斯托克斯三大定理为什么是同一句话——它们与一元微积分的 FTC 共享哪句话？</p>
+<p>轨迹（一个点集）怎么用数描述，为什么「同一轨迹」可以有多种走法？曲率在量什么，凭什么加速度能拆成「变速」与「转弯」两份——向心加速度 <span class="math inline">v^2/R</span> 是怎么从这个拆分里长出来的？</p>
 </div>
 </div>
-<section id="场与场线" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="场与场线"><span class="header-section-number">4.1</span> 场与场线</h2>
+<section id="参数曲线轨迹参数化运动规律" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="参数曲线轨迹参数化运动规律"><span class="header-section-number">3.1</span> 参数曲线：轨迹、参数化、运动规律</h2>
+<p>描述曲线最强的办法不是解方程（<span class="math inline">x^2+y^2=1</span> 只告诉你点集），而是<strong>引入一个跑动的参数</strong>——通常就是时间：</p>
 <p><span class="math display">
-\mathbf{F}(x,y,z) = \big(F_x,\; F_y,\; F_z\big) \qquad \text{每个分量都是位置的函数} \tag{4.1}
+\mathbf{r}(t) = \big(x(t),\; y(t),\; z(t)\big) \tag{3.1}
 </span></p>
-<p>直觉工具是<strong>场线</strong>:一条处处与场向量相切的曲线。两条读图规则:<strong>场线的方向 = 场的方向;场线的密度 = 场的强度</strong>(电场线越密处电场越强)。物理书大量用场线做定性论证，你也需要——本章的高斯定理先在场线语言里「看见」，再用公式说出（向量场与场线的教材定位：<span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 16.1</a>)</span>；最生动的物理讲法是 <span class="citation" data-cites="feynman2010">(<a href="#ref-feynman2010" role="doc-biblioref">Feynman, Leighton, and Sands 2010</a>)</span>）。</p>
-<p>场的微积分 = 两个母动作装配到场上。「切」的变奏是散度与旋度（局部量），「积」的变奏是线积分与通量（整体量），两个定理把它们缝合。</p>
+<p>这里有三层东西，物理书随时在三者之间切换，认出层次就不迷路：</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>层次</th>
+<th>是什么</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>轨迹</strong></td>
+<td>纯点集，无先后</td>
+<td>「椭圆」这个几何对象</td>
+</tr>
+<tr class="even">
+<td><strong>参数化</strong></td>
+<td>点集 + 走法（哪个参数值对应哪个点）</td>
+<td><span class="math inline">(\cos\theta, \sin\theta)</span> 与 <span class="math inline">(\cos 2\theta, \sin 2\theta)</span> 同一圆，走法不同</td>
+</tr>
+<tr class="odd">
+<td><strong>运动规律</strong></td>
+<td>物理参数化：参数是时间，含快慢</td>
+<td>匀速圆周 vs 变速圆周，轨迹相同</td>
+</tr>
+</tbody>
+</table>
+<p><strong>几何量（切向、曲率）只依赖轨迹与参数化的方向，物理量（速率、加速度大小）依赖运动规律</strong>——力学书说「换成弧长参数化」时，就是在把几何与物理分层（教材定位：<span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016</a>, ch.&nbsp;13)</span>）。</p>
 </section>
-<section id="两种积分沿线累积-穿面累积" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="两种积分沿线累积-穿面累积"><span class="header-section-number">4.2</span> 两种积分：沿线累积 &amp; 穿面累积</h2>
-<p><strong>线积分</strong>：沿曲线 <span class="math inline">C</span> 累积场的<strong>切向</strong>分量。一小步位移 <span class="math inline">\mathrm{d}\mathbf{l}</span>（沿切线方向的小向量），场的贡献是 <span class="math inline">\mathbf{F}\cdot\mathrm{d}\mathbf{l}</span>（第 2 章点积：投影乘长度）：</p>
+<section id="位置速度加速度" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="位置速度加速度"><span class="header-section-number">3.2</span> 位置、速度、加速度</h2>
+<p>运动学全部内容就是这条曲线的一二阶导数：</p>
 <p><span class="math display">
-\int_C \mathbf{F}\cdot\mathrm{d}\mathbf{l} \qquad \text{物理身份：功（力沿路径的累积）} \tag{4.2}
+\mathbf{v} = \frac{\mathrm{d}\mathbf{r}}{\mathrm{d}t} = \dot{\mathbf{r}} \quad(\text{切向量，方向即运动方向}), \qquad
+\mathbf{a} = \ddot{\mathbf{r}} \tag{3.2}
 </span></p>
-<p>曲线闭合（绕一圈）时叫<strong>环流</strong> <span class="math inline">\oint_C \mathbf{F}\cdot\mathrm{d}\mathbf{l}</span>：绕这一圈，场净推了你多少——漩涡的强弱。</p>
-<p><strong>通量</strong>：穿过曲面 <span class="math inline">S</span> 累积场的<strong>法向</strong>分量。一小片面元 <span class="math inline">\mathrm{d}\mathbf{A} = \hat{\mathbf{n}}\,\mathrm{d}A</span>（<span class="math inline">\hat{\mathbf n}</span> 是法向单位向量），场的贡献是 <span class="math inline">\mathbf{F}\cdot\mathrm{d}\mathbf{A}</span>：</p>
+<p><strong>读法</strong>：速度是一个向量——「这一瞬间朝哪、多快」。速率是它的长度 <span class="math inline">|\mathbf{v}|</span>。加速度还是它的导数，即使速率不变、方向在变，加速度也不为零（圆周运动的向心加速度就是纯方向变化的加速度——本讲末尾将给出它的完整来历）。</p>
+<p><strong>位移与路程</strong>是两个量：位移是向量 <span class="math inline">\Delta\mathbf{r} = \mathbf{r}(t_2)-\mathbf{r}(t_1)</span>（直线距离 + 方向），路程是标量——沿途真实走过的总长。一小段时间内两者几乎相等，但累积起来可以差很远：绕操场一圈，位移为零，路程 400 米。路程的微元就是速率乘时间（勾股定理的无穷小版）：</p>
 <p><span class="math display">
-\int_S \mathbf{F}\cdot\mathrm{d}\mathbf{A} \qquad \text{物理身份：单位时间穿过面的流量} \tag{4.3}
+\mathrm{d}s = |\mathbf{v}|\,\mathrm{d}t, \qquad
+s = \int_{t_0}^{t_1} |\mathbf{v}(t)|\,\mathrm{d}t \tag{3.3}
 </span></p>
-<p>闭合曲面上(如气球表面)法向约定为<strong>向外</strong>,此时的通量问的是:<strong>这片封闭区域净涌出多少东西</strong>——这是散度登场的入口（线积分与通量的严格定义：<span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 16.2</a> and 16.7)</span>）。</p>
-<div class="callout callout-style-default callout-note callout-titled" title="判据 E（见闭合积分号）两连问">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>判据 E（见闭合积分号）两连问
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ol type="1">
-<li>积分元是 <span class="math inline">\mathrm{d}\mathbf{l}</span>（沿线，量环流）还是 <span class="math inline">\mathrm{d}\mathbf{A}</span>（穿面，量通量）？</li>
-<li>曲线/曲面闭合吗？闭合 → 可以调用高斯/斯托克斯把边界积分换成内部积分（几乎总是更简单）。</li>
-</ol>
-</div>
-</div>
+<p>弧长积分几乎永远积不出闭式，物理书毫不在意——重要的是<strong>语义</strong>：路程 = 速率对时间的累积（第 1 讲判据 B 的直接应用；弧长公式见 <span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 13.3</a>)</span>）。</p>
 </section>
-<section id="散度局部源强度" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="散度局部源强度"><span class="header-section-number">4.3</span> 散度：局部源强度</h2>
-<p>想知道<strong>某一点</strong>是不是场的源头（比如这一点有没有电荷），造一个包围它的小闭合面，测净流出通量，再除以体积取极限：</p>
+<section id="切向量与曲率轨迹的两个几何量" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="切向量与曲率轨迹的两个几何量"><span class="header-section-number">3.3</span> 切向量与曲率：轨迹的两个几何量</h2>
+<p>速度 <span class="math inline">\mathbf{v}</span> 混合了「方向」与「快慢」。把方向单独提出来——<strong>单位切向量</strong>：</p>
 <p><span class="math display">
-\nabla\cdot\mathbf{F} \;=\; \lim_{V\to 0} \frac{1}{V} \oint_{\partial V} \mathbf{F}\cdot\mathrm{d}\mathbf{A}
-\qquad \text{（单位体积的净流出量）} \tag{4.4}
+\hat{\mathbf{T}} = \frac{\mathbf{v}}{|\mathbf{v}|} \qquad \text{（长度恒为 1，只管朝向）} \tag{3.4}
 </span></p>
-<p>(<span class="math inline">\partial V</span> 读作「<span class="math inline">V</span> 的边界」–边界算子见符号约定。)它是标量:正 = 源(净涌出,如正电荷),负 = 汇(净吸入,如负电荷),零 = 无源(流进多少流出多少)。直角坐标下可算出 <span class="math inline">\nabla\cdot\mathbf{F} = \partial F_x/\partial x + \partial F_y/\partial y + \partial F_z/\partial z</span>–形式上像「<span class="math inline">\nabla</span> 这个向量点乘 <span class="math inline">\mathbf{F}</span>」，这只是记号巧合帮记忆，语义永远是 (4.4)（散度的定义与坐标公式：<span class="citation" data-cites="stewart2016 griffiths2013">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 16.5</a>; <a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 1.2</a>)</span>）。</p>
-<p><strong>高斯散度定理</strong>（FTC 变奏一号）：把 (4.4) 反过来用——不取极限，闭合面的总通量等于内部所有源的累积：</p>
+<p>轨迹第二个内禀几何量问：<strong>弯得多急</strong>。沿曲线走单位路程，<span class="math inline">\hat{\mathbf{T}}</span> 转过多大角度，就是<strong>曲率</strong>：</p>
 <p><span class="math display">
-\oint_{\partial V} \mathbf{F}\cdot\mathrm{d}\mathbf{A} \;=\; \int_V (\nabla\cdot\mathbf{F})\, \mathrm{d}v \tag{4.5}
+\kappa = \left|\frac{\mathrm{d}\hat{\mathbf{T}}}{\mathrm{d}s}\right|, \qquad \rho = \frac{1}{\kappa}\;(\text{曲率半径}) \tag{3.5}
 </span></p>
-<p>读出来正是那句话:<strong>边界（表面）上的量 = 内部源的累积</strong>。场线语言里它是一次数数游戏：穿出的线数 = 内部发出的线数，与面选得多歪多圆无关（散度定理：<span class="citation" data-cites="stewart2016 griffiths2013">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 16.9</a>; <a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 1.3</a>)</span>）。物理的第一次兑付是高斯定律 <span class="math inline">\oint \mathbf{E}\cdot\mathrm{d}\mathbf{A} = Q_{\text{enc}}/\varepsilon_0</span>:<strong>数穿出闭合面的电场线,就数出了内部电荷总量</strong>–这是计算对称电场最强的一招。</p>
-<div class="gau-fig" aria-hidden="true">
+<p>两个立即可验的锚点：直线不转弯，<span class="math inline">\kappa = 0</span>，<span class="math inline">\rho = \infty</span>；半径 <span class="math inline">R</span> 的圆走到哪弯度都一样，每走 <span class="math inline">2\pi R</span> 方向转一整圈，<span class="math inline">\kappa = 1/R</span>，<span class="math inline">\rho = R</span>——<strong>曲率半径就是「当地等效圆」的半径</strong>。曲线在一点的弯曲，与半径 <span class="math inline">\rho</span> 的圆弧在该点互换，二阶以内分不出差别（曲率的系统处理：<span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 13.3</a>)</span>）。</p>
+<p><span class="math inline">\hat{\mathbf{T}}</span> 的变化方向给出<strong>主法向量</strong> <span class="math inline">\hat{\mathbf{N}}</span>（<span class="math inline">\mathrm{d}\hat{\mathbf{T}}/\mathrm{d}s</span> 归一化后的方向）——它永远指向轨迹凹的一侧。不必会推 <span class="math inline">\hat{\mathbf{N}}</span> 的细节，认得它是「凹侧方向」即可。</p>
+</section>
+<section id="加速度的几何分解变速-转弯" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="加速度的几何分解变速-转弯"><span class="header-section-number">3.4</span> 加速度的几何分解：变速 + 转弯</h2>
+<p>现在把加速度沿 <span class="math inline">\hat{\mathbf{T}}</span>、<span class="math inline">\hat{\mathbf{N}}</span> 分解。推导只需两步：<span class="math inline">\mathbf{v} = |\mathbf{v}|\,\hat{\mathbf{T}}</span>，对时间求导（乘积法则 + 链式法则）：</p>
+<p><span class="math display">
+\mathbf{a} = \frac{\mathrm{d}|\mathbf{v}|}{\mathrm{d}t}\,\hat{\mathbf{T}} + |\mathbf{v}|\,\frac{\mathrm{d}\hat{\mathbf{T}}}{\mathrm{d}s}\,\frac{\mathrm{d}s}{\mathrm{d}t}
+= \underbrace{\dot{v}\,\hat{\mathbf{T}}}_{\text{变速}} \;+\; \underbrace{\frac{v^2}{\rho}\,\hat{\mathbf{N}}}_{\text{转弯}} \tag{3.6}
+</span></p>
+<p>读出来：</p>
+<ul>
+<li><strong>切向分量</strong> <span class="math inline">\dot v = \mathrm{d}|\mathbf{v}|/\mathrm{d}t</span>：速率变不变，油门刹车。</li>
+<li><strong>法向分量</strong> <span class="math inline">v^2/\rho</span>：方向变多急。它与速度平方成正比（弯道限速的数学理由），与曲率半径成反比。</li>
+</ul>
+<p>两个特例直接回收前文的伏笔：匀速圆周运动 <span class="math inline">\dot v = 0</span>、<span class="math inline">\rho = R</span>，<span class="math inline">\mathbf{a} = v^2/R</span> 指向圆心——<strong>第 1、2 讲反复借用的「向心加速度」在这里拿到完整来历</strong>；匀速直线 <span class="math inline">\kappa=0</span> 且 <span class="math inline">\dot v=0</span>，加速度为零——牛顿第一定律是 (3.6) 的退化情形。变速率圆周（例如单摆）则是两项并存：切向改变快慢、法向负责拐弯。这一分解是力学书「自然坐标系」的全部内容（运动学分解的教材展开：<span class="citation" data-cites="stewart2016 taylor2005">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 13.4</a>; <a href="#ref-taylor2005" role="doc-biblioref">Taylor 2005</a>, ch.&nbsp;1)</span>）。</p>
+<p>下图演出这套几何：质点沿轨迹运动（光点），采样点上画出单位切向 <span class="math inline">\hat{\mathbf{T}}</span>（绿，恒指运动方向）、主法向 <span class="math inline">\hat{\mathbf{N}}</span>（琥珀，恒指凹侧）与加速度 <span class="math inline">\mathbf{a}</span>（灰）。观察两件事：<span class="math inline">\hat{\mathbf{N}}</span> 永远指向凹侧；<span class="math inline">\mathbf{a}</span> 总在 <span class="math inline">\hat{\mathbf{T}}</span> 与 <span class="math inline">\hat{\mathbf{N}}</span> 张成的扇区内——它就是两份贡献的向量和。</p>
+<div class="curv-fig" aria-hidden="true">
 <style>
-.gau-fig { margin: 1.6em 0; }
-.gau-fig svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+.curv-fig { margin: 1.6em 0; }
+.curv-fig svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+.curv-fig .c-bar { display: flex; gap: .5em; margin-bottom: .6em; justify-content: center; }
+.curv-fig .c-bar button { font: 500 .85em -apple-system,"PingFang SC",sans-serif; padding: .32em 1em;
+  border: 1px solid #ddd8ce; border-radius: 6px; background: #fff; color: #24292f; cursor: pointer; }
+.curv-fig .c-bar button:hover { border-color: #3a4aa8; color: #3a4aa8; }
+.curv-fig .c-bar button.on { border-color: #3a4aa8; color: #fff; background: #3a4aa8; }
 </style>
-<svg id="gaussvg" viewbox="0 0 680 290" width="680" height="290">
+<div class="c-bar">
+<button onclick="cvSet(0)" id="cvb0" class="on">
+椭圆轨道
+</button>
+<button onclick="cvSet(1)" id="cvb1">
+平面螺线
+</button>
+</div>
+<svg id="curvsvg" viewbox="0 0 640 300" width="640" height="300">
 </svg>
 <script>
 window.addEventListener('load', function () {
   if (typeof Sketch === 'undefined') return;
-  const svg = document.getElementById('gausssvg') || document.getElementById('gaussvg');
+  const svg = document.getElementById('curvsvg');
   const P = { ink: '#3a4aa8', deep: '#2c3a8c', amber: '#bf8700', green: '#1a7f37', dim: '#9aa1b9' };
-  const s = Sketch(svg);
-  function panel(cx, qy, qin) {
-    const cy = 150, R = 92;                                   /* 高斯面 */
-    let circle = '';
-    for (let a = 0; a <= 6.4; a += .15) circle += (circle ? ' L' : 'M') + (cx + R*Math.cos(a)) + ' ' + (cy + R*Math.sin(a));
-    s.path(circle + ' Z', { stroke: 'rgba(58,74,168,.8)', width: 1.8 });
-    s.label(cx, cy + R + 24, '高斯面', { size: 14, color: P.deep });
-    const qx = qin ? cx : cx + R + 78;                        /* 电荷位置 */
-    s.dot(qx, qy, P.amber, 7);
-    s.label(qx, qy - 14, '+q', { size: 15, color: P.amber, mono: true });
-    /* 放射场线: 12 条, 只画可见段 (起步于电荷, 长 150) */
-    const hits = [];
-    for (let i = 0; i < 12; i++) {
-      const a = i/12*2*Math.PI, L = 150;
-      const ex = qx + L*Math.cos(a), ey = qy + L*Math.sin(a);
-      s.path(`M${qx + 10*Math.cos(a)} ${qy + 10*Math.sin(a)} L${ex} ${ey}`,
-             { stroke: 'rgba(191,135,0,.5)', width: 1.2, rough: false });
-      /* 与圆求交, 交点画小箭头 */
-      const dx = ex - qx, dy = ey - qy;
-      const fx = qx - cx, fy = qy - cy;
-      const A = dx*dx + dy*dy, B = 2*(fx*dx + fy*dy), C = fx*fx + fy*fy - R*R;
-      const disc = B*B - 4*A*C;
-      if (disc > 0) {
-        [(-B - Math.sqrt(disc))/(2*A), (-B + Math.sqrt(disc))/(2*A)].forEach(t => {
-          if (t > 0.05 && t < 1) {
-            const px = qx + t*dx, py = qy + t*dy;
-            s.path(`M${px - 9*Math.cos(a)} ${py - 9*Math.sin(a)} L${px} ${py}`,
-                   { stroke: P.green, width: 1.6, arrow: true, rough: false });
-            hits.push([a, px, py]);
-          }
-        });
-      }
+  const CURVES = [
+    { name: '椭圆 r(t) = (a cos t, b sin t)   匀参数 ≠ 匀速率: 近轴处更快',
+      r: t => [2.9*Math.cos(t), 1.7*Math.sin(t)], t0: 0, t1: 2*Math.PI, n: 10 },
+    { name: '螺线 r(t) = (t cos 3t, t sin 3t)   曲率随位置变化: 越外越"直"',
+      r: t => [(t/2.35)*Math.cos(3*t), (t/2.35)*Math.sin(3*t)], t0: 0.45, t1: 2.25, n: 9 },
+  ];
+  const px = x => 320 + x/3.6*290, py = y => 160 - y/2.4*115;
+  const deriv = (f, t, h) => { const a = f(t-h), b = f(t+h);
+    return [(b[0]-a[0])/(2*h), (b[1]-a[1])/(2*h)]; };
+  const deriv2 = (f, t, h) => { const c = f(t), d1 = deriv(f, t-h, h), d2 = deriv(f, t+h, h);
+    return [(d2[0] + d1[0] - 2*c[0])/(h*h), (d2[1] + d1[1] - 2*c[1])/(h*h)]; };
+  window.cvSet = function (k) {
+    [0,1].forEach(i => { const b = document.getElementById('cvb'+i); if (b) b.className = i==k ? 'on' : ''; });
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    const s = Sketch(svg), C = CURVES[k], h = 0.001;
+    let d = '';
+    for (let t = C.t0; t <= C.t1 + .001; t += (C.t1-C.t0)/240) {
+      const [x, y] = C.r(t); d += (d ? ' L' : 'M') + px(x) + ' ' + py(y); }
+    s.path(d, { stroke: P.deep, width: 2 });
+    for (let i = 0; i < C.n; i++) {
+      const t = C.t0 + (i + .5) * (C.t1 - C.t0) / C.n;
+      const v = deriv(C.r, t, h), a = deriv2(C.r, t, h);
+      const [x, y] = C.r(t);
+      const [Tx, Ty] = [v[0]/Math.hypot(...v), v[1]/Math.hypot(...v)];
+      const dTt = [ (deriv(C.r, t+h, h)[0]/Math.hypot(...deriv(C.r, t+h, h)) - Tx)/h,
+                    (deriv(C.r, t+h, h)[1]/Math.hypot(...deriv(C.r, t+h, h)) - Ty)/h ];
+      const [Nx, Ny] = [ dTt[0]/Math.hypot(...dTt), dTt[1]/Math.hypot(...dTt) ];
+      s.path(`M${px(x)} ${py(y)} L${px(x)+Tx*30} ${py(y)-Ty*30}`, { stroke: P.green, width: 2, arrow: true, rough: false });
+      s.path(`M${px(x)} ${py(y)} L${px(x)+Nx*22} ${py(y)-Ny*22}`, { stroke: P.amber, width: 1.8, arrow: true, rough: false });
+      const ascale = 30 / Math.max(Math.hypot(a[0], a[1]), 1e-9) * Math.min(Math.hypot(a[0], a[1]), 1.6);
+      s.path(`M${px(x)} ${py(y)} L${px(x)+a[0]*ascale} ${py(y)-a[1]*ascale}`,
+             { stroke: 'rgba(107,114,128,.8)', width: 1.5, arrow: true, rough: false });
+      s.dot(px(x), py(y), P.deep, 3);
     }
-    return hits;
-  }
-  const hL = panel(170, 150, true);       /* 左: 电荷在面内 */
-  const hR = panel(510, 150, false);      /* 右: 电荷在面外 */
-  s.label(170, 40, '电荷在面内：每条线都穿出', { size: 15, color: P.deep });
-  s.label(510, 40, '电荷在面外：穿入 = 穿出', { size: 15, color: P.deep });
-  s.label(170, 272, '∮ E·dA = q/ε₀  （净通量 > 0）', { size: 14.5, color: P.green, mono: true });
-  s.label(510, 272, '∮ E·dA = 0  （净通量 = 0）', { size: 14.5, color: P.green, mono: true });
-  /* 动画: 左沿一条场线向外; 右沿一条穿过圆的场线 (先入后出) */
-  if (hL.length) { const [a, px, py] = hL[0];
-    s.pulse(`M170 150 L${px} ${py}`, { t0: 0.5, travel: 1.2, period: 5, color: P.green }); }
-  const qxr = 510 + 92 + 78;
-  const through = [-0.35, -0.15, 0.15, 0.35];
-  through.forEach((da, i) => {
-    const a = Math.PI + da;                                   /* 从电荷指向圆的方向 */
-    const ex = qxr + 150*Math.cos(a), ey = 150 + 150*Math.sin(a);
-    s.pulse(`M${qxr + 10*Math.cos(a)} ${150 + 10*Math.sin(a)} L${ex} ${ey}`,
-            { t0: 1.2 + i*0.4, travel: 1.6, period: 6, color: P.green });
-  });
+    s.label(320, 285, C.name, { size: 14, color: P.deep });
+    s.label(320, 34, '绿: T̂ (切向)   琥珀: N̂ (凹侧)   灰: a = v̇ T̂ + (v²/ρ) N̂', { size: 14, color: P.dim });
+    s.pulse(d, { t0: 0.4, travel: 3.4, period: 8, color: P.deep });
+  };
+  cvSet(0);
 });
 </script>
 </div>
-<p>上图就是高斯定律的场线版：左面板，电荷在面内，所有场线穿出——数线即数电荷；右面板，电荷在面外，每条穿入的线必然再穿出（场线不会凭空消失），净通量为零。<strong>这就是 <span class="math inline">\nabla\cdot\mathbf{E} = \rho/\varepsilon_0</span> 的全部直觉</strong>：电荷是电场线的源，散度数的是源。</p>
-</section>
-<section id="旋度局部涡旋强度" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="旋度局部涡旋强度"><span class="header-section-number">4.4</span> 旋度：局部涡旋强度</h2>
-<p>散度问「这一点是不是源头」，旋度问「<strong>这一点是不是漩涡</strong>」——即使流速大小处处相同，河道拐弯处放一个小水车也会转。构造：小水车放在场里，各方向转动的净推动取极限。数学定义（斯托克斯的微分形式）：</p>
-<p><span class="math display">
-(\nabla\times\mathbf{F})\cdot\hat{\mathbf{n}} \;=\; \lim_{A\to 0} \frac{1}{A} \oint_{\partial A} \mathbf{F}\cdot\mathrm{d}\mathbf{l}
-\qquad \text{（单位面积的环流）} \tag{4.6}
-</span></p>
-<p>它是<strong>向量</strong>(水车的转轴方向,右手定则定指向),长度是转速（旋度：<span class="citation" data-cites="stewart2016 griffiths2013">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 16.5</a>; <a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 1.2</a>)</span>）。物理身份：磁场 (<span class="math inline">\nabla\times\mathbf{B}=\mu_0\mathbf{J}</span>，电流是磁场的「涡源」）、流体涡旋、科里奥利力。</p>
-<p><strong>斯托克斯定理</strong>（FTC 变奏二号）：边界环路上的环流 = 张在该边界上的任意曲面内旋度的累积：</p>
-<p><span class="math display">
-\oint_{\partial S} \mathbf{F}\cdot\mathrm{d}\mathbf{l} \;=\; \int_S (\nabla\times\mathbf{F})\cdot\mathrm{d}\mathbf{A} \tag{4.7}
-</span></p>
-<p>还是那句话：<strong>边界上的量（回路环流）= 内部源的累积（旋度通量）</strong>（斯托克斯定理：<span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 16.8</a>)</span>）。物理兑付：安培环路定理 <span class="math inline">\oint \mathbf{B}\cdot\mathrm{d}\mathbf{l} = \mu_0 I_{\text{enc}}</span>–绕回路一圈量到的磁场环流,数出的是穿过回路的电流。</p>
-<p>（格林定理：斯托克斯在平面上的特例，二维场的环流-旋度关系。读到时知道它是「自己人」即可。）</p>
-</section>
-<section id="大统一一座桥的四次化身" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="大统一一座桥的四次化身"><span class="header-section-number">4.5</span> 大统一：一座桥的四次化身</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>定理</th>
-<th>边界上的量</th>
-<th>内部的源</th>
-<th>维度</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>FTC (1.5)</td>
-<td>区间两端的 <span class="math inline">F</span> 值差</td>
-<td><span class="math inline">\int_a^b f\,\mathrm{d}x</span></td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td>格林</td>
-<td>平面闭曲线的环流/通量</td>
-<td>面积分（旋度/散度）</td>
-<td>2</td>
-</tr>
-<tr class="odd">
-<td>高斯 (4.5)</td>
-<td>闭合面通量</td>
-<td><span class="math inline">\int_V \nabla\cdot\mathbf{F}\,\mathrm{d}v</span></td>
-<td>3</td>
-</tr>
-<tr class="even">
-<td>斯托克斯 (4.7)</td>
-<td>闭合回路环流</td>
-<td><span class="math inline">\int_S \nabla\times\mathbf{F}\cdot\mathrm{d}\mathbf{A}</span></td>
-<td>任意</td>
-</tr>
-</tbody>
-</table>
-<p>四行共享一个模板:<strong>把边界上的测量,换成内部密度的累积</strong>。为什么物理热爱它们：边界测量往往困难（曲面上的积分），内部密度往往是「定律本身」（<span class="math inline">\rho</span>、<span class="math inline">\mathbf{J}</span>）——定理把难的换成简单的（四个定理在微分流形语言下的统一形式见 <span class="citation" data-cites="spivak1965">(<a href="#ref-spivak1965" role="doc-biblioref">Spivak 1965</a>, ch.&nbsp;4)</span>）。麦克斯韦方程组有积分、微分两套写法且物理书随时互译,桥梁就是 (4.5) 与 (4.7)。</p>
-</section>
-<section id="nabla-算子速查" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="nabla-算子速查"><span class="header-section-number">4.6</span> <span class="math inline">\nabla</span> 算子速查</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>表达式</th>
-<th>类型</th>
-<th>语义一句话</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\nabla f</span></td>
-<td>标量 → 向量</td>
-<td>上坡方向（第 2 章）</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\nabla\cdot\mathbf{F}</span></td>
-<td>向量 → 标量</td>
-<td>源强度 (4.4)</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\nabla\times\mathbf{F}</span></td>
-<td>向量 → 向量</td>
-<td>涡强度 (4.6)</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\nabla^2 f</span></td>
-<td>标量 → 标量</td>
-<td>与周围平均值之差（<span class="math inline">\nabla\cdot\nabla f</span>）</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\nabla\cdot(\nabla\times\mathbf{F}) = 0</span></td>
-<td>恒等式</td>
-<td>涡无源（漩涡线不凭空出发）</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\nabla\times(\nabla f) = \mathbf{0}</span></td>
-<td>恒等式</td>
-<td>坡无涡（下坡场绕圈做功为零 ⇒ 保守力）</td>
-</tr>
-</tbody>
-</table>
-<p>最后一条恒等式值得多说一句:<span class="math inline">\nabla\times(\nabla f) = 0</span> 是「<strong>保守力</strong>」的微分语言–力是势的梯度(<span class="math inline">\mathbf{F}=-\nabla V</span>,第 2 章)时自动无旋,绕任何闭合回路做功为零。静电学全书建立在这条上（恒等式与势论的关系：<span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 1.6</a>)</span>）。</p>
-</section>
-<section id="验收现场读麦克斯韦方程组" class="level2" data-number="4.7">
-<h2 data-number="4.7" class="anchored" data-anchor-id="验收现场读麦克斯韦方程组"><span class="header-section-number">4.7</span> 验收现场：读麦克斯韦方程组</h2>
-<p>拿出真正的物理书页验收。微分形式四条，逐条翻译：</p>
-<p><span class="math display">
-\nabla\cdot\mathbf{E} = \frac{\rho}{\varepsilon_0}
-\qquad\text{电荷是电场线的源；正电荷发线，负电荷收线（高斯定律）} \tag{4.8}
-</span></p>
-<p><span class="math display">
-\nabla\cdot\mathbf{B} = 0
-\qquad\text{磁场无源：磁单极子不存在，磁感线永远闭合} \tag{4.9}
-</span></p>
-<p><span class="math display">
-\nabla\times\mathbf{E} = -\frac{\partial\mathbf{B}}{\partial t}
-\qquad\text{磁场变化时，空间出现涡旋电场（法拉第：变化磁通周围有环流）} \tag{4.10}
-</span></p>
-<p><span class="math display">
-\nabla\times\mathbf{B} = \mu_0\mathbf{J} + \mu_0\varepsilon_0\frac{\partial\mathbf{E}}{\partial t}
-\qquad\text{电流与变化的电场都是磁场的涡源（安培–麦克斯韦）} \tag{4.11}
-</span></p>
-<p>四个符号全部到位:<span class="math inline">\nabla\cdot</span> 与 <span class="math inline">\nabla\times</span> 是本章的两个局部量,<span class="math inline">\partial/\partial t</span> 是第 1 章的率,<span class="math inline">\mathbf{E},\mathbf{B}</span> 是两个向量场,右边的 <span class="math inline">\rho,\mathbf{J}</span> 是源。<strong>没有一个符号超出前四章</strong>–这四行是本书前半部分的期末考试,你现在每一行都能读出物理内容。物理书里它们还会以积分形式出现（对任意闭合面/回路），互译工具就是 (4.5) 与 (4.7)（方程组的推导与逐条讨论：<span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 7.3</a>)</span>）。</p>
+<div class="callout callout-style-default callout-note callout-titled" title="判据 C1（读运动学）">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>判据 C1（读运动学）
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>看到轨迹问题先分层：问的是<strong>几何</strong>（切向、曲率——只依赖轨迹）还是<strong>物理</strong>（速率、加速度——依赖运动规律）？看到 <span class="math inline">v^2/\rho</span> 立即翻译成「转弯加速度」；看到「向心」立即想 <span class="math inline">v^2/R</span> 是 (3.6) 的特例。</p>
+</div>
+</div>
 </section>
 <section id="出处与查表" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="出处与查表">出处与查表</h2>
-<p>本章对象的教材定位——引文是查表索引，不是阅读任务：</p>
+<p>本讲对象的教材定位——引文是查表索引，不是阅读任务：</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>本书对象</th>
@@ -782,63 +719,41 @@ window.addEventListener('load', function () {
 </thead>
 <tbody>
 <tr class="odd">
-<td>向量场、场线</td>
-<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 16.1</a>)</span>; <span class="citation" data-cites="feynman2010">(<a href="#ref-feynman2010" role="doc-biblioref">Feynman, Leighton, and Sands 2010</a>)</span></td>
+<td>向量值函数、轨迹与参数化</td>
+<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016</a>, ch.&nbsp;13)</span></td>
 </tr>
 <tr class="even">
-<td>线积分</td>
-<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 16.2</a>)</span></td>
+<td>弧长</td>
+<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 13.3</a>)</span></td>
 </tr>
 <tr class="odd">
-<td>通量与面积分</td>
-<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 16.7</a>)</span></td>
+<td>曲率、单位切向/法向</td>
+<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 13.3</a>)</span></td>
 </tr>
 <tr class="even">
-<td>散度与旋度</td>
-<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 16.5</a>)</span>; <span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 1.2</a>)</span></td>
-</tr>
-<tr class="odd">
-<td>高斯散度定理</td>
-<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 16.9</a>)</span>; <span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 1.3</a>)</span></td>
-</tr>
-<tr class="even">
-<td>斯托克斯定理</td>
-<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 16.8</a>)</span></td>
-</tr>
-<tr class="odd">
-<td>三大定理的统一形式</td>
-<td><span class="citation" data-cites="spivak1965">(<a href="#ref-spivak1965" role="doc-biblioref">Spivak 1965</a>, ch.&nbsp;4)</span></td>
-</tr>
-<tr class="even">
-<td>麦克斯韦方程组</td>
-<td><span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 7.3</a>)</span></td>
+<td>切向/法向加速度分解</td>
+<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 13.4</a>)</span>; <span class="citation" data-cites="taylor2005">(<a href="#ref-taylor2005" role="doc-biblioref">Taylor 2005</a>, ch.&nbsp;1)</span></td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="本章收束" class="level2" data-number="4.8">
-<h2 data-number="4.8" class="anchored" data-anchor-id="本章收束"><span class="header-section-number">4.8</span> 本章收束</h2>
+<section id="本讲收束" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="本讲收束"><span class="header-section-number">3.5</span> 本讲收束</h2>
 <ul>
-<li>向量场 = 每点一个向量;场线方向给方向、密度给强度。</li>
-<li>两种整体量：通量（穿面，法向累积）、环流（沿线，切向累积）；两个局部量：散度（源，标量）、旋度（涡，向量）。</li>
-<li>高斯与斯托克斯把整体量与局部量缝合，都是 FTC 的化身：<strong>边界上的量 = 内部源的累积</strong>。</li>
-<li>麦克斯韦四条 = 场语言的完整句子，逐条可读。</li>
+<li>轨迹是点集，参数化是走法，运动规律是物理参数化——几何量与物理量由此分层。</li>
+<li>位移与路程是两个量；路程微元 <span class="math inline">\mathrm{d}s = |\mathbf{v}|\,\mathrm{d}t</span>。</li>
+<li>曲率 <span class="math inline">\kappa</span> = 单位路程转过的方向；<span class="math inline">\rho = 1/\kappa</span> 是当地等效圆半径。</li>
+<li><span class="math inline">\mathbf{a} = \dot v\,\hat{\mathbf{T}} + \dfrac{v^2}{\rho}\,\hat{\mathbf{N}}</span>：加速度 = 变速 + 转弯，向心加速度拿到完整来历。</li>
 </ul>
-<p>至此，「描述场」的语言全部齐备。但物理书的另一半是<strong>运动与演化</strong>：定律给出方程，问题变成「从这个方程里读出运动」。方程里带导数、未知的是函数——这就是微分方程，下一章从 <span class="math inline">F = m\ddot{x}</span> 开始。</p>
+<p>运动学语言已能描述任何轨迹——但描述位置时我们一直在偷偷用「直角坐标」。行星轨道的问题立刻暴露不便：力永远指向原点，而 <span class="math inline">x,y</span> 都在变。自然的报名方式是「离原点多远 + 朝哪」——这就把坐标系本身推上了舞台。下一讲：曲线坐标，以及会转动的基向量。</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-feynman2010" class="csl-entry" role="listitem">
-Feynman, Richard P., Robert B. Leighton, and Matthew Sands. 2010. <em>The Feynman Lectures on Physics, Volume II: Mainly Electromagnetism and Matter</em>. New Millennium. New York: Basic Books.
-</div>
-<div id="ref-griffiths2013" class="csl-entry" role="listitem">
-Griffiths, David J. 2013. <em>Introduction to Electrodynamics</em>. 4th ed. Boston: Pearson.
-</div>
-<div id="ref-spivak1965" class="csl-entry" role="listitem">
-Spivak, Michael. 1965. <em>Calculus on Manifolds: A Modern Approach to Classical Theorems of Advanced Calculus</em>. New York: W. A. Benjamin.
-</div>
 <div id="ref-stewart2016" class="csl-entry" role="listitem">
 Stewart, James. 2016. <em>Calculus: Early Transcendentals</em>. 8th ed. Boston: Cengage Learning.
+</div>
+<div id="ref-taylor2005" class="csl-entry" role="listitem">
+Taylor, John R. 2005. <em>Classical Mechanics</em>. Sausalito: University Science Books.
 </div>
 </div>
 </section>
@@ -1246,13 +1161,13 @@ Stewart, James. 2016. <em>Calculus: Early Transcendentals</em>. 8th ed. Boston: 
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./03-parametrize.html" class="pagination-link" aria-label="参数化与换坐标">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">参数化与换坐标</span></span>
+      <a href="./02-ode.html" class="pagination-link" aria-label="常微分方程与动力学">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">常微分方程与动力学</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./05-ode.html" class="pagination-link" aria-label="定律变成方程：常微分方程">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">定律变成方程：常微分方程</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./04-curvilinear.html" class="pagination-link" aria-label="曲线坐标系">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">曲线坐标系</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

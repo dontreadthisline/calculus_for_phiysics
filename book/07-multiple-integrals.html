@@ -8,7 +8,7 @@
 
 <meta name="description" content="不训练计算肌肉，只重建语言能力：两个母动作、一座桥、坐标无关性与「定律→方程」的翻译术，从一元串联走到向量场、ODE、PDE，直通物理书页。">
 
-<title>3&nbsp; 参数化与换坐标 – 微积分的物理地图</title>
+<title>7&nbsp; 多重积分 – 微积分的物理地图</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -51,8 +51,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./04-vector-field.html" rel="next">
-<link href="./02-multivariable.html" rel="prev">
+<link href="./08-line-surface.html" rel="next">
+<link href="./06-vector-fields.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -382,7 +382,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03-parametrize.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">参数化与换坐标</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07-multiple-integrals.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">多重积分</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -421,44 +421,68 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-two-moves.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">两个母动作</span></span></a>
+  <a href="./01-fundamentals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">微积分基本思想</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-multivariable.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">多元与全微分</span></span></a>
+  <a href="./02-ode.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">常微分方程与动力学</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-parametrize.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">参数化与换坐标</span></span></a>
+  <a href="./03-space-curves.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">参数方程与空间曲线</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-vector-field.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">向量场与三大定理</span></span></a>
+  <a href="./04-curvilinear.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">曲线坐标系</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-ode.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">定律变成方程：常微分方程</span></span></a>
+  <a href="./05-multivariable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">多元与全微分</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-pde.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">时空一起说话：偏微分方程</span></span></a>
+  <a href="./06-vector-fields.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">向量场与 <span class="math inline">\nabla</span> 算子</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-reading-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">阅读地图</span></span></a>
+  <a href="./07-multiple-integrals.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">多重积分</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-line-surface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">曲线积分与曲面积分</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-integral-theorems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">积分定理</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-pde.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">时空一起说话：偏微分方程</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reading-map.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">阅读地图</span></span></a>
   </div>
 </li>
     </ul>
@@ -471,15 +495,12 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#参数曲线运动学即参数化" id="toc-参数曲线运动学即参数化" class="nav-link active" data-scroll-target="#参数曲线运动学即参数化"><span class="header-section-number">3.1</span> 参数曲线：运动学即参数化</a></li>
-  <li><a href="#极坐标给中心力场定制的坐标" id="toc-极坐标给中心力场定制的坐标" class="nav-link" data-scroll-target="#极坐标给中心力场定制的坐标"><span class="header-section-number">3.2</span> 极坐标：给中心力场定制的坐标</a>
-  <ul class="collapse">
-  <li><a href="#面积元mathrmda-rmathrmdrmathrmdvarphi-的来历" id="toc-面积元mathrmda-rmathrmdrmathrmdvarphi-的来历" class="nav-link" data-scroll-target="#面积元mathrmda-rmathrmdrmathrmdvarphi-的来历"><span class="header-section-number">3.2.1</span> 面积元：<span class="math inline">\mathrm{d}A = r\,\mathrm{d}r\,\mathrm{d}\varphi</span> 的来历</a></li>
-  <li><a href="#柱坐标与球坐标" id="toc-柱坐标与球坐标" class="nav-link" data-scroll-target="#柱坐标与球坐标"><span class="header-section-number">3.2.2</span> 柱坐标与球坐标</a></li>
-  </ul></li>
-  <li><a href="#jacobian换坐标的汇率" id="toc-jacobian换坐标的汇率" class="nav-link" data-scroll-target="#jacobian换坐标的汇率"><span class="header-section-number">3.3</span> Jacobian：换坐标的汇率</a></li>
+  <li><a href="#二重积分从切片求和到区域求和" id="toc-二重积分从切片求和到区域求和" class="nav-link active" data-scroll-target="#二重积分从切片求和到区域求和"><span class="header-section-number">7.1</span> 二重积分：从切片求和到区域求和</a></li>
+  <li><a href="#换坐标极坐标与那个-r" id="toc-换坐标极坐标与那个-r" class="nav-link" data-scroll-target="#换坐标极坐标与那个-r"><span class="header-section-number">7.2</span> 换坐标：极坐标与那个 <span class="math inline">r</span></a></li>
+  <li><a href="#jacobian换元的一般公式" id="toc-jacobian换元的一般公式" class="nav-link" data-scroll-target="#jacobian换元的一般公式"><span class="header-section-number">7.3</span> Jacobian：换元的一般公式</a></li>
+  <li><a href="#物理应用连续分布的积分描述" id="toc-物理应用连续分布的积分描述" class="nav-link" data-scroll-target="#物理应用连续分布的积分描述"><span class="header-section-number">7.4</span> 物理应用：连续分布的积分描述</a></li>
   <li><a href="#出处与查表" id="toc-出处与查表" class="nav-link" data-scroll-target="#出处与查表">出处与查表</a></li>
-  <li><a href="#本章收束" id="toc-本章收束" class="nav-link" data-scroll-target="#本章收束"><span class="header-section-number">3.4</span> 本章收束</a></li>
+  <li><a href="#本讲收束" id="toc-本讲收束" class="nav-link" data-scroll-target="#本讲收束"><span class="header-section-number">7.5</span> 本讲收束</a></li>
   </ul>
 </nav>
     </div>
@@ -488,7 +509,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-parametrize" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">参数化与换坐标</span></span></h1>
+<h1 class="title"><span id="sec-multiple-integrals" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">多重积分</span></span></h1>
 </div>
 
 
@@ -505,118 +526,55 @@ window.Quarto = {
 </header>
 
 
-<p>第 2 章结束时挂了两个号：曲线与向量场。先处理曲线，因为它是「把几何装进数」的第一次完整练习，而且它的解法——<strong>参数化</strong>——同时回答了另一个大问题：<strong>换坐标</strong>。这两件事在物理书里无处不在：轨道是曲线，球对称电荷选球坐标是换坐标，而两者的数学内核是同一个。</p>
-<div class="callout callout-style-default callout-important callout-titled" title="本章问题">
+<p>「这块带电体总电荷多少？」「这根棒绕轴的转动惯量多少？」——密度是位置的函数时，总量 = <strong>在区域上累积</strong>。一维的 <span class="math inline">\int_a^b</span> 只会沿直线段累积；本讲把它升级到平面区域与立体区域，并处理随之而来的两个新问题：<strong>积分次序</strong>（怎么切、先积谁）与<strong>换坐标</strong>（极/柱/球下积分元怎么换算——第 4 讲埋的 Jacobian 正式登场）。</p>
+<div class="callout callout-style-default callout-important callout-titled" title="本讲问题">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>本章问题
+<span class="screen-reader-only">Important</span>本讲问题
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>轨迹（空间中的一条线）怎么用数描述？球对称的问题凭什么要换到球坐标？换坐标时积分里的 <span class="math inline">\mathrm{d}x\,\mathrm{d}y</span> 变成 <span class="math inline">r^2\sin\theta\,\mathrm{d}r\,\mathrm{d}\theta\,\mathrm{d}\varphi</span>——这个多出来的因子从哪里来，为什么它是「换坐标的汇率」？</p>
+<p>二重/三重积分怎么从黎曼和长出来，累次积分凭什么可以换序？换到极坐标时凭什么要乘一个 <span class="math inline">r</span>、球坐标乘 <span class="math inline">r^2\sin\theta</span>——Jacobian 作为「体积汇率」的完整换元公式是什么？连续分布（质量、电荷）的物理量怎么用这套语言描述？</p>
 </div>
 </div>
-<section id="参数曲线运动学即参数化" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="参数曲线运动学即参数化"><span class="header-section-number">3.1</span> 参数曲线：运动学即参数化</h2>
-<p>描述曲线的最强办法不是解方程（<span class="math inline">x^2+y^2=1</span> 只告诉你点集），而是<strong>引入一个跑动的参数</strong>——通常就是时间：</p>
+<section id="二重积分从切片求和到区域求和" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="二重积分从切片求和到区域求和"><span class="header-section-number">7.1</span> 二重积分：从切片求和到区域求和</h2>
+<p>把第 1 讲的黎曼和直接升级：矩形网格切成 <span class="math inline">N\times M</span> 小块，每块面积 <span class="math inline">\Delta A = \Delta x\,\Delta y</span>，取每块上一点的高度，求和、取极限：</p>
 <p><span class="math display">
-\mathbf{r}(t) = \big(x(t),\; y(t),\; z(t)\big) \tag{3.1}
+\iint_R f(x,y)\,\mathrm{d}A \;=\; \lim_{N,M\to\infty}\sum_{i}\sum_{j} f(x_i, y_j)\,\Delta x\,\Delta y \tag{7.1}
 </span></p>
-<p>一个函数同时给出整条轨迹。而运动学全部内容就是这条曲线的一二阶导数：</p>
+<p>几何形象：<span class="math inline">f \ge 0</span> 时它是区域 <span class="math inline">R</span> 上方曲顶柱体的<strong>体积</strong>——「面积下的体积」正是「曲线下的面积」的升维。语义仍是判据 B 的三连问：积什么（被积函数是什么密度）、在哪测（<span class="math inline">\mathrm{d}A</span> 在什么区域上）、界在哪（<span class="math inline">R</span> 的边界）。</p>
+<p><strong>二重积分与两次一元积分的关系</strong>是本讲的第一件工具：切蛋糕可以竖着切也可以横着切——先沿 <span class="math inline">x</span> 切条、每条算面积，再把条面积加起来；或者反过来。这就是<strong>累次积分</strong>（Fubini 定理保证好函数时两种切法相等）：</p>
 <p><span class="math display">
-\mathbf{v} = \frac{\mathrm{d}\mathbf{r}}{\mathrm{d}t} = \dot{\mathbf{r}} \quad(\text{切向量，方向即运动方向}), \qquad
-\mathbf{a} = \ddot{\mathbf{r}} \tag{3.2}
+\iint_R f\,\mathrm{d}A = \int_a^b\!\left[\int_{g_1(x)}^{g_2(x)} f(x,y)\,\mathrm{d}y\right]\mathrm{d}x
+= \int_c^d\!\left[\int_{h_1(y)}^{h_2(y)} f(x,y)\,\mathrm{d}x\right]\mathrm{d}y \tag{7.2}
 </span></p>
-<p><strong>读法</strong>：速度是一个向量——「这一瞬间朝哪、多快」。速率是它的长度 <span class="math inline">|\mathbf{v}|</span>。加速度还是它的导数，即使速率不变、方向在变（圆周运动的向心加速度就是纯方向变化的加速度——第 5 章讲振子时会用到这个直觉；向量函数微积分的教材定位：<span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016</a>, ch.&nbsp;13)</span>）。</p>
-<p>参数化的直接产出是<strong>弧长</strong>。一小段时间 <span class="math inline">\mathrm{d}t</span> 内挪过的位移是勾股定理 <span class="math inline">\mathrm{d}s = \sqrt{\mathrm{d}x^2+\mathrm{d}y^2+\mathrm{d}z^2}</span>，除以 <span class="math inline">\mathrm{d}t</span> 即速率，于是：</p>
-<p><span class="math display">
-\mathrm{d}s = |\mathbf{v}|\,\mathrm{d}t, \qquad
-s = \int_{t_0}^{t_1} |\mathbf{v}(t)|\,\mathrm{d}t \tag{3.3}
-</span></p>
-<p>弧长积分几乎永远积不出闭式，物理书毫不在意——重要的是<strong>语义</strong>：路程 = 速率对时间的累积（第 1 章判据 B 的直接应用；弧长公式见 <span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 13.3</a>)</span>）。</p>
+<p>矩形区域时内层限是常数；一般区域时内层限是<strong>曲线</strong>（区域边界）——<strong>区域信息全部搬进积分限</strong>，被积函数不变。物理书最爱用这一点：「对 <span class="math inline">y</span> 从 <span class="math inline">0</span> 积到 <span class="math inline">\sqrt{a^2-x^2}</span>」等价于「积上半圆盘」。换序（左式 ↔︎ 右式）是纯粹的改切法，常能把积不出的顺序换成积得出的——你不必练这个技巧，只需知道<strong>换序合法、且边界要重新描述</strong>（二重积分与累次积分：<span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, secs. 15.1–15.2</a>)</span>）。</p>
+<p>三重积分照方抓药，<span class="math inline">\mathrm{d}v = \mathrm{d}x\,\mathrm{d}y\,\mathrm{d}z</span>，几何形象是四维「超体积」（无直觉也罢），物理形象更实在：密度 × 体积微元的总账。</p>
 </section>
-<section id="极坐标给中心力场定制的坐标" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="极坐标给中心力场定制的坐标"><span class="header-section-number">3.2</span> 极坐标：给中心力场定制的坐标</h2>
-<p>平面上一点有两种报名字的方式：直角 <span class="math inline">(x,y)</span>，或「多远 + 朝哪」<span class="math inline">(r,\varphi)</span>：</p>
+<section id="换坐标极坐标与那个-r" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="换坐标极坐标与那个-r"><span class="header-section-number">7.2</span> 换坐标：极坐标与那个 <span class="math inline">r</span></h2>
+<p>圆形区域用直角坐标描述边界很痛（<span class="math inline">\sqrt{a^2-x^2}</span> 满天飞），换极坐标后区域变成矩形 <span class="math inline">[0,a]\times[0,2\pi]</span>。但被积函数与积分元都要换算——第 4 讲的面积元 (4.9) 此刻上岗：</p>
 <p><span class="math display">
-x = r\cos\varphi, \qquad y = r\sin\varphi \tag{3.4}
+\iint_R f(x,y)\,\mathrm{d}A = \int_{\varphi_1}^{\varphi_2}\!\!\int_{r_1(\varphi)}^{r_2(\varphi)} f(r\cos\varphi,\, r\sin\varphi)\; \boxed{r}\;\mathrm{d}r\,\mathrm{d}\varphi \tag{7.3}
 </span></p>
-<p>换坐标的动机从来不是数学趣味，是<strong>对称性</strong>：开普勒问题里力永远指向前方，圆的方程在直角坐标是 <span class="math inline">x^2+y^2=r^2</span>、在极坐标是 <span class="math inline">r=\text{const}</span>。轨道方程、等势面、边界条件在「对的坐标」里短一个数量级——换坐标 = 挑一个让物理量简单的报名方式。</p>
-<p>但极坐标有一个暗礁，力学书反复被它绊倒读者：<strong>极坐标的单位向量 <span class="math inline">\hat{\mathbf{r}}, \hat{\boldsymbol{\varphi}}</span> 随位置转动</strong>。直角坐标的 <span class="math inline">\hat{\mathbf{x}}</span> 永远朝东，而 <span class="math inline">\hat{\mathbf{r}}</span> 在原点右边朝右、在原点上边朝上——它是「活的」。求导时它不再为零，于是速度展开成两项：</p>
-<p><span class="math display">
-\mathbf{v} = \dot{r}\,\hat{\mathbf{r}} + r\dot{\varphi}\,\hat{\boldsymbol{\varphi}} \tag{3.5}
-</span></p>
-<p>第一项：离原点的距离在变（径向速度）。第二项：距离不变但方向在转（横向速度，<span class="math inline">r\dot\varphi</span> 是角速度乘半径）。<strong>不必会推导 (3.5)，但必须认得它</strong>——中心力问题的全部推导都从这个展开开始，认不出它，开普勒一章就是天书（极坐标运动学的推导见 <span class="citation" data-cites="taylor2005">(<a href="#ref-taylor2005" role="doc-biblioref">Taylor 2005</a>, ch.&nbsp;8)</span>）。</p>
-<section id="面积元mathrmda-rmathrmdrmathrmdvarphi-的来历" class="level3" data-number="3.2.1">
-<h3 data-number="3.2.1" class="anchored" data-anchor-id="面积元mathrmda-rmathrmdrmathrmdvarphi-的来历"><span class="header-section-number">3.2.1</span> 面积元：<span class="math inline">\mathrm{d}A = r\,\mathrm{d}r\,\mathrm{d}\varphi</span> 的来历</h3>
-<p>在极坐标里做面积分（第 4 章马上要大量做），小块面积不是 <span class="math inline">\mathrm{d}r\,\mathrm{d}\varphi</span>。几何理由：以原点为心取一小格，径向边长 <span class="math inline">\mathrm{d}r</span>，弧向边长不是 <span class="math inline">\mathrm{d}\varphi</span> 而是<strong>弧长</strong> <span class="math inline">r\,\mathrm{d}\varphi</span>（半径乘角度）：</p>
-<p><span class="math display">
-\mathrm{d}A = r\,\mathrm{d}r\,\mathrm{d}\varphi \tag{3.6}
-</span></p>
-<p>同样的格子，离原点越远越大——像切披萨，靠边的楔形块面积更大（极坐标面积与弧长：<span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 10.4</a>)</span>）。</p>
+<p><strong>那个 <span class="math inline">r</span> 绝不能忘</strong>——忘掉就是差一个数量级。柱坐标三重积分同理乘 <span class="math inline">r</span>；球坐标乘 <span class="math inline">r^2\sin\theta</span>（体积元 (4.11)，三条边的来历第 4 讲已给：柱/球坐标下的重积分见 <span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, secs. 15.3–15.8</a>)</span>）。</p>
+<p>一个值得欣赏的经典：高斯积分 <span class="math inline">\int_{-\infty}^{\infty} e^{-x^2}\,\mathrm{d}x = \sqrt{\pi}</span>。一元没法算（<span class="math inline">e^{-x^2}</span> 没有初等原函数），但平方之后是二重积分 <span class="math inline">\iint e^{-(x^2+y^2)}\,\mathrm{d}A</span>，换到极坐标，<span class="math inline">e^{-r^2}</span> 配 <span class="math inline">r\,\mathrm{d}r</span>——凑成 <span class="math inline">\mathrm{d}(e^{-r^2})</span> 的形式，一步积出。<strong>换坐标不只是方便，有时是唯一的活路</strong>（物理书里正态分布、点电荷势的归一化全靠它）。</p>
 </section>
-<section id="柱坐标与球坐标" class="level3" data-number="3.2.2">
-<h3 data-number="3.2.2" class="anchored" data-anchor-id="柱坐标与球坐标"><span class="header-section-number">3.2.2</span> 柱坐标与球坐标</h3>
-<p>三维对称性升级，坐标跟着升级。柱坐标 <span class="math inline">=</span> 平面极坐标 <span class="math inline">+\,z</span>，体积元直接继承 (3.6)：</p>
+<section id="jacobian换元的一般公式" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="jacobian换元的一般公式"><span class="header-section-number">7.3</span> Jacobian：换元的一般公式</h2>
+<p><span class="math inline">r</span> 与 <span class="math inline">r^2\sin\theta</span> 不是孤例，是普遍规律：<strong>换元 = 乘体积汇率</strong>。一元换元你记得（第 1 讲链式法则的积分版）：</p>
 <p><span class="math display">
-\mathrm{d}v = r\,\mathrm{d}r\,\mathrm{d}\varphi\,\mathrm{d}z \qquad(\text{柱}) \tag{3.7}
+\int f(x)\,\mathrm{d}x = \int f\big(x(u)\big)\,\frac{\mathrm{d}x}{\mathrm{d}u}\,\mathrm{d}u \tag{7.4}
 </span></p>
-<p>球坐标 <span class="math inline">(r,\theta,\varphi)</span>：半径 <span class="math inline">r</span>、极角 <span class="math inline">\theta</span>（自 <span class="math inline">+z</span> 轴量起）、方位角 <span class="math inline">\varphi</span>（绕 <span class="math inline">z</span> 轴）。换算：</p>
+<p><span class="math inline">\frac{\mathrm{d}x}{\mathrm{d}u}</span> 是长度汇率。多元时「汇率」是第 5 讲的 Jacobian 矩阵，而<strong>体积汇率是它的行列式</strong>：</p>
 <p><span class="math display">
-x = r\sin\theta\cos\varphi,\quad y = r\sin\theta\sin\varphi,\quad z = r\cos\theta \tag{3.8}
+\mathrm{d}x\,\mathrm{d}y = \left|\det\frac{\partial(x,y)}{\partial(u,v)}\right| \mathrm{d}u\,\mathrm{d}v \tag{7.5}
 </span></p>
-<p>体积元的记忆锚点是<strong>小砖块的三条边</strong>：</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>边</th>
-<th>长度</th>
-<th>理由</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>径向</td>
-<td><span class="math inline">\mathrm{d}r</span></td>
-<td>沿半径走</td>
-</tr>
-<tr class="even">
-<td>沿经线（<span class="math inline">\theta</span> 方向）</td>
-<td><span class="math inline">r\,\mathrm{d}\theta</span></td>
-<td>大圆弧长 = 半径 × 角</td>
-</tr>
-<tr class="odd">
-<td>沿纬线（<span class="math inline">\varphi</span> 方向）</td>
-<td><span class="math inline">r\sin\theta\,\mathrm{d}\varphi</span></td>
-<td>纬圈半径不是 <span class="math inline">r</span>，是 <span class="math inline">r\sin\theta</span></td>
-</tr>
-</tbody>
-</table>
-<p><span class="math display">
-\mathrm{d}v = r^2 \sin\theta\;\mathrm{d}r\,\mathrm{d}\theta\,\mathrm{d}\varphi \qquad(\text{球}) \tag{3.9}
-</span></p>
-<p>忘记 <span class="math inline">r^2\sin\theta</span> 时不要背公式，回来想「纬圈的半径被 <span class="math inline">\sin\theta</span> 打折」：在北极 <span class="math inline">\theta=0</span>，纬圈缩成一点，<span class="math inline">\sin\theta=0</span>，那一小格没有体积（柱面与球面坐标的体积元：<span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, secs. 15.7–15.8</a>)</span>；物理书的写法见 <span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 1.4</a>)</span>）。</p>
-</section>
-</section>
-<section id="jacobian换坐标的汇率" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="jacobian换坐标的汇率"><span class="header-section-number">3.3</span> Jacobian：换坐标的汇率</h2>
-<p>(3.6) 与 (3.9) 里多出来的 <span class="math inline">r</span> 与 <span class="math inline">r^2\sin\theta</span> 不是孤例，是普遍规律的实例。回到一元换元（你应该记得）：</p>
-<p><span class="math display">
-\int f(x)\,\mathrm{d}x = \int f\big(x(u)\big)\,\frac{\mathrm{d}x}{\mathrm{d}u}\,\mathrm{d}u \tag{3.10}
-</span></p>
-<p><span class="math inline">\frac{\mathrm{d}x}{\mathrm{d}u}</span> 是<strong>长度汇率</strong>：新货币的一单位值旧货币多少钱。多元时「汇率」变成矩阵——<strong>Jacobian 矩阵</strong> <span class="math inline">J</span>，其行列式的绝对值给出<strong>体积汇率</strong>：</p>
-<p><span class="math display">
-\mathrm{d}x\,\mathrm{d}y = \left|\det\frac{\partial(x,y)}{\partial(u,v)}\right| \mathrm{d}u\,\mathrm{d}v \tag{3.11}
-</span></p>
-<p>为什么是行列式？第 2 章说过：放大镜层面一切映射都是线性的，而<strong>线性映射把面积/体积伸缩的倍数恰好等于其矩阵行列式</strong>（叉积的面积意义）。极坐标的 Jacobian：<span class="math inline">\partial(x,y)/\partial(r,\varphi) = r</span>（两个三角函数偏导组成的矩阵，行列式算出来是 <span class="math inline">r\cos^2\varphi + r\sin^2\varphi = r</span>）——(3.6) 复现；球坐标同理得 <span class="math inline">r^2\sin\theta</span>——(3.9) 复现（换元定理与行列式的来历：<span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 15.9</a>)</span>）。</p>
+<p>为什么是行列式？放大镜层面一切映射都是线性的（第 1 讲），而线性映射把面积/体积伸缩的倍数恰好等于其矩阵行列式（叉积的面积意义）。极坐标验证：<span class="math inline">\partial(x,y)/\partial(r,\varphi) = r</span>（两个三角函数偏导组成的矩阵，行列式算出来是 <span class="math inline">r\cos^2\varphi + r\sin^2\varphi = r</span>）——(7.3) 的 <span class="math inline">r</span> 复现；球坐标同理得 <span class="math inline">r^2\sin\theta</span>（换元定理与行列式的来历：<span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 15.9</a>)</span>）。</p>
 <p>下面这张图把「汇率」演出来看：左图是 <span class="math inline">(r,\varphi)</span> 平面上的<strong>均匀</strong>网格，右图是它映射到 <span class="math inline">(x,y)</span> 后的极网格。同一组格线，格子大小不再均匀——高亮同一个 <span class="math inline">(\mathrm{d}r,\mathrm{d}\varphi)</span> 单元，看它映射后随 <span class="math inline">r</span> 增大而变宽。<strong>Jacobian 就是「右格面积 / 左格面积」，它恰好等于 <span class="math inline">r</span>。</strong></p>
 <div class="jac-fig" aria-hidden="true">
 <style>
@@ -646,17 +604,14 @@ window.addEventListener('load', function () {
   if (typeof Sketch === 'undefined') return;
   const svg = document.getElementById('jacsvg');
   const P = { ink: '#3a4aa8', deep: '#2c3a8c', amber: '#bf8700', green: '#1a7f37', dim: '#9aa1b9' };
-  const RS = [0.7, 1.5, 2.3], FIS = 0.55;               /* 单元位置: (r, φ) */
-  const DR = 0.45, DFI = 0.32;                          /* 单元尺寸 dr, dφ */
-  /* 左面板: (r,φ) 平面, r∈[0.2,2.8], φ∈[0,π] */
+  const RS = [0.7, 1.5, 2.3], FIS = 0.55;
+  const DR = 0.45, DFI = 0.32;
   const lx = r => 30 + (r-0.2)/2.6*280, ly = p => 265 - p/Math.PI*230;
-  /* 右面板: (x,y) = (r cosφ, r sinφ) */
   const rx = x => 380 + x/3.1*140, ry = y => 250 - y/2.9*220;
   window.jSet = function (k) {
     [0,1,2].forEach(i => { const b = document.getElementById('jb'+i); if (b) b.className = i==k ? 'on' : ''; });
     while (svg.firstChild) svg.removeChild(svg.firstChild);
     const s = Sketch(svg), r0 = RS[k];
-    /* ---- 左: 均匀网格 ---- */
     s.path(`M30 35 L310 35 L310 265 L30 265 Z`, { stroke: 'rgba(154,161,185,.5)', width: 1.1 });
     for (let r = 0.65; r < 2.8; r += 0.65) s.path(`M${lx(r)} 35 L${lx(r)} 265`, { stroke: 'rgba(154,161,185,.35)', width: 1 });
     for (let p = Math.PI/4; p < Math.PI; p += Math.PI/4) s.path(`M30 ${ly(p)} L310 ${ly(p)}`, { stroke: 'rgba(154,161,185,.35)', width: 1 });
@@ -664,17 +619,15 @@ window.addEventListener('load', function () {
     s.path(`M${lx(r0)} ${ly(FIS)} L${lx(r0+DR)} ${ly(FIS)} L${lx(r0+DR)} ${ly(FIS+DFI)} L${lx(r0)} ${ly(FIS+DFI)} Z`,
            { stroke: P.amber, width: 2, fill: 'rgba(191,135,0,.15)', rough: false });
     s.label(lx(r0+DR)+34, ly(FIS+DFI/2), 'dr·dφ', { size: 15, color: P.amber, mono: true });
-    /* ---- 右: 极网格 (映射的像) ---- */
-    for (let r = 0.65; r < 2.9; r += 0.65) {           /* 同心圆弧 */
+    for (let r = 0.65; r < 2.9; r += 0.65) {
       let d = '';
       for (let p = 0; p <= Math.PI + .01; p += .1) {
         d += (d ? ' L' : 'M') + rx(r*Math.cos(p)) + ' ' + ry(r*Math.sin(p)); }
       s.path(d, { stroke: 'rgba(58,74,168,.5)', width: 1.1 });
     }
-    for (let p = 0; p <= Math.PI + .01; p += Math.PI/4)  /* 射线 */
+    for (let p = 0; p <= Math.PI + .01; p += Math.PI/4)
       s.path(`M${rx(0)} ${ry(0)} L${rx(2.8*Math.cos(p))} ${ry(2.8*Math.sin(p))}`, { stroke: 'rgba(58,74,168,.5)', width: 1.1 });
     s.dot(rx(0), ry(0), P.deep, 3.5);
-    /* 弯曲高亮单元: 四条边近似 */
     const cell = (rr, pp) => [rx(rr*Math.cos(pp)), ry(rr*Math.sin(pp))];
     let d = '';
     for (let p = FIS; p <= FIS+DFI+.001; p += .05) { const q = cell(r0, p); d += (d ? ' L' : 'M') + q[0] + ' ' + q[1]; }
@@ -683,9 +636,7 @@ window.addEventListener('load', function () {
     for (let r = r0+DR; r >= r0-.001; r -= .05)     { const q = cell(r, FIS); d += ' L' + q[0] + ' ' + q[1]; }
     s.path(d + ' Z', { stroke: P.amber, width: 2, fill: 'rgba(191,135,0,.2)', rough: false });
     s.label((rx(0)+rx(2.6))/2 + 10, 288, '(x, y) 平面 — 格子随 r 变宽,  面积比 = r', { size: 15, color: P.deep });
-    const rate = r0.toFixed(1);
-    s.label(rx(1.9), ry(1.9) - 22, '汇率 |det J| = ' + rate, { size: 16, color: P.amber, mono: true });
-    /* 映射箭头 */
+    s.label(rx(1.9), ry(1.9) - 22, '汇率 |det J| = ' + r0.toFixed(1), { size: 16, color: P.amber, mono: true });
     s.path(`M315 150 L365 150`, { stroke: P.green, width: 1.6, arrow: true });
     s.label(340, 136, '(r,φ)→(x,y)', { size: 12.5, color: P.green });
   };
@@ -693,33 +644,42 @@ window.addEventListener('load', function () {
 });
 </script>
 </div>
-<div class="callout callout-style-default callout-note callout-titled" title="判据 D（换坐标积分）三步">
+<div class="callout callout-style-default callout-note callout-titled" title="判据 M（换坐标积分）三步">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>判据 D（换坐标积分）三步
+<span class="screen-reader-only">Note</span>判据 M（换坐标积分）三步
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
 <li><strong>函数换写</strong>：被积函数用新坐标表出（<span class="math inline">x = r\cos\varphi</span> 等）；</li>
-<li><strong>积分元换算</strong>：乘上 Jacobian（<span class="math inline">r^2\sin\theta</span> 之类），这一步<strong>绝不能忘</strong>，忘掉就是差几个数量级；</li>
-<li><strong>区域重述</strong>：积分限用新坐标的语言重写（球对称时常常变成三个常数限，这正是换坐标的全部回报）。</li>
+<li><strong>积分元换算</strong>：乘上 Jacobian（<span class="math inline">r</span>、<span class="math inline">r^2\sin\theta</span> 等），<strong>绝不能忘</strong>；</li>
+<li><strong>区域重述</strong>：积分限用新坐标重写（对称时常常变成常数限——这正是换坐标的全部回报）。</li>
 </ol>
 </div>
 </div>
-<p>顺带收尾：<strong>参数曲线与换坐标是同一件事</strong>——都是「用一组数跑过另一组数」的映射 <span class="math inline">(u,v)\to(x,y)</span>。运动学是「时间跑过空间」，极坐标是「网格跑过平面」，Jacobian 是所有这类映射共用的汇率。</p>
+</section>
+<section id="物理应用连续分布的积分描述" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="物理应用连续分布的积分描述"><span class="header-section-number">7.4</span> 物理应用：连续分布的积分描述</h2>
+<p>多重积分的物理身份就是「连续世界的总账」。密度 <span class="math inline">\rho</span>（质量、电荷）在区域 <span class="math inline">V</span> 上分布时：</p>
+<p><span class="math display">
+Q = \iiint_V \rho(\mathbf{r})\,\mathrm{d}v, \qquad
+m = \iiint_V \rho_m(\mathbf{r})\,\mathrm{d}v \tag{7.6}
+</span></p>
+<p>两个衍生量同样只需认得定义式（<strong>加权平均</strong>：位置以密度为权重）：</p>
+<p><span class="math display">
+\mathbf{r}_{\text{cm}} = \frac{1}{m}\iiint_V \mathbf{r}\,\rho\,\mathrm{d}v \;(\text{质心}), \qquad
+I = \iiint_V d_{\perp}^2\,\rho\,\mathrm{d}v \;(\text{转动惯量},\; d_\perp = \text{到轴距离}) \tag{7.7}
+</span></p>
+<p>读法比算法重要：质心是「密度加权的平均位置」；转动惯量是「质量 × 力臂² 的总账」——为什么陀螺转起来稳、为什么芭蕾收臂变快，全在 <span class="math inline">d_\perp^2</span> 这个权重里。具体计算（均匀球、圆柱的 <span class="math inline">I</span>）物理书会带着你做一两遍，你只需要在每一步问三连问 + 汇率对不对（三重积分的物理应用：<span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016</a>, ch.&nbsp;15)</span>; <span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 1.3</a>)</span>）。</p>
 </section>
 <section id="出处与查表" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="出处与查表">出处与查表</h2>
-<p>本章对象的教材定位——引文是查表索引，不是阅读任务：</p>
+<p>本讲对象的教材定位——引文是查表索引，不是阅读任务：</p>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
 <thead>
 <tr class="header">
 <th>本书对象</th>
@@ -728,41 +688,36 @@ window.addEventListener('load', function () {
 </thead>
 <tbody>
 <tr class="odd">
-<td>参数曲线、速度、加速度</td>
-<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016</a>, ch.&nbsp;13)</span></td>
+<td>二重积分、累次积分与换序</td>
+<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, secs. 15.1–15.2</a>)</span></td>
 </tr>
 <tr class="even">
-<td>弧长</td>
-<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 13.3</a>)</span></td>
+<td>极坐标下的二重积分</td>
+<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 15.3</a>)</span></td>
 </tr>
 <tr class="odd">
-<td>极坐标运动学（活单位向量）</td>
-<td><span class="citation" data-cites="taylor2005">(<a href="#ref-taylor2005" role="doc-biblioref">Taylor 2005</a>, ch.&nbsp;8)</span></td>
+<td>柱/球坐标下的三重积分</td>
+<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, secs. 15.7–15.8</a>)</span></td>
 </tr>
 <tr class="even">
-<td>极坐标面积元</td>
-<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 10.4</a>)</span></td>
-</tr>
-<tr class="odd">
-<td>柱/球坐标体积元</td>
-<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, secs. 15.7–15.8</a>)</span>; <span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 1.4</a>)</span></td>
-</tr>
-<tr class="even">
-<td>Jacobian 换元</td>
+<td>Jacobian 换元公式</td>
 <td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 15.9</a>)</span></td>
+</tr>
+<tr class="odd">
+<td>连续分布与体积分（物理侧）</td>
+<td><span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 1.3</a>)</span></td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="本章收束" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="本章收束"><span class="header-section-number">3.4</span> 本章收束</h2>
+<section id="本讲收束" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="本讲收束"><span class="header-section-number">7.5</span> 本讲收束</h2>
 <ul>
-<li>参数化把曲线变成向量函数：<span class="math inline">\dot{\mathbf{r}}</span> 即速度、<span class="math inline">\ddot{\mathbf{r}}</span> 即加速度、<span class="math inline">|\dot{\mathbf{r}}|\,\mathrm{d}t</span> 即路程微元。</li>
-<li>极坐标的单位向量是<strong>活的</strong>，速度有两项 <span class="math inline">\dot r\,\hat{\mathbf r} + r\dot\varphi\,\hat{\boldsymbol\varphi}</span>——认得它，开普勒不再是天书。</li>
-<li>体积元公式不背：径向 <span class="math inline">\mathrm{d}r</span>、经线 <span class="math inline">r\,\mathrm{d}\theta</span>、纬线 <span class="math inline">r\sin\theta\,\mathrm{d}\varphi</span>，三条边相乘。</li>
-<li>Jacobian <span class="math inline">=</span> 体积汇率 <span class="math inline">=</span> 行列式：换坐标积分的三步之一，最不能省的一步。</li>
+<li>重积分 = 黎曼和升维；累次积分 = 两种切蛋糕方式，区域信息搬进积分限。</li>
+<li>换元三步：函数换写、<strong>乘 Jacobian</strong>、区域重述；高斯积分演示了「换坐标是唯一活路」。</li>
+<li>质心、转动惯量 = 密度加权平均——认得定义式，算交给物理书带练。</li>
 </ul>
-<p>现在万事俱备：第 2 章的标量场语言、本章的曲线坐标与积分元。下一章引入最后一位主角——<strong>向量场</strong>（每点一个向量），然后把「切」与「积」两个母动作在三维空间里全部装配起来，你将拿到读麦克斯韦方程组的全部门票。</p>
+<p>区域累积的语言齐了。但还有两类累积不在区域内部，而在<strong>低一维的骨架</strong>上：沿曲线累积（力沿路径做功）、穿曲面累积（场穿过面的通量）——区域的边界正是曲线与曲面。下一讲：线积分与面积分。</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
@@ -771,9 +726,6 @@ Griffiths, David J. 2013. <em>Introduction to Electrodynamics</em>. 4th ed. Bost
 </div>
 <div id="ref-stewart2016" class="csl-entry" role="listitem">
 Stewart, James. 2016. <em>Calculus: Early Transcendentals</em>. 8th ed. Boston: Cengage Learning.
-</div>
-<div id="ref-taylor2005" class="csl-entry" role="listitem">
-Taylor, John R. 2005. <em>Classical Mechanics</em>. Sausalito: University Science Books.
 </div>
 </div>
 </section>
@@ -1181,13 +1133,13 @@ Taylor, John R. 2005. <em>Classical Mechanics</em>. Sausalito: University Scienc
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./02-multivariable.html" class="pagination-link" aria-label="多元与全微分">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">多元与全微分</span></span>
+      <a href="./06-vector-fields.html" class="pagination-link" aria-label="向量场与 $\nabla$ 算子">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">向量场与 <span class="math inline">\nabla</span> 算子</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./04-vector-field.html" class="pagination-link" aria-label="向量场与三大定理">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">向量场与三大定理</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./08-line-surface.html" class="pagination-link" aria-label="曲线积分与曲面积分">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">曲线积分与曲面积分</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

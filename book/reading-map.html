@@ -8,7 +8,7 @@
 
 <meta name="description" content="不训练计算肌肉，只重建语言能力：两个母动作、一座桥、坐标无关性与「定律→方程」的翻译术，从一元串联走到向量场、ODE、PDE，直通物理书页。">
 
-<title>2&nbsp; 多元与全微分 – 微积分的物理地图</title>
+<title>11&nbsp; 阅读地图 – 微积分的物理地图</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,27 +21,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -51,8 +31,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./03-parametrize.html" rel="next">
-<link href="./01-two-moves.html" rel="prev">
+<link href="./10-pde.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -382,7 +361,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02-multivariable.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">多元与全微分</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./reading-map.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">阅读地图</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -421,44 +400,68 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-two-moves.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">两个母动作</span></span></a>
+  <a href="./01-fundamentals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">微积分基本思想</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-multivariable.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">多元与全微分</span></span></a>
+  <a href="./02-ode.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">常微分方程与动力学</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-parametrize.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">参数化与换坐标</span></span></a>
+  <a href="./03-space-curves.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">参数方程与空间曲线</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-vector-field.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">向量场与三大定理</span></span></a>
+  <a href="./04-curvilinear.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">曲线坐标系</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-ode.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">定律变成方程：常微分方程</span></span></a>
+  <a href="./05-multivariable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">多元与全微分</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-pde.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">时空一起说话：偏微分方程</span></span></a>
+  <a href="./06-vector-fields.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">向量场与 <span class="math inline">\nabla</span> 算子</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-reading-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">阅读地图</span></span></a>
+  <a href="./07-multiple-integrals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">多重积分</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-line-surface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">曲线积分与曲面积分</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-integral-theorems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">积分定理</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-pde.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">时空一起说话：偏微分方程</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reading-map.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">阅读地图</span></span></a>
   </div>
 </li>
     </ul>
@@ -471,13 +474,11 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#偏导冻结切片的斜率" id="toc-偏导冻结切片的斜率" class="nav-link active" data-scroll-target="#偏导冻结切片的斜率"><span class="header-section-number">2.1</span> 偏导：冻结切片的斜率</a></li>
-  <li><a href="#全微分所有变量一起动的总账" id="toc-全微分所有变量一起动的总账" class="nav-link" data-scroll-target="#全微分所有变量一起动的总账"><span class="header-section-number">2.2</span> 全微分：所有变量一起动的总账</a></li>
-  <li><a href="#链式法则换变量的语法" id="toc-链式法则换变量的语法" class="nav-link" data-scroll-target="#链式法则换变量的语法"><span class="header-section-number">2.3</span> 链式法则：换变量的语法</a></li>
-  <li><a href="#梯度把报价单折叠成一个向量" id="toc-梯度把报价单折叠成一个向量" class="nav-link" data-scroll-target="#梯度把报价单折叠成一个向量"><span class="header-section-number">2.4</span> 梯度：把报价单折叠成一个向量</a></li>
-  <li><a href="#一个预告nabla2" id="toc-一个预告nabla2" class="nav-link" data-scroll-target="#一个预告nabla2"><span class="header-section-number">2.5</span> 一个预告：<span class="math inline">\nabla^2</span></a></li>
-  <li><a href="#出处与查表" id="toc-出处与查表" class="nav-link" data-scroll-target="#出处与查表">出处与查表</a></li>
-  <li><a href="#本章收束" id="toc-本章收束" class="nav-link" data-scroll-target="#本章收束"><span class="header-section-number">2.6</span> 本章收束</a></li>
+  <li><a href="#工具总表" id="toc-工具总表" class="nav-link active" data-scroll-target="#工具总表"><span class="header-section-number">11.1</span> 工具总表</a></li>
+  <li><a href="#经典力学阅读地图" id="toc-经典力学阅读地图" class="nav-link" data-scroll-target="#经典力学阅读地图"><span class="header-section-number">11.2</span> 经典力学阅读地图</a></li>
+  <li><a href="#电动力学阅读地图griffiths-谱系" id="toc-电动力学阅读地图griffiths-谱系" class="nav-link" data-scroll-target="#电动力学阅读地图griffiths-谱系"><span class="header-section-number">11.3</span> 电动力学阅读地图（Griffiths 谱系）</a></li>
+  <li><a href="#读不动诊断表" id="toc-读不动诊断表" class="nav-link" data-scroll-target="#读不动诊断表"><span class="header-section-number">11.4</span> 「读不动」诊断表</a></li>
+  <li><a href="#最后的话" id="toc-最后的话" class="nav-link" data-scroll-target="#最后的话"><span class="header-section-number">11.5</span> 最后的话</a></li>
   </ul>
 </nav>
     </div>
@@ -486,7 +487,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-multivariable" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">多元与全微分</span></span></h1>
+<h1 class="title"><span id="sec-map" class="quarto-section-identifier"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">阅读地图</span></span></h1>
 </div>
 
 
@@ -503,75 +504,198 @@ window.Quarto = {
 </header>
 
 
-<p>第 1 章的语言只够描述「一个数随另一个数变化」。但物理量的自变量是<strong>空间</strong>（甚至时空）：温度 <span class="math inline">T(x,y,z)</span>、电势 <span class="math inline">V(x,y,z)</span> 是「每点一个数」的标量场。自变量从一个变成三个，「导数」这个概念立刻分裂——朝哪个方向的变化率？本章处理这次分裂：它产出三个新对象（偏导数、全微分、梯度），每一个都是读物理书的硬通货。</p>
-<div class="callout callout-style-default callout-important callout-titled" title="本章问题">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>本章问题
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>一个函数有三个自变量时，「导数」分裂成什么？为什么偏导数必须声明「固定了谁」、全微分 <span class="math inline">\mathrm{d}f</span> 与「所有偏导数」是什么关系、梯度凭什么成了物理里出镜率最高的向量？</p>
-</div>
-</div>
-<section id="偏导冻结切片的斜率" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="偏导冻结切片的斜率"><span class="header-section-number">2.1</span> 偏导：冻结切片的斜率</h2>
-<p>处理多变量最笨也最有效的办法：<strong>一次只动一个</strong>。把 <span class="math inline">y,z</span> 冻结成常数，<span class="math inline">f(x,y,z)</span> 就退化成一元函数，照第 1 章求导，得到偏导数：</p>
-<p><span class="math display">
-\frac{\partial f}{\partial x} \;=\; \lim_{\Delta x\to 0} \frac{f(x+\Delta x,\,y,\,z) - f(x,\,y,\,z)}{\Delta x} \tag{2.1}
-</span></p>
-<p>几何形象：用平面 <span class="math inline">y=\text{const}</span> 切曲面，切口是一条曲线，<span class="math inline">\partial f/\partial x</span> 是这条切口曲线的斜率（教材定位：<span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 14.3</a>)</span>）。</p>
-<div class="callout callout-style-default callout-note callout-titled" title="判据 C（看到偏导）">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>判据 C（看到偏导）
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>看到 <span class="math inline">\partial</span> 先问：<strong>固定了谁？</strong>这不是 pedantry，是物理的生死线。热力学里同样一个 <span class="math inline">\partial P/\partial V</span>，绝热过程（固定熵 <span class="math inline">S</span>）与等温过程（固定温度 <span class="math inline">T</span>）给出完全不同的答案，差一个因子 <span class="math inline">\gamma</span>。所以物理书写成 <span class="math inline">(\partial P/\partial V)_S</span> 与 <span class="math inline">(\partial P/\partial V)_T</span>——下标不是注释，是<strong>定义的一部分</strong>。读物理书时看到裸的 <span class="math inline">\partial f/\partial x</span>，默认其他自变量全部冻结，然后立刻检查语境里「自变量」到底是哪几个。</p>
-</div>
-</div>
+<p>语言集齐了。本章不再有新数学，只做一件事：<strong>装备清点与任务分派</strong>——经典力学与电动力学的典型章节，逐一标注它们消耗前十讲的哪些工具。用法：读物理书之前扫一眼对应段落，把要用的工具在脑子里预热；卡住时回来查诊断表。</p>
+<section id="工具总表" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="工具总表"><span class="header-section-number">11.1</span> 工具总表</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>工具</th>
+<th>讲</th>
+<th>一句话语义</th>
+<th>物理出场</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>导数/放大镜</td>
+<td>1</td>
+<td>局部线性化，<span class="math inline">\approx</span> 的来源</td>
+<td>一切「率」；小量近似</td>
+</tr>
+<tr class="even">
+<td>链式法则</td>
+<td>1</td>
+<td>率的传导，汇率相乘</td>
+<td>复合变化率</td>
+</tr>
+<tr class="odd">
+<td>积分三连问</td>
+<td>1</td>
+<td>积什么、在哪测、界在哪</td>
+<td>总量问题</td>
+</tr>
+<tr class="even">
+<td>FTC 桥</td>
+<td>1</td>
+<td>边界增量 = 最外层薄片</td>
+<td>三大定理的模板</td>
+</tr>
+<tr class="odd">
+<td>指数解直觉</td>
+<td>2</td>
+<td>率正比于现值 ⇒ 指数</td>
+<td>衰变、放电、暂态</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">y_h + y_p</span> 结构</td>
+<td>2</td>
+<td>自由模式 + 受迫响应</td>
+<td>受迫振动、共振、RLC</td>
+</tr>
+<tr class="odd">
+<td>状态空间/相图</td>
+<td>2</td>
+<td>高阶方程 = 一阶流；稳定性</td>
+<td>动力学系统、数值模拟</td>
+</tr>
+<tr class="even">
+<td>参数曲线</td>
+<td>3</td>
+<td><span class="math inline">\dot{\mathbf r}</span> 速度、<span class="math inline">\ddot{\mathbf r}</span> 加速度</td>
+<td>运动学全章</td>
+</tr>
+<tr class="odd">
+<td>切/法向分解</td>
+<td>3</td>
+<td><span class="math inline">\mathbf{a} = \dot v\,\hat{\mathbf T} + (v^2/\rho)\,\hat{\mathbf N}</span></td>
+<td>圆周运动、变速曲线运动</td>
+</tr>
+<tr class="even">
+<td>活的单位向量</td>
+<td>4</td>
+<td><span class="math inline">\hat{\mathbf r}</span> 自己会转</td>
+<td>极坐标速度两项</td>
+</tr>
+<tr class="odd">
+<td>体积元三条边</td>
+<td>4</td>
+<td>纬圈半径被 <span class="math inline">\sin\theta</span> 打折</td>
+<td>球对称积分</td>
+</tr>
+<tr class="even">
+<td>偏导 + 下标</td>
+<td>5</td>
+<td>固定了谁</td>
+<td>热力学、PDE</td>
+</tr>
+<tr class="odd">
+<td>全微分</td>
+<td>5</td>
+<td>报价单</td>
+<td><span class="math inline">\mathrm{d}U</span>、热力学第一定律</td>
+</tr>
+<tr class="even">
+<td>Jacobian 矩阵</td>
+<td>5</td>
+<td>多元导数 = 线性映射</td>
+<td>换变量、可逆性</td>
+</tr>
+<tr class="odd">
+<td>隐函数</td>
+<td>5</td>
+<td><span class="math inline">-F_T/F_V</span> 此消彼长</td>
+<td>约束、状态方程</td>
+</tr>
+<tr class="even">
+<td>梯度</td>
+<td>5</td>
+<td>上坡方向，⊥ 等值面</td>
+<td><span class="math inline">\mathbf{E}=-\nabla\phi</span>、保守力</td>
+</tr>
+<tr class="odd">
+<td>散度</td>
+<td>6</td>
+<td>源强度（标量）</td>
+<td>高斯定律</td>
+</tr>
+<tr class="even">
+<td>旋度</td>
+<td>6</td>
+<td>涡强度（向量）</td>
+<td>安培环路、涡旋电场</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\nabla^2</span></td>
+<td>6</td>
+<td>与周围平均之差</td>
+<td>泊松方程、波动/热方程</td>
+</tr>
+<tr class="even">
+<td>累次积分与换序</td>
+<td>7</td>
+<td>两种切蛋糕方式</td>
+<td>区域累积</td>
+</tr>
+<tr class="odd">
+<td>Jacobian 换元</td>
+<td>7</td>
+<td>体积汇率，<span class="math inline">r</span>、<span class="math inline">r^2\sin\theta</span></td>
+<td>球对称积分、高斯积分</td>
+</tr>
+<tr class="even">
+<td>连续分布积分</td>
+<td>7</td>
+<td>密度加权总账</td>
+<td>质心、转动惯量、总电荷</td>
+</tr>
+<tr class="odd">
+<td>线积分（两类）</td>
+<td>8</td>
+<td>功与环流；<span class="math inline">\mathrm{d}s</span> vs <span class="math inline">\mathrm{d}\mathbf{r}</span></td>
+<td>功、环流、路径无关</td>
+</tr>
+<tr class="even">
+<td>通量（两类面积分）</td>
+<td>8</td>
+<td>穿面累积；<span class="math inline">\mathrm{d}S</span> vs <span class="math inline">\mathrm{d}\mathbf{A}</span></td>
+<td>高斯面、薄壳</td>
+</tr>
+<tr class="odd">
+<td>高斯/斯托克斯/格林</td>
+<td>9</td>
+<td>边界积分 ↔︎ 内部算子</td>
+<td>麦克斯韦互译、环路定理</td>
+</tr>
+<tr class="even">
+<td>分离变量</td>
+<td>10</td>
+<td>节奏与形状分家</td>
+<td>驻波、量子阱、热传导</td>
+</tr>
+<tr class="odd">
+<td>Fourier 系数</td>
+<td>10</td>
+<td>正交基上的投影</td>
+<td>模式展开</td>
+</tr>
+<tr class="even">
+<td>本征值/边界</td>
+<td>10</td>
+<td>边界给频率发牌照</td>
+<td>吉他弦、原子能级</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="全微分所有变量一起动的总账" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="全微分所有变量一起动的总账"><span class="header-section-number">2.2</span> 全微分：所有变量一起动的总账</h2>
-<p>偏导数一次动一个变量，但真实世界里变量<strong>一起动</strong>：气体膨胀时体积和温度同时变。全微分把所有小步的贡献<strong>加总</strong>：</p>
-<p><span class="math display">
-\mathrm{d}f \;=\; \frac{\partial f}{\partial x}\mathrm{d}x + \frac{\partial f}{\partial y}\mathrm{d}y + \frac{\partial f}{\partial z}\mathrm{d}z \tag{2.2}
-</span></p>
-<p>为什么是加法？因为在一阶（放大镜层面）每个变量各自贡献一份，交叉的影响是 <span class="math inline">\mathrm{d}x\,\mathrm{d}y</span> 这种<strong>二阶小量</strong>，无穷小层面可以丢弃——(2.2) 就是多元版的式 (1.3)，依然是「放大镜」承诺（全微分与线性近似的教材定位：<span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 14.4</a>)</span>）。</p>
-<p>物理里 <span class="math inline">\mathrm{d}f</span> 满地都是：热力学第一定律 <span class="math inline">\mathrm{d}U = \delta Q - P\,\mathrm{d}V</span>（内能的总账）、分子动理论的 <span class="math inline">\mathrm{d}\mathbf{v}</span>。<strong>读法</strong>：全微分是「一筐无穷小变化的线性报价单」——每个自变量动一点点，函数值按各偏导数报价。</p>
-<p>一个重要推论：好函数的混合偏导相等：</p>
-<p><span class="math display">
-\frac{\partial^2 f}{\partial x\,\partial y} = \frac{\partial^2 f}{\partial y\,\partial x} \tag{2.3}
-</span></p>
-<p>（先动 <span class="math inline">x</span> 再动 <span class="math inline">y</span>，与先 <span class="math inline">y</span> 后 <span class="math inline">x</span>，结果一样——此即 Clairaut 定理 <span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 14.3</a>)</span>。）你在物理书里会看到它被用来证明「保守力做功与路径无关」等大定理——认出它即可，证明不必背。</p>
-</section>
-<section id="链式法则换变量的语法" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="链式法则换变量的语法"><span class="header-section-number">2.3</span> 链式法则：换变量的语法</h2>
-<p>物理量常被写成<strong>不同自变量组</strong>的函数：压强既可看作 <span class="math inline">P(V,T)</span> 也可看作 <span class="math inline">P(V,S)</span>。换变量组时，链式法则是唯一的语法：</p>
-<p><span class="math display">
-\mathrm{d}f = \sum_i \frac{\partial f}{\partial u_i}\,\mathrm{d}u_i \quad\text{（新变量组 } u_i \text{ 的报价单）} \tag{2.4}
-</span></p>
-<p>一元版本你记得：<span class="math inline">\frac{\mathrm{d}y}{\mathrm{d}t} = \frac{\mathrm{d}y}{\mathrm{d}x}\frac{\mathrm{d}x}{\mathrm{d}t}</span>（复合函数逐环传导）。多元版本只是把「逐环」变成「逐变量报价加总」（教材定位：<span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 14.5</a>)</span>）。<strong>不必背</strong>：它就是「同一张报价单，用哪套货币单位重新开价」——第 3 章换极坐标、球坐标时，这个语法还要升级出 Jacobian。</p>
-</section>
-<section id="梯度把报价单折叠成一个向量" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="梯度把报价单折叠成一个向量"><span class="header-section-number">2.4</span> 梯度：把报价单折叠成一个向量</h2>
-<p>(2.2) 右边是三个乘积的和——这正是<strong>点积</strong>的形状。把它折叠：</p>
-<p><span class="math display">
-\mathrm{d}f = \underbrace{\left( \frac{\partial f}{\partial x},\; \frac{\partial f}{\partial y},\; \frac{\partial f}{\partial z} \right)}_{\nabla f \text{（梯度）}} \cdot \underbrace{(\mathrm{d}x,\, \mathrm{d}y,\, \mathrm{d}z)}_{\mathrm{d}\mathbf{l}} \;=\; \nabla f \cdot \mathrm{d}\mathbf{l} \tag{2.5}
-</span></p>
-<p><span class="math inline">\nabla f</span>（读 del f、grad f）是把三个偏导数打包成的向量。这个折叠不只是记号紧凑，它立刻送出两个几何结论，<strong>读物理书全靠这两条</strong>：</p>
-<ol type="1">
-<li><strong>梯度垂直于等值面</strong>：站在等值面 <span class="math inline">f=c</span> 上挪一小步 <span class="math inline">\mathrm{d}\mathbf{l}</span>，<span class="math inline">f</span> 不变，<span class="math inline">\mathrm{d}f = 0</span>，即 <span class="math inline">\nabla f \cdot \mathrm{d}\mathbf{l} = 0</span>——梯度与等值面上任何方向垂直。等值面（等温面、等势面）与梯度（热流、电场）的垂直关系就是这么来的。</li>
-<li><strong>梯度指向上升最快方向</strong>：把 <span class="math inline">\mathrm{d}\mathbf{l}</span> 取单位长度各方向试一遍，<span class="math inline">\mathrm{d}f = \nabla f \cdot \hat{\mathbf{u}}</span> 在 <span class="math inline">\hat{\mathbf{u}}</span> 平行 <span class="math inline">\nabla f</span> 时最大。这个量就是方向导数：<span class="math inline">D_{\hat{\mathbf{u}}}f = \nabla f \cdot \hat{\mathbf{u}}</span>——沿任意方向的斜率，都由梯度一个向量批发（梯度与方向导数的完整讨论见 <span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 14.6</a>)</span>）。</li>
-</ol>
-<p>物理身份（本书第一次正式出场表）：</p>
+<section id="经典力学阅读地图" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="经典力学阅读地图"><span class="header-section-number">11.2</span> 经典力学阅读地图</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -580,164 +704,244 @@ window.Quarto = {
 </colgroup>
 <thead>
 <tr class="header">
-<th>物理对象</th>
-<th>写法</th>
-<th>含义</th>
+<th>章节</th>
+<th>消耗的工具</th>
+<th>预热要点</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>保守力</td>
-<td><span class="math inline">\mathbf{F} = -\nabla V</span></td>
-<td>力指向势能下降最快方向（负号：往低处走）</td>
+<td>运动学（抛体、圆周）</td>
+<td>参数曲线 (3.1)–(3.3)、切/法向分解 (3.6)</td>
+<td>位置求导链：<span class="math inline">\mathbf{r}\to\mathbf{v}\to\mathbf{a}</span>；向心加速度 = 转弯分量</td>
 </tr>
 <tr class="even">
-<td>电场</td>
-<td><span class="math inline">\mathbf{E} = -\nabla \phi</span></td>
-<td>电场是电势的「下坡」方向；等势面 ⊥ 电场线</td>
+<td>牛顿定律应用</td>
+<td>ODE 一阶/二阶 (2.1)–(2.2)</td>
+<td>定律即方程；初值挑解</td>
 </tr>
 <tr class="odd">
-<td>热流</td>
-<td><span class="math inline">\mathbf{q} = -\kappa \nabla T</span></td>
-<td>热量从高温流向低温（傅里叶定律）</td>
+<td>功与能</td>
+<td>线积分 (8.2)、梯度（第 5 讲）</td>
+<td><span class="math inline">W=\int\mathbf{F}\cdot\mathrm{d}\mathbf{r}</span>；保守力 <span class="math inline">\Leftrightarrow</span> 无旋</td>
+</tr>
+<tr class="even">
+<td>振动</td>
+<td>谐振子全家 (2.3)–(2.5)</td>
+<td>特征方程三情形；共振 = 外源频率逼近本征频率</td>
+</tr>
+<tr class="odd">
+<td>中心力/开普勒</td>
+<td>极坐标速度两项 (4.4)、有效势</td>
+<td><span class="math inline">\dot r\,\hat{\mathbf r} + r\dot\varphi\,\hat{\boldsymbol\varphi}</span>；角动量守恒杀掉一个维度</td>
+</tr>
+<tr class="even">
+<td>刚体/转动</td>
+<td>叉积、柱坐标 (4.6)、转动惯量 (7.7)</td>
+<td>转动惯量 = 质量对轴的加权总账</td>
+</tr>
+<tr class="odd">
+<td>拉格朗日力学（进阶）</td>
+<td>全微分 (5.2)、隐函数 (第 5 讲)</td>
+<td><span class="math inline">\mathrm{d}f</span> 报价单变成 <span class="math inline">\delta S</span> 作用量；约束由乘子接管</td>
 </tr>
 </tbody>
 </table>
-<p>三行共享一个模板「流量 = −系数 × 势的梯度」（物理侧的展开见 <span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 2.3</a>)</span>）。<strong>读到任何 <span class="math inline">\mathbf{X} = -\nabla Y</span>，脑中图像：从高山 <span class="math inline">Y</span> 往下冲的箭头场。</strong></p>
-<p>下面这张图演出梯度与等值面的关系。切换三个标量场，观察不变的规律：等值线（蓝）与梯度箭头（琥珀）处处垂直，箭头指向函数上升方向，等值线越密处箭头越长。</p>
-<div class="grad-fig" aria-hidden="true">
-<style>
-.grad-fig { margin: 1.6em 0; }
-.grad-fig svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
-.grad-fig .g-bar { display: flex; gap: .5em; margin-bottom: .6em; justify-content: center; }
-.grad-fig .g-bar button { font: 500 .85em -apple-system,"PingFang SC",sans-serif; padding: .32em 1em;
-  border: 1px solid #ddd8ce; border-radius: 6px; background: #fff; color: #24292f; cursor: pointer; }
-.grad-fig .g-bar button:hover { border-color: #3a4aa8; color: #3a4aa8; }
-.grad-fig .g-bar button.on { border-color: #3a4aa8; color: #fff; background: #3a4aa8; }
-</style>
-<div class="g-bar">
-<button onclick="gSet(0)" id="gb0" class="on">
-f = x² + y² （碗）
-</button>
-<button onclick="gSet(1)" id="gb1">
-f = x + 0.7y （斜坡）
-</button>
-<button onclick="gSet(2)" id="gb2">
-f = x² − y² （鞍）
-</button>
-</div>
-<svg id="gradsvg" viewbox="0 0 360 350" width="360" height="350">
-</svg>
-<script>
-window.addEventListener('load', function () {
-  if (typeof Sketch === 'undefined') return;
-  const svg = document.getElementById('gradsvg');
-  const P = { ink: '#3a4aa8', deep: '#2c3a8c', amber: '#bf8700', green: '#1a7f37', dim: '#9aa1b9' };
-  const W = 2.4, px = x => 180 + x/W*150, py = y => 185 - y/W*150;  /* 世界 [-2.4,2.4] */
-  const FIELDS = [
-    { name: 'f = x²+y²',  f: (x,y)=>x*x+y*y,   g: (x,y)=>[2*x, 2*y],
-      levels: [0.5, 1.2, 2.2, 3.5, 5],   /* 圆 */
-      iso(s) { const r = s; let d = '';
-        for (let a = 0; a <= 6.4; a += .12) { const X = px(r*Math.cos(a)), Y = py(r*Math.sin(a));
-          d += (d ? ' L' : 'M') + X + ' ' + Y; } return d; } },
-    { name: 'f = x+0.7y', f: (x,y)=>x+0.7*y,   g: (x,y)=>[1, 0.7],
-      levels: [-2, -1, 0, 1, 2],         /* 平行线 */
-      iso(c) { return `M${px(-2.4)} ${py((c+2.4)/0.7)} L${px(2.4)} ${py((c-2.4)/0.7)}`; } },
-    { name: 'f = x²−y²',  f: (x,y)=>x*x-y*y,   g: (x,y)=>[2*x, -2*y],
-      levels: [-3, -1.2, 1.2, 3],        /* 双曲线两支 */
-      iso(c) { let d1 = '', d2 = '';
-        for (let y = -2.2; y <= 2.21; y += .12) {
-          const x2 = y*y + c; if (x2 < 0.02) continue; const x = Math.sqrt(x2);
-          d1 += (d1 ? ' L' : 'M') + px(x) + ' ' + py(y);
-          d2 += (d2 ? ' L' : 'M') + px(-x) + ' ' + py(y); }
-        return d1 + ' ' + d2; } },
-  ];
-  window.gSet = function (k) {
-    [0,1,2].forEach(i => { const b = document.getElementById('gb'+i); if (b) b.className = i==k ? 'on' : ''; });
-    while (svg.firstChild) svg.removeChild(svg.firstChild);
-    const s = Sketch(svg), F = FIELDS[k];
-    s.path(`M${px(-2.4)} ${py(-2.4)} L${px(2.4)} ${py(-2.4)} L${px(2.4)} ${py(2.4)} L${px(-2.4)} ${py(2.4)} Z`,
-           { stroke: 'rgba(154,161,185,.6)', width: 1.2 });
-    F.levels.forEach(c => s.path(F.iso(c), { stroke: 'rgba(58,74,168,.75)', width: 1.6 }));
-    /* 梯度箭头场: 长度∝|∇f|, 上限 26px */
-    for (let gx = -2; gx <= 2; gx += 1) for (let gy = -2; gy <= 2; gy += 1) {
-      if (Math.abs(gx) < .01 && Math.abs(gy) < .01 && k == 0) continue;
-      const [gxv, gyv] = F.g(gx, gy), L = Math.hypot(gxv, gyv);
-      if (L < 0.05) continue;
-      const ux = gxv/L, uy = gyv/L, len = Math.min(6 + 9*L, 26);
-      const x0 = px(gx) - ux*len/2, y0 = py(gy) + uy*len/2;      /* 屏幕y向下 */
-      s.path(`M${x0} ${y0} L${x0 + ux*len} ${y0 - uy*len}`,
-             { stroke: P.amber, width: 2, arrow: true, rough: false });
-    }
-    s.label(180, 330, FIELDS[k].name + '   蓝线: 等值线   琥珀: ∇f（⊥等值线, 指上升）', { size: 14, color: P.deep });
-    s.label(180, 346, '等值线越密 ⇒ 箭头越长（坡越陡）', { size: 13, color: P.dim });
-  };
-  gSet(0);
-});
-</script>
-</div>
 </section>
-<section id="一个预告nabla2" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="一个预告nabla2"><span class="header-section-number">2.5</span> 一个预告：<span class="math inline">\nabla^2</span></h2>
-<p>把梯度「再散一次」就得到拉普拉斯算子 <span class="math inline">\nabla^2 f = \nabla\cdot\nabla f = \partial^2 f/\partial x^2 + \partial^2 f/\partial y^2 + \partial^2 f/\partial z^2</span>——它量的是「这一点与周围平均值相比偏高还是偏低」。它的展开式现在就能算，但「散度」要到第 4 章才正式定义，届时你会看到 <span class="math inline">\nabla^2</span> 为什么统治了静电学（第 6 章）。此处先挂个号。</p>
-</section>
-<section id="出处与查表" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="出处与查表">出处与查表</h2>
-<p>本章对象的教材定位——引文是查表索引，不是阅读任务：</p>
+<section id="电动力学阅读地图griffiths-谱系" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="电动力学阅读地图griffiths-谱系"><span class="header-section-number">11.3</span> 电动力学阅读地图（Griffiths 谱系）</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>本书对象</th>
-<th>定位</th>
+<th>章节</th>
+<th>消耗的工具</th>
+<th>预热要点</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>偏导数与 Clairaut 定理</td>
-<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 14.3</a>)</span></td>
+<td>矢量分析（教材第 1 章）</td>
+<td>第 5–9 讲全部</td>
+<td>这章就是本书中场论部分的教材版，可直接当复习读</td>
 </tr>
 <tr class="even">
-<td>全微分与线性近似</td>
-<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 14.4</a>)</span></td>
+<td>静电学：库仑与场</td>
+<td>梯度、场线</td>
+<td><span class="math inline">\mathbf{E}=-\nabla\phi</span>；场线密度 = 强度</td>
 </tr>
 <tr class="odd">
-<td>多元链式法则</td>
-<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 14.5</a>)</span></td>
+<td>静电学：高斯定律</td>
+<td>散度 (6.2) + 高斯定理 (9.1)</td>
+<td>对称性选面 → 场通量 = 内部电荷；数场线图（第 9 讲）</td>
 </tr>
 <tr class="even">
-<td>梯度与方向导数</td>
-<td><span class="citation" data-cites="stewart2016">(<a href="#ref-stewart2016" role="doc-biblioref">Stewart 2016, sec. 14.6</a>)</span></td>
+<td>静电学：势</td>
+<td>泊松方程 (10.3)、唯一性定理</td>
+<td>解 = 猜 + 验证即收工；镜像法的合法性来源</td>
 </tr>
 <tr class="odd">
-<td>势与场的物理模板 <span class="math inline">\mathbf{E} = -\nabla\phi</span></td>
-<td><span class="citation" data-cites="griffiths2013">(<a href="#ref-griffiths2013" role="doc-biblioref">Griffiths 2013, sec. 2.3</a>)</span></td>
+<td>静电学：边界条件</td>
+<td>诺伊曼/狄利克雷</td>
+<td><span class="math inline">\mathbf{E}</span> 的切向连续、法向跳变（面电荷）</td>
+</tr>
+<tr class="even">
+<td>多极展开</td>
+<td>勒让德 <span class="math inline">P_l</span>、模式叠加</td>
+<td><span class="math inline">1/|\mathbf{r}-\mathbf{r}'|</span> 按 <span class="math inline">r^l P_l</span> 展开——认脸卡片</td>
+</tr>
+<tr class="odd">
+<td>静磁学</td>
+<td>旋度 (6.3) + 斯托克斯 (9.2)</td>
+<td><span class="math inline">\nabla\times\mathbf{B}=\mu_0\mathbf{J}</span>；安培环路 = 磁场版高斯招</td>
+</tr>
+<tr class="even">
+<td>电磁感应</td>
+<td>麦克斯韦 (6.8)</td>
+<td>变化磁通 → 涡旋电场；环流语言</td>
+</tr>
+<tr class="odd">
+<td>麦克斯韦方程组</td>
+<td>(6.6)–(6.9) + 第 9 讲互译</td>
+<td>四条逐句读（第 6 讲已验收）；两种写法随时互译</td>
+</tr>
+<tr class="even">
+<td>电磁波</td>
+<td>波动方程 (10.2)</td>
+<td>从麦克斯韦推出 <span class="math inline">c</span>；「回复力 = 与周围平均之差」</td>
+</tr>
+<tr class="odd">
+<td>辐射（进阶）</td>
+<td>延迟势、球谐</td>
+<td>语言相同，只是积分更凶——按三连问读</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="本章收束" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="本章收束"><span class="header-section-number">2.6</span> 本章收束</h2>
-<ul>
-<li>偏导 = 冻结切片的斜率，<strong>必须知道固定了谁</strong>（下标记法）。</li>
-<li>全微分 = 所有变量一起动的线性报价单；链式法则 = 换一套货币重开报价单。</li>
-<li>梯度 = 报价单折叠成的向量：垂直等值面、指向上坡；物理模板「流量 <span class="math inline">= -</span>系数 <span class="math inline">\times</span> 势的梯度」。</li>
-<li>判据：见 <span class="math inline">\partial</span> 问「固定谁」，见 <span class="math inline">\nabla f</span> 想「等值面 + 下坡箭头」。</li>
-</ul>
-<p>标量场（每点一个数）的语言到此完备。但物理还有两大类对象没有着落：<strong>曲线</strong>（轨迹是空间中的一条线）与<strong>向量场</strong>（每点一个向量，如电场）。先处理曲线——因为曲线是「把空间装进数」的练习，它的答案（参数化）也是下一章换坐标的地基。</p>
+<section id="读不动诊断表" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="读不动诊断表"><span class="header-section-number">11.4</span> 「读不动」诊断表</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>症状</th>
+<th>缺的工具</th>
+<th>回哪讲</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>看到 <span class="math inline">\dot{x}</span>、<span class="math inline">\ddot{x}</span> 发懵</td>
+<td>点记号</td>
+<td>符号约定</td>
+</tr>
+<tr class="even">
+<td>分不清 <span class="math inline">\mathrm{d}f</span> 和 <span class="math inline">\partial f</span></td>
+<td>全微分 vs 偏导</td>
+<td>5 讲，判据 C</td>
+</tr>
+<tr class="odd">
+<td>梯度为什么垂直等势面</td>
+<td>梯度几何</td>
+<td>5 讲 (5.5) 两条结论</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">v^2/R</span> 从哪来</td>
+<td>切/法向分解</td>
+<td>3 讲 (3.6)</td>
+</tr>
+<tr class="odd">
+<td>极坐标速度两项看不懂</td>
+<td>活基向量</td>
+<td>4 讲 (4.3)–(4.4)</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">r^2\sin\theta</span> 忘了 / 不知从哪来</td>
+<td>体积元三条边</td>
+<td>4 讲，别背公式想纬圈</td>
+</tr>
+<tr class="odd">
+<td>累次积分换序晕</td>
+<td>切蛋糕两种切法</td>
+<td>7 讲 (7.2)</td>
+</tr>
+<tr class="even">
+<td>换元漏乘 Jacobian</td>
+<td>汇率三步</td>
+<td>7 讲，判据 M</td>
+</tr>
+<tr class="odd">
+<td>转动惯量/质心看不懂</td>
+<td>密度加权平均</td>
+<td>7 讲 (7.7)</td>
+</tr>
+<tr class="even">
+<td>散度旋度分不清谁标谁矢</td>
+<td>小盒/水车</td>
+<td>6 讲 (6.2)(6.3)</td>
+</tr>
+<tr class="odd">
+<td>高斯定理/斯托克斯用错对象</td>
+<td>判据 E/T 两连问</td>
+<td>8–9 讲</td>
+</tr>
+<tr class="even">
+<td>第一类/第二类积分对不上号</td>
+<td>标量版/向量版</td>
+<td>8 讲微元总表</td>
+</tr>
+<tr class="odd">
+<td>麦克斯韦方程读不出画面</td>
+<td>四条逐句翻译</td>
+<td>6 讲验收节 + 9 讲互译表</td>
+</tr>
+<tr class="even">
+<td>振动章节的 <span class="math inline">e^{rt}</span>、复数从哪来</td>
+<td>特征方程直觉</td>
+<td>2 讲</td>
+</tr>
+<tr class="odd">
+<td>共振/暂态/稳态糊涂</td>
+<td><span class="math inline">y_h + y_p</span> 结构</td>
+<td>2 讲 (2.5)</td>
+</tr>
+<tr class="even">
+<td>状态空间/相平面语言陌生</td>
+<td>降阶与相图</td>
+<td>2 讲</td>
+</tr>
+<tr class="odd">
+<td>分离变量那步「都等于常数」没懂</td>
+<td>分家论证</td>
+<td>10 讲 (10.4)</td>
+</tr>
+<tr class="even">
+<td>Fourier 系数公式吓人</td>
+<td>正交基投影</td>
+<td>10 讲 (10.7)–(10.8)</td>
+</tr>
+<tr class="odd">
+<td>勒让德/球谐吓人</td>
+<td>认脸卡片</td>
+<td>10 讲表格</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="最后的话" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="最后的话"><span class="header-section-number">11.5</span> 最后的话</h2>
+<p>回到开篇的类比：你学的是<strong>把应用题翻译成方程组</strong>的能力——现在这套翻译术已经完整：物理场景 → 变化率的关系（定律）→ 场的语言（梯度/散度/旋度）→ 方程（ODE/PDE）→ 解的结构（模式叠加 + 条件挑解）。计算肌肉萎缩无妨：积分可以查表，特殊函数可以认脸，数值可以交给机器。<strong>语言不通才是读不动物理书的唯一原因，而这个障碍现在没有了。</strong></p>
+<p>去读吧。从任意一本经典力学或电动力学翻开第一章，遇到数学时回来查这张地图——每个符号你都认识，每座桥你都知道通向哪里。</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-griffiths2013" class="csl-entry" role="listitem">
-Griffiths, David J. 2013. <em>Introduction to Electrodynamics</em>. 4th ed. Boston: Pearson.
-</div>
-<div id="ref-stewart2016" class="csl-entry" role="listitem">
-Stewart, James. 2016. <em>Calculus: Early Transcendentals</em>. 8th ed. Boston: Cengage Learning.
-</div>
-</div>
 </section>
 
 </main> <!-- /main -->
@@ -1143,14 +1347,11 @@ Stewart, James. 2016. <em>Calculus: Early Transcendentals</em>. 8th ed. Boston: 
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./01-two-moves.html" class="pagination-link" aria-label="两个母动作">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">两个母动作</span></span>
+      <a href="./10-pde.html" class="pagination-link" aria-label="时空一起说话：偏微分方程">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">时空一起说话：偏微分方程</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./03-parametrize.html" class="pagination-link" aria-label="参数化与换坐标">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">参数化与换坐标</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
