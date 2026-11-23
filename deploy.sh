@@ -35,6 +35,8 @@ else
 fi
 
 echo "==> 同步构建产物"
+# 先清旧产物再拷入: cp -R 在目标目录已存在时会把源嵌套复制成 book/book/
+rm -rf "$TMP/index.html" "$TMP/book"
 cp index.html "$TMP"/
 cp -R book "$TMP"/book
 
