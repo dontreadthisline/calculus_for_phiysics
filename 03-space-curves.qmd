@@ -1,0 +1,168 @@
+# 参数方程与空间曲线 {#sec-space-curves}
+
+第 2 讲的解 $x(t)$ 只是一维的数。完整的运动是 $\mathbf{r}(t)$——空间中的一条**曲线**：轨道是它，轨迹是它，弹簧振子的往复、行星的椭圆、带电粒子在磁场里的螺旋，全是它。本讲把轨迹当作几何对象来读：它朝哪（切向）、弯得多急（曲率）、加速度怎么沿几何方向分解。这是力学书运动学章节的全部钥匙。
+
+::: {.callout-important title="本讲问题"}
+轨迹（一个点集）怎么用数描述，为什么「同一轨迹」可以有多种走法？曲率在量什么，凭什么加速度能拆成「变速」与「转弯」两份——向心加速度 $v^2/R$ 是怎么从这个拆分里长出来的？
+:::
+
+## 参数曲线：轨迹、参数化、运动规律
+
+描述曲线最强的办法不是解方程（$x^2+y^2=1$ 只告诉你点集），而是**引入一个跑动的参数**——通常就是时间：
+
+$$
+\mathbf{r}(t) = \big(x(t),\; y(t),\; z(t)\big) \tag{3.1}
+$$
+
+这里有三层东西，物理书随时在三者之间切换，认出层次就不迷路：
+
+| 层次 | 是什么 | 例子 |
+|---|---|---|
+| **轨迹** | 纯点集，无先后 | 「椭圆」这个几何对象 |
+| **参数化** | 点集 + 走法（哪个参数值对应哪个点） | $(\cos\theta, \sin\theta)$ 与 $(\cos 2\theta, \sin 2\theta)$ 同一圆，走法不同 |
+| **运动规律** | 物理参数化：参数是时间，含快慢 | 匀速圆周 vs 变速圆周，轨迹相同 |
+
+**几何量（切向、曲率）只依赖轨迹与参数化的方向，物理量（速率、加速度大小）依赖运动规律**——力学书说「换成弧长参数化」时，就是在把几何与物理分层（教材定位：[@stewart2016, ch. 13]）。
+
+## 位置、速度、加速度
+
+运动学全部内容就是这条曲线的一二阶导数：
+
+$$
+\mathbf{v} = \frac{\mathrm{d}\mathbf{r}}{\mathrm{d}t} = \dot{\mathbf{r}} \quad(\text{切向量，方向即运动方向}), \qquad
+\mathbf{a} = \ddot{\mathbf{r}} \tag{3.2}
+$$
+
+**读法**：速度是一个向量——「这一瞬间朝哪、多快」。速率是它的长度 $|\mathbf{v}|$。加速度还是它的导数，即使速率不变、方向在变，加速度也不为零（圆周运动的向心加速度就是纯方向变化的加速度——本讲末尾将给出它的完整来历）。
+
+**位移与路程**是两个量：位移是向量 $\Delta\mathbf{r} = \mathbf{r}(t_2)-\mathbf{r}(t_1)$（直线距离 + 方向），路程是标量——沿途真实走过的总长。一小段时间内两者几乎相等，但累积起来可以差很远：绕操场一圈，位移为零，路程 400 米。路程的微元就是速率乘时间（勾股定理的无穷小版）：
+
+$$
+\mathrm{d}s = |\mathbf{v}|\,\mathrm{d}t, \qquad
+s = \int_{t_0}^{t_1} |\mathbf{v}(t)|\,\mathrm{d}t \tag{3.3}
+$$
+
+弧长积分几乎永远积不出闭式，物理书毫不在意——重要的是**语义**：路程 = 速率对时间的累积（第 1 讲判据 B 的直接应用；弧长公式见 [@stewart2016, sec. 13.3]）。
+
+## 切向量与曲率：轨迹的两个几何量
+
+速度 $\mathbf{v}$ 混合了「方向」与「快慢」。把方向单独提出来——**单位切向量**：
+
+$$
+\hat{\mathbf{T}} = \frac{\mathbf{v}}{|\mathbf{v}|} \qquad \text{（长度恒为 1，只管朝向）} \tag{3.4}
+$$
+
+轨迹第二个内禀几何量问：**弯得多急**。沿曲线走单位路程，$\hat{\mathbf{T}}$ 转过多大角度，就是**曲率**：
+
+$$
+\kappa = \left|\frac{\mathrm{d}\hat{\mathbf{T}}}{\mathrm{d}s}\right|, \qquad \rho = \frac{1}{\kappa}\;(\text{曲率半径}) \tag{3.5}
+$$
+
+两个立即可验的锚点：直线不转弯，$\kappa = 0$，$\rho = \infty$；半径 $R$ 的圆走到哪弯度都一样，每走 $2\pi R$ 方向转一整圈，$\kappa = 1/R$，$\rho = R$——**曲率半径就是「当地等效圆」的半径**。曲线在一点的弯曲，与半径 $\rho$ 的圆弧在该点互换，二阶以内分不出差别（曲率的系统处理：[@stewart2016, sec. 13.3]）。
+
+$\hat{\mathbf{T}}$ 的变化方向给出**主法向量** $\hat{\mathbf{N}}$（$\mathrm{d}\hat{\mathbf{T}}/\mathrm{d}s$ 归一化后的方向）——它永远指向轨迹凹的一侧。不必会推 $\hat{\mathbf{N}}$ 的细节，认得它是「凹侧方向」即可。
+
+## 加速度的几何分解：变速 + 转弯
+
+现在把加速度沿 $\hat{\mathbf{T}}$、$\hat{\mathbf{N}}$ 分解。推导只需两步：$\mathbf{v} = |\mathbf{v}|\,\hat{\mathbf{T}}$，对时间求导（乘积法则 + 链式法则）：
+
+$$
+\mathbf{a} = \frac{\mathrm{d}|\mathbf{v}|}{\mathrm{d}t}\,\hat{\mathbf{T}} + |\mathbf{v}|\,\frac{\mathrm{d}\hat{\mathbf{T}}}{\mathrm{d}s}\,\frac{\mathrm{d}s}{\mathrm{d}t}
+= \underbrace{\dot{v}\,\hat{\mathbf{T}}}_{\text{变速}} \;+\; \underbrace{\frac{v^2}{\rho}\,\hat{\mathbf{N}}}_{\text{转弯}} \tag{3.6}
+$$
+
+读出来：
+
+- **切向分量** $\dot v = \mathrm{d}|\mathbf{v}|/\mathrm{d}t$：速率变不变，油门刹车。
+- **法向分量** $v^2/\rho$：方向变多急。它与速度平方成正比（弯道限速的数学理由），与曲率半径成反比。
+
+两个特例直接回收前文的伏笔：匀速圆周运动 $\dot v = 0$、$\rho = R$，$\mathbf{a} = v^2/R$ 指向圆心——**第 1、2 讲反复借用的「向心加速度」在这里拿到完整来历**；匀速直线 $\kappa=0$ 且 $\dot v=0$，加速度为零——牛顿第一定律是 (3.6) 的退化情形。变速率圆周（例如单摆）则是两项并存：切向改变快慢、法向负责拐弯。这一分解是力学书「自然坐标系」的全部内容（运动学分解的教材展开：[@stewart2016, sec. 13.4; @taylor2005, ch. 1]）。
+
+下图演出这套几何：质点沿轨迹运动（光点），采样点上画出单位切向 $\hat{\mathbf{T}}$（绿，恒指运动方向）、主法向 $\hat{\mathbf{N}}$（琥珀，恒指凹侧）与加速度 $\mathbf{a}$（灰）。观察两件事：$\hat{\mathbf{N}}$ 永远指向凹侧；$\mathbf{a}$ 总在 $\hat{\mathbf{T}}$ 与 $\hat{\mathbf{N}}$ 张成的扇区内——它就是两份贡献的向量和。
+
+<div class="curv-fig" aria-hidden="true">
+<style>
+.curv-fig { margin: 1.6em 0; }
+.curv-fig svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+.curv-fig .c-bar { display: flex; gap: .5em; margin-bottom: .6em; justify-content: center; }
+.curv-fig .c-bar button { font: 500 .85em -apple-system,"PingFang SC",sans-serif; padding: .32em 1em;
+  border: 1px solid #ddd8ce; border-radius: 6px; background: #fff; color: #24292f; cursor: pointer; }
+.curv-fig .c-bar button:hover { border-color: #3a4aa8; color: #3a4aa8; }
+.curv-fig .c-bar button.on { border-color: #3a4aa8; color: #fff; background: #3a4aa8; }
+</style>
+<div class="c-bar">
+<button onclick="cvSet(0)" id="cvb0" class="on">椭圆轨道</button>
+<button onclick="cvSet(1)" id="cvb1">平面螺线</button>
+</div>
+<svg id="curvsvg" viewBox="0 0 640 300" width="640" height="300"></svg>
+<script>
+window.addEventListener('load', function () {
+  if (typeof Sketch === 'undefined') return;
+  const svg = document.getElementById('curvsvg');
+  const P = { ink: '#3a4aa8', deep: '#2c3a8c', amber: '#bf8700', green: '#1a7f37', dim: '#9aa1b9' };
+  const CURVES = [
+    { name: '椭圆 r(t) = (a cos t, b sin t)   匀参数 ≠ 匀速率: 近轴处更快',
+      r: t => [2.9*Math.cos(t), 1.7*Math.sin(t)], t0: 0, t1: 2*Math.PI, n: 10 },
+    { name: '螺线 r(t) = (t cos 3t, t sin 3t)   曲率随位置变化: 越外越"直"',
+      r: t => [(t/2.35)*Math.cos(3*t), (t/2.35)*Math.sin(3*t)], t0: 0.45, t1: 2.25, n: 9 },
+  ];
+  const px = x => 320 + x/3.6*290, py = y => 160 - y/2.4*115;
+  const deriv = (f, t, h) => { const a = f(t-h), b = f(t+h);
+    return [(b[0]-a[0])/(2*h), (b[1]-a[1])/(2*h)]; };
+  const deriv2 = (f, t, h) => { const c = f(t), d1 = deriv(f, t-h, h), d2 = deriv(f, t+h, h);
+    return [(d2[0] + d1[0] - 2*c[0])/(h*h), (d2[1] + d1[1] - 2*c[1])/(h*h)]; };
+  window.cvSet = function (k) {
+    [0,1].forEach(i => { const b = document.getElementById('cvb'+i); if (b) b.className = i==k ? 'on' : ''; });
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    const s = Sketch(svg), C = CURVES[k], h = 0.001;
+    let d = '';
+    for (let t = C.t0; t <= C.t1 + .001; t += (C.t1-C.t0)/240) {
+      const [x, y] = C.r(t); d += (d ? ' L' : 'M') + px(x) + ' ' + py(y); }
+    s.path(d, { stroke: P.deep, width: 2 });
+    for (let i = 0; i < C.n; i++) {
+      const t = C.t0 + (i + .5) * (C.t1 - C.t0) / C.n;
+      const v = deriv(C.r, t, h), a = deriv2(C.r, t, h);
+      const [x, y] = C.r(t);
+      const [Tx, Ty] = [v[0]/Math.hypot(...v), v[1]/Math.hypot(...v)];
+      const dTt = [ (deriv(C.r, t+h, h)[0]/Math.hypot(...deriv(C.r, t+h, h)) - Tx)/h,
+                    (deriv(C.r, t+h, h)[1]/Math.hypot(...deriv(C.r, t+h, h)) - Ty)/h ];
+      const [Nx, Ny] = [ dTt[0]/Math.hypot(...dTt), dTt[1]/Math.hypot(...dTt) ];
+      s.path(`M${px(x)} ${py(y)} L${px(x)+Tx*30} ${py(y)-Ty*30}`, { stroke: P.green, width: 2, arrow: true, rough: false });
+      s.path(`M${px(x)} ${py(y)} L${px(x)+Nx*22} ${py(y)-Ny*22}`, { stroke: P.amber, width: 1.8, arrow: true, rough: false });
+      const ascale = 30 / Math.max(Math.hypot(a[0], a[1]), 1e-9) * Math.min(Math.hypot(a[0], a[1]), 1.6);
+      s.path(`M${px(x)} ${py(y)} L${px(x)+a[0]*ascale} ${py(y)-a[1]*ascale}`,
+             { stroke: 'rgba(107,114,128,.8)', width: 1.5, arrow: true, rough: false });
+      s.dot(px(x), py(y), P.deep, 3);
+    }
+    s.label(320, 285, C.name, { size: 14, color: P.deep });
+    s.label(320, 34, '绿: T̂ (切向)   琥珀: N̂ (凹侧)   灰: a = v̇ T̂ + (v²/ρ) N̂', { size: 14, color: P.dim });
+    s.pulse(d, { t0: 0.4, travel: 3.4, period: 8, color: P.deep });
+  };
+  cvSet(0);
+});
+</script>
+</div>
+
+::: {.callout-note title="判据 C1（读运动学）"}
+看到轨迹问题先分层：问的是**几何**（切向、曲率——只依赖轨迹）还是**物理**（速率、加速度——依赖运动规律）？看到 $v^2/\rho$ 立即翻译成「转弯加速度」；看到「向心」立即想 $v^2/R$ 是 (3.6) 的特例。
+:::
+
+## 出处与查表 {.unnumbered}
+
+本讲对象的教材定位——引文是查表索引，不是阅读任务：
+
+| 本书对象 | 定位 |
+|---|---|
+| 向量值函数、轨迹与参数化 | [@stewart2016, ch. 13] |
+| 弧长 | [@stewart2016, sec. 13.3] |
+| 曲率、单位切向/法向 | [@stewart2016, sec. 13.3] |
+| 切向/法向加速度分解 | [@stewart2016, sec. 13.4]; [@taylor2005, ch. 1] |
+
+## 本讲收束
+
+- 轨迹是点集，参数化是走法，运动规律是物理参数化——几何量与物理量由此分层。
+- 位移与路程是两个量；路程微元 $\mathrm{d}s = |\mathbf{v}|\,\mathrm{d}t$。
+- 曲率 $\kappa$ = 单位路程转过的方向；$\rho = 1/\kappa$ 是当地等效圆半径。
+- $\mathbf{a} = \dot v\,\hat{\mathbf{T}} + \dfrac{v^2}{\rho}\,\hat{\mathbf{N}}$：加速度 = 变速 + 转弯，向心加速度拿到完整来历。
+
+运动学语言已能描述任何轨迹——但描述位置时我们一直在偷偷用「直角坐标」。行星轨道的问题立刻暴露不便：力永远指向原点，而 $x,y$ 都在变。自然的报名方式是「离原点多远 + 朝哪」——这就把坐标系本身推上了舞台。下一讲：曲线坐标，以及会转动的基向量。

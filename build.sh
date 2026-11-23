@@ -15,7 +15,12 @@ cp landing.html index.html
 echo "==> 自检"
 for f in index.html landing.html back-to-landing.html \
          book/index.html book/conventions.html \
-         book/01-two-moves.html book/07-reading-map.html \
+         book/01-fundamentals.html book/02-ode.html \
+         book/03-space-curves.html book/04-curvilinear.html \
+         book/05-multivariable.html book/06-vector-fields.html \
+         book/07-multiple-integrals.html book/08-line-surface.html \
+         book/09-integral-theorems.html book/10-pde.html \
+         book/reading-map.html \
          book/resources/libs/katex/katex.min.css; do
   [[ -f "$f" ]] || { echo "缺失: $f" >&2; exit 1; }
 done

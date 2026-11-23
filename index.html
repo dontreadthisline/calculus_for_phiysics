@@ -245,18 +245,22 @@ function renderFx() {
 /* 第三屏: 路线 + 章节 */
 (function () {
   var CH = [
-    ['book/01-two-moves.html', '两个母动作'],
-    ['book/02-multivariable.html', '多元与全微分'],
-    ['book/03-parametrize.html', '参数化与换坐标'],
-    ['book/04-vector-field.html', '向量场三大定理'],
-    ['book/05-ode.html', '常微分方程'],
-    ['book/06-pde.html', '偏微分方程'],
-    ['book/07-reading-map.html', '阅读地图'],
+    ['book/01-fundamentals.html', '基本思想'],
+    ['book/02-ode.html', 'ODE'],
+    ['book/03-space-curves.html', '空间曲线'],
+    ['book/04-curvilinear.html', '曲线坐标'],
+    ['book/05-multivariable.html', '多元'],
+    ['book/06-vector-fields.html', '向量场'],
+    ['book/07-multiple-integrals.html', '多重积分'],
+    ['book/08-line-surface.html', '线面积分'],
+    ['book/09-integral-theorems.html', '积分定理'],
+    ['book/10-pde.html', 'PDE'],
+    ['book/reading-map.html', '阅读地图'],
   ];
   var svg = document.getElementById('route'), NS = 'http://www.w3.org/2000/svg';
-  var xs = [70, 203, 336, 469, 602, 735, 850], ys = [100, 58, 100, 58, 100, 58, 100];
+  var xs = [40, 122, 204, 286, 368, 450, 532, 614, 696, 778, 860], ys = [100, 58, 100, 58, 100, 58, 100, 58, 100, 58, 100];
   var d = 'M ' + xs[0] + ' ' + ys[0];
-  for (var i = 1; i < 7; i++) d += ' S ' + (xs[i-1] + 30) + ' ' + ys[i-1] + ', ' + ((xs[i-1]+xs[i])/2) + ' ' + ((ys[i-1]+ys[i])/2) + ' S ' + (xs[i] - 30) + ' ' + ys[i] + ', ' + xs[i] + ' ' + ys[i];
+  for (var i = 1; i < 11; i++) d += ' S ' + (xs[i-1] + 24) + ' ' + ys[i-1] + ', ' + ((xs[i-1]+xs[i])/2) + ' ' + ((ys[i-1]+ys[i])/2) + ' S ' + (xs[i] - 24) + ' ' + ys[i] + ', ' + xs[i] + ' ' + ys[i];
   var path = document.createElementNS(NS, 'path');
   path.setAttribute('class', 'draw'); path.setAttribute('d', d); path.setAttribute('pathLength', '1');
   var ink = document.createElementNS(NS, 'g'); ink.setAttribute('filter', 'url(#rough)');

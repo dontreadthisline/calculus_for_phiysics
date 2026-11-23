@@ -1,0 +1,148 @@
+# 积分定理 {#sec-integral-theorems}
+
+第 6 讲给了局部算子（散度、旋度），第 8 讲给了边界积分（通量、环流）。现在揭晓它们的血缘：**边界上的积分 = 内部算子的积分**。格林、斯托克斯、高斯三大定理说的都是这一句，而这句话正是第 1 讲 FTC 的原文——「边界的增量 = 最外层薄片的贡献」——的高维变奏。本讲是那座桥的加冕礼，也是读麦克斯韦方程组积分形式的最后一块拼图。
+
+::: {.callout-important title="本讲问题"}
+三大定理分别缝合哪一对「边界积分 ↔ 内部算子」？为什么它们都是 FTC 的变奏——「边界」与「内部」在各个维度如何对应？麦克斯韦方程组的微分形式与积分形式靠什么互译？
+:::
+
+## 高斯散度定理：面通量 ↔ 体散度
+
+第 6 讲散度定义 (6.2) 说「小闭合面净流出 ÷ 体积」；反过来不取极限，把所有小体元的贡献加总（第 7 讲的重积分），相邻体元的公共面上流出流入相消，只剩最外层曲面——**内部源的总账等于边界上的净流出**：
+
+$$
+\oint_{\partial V} \mathbf{F}\cdot\mathrm{d}\mathbf{A} \;=\; \iiint_V (\nabla\cdot\mathbf{F})\, \mathrm{d}v \tag{9.1}
+$$
+
+读出来正是 FTC 那句话：**边界（表面）上的量 = 内部源的累积**。场线语言里它是一次数数游戏：穿出的线数 = 内部发出的线数，与面选得多歪多圆无关（散度定理：[@stewart2016, sec. 16.9; @griffiths2013, sec. 1.3]）。
+
+物理的第一次兑付是高斯定律 $\oint \mathbf{E}\cdot\mathrm{d}\mathbf{A} = Q_{\text{enc}}/\varepsilon_0$：**数穿出闭合面的电场线，就数出了内部电荷总量**——这是计算对称电场最强的一招。下图就是它的场线版：
+
+<div class="gau-fig" aria-hidden="true">
+<style>
+.gau-fig { margin: 1.6em 0; }
+.gau-fig svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+</style>
+<svg id="gaussvg" viewBox="0 0 680 290" width="680" height="290"></svg>
+<script>
+window.addEventListener('load', function () {
+  if (typeof Sketch === 'undefined') return;
+  const svg = document.getElementById('gaussvg');
+  const P = { ink: '#3a4aa8', deep: '#2c3a8c', amber: '#bf8700', green: '#1a7f37', dim: '#9aa1b9' };
+  const s = Sketch(svg);
+  function panel(cx, qy, qin) {
+    const cy = 150, R = 92;
+    let circle = '';
+    for (let a = 0; a <= 6.4; a += .15) circle += (circle ? ' L' : 'M') + (cx + R*Math.cos(a)) + ' ' + (cy + R*Math.sin(a));
+    s.path(circle + ' Z', { stroke: 'rgba(58,74,168,.8)', width: 1.8 });
+    s.label(cx, cy + R + 24, '高斯面', { size: 14, color: P.deep });
+    const qx = qin ? cx : cx + R + 78;
+    s.dot(qx, qy, P.amber, 7);
+    s.label(qx, qy - 14, '+q', { size: 15, color: P.amber, mono: true });
+    const hits = [];
+    for (let i = 0; i < 12; i++) {
+      const a = i/12*2*Math.PI, L = 150;
+      const ex = qx + L*Math.cos(a), ey = qy + L*Math.sin(a);
+      s.path(`M${qx + 10*Math.cos(a)} ${qy + 10*Math.sin(a)} L${ex} ${ey}`,
+             { stroke: 'rgba(191,135,0,.5)', width: 1.2, rough: false });
+      const dx = ex - qx, dy = ey - qy;
+      const fx = qx - cx, fy = qy - cy;
+      const A = dx*dx + dy*dy, B = 2*(fx*dx + fy*dy), C = fx*fx + fy*fy - R*R;
+      const disc = B*B - 4*A*C;
+      if (disc > 0) {
+        [(-B - Math.sqrt(disc))/(2*A), (-B + Math.sqrt(disc))/(2*A)].forEach(t => {
+          if (t > 0.05 && t < 1) {
+            const px = qx + t*dx, py = qy + t*dy;
+            s.path(`M${px - 9*Math.cos(a)} ${py - 9*Math.sin(a)} L${px} ${py}`,
+                   { stroke: P.green, width: 1.6, arrow: true, rough: false });
+            hits.push([a, px, py]);
+          }
+        });
+      }
+    }
+    return hits;
+  }
+  const hL = panel(170, 150, true);
+  panel(510, 150, false);
+  s.label(170, 40, '电荷在面内：每条线都穿出', { size: 15, color: P.deep });
+  s.label(510, 40, '电荷在面外：穿入 = 穿出', { size: 15, color: P.deep });
+  s.label(170, 272, '∮ E·dA = q/ε₀  （净通量 > 0）', { size: 14.5, color: P.green, mono: true });
+  s.label(510, 272, '∮ E·dA = 0  （净通量 = 0）', { size: 14.5, color: P.green, mono: true });
+  if (hL.length) { const [a, px, py] = hL[0];
+    s.pulse(`M170 150 L${px} ${py}`, { t0: 0.5, travel: 1.2, period: 5, color: P.green }); }
+  const qxr = 510 + 92 + 78;
+  const through = [-0.35, -0.15, 0.15, 0.35];
+  through.forEach((da, i) => {
+    const a = Math.PI + da;
+    const ex = qxr + 150*Math.cos(a), ey = 150 + 150*Math.sin(a);
+    s.pulse(`M${qxr + 10*Math.cos(a)} ${150 + 10*Math.sin(a)} L${ex} ${ey}`,
+            { t0: 1.2 + i*0.4, travel: 1.6, period: 6, color: P.green });
+  });
+});
+</script>
+</div>
+
+左面板：电荷在面内，所有场线穿出——数线即数电荷；右面板：电荷在面外，每条穿入的线必然再穿出（场线不凭空消失），净通量为零。**这就是 $\nabla\cdot\mathbf{E} = \rho/\varepsilon_0$ 的全部直觉**：电荷是电场线的源，散度数的是源。
+
+## 斯托克斯定理：回路环流 ↔ 面旋度
+
+把同样的把戏降一维：**边界回路的环流 = 张在该边界上任意曲面内旋度的通量**：
+
+$$
+\oint_{\partial S} \mathbf{F}\cdot\mathrm{d}\mathbf{r} \;=\; \iint_S (\nabla\times\mathbf{F})\cdot\mathrm{d}\mathbf{A} \tag{9.2}
+$$
+
+还是那句话：**边界上的量（回路环流）= 内部源的累积（旋度通量）**。注意「任意曲面」——只要边界相同，曲面怎么选结果都一样（旋度无散，(6.5)，从旁边漏不走）。物理兑付：安培环路定理 $\oint \mathbf{B}\cdot\mathrm{d}\mathbf{r} = \mu_0 I_{\text{enc}}$——绕回路一圈量到的磁场环流，数出的是穿过回路的电流（斯托克斯定理：[@stewart2016, sec. 16.8]）。
+
+**格林定理**是斯托克斯的平面特例（二维场、平面回路），读到时知道是「自己人」即可（[@stewart2016, sec. 16.4]）。
+
+保守场的悬案也在这里结案：$\mathbf{F} = -\nabla V$ 时 $\nabla\times\mathbf{F} = \mathbf{0}$（(6.5) 第一条），代入 (9.2)，环流恒为零——**绕任何闭合回路做功为零**，功只看两端。第 8 讲的预告兑现。
+
+## 大统一：一座桥的四次化身
+
+| 定理 | 边界上的量 | 内部的源 | 维度 |
+|---|---|---|---|
+| FTC（第 1 讲式 (1.6)） | 区间两端的 $F$ 值差 | $\int_a^b f\,\mathrm{d}x$ | 1 |
+| 格林 | 平面闭曲线的环流/通量 | 面积分（旋度/散度） | 2 |
+| 高斯 (9.1) | 闭合面通量 | $\iiint_V \nabla\cdot\mathbf{F}\,\mathrm{d}v$ | 3 |
+| 斯托克斯 (9.2) | 闭合回路环流 | $\iint_S \nabla\times\mathbf{F}\cdot\mathrm{d}\mathbf{A}$ | 任意 |
+
+四行共享一个模板：**把边界上的测量，换成内部密度的累积**。为什么物理热爱它们：边界测量往往困难（曲面上的积分），内部密度往往是「定律本身」（$\rho$、$\mathbf{J}$）——定理把难的换成简单的（四个定理在微分流形语言下的统一形式见 [@spivak1965, ch. 4]）。
+
+## 麦克斯韦方程组：两种写法的互译
+
+第 6 讲读了微分形式；积分形式对任意闭合面/回路陈述，物理书随时用 (9.1)(9.2) 互译：
+
+| 微分形式（第 6 讲） | 积分形式（本讲译出） | 读法 |
+|---|---|---|
+| $\nabla\cdot\mathbf{E} = \rho/\varepsilon_0$ | $\oint \mathbf{E}\cdot\mathrm{d}\mathbf{A} = Q_{\text{enc}}/\varepsilon_0$ | 高斯定律（数场线） |
+| $\nabla\cdot\mathbf{B} = 0$ | $\oint \mathbf{B}\cdot\mathrm{d}\mathbf{A} = 0$ | 无磁单极 |
+| $\nabla\times\mathbf{E} = -\partial\mathbf{B}/\partial t$ | $\oint \mathbf{E}\cdot\mathrm{d}\mathbf{r} = -\,\mathrm{d}\Phi_B/\mathrm{d}t$ | 法拉第（磁通变化生环流） |
+| $\nabla\times\mathbf{B} = \mu_0\mathbf{J} + \mu_0\varepsilon_0\,\partial\mathbf{E}/\partial t$ | $\oint \mathbf{B}\cdot\mathrm{d}\mathbf{r} = \mu_0 I_{\text{enc}} + \mu_0\varepsilon_0\,\mathrm{d}\Phi_E/\mathrm{d}t$ | 安培–麦克斯韦 |
+
+左侧是**逐点承诺**（每一点的源与涡），右侧是**整体测量**（任意闭合面/回路的净量）——两排说的是同一物理，桥梁就是本讲的定理（方程组的推导与逐条讨论：[@griffiths2013, sec. 7.3]）。
+
+::: {.callout-note title="判据 T（见边界积分）"}
+闭合面通量 → 想高斯 (9.1)，换算内部散度；闭合回路环流 → 想斯托克斯 (9.2)，换算内部旋度；平面回路 → 格林。**换的方向几乎总是「从边界积到内部」**，因为内部密度常常就是定律本身。
+:::
+
+## 出处与查表 {.unnumbered}
+
+本讲对象的教材定位——引文是查表索引，不是阅读任务：
+
+| 本书对象 | 定位 |
+|---|---|
+| 格林定理 | [@stewart2016, sec. 16.4] |
+| 斯托克斯定理 | [@stewart2016, sec. 16.8] |
+| 高斯散度定理 | [@stewart2016, sec. 16.9]; [@griffiths2013, sec. 1.3] |
+| 三大定理的统一形式 | [@spivak1965, ch. 4] |
+| 麦克斯韦方程组互译 | [@griffiths2013, sec. 7.3] |
+
+## 本讲收束
+
+- 高斯：闭合面通量 = 内部散度积分；斯托克斯：回路环流 = 面上旋度通量；格林是平面特例。
+- 四定理一个模板：**边界上的量 = 内部源的累积**——FTC 的四次化身，第 1 讲那句话第三次回响。
+- 保守场结案：$\nabla\times\mathbf{F}=\mathbf{0}$ ⇒ 环流恒零 ⇒ 功与路径无关。
+- 麦克斯韦两种写法自由互译——场论的静态语言全部到位。
+
+还差最后一步。麦克斯韦方程组里藏着 $\partial/\partial t$——定律不仅描述场「此刻」的约束，还驱动场**随时间演化**；一根振动的弦、一块冷却的板、一片变化的电磁场：未知函数同时依赖空间与时间，方程同时含空间导数与时间导数。最后一讲：偏微分方程——把前九讲全部语言装进「演化」的框架。

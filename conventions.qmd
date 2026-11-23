@@ -13,11 +13,11 @@ number-depth: 0
 | $f'(x)$、$\dfrac{\mathrm{d}y}{\mathrm{d}x}$ | 一元函数的导数 | 数学惯例；物理书也用 |
 | $\dot{x}$、$\ddot{x}$ | 对时间的一阶、二阶导数 | 物理惯例（牛顿点记号）。$\dot{x}$ 即速度、$\ddot{x}$ 即加速度，力学全书通用 |
 | $\dfrac{\partial f}{\partial x}$ | 偏导数：多变量函数只动 $x$、冻结其余 | 自变量超过一个时使用 |
-| $\left(\dfrac{\partial f}{\partial x}\right)_{\!y}$ | 偏导数，**下标声明固定了谁** | 物理惯例（热力学、PDE 中生死攸关，见第 2 章） |
-| $\mathrm{d}f$ | 全微分（所有自变量一起动的总账） | 合法对象，见第 2 章 |
-| $\partial$（单独出现在 $\partial V$ 等） | 边界算子：$\partial V$ 是区域 $V$ 的边界 | 第 4 章起出现，与偏导数记号同形不同义，靠语境区分 |
+| $\left(\dfrac{\partial f}{\partial x}\right)_{\!y}$ | 偏导数，**下标声明固定了谁** | 物理惯例（热力学、PDE 中生死攸关，见第 5 讲） |
+| $\mathrm{d}f$ | 全微分（所有自变量一起动的总账） | 合法对象，见第 5 讲 |
+| $\partial$（单独出现在 $\partial V$ 等） | 边界算子：$\partial V$ 是区域 $V$ 的边界 | 第 8 讲起出现，与偏导数记号同形不同义，靠语境区分 |
 
-## 场论算子家族（第 4 章正式登场）
+## 场论算子家族（第 6 讲正式登场）
 
 | 记号 | 名称 | 读法 |
 |---|---|---|
@@ -34,10 +34,13 @@ number-depth: 0
 | $\displaystyle\int_C \mathbf{F}\cdot \mathrm{d}\mathbf{l}$ | 线积分：沿曲线 $C$ 累积切向分量（功、环流）；$C$ 闭合时写作 $\oint$ |
 | $\displaystyle\int_S \mathbf{F}\cdot \mathrm{d}\mathbf{A}$ | 通量：穿过曲面 $S$ 累积法向分量；$S$ 闭合时写作 $\oint$ |
 | $\displaystyle\int_V \rho\, \mathrm{d}v$ | 体积分：区域 $V$ 上的累积（总电荷、总质量） |
-| $\mathrm{d}x$、$\mathrm{d}v$、$\mathrm{d}\mathbf{l}$、$\mathrm{d}\mathbf{A}$ | 积分元：粗体是向量元（带方向），细体是标量元 |
+| $\mathrm{d}x$、$\mathrm{d}v$、$\mathrm{d}s$、$\mathrm{d}S$ | 标量积分元：长度/体积/**弧长/曲面面积**，不带方向 |
+| $\mathrm{d}\mathbf{l}$、$\mathrm{d}\mathbf{r}$、$\mathrm{d}\mathbf{A}$、$\mathrm{d}\mathbf{S}$ | 向量积分元：位移（沿切向）/有向面元（沿法向），同义记号两写 |
+
+国内教材把「对标量元积分」（弧长 $\mathrm{d}s$、面积 $\mathrm{d}S$）叫**第一类**，把「对向量元积分」（$\mathbf{F}\cdot\mathrm{d}\mathbf{r}$、$\mathbf{F}\cdot\mathrm{d}\mathbf{A}$，即功与通量）叫**第二类**；英文教材不用这套编号，直接叫 scalar/vector line (surface) integral。双语对照见第 8 讲。
 
 ::: {.callout-note title="一个必须现在就立的规矩"}
-积分号下的 $\mathrm{d}x$、$\mathrm{d}A$、$\mathrm{d}v$ **不是装饰，是积分的一部分**——它声明「用什么尺子量」。$\int f\,\mathrm{d}x$ 与 $\int f\,\mathrm{d}A$ 量的是不同的东西。看到任何积分，先看积分元，再问第 1 章的三连问题。
+积分号下的 $\mathrm{d}x$、$\mathrm{d}A$、$\mathrm{d}v$ **不是装饰，是积分的一部分**——它声明「用什么尺子量」。$\int f\,\mathrm{d}x$ 与 $\int f\,\mathrm{d}A$ 量的是不同的东西。看到任何积分，先看积分元，再问第 1 讲的三连问。
 :::
 
 ## 向量与坐标

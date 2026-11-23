@@ -13,13 +13,17 @@ book:
   chapters:
     - index.qmd
     - conventions.qmd
-    - 01-two-moves.qmd
-    - 02-multivariable.qmd
-    - 03-parametrize.qmd
-    - 04-vector-field.qmd
-    - 05-ode.qmd
-    - 06-pde.qmd
-    - 07-reading-map.qmd
+    - 01-fundamentals.qmd
+    - 02-ode.qmd
+    - 03-space-curves.qmd
+    - 04-curvilinear.qmd
+    - 05-multivariable.qmd
+    - 06-vector-fields.qmd
+    - 07-multiple-integrals.qmd
+    - 08-line-surface.qmd
+    - 09-integral-theorems.qmd
+    - 10-pde.qmd
+    - reading-map.qmd
 
 format:
   indigo-atlas-html:

@@ -1,0 +1,153 @@
+# 向量场与 $\nabla$ 算子 {#sec-vector-fields}
+
+第 5 讲的标量场是「每点一个数」。现在升级到最后一位主角：**向量场**——每点一个向量。河流每点的流速、空间每点的电场、引力场，全是它。电动力学的本体就是向量场：本讲配齐作用于场的整套算子语言（$\nabla$ 家族），第 9 讲你将直接用这套语言读麦克斯韦方程组——不过本讲结尾你就会先睹到它的微分形式。
+
+::: {.callout-important title="本讲问题"}
+散度与旋度到底在量什么，凭什么一个是标量一个是向量？拉普拉斯算子 $\nabla^2$ 凭什么无处不在？「保守场」「无旋」「无散」这些词在承诺什么——它们与 $\nabla\times(\nabla f) = \mathbf{0}$ 这类恒等式是什么关系？
+:::
+
+## 场与场线
+
+$$
+\mathbf{F}(x,y,z) = \big(F_x,\; F_y,\; F_z\big) \qquad \text{每个分量都是位置的函数} \tag{6.1}
+$$
+
+直觉工具是**场线**：一条处处与场向量相切的曲线。两条读图规则：**场线的方向 = 场的方向；场线的密度 = 场的强度**（电场线越密处电场越强）。物理书大量用场线做定性论证，你也需要——第 8、9 讲的通量与高斯定理都会先在场线语言里「看见」，再用公式说出（向量场与场线的教材定位：[@stewart2016, sec. 16.1]；最生动的物理讲法是 [@feynman2010]）。
+
+## 散度：局部源强度
+
+想知道**某一点**是不是场的源头（比如这一点有没有电荷），造一个包围它的小闭合面，测净流出通量，再除以体积取极限：
+
+$$
+\nabla\cdot\mathbf{F} \;=\; \lim_{V\to 0} \frac{1}{V} \oint_{\partial V} \mathbf{F}\cdot\mathrm{d}\mathbf{A}
+\qquad \text{（单位体积的净流出量）} \tag{6.2}
+$$
+
+它是标量：正 = 源（净涌出，如正电荷），负 = 汇（净吸入，如负电荷），零 = 无源（流进多少流出多少）。直角坐标下可算出 $\nabla\cdot\mathbf{F} = \partial F_x/\partial x + \partial F_y/\partial y + \partial F_z/\partial z$——形式上像「$\nabla$ 这个向量点乘 $\mathbf{F}$」，这只是记号巧合帮记忆，语义永远是 (6.2)（散度的定义与坐标公式：[@stewart2016, sec. 16.5; @griffiths2013, sec. 1.2]）。
+
+## 旋度：局部涡旋强度
+
+散度问「这一点是不是源头」，旋度问「**这一点是不是漩涡**」——即使流速大小处处相同，河道拐弯处放一个小水车也会转。构造：小水车放在场里，各方向转动的净推动取极限：
+
+$$
+(\nabla\times\mathbf{F})\cdot\hat{\mathbf{n}} \;=\; \lim_{A\to 0} \frac{1}{A} \oint_{\partial A} \mathbf{F}\cdot\mathrm{d}\mathbf{l}
+\qquad \text{（单位面积的环流）} \tag{6.3}
+$$
+
+它是**向量**（水车的转轴方向，右手定则定指向），长度是转速。物理身份：磁场（$\nabla\times\mathbf{B}=\mu_0\mathbf{J}$，电流是磁场的「涡源」）、流体涡旋、科里奥利力（旋度：[@stewart2016, sec. 16.5; @griffiths2013, sec. 1.2]）。
+
+<div class="dv-fig" aria-hidden="true">
+<style>
+.dv-fig { margin: 1.6em 0; }
+.dv-fig svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+</style>
+<svg id="dvsvg" viewBox="0 0 620 220" width="620" height="220"></svg>
+<script>
+window.addEventListener('load', function () {
+  if (typeof Sketch === 'undefined') return;
+  const svg = document.getElementById('dvsvg');
+  const P = { ink: '#3a4aa8', deep: '#2c3a8c', amber: '#bf8700', green: '#1a7f37', dim: '#9aa1b9' };
+  const s = Sketch(svg);
+  /* 左: 散度小盒 — 净流出 */
+  const bx = 150, by = 120, w = 66, h = 54;
+  s.path(`M${bx-w} ${by-h} L${bx+w} ${by-h} L${bx+w} ${by+h} L${bx-w} ${by+h} Z`, { stroke: 'rgba(58,74,168,.75)', width: 1.8 });
+  s.dot(bx, by, P.amber, 6);
+  [[-38,-52,34,-78],[-6,-56,0,-84],[40,-52,52,-76],[-44,56,-56,82],[30,56,42,82]].forEach(([x1,y1,x2,y2]) =>
+    s.path(`M${bx+x1} ${by+y1} L${bx+x2} ${by+y2}`, { stroke: P.green, width: 1.7, arrow: true, rough: false }));
+  s.path(`M${bx-64} ${by-30} L${bx-36} ${by-24}`, { stroke: 'rgba(154,161,185,.8)', width: 1.4, arrow: true, rough: false });
+  s.label(bx, 205, '散度: 数小盒的净流出', { size: 15, color: P.deep });
+  s.label(bx, 26, '∇·F > 0 — 源', { size: 15, color: P.green });
+  /* 右: 旋度水车 — 环流 */
+  const cx = 465, cy = 120, R = 62;
+  let circ = '';
+  for (let a = 0; a <= 6.45; a += .12) circ += (circ ? ' L' : 'M') + (cx + R*Math.cos(a)) + ' ' + (cy - R*Math.sin(a));
+  s.path(circ + ' Z', { stroke: 'rgba(58,74,168,.3)', width: 1.2, rough: false });
+  for (let i = 0; i < 8; i++) {
+    const a = i/8*2*Math.PI, x = cx + R*Math.cos(a), y = cy - R*Math.sin(a);
+    const tx = -Math.sin(a), ty = -Math.cos(a);
+    s.path(`M${x - tx*18} ${y - ty*18} L${x + tx*18} ${y + ty*18}`, { stroke: P.green, width: 1.7, arrow: true, rough: false });
+  }
+  s.dot(cx, cy, P.amber, 6);
+  s.label(cx, 205, '旋度: 数小水车的净推转', { size: 15, color: P.deep });
+  s.label(cx, 26, '∇×F ≠ 0 — 涡', { size: 15, color: P.green });
+});
+</script>
+</div>
+
+## $\nabla^2$：与周围平均之差
+
+把梯度「再散一次」得到拉普拉斯算子——第 5 讲挂的号现在兑现：
+
+$$
+\nabla^2 f \;=\; \nabla\cdot\nabla f \;=\; \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} + \frac{\partial^2 f}{\partial z^2} \tag{6.4}
+$$
+
+它的语义一句话：**这一点比周围平均值偏高还是偏低**。$\nabla^2 f > 0$ 的点是「洼地」（低于周围平均，将被拉高）；$\nabla^2 f < 0$ 是「山尖」（将被削平）。热传导（温度向平均值靠拢）、波的传播（位移被邻居拉扯）、静电（电荷是电势的源）三大物理全用这一句话写出方程——第 10 讲的主角 $\nabla^2$ 在此挂牌。
+
+## $\nabla$ 算子速查与两条铁律
+
+| 表达式 | 类型 | 语义一句话 |
+|---|---|---|
+| $\nabla f$ | 标量 → 向量 | 上坡方向（第 5 讲） |
+| $\nabla\cdot\mathbf{F}$ | 向量 → 标量 | 源强度 (6.2) |
+| $\nabla\times\mathbf{F}$ | 向量 → 向量 | 涡强度 (6.3) |
+| $\nabla^2 f$ | 标量 → 标量 | 与周围平均之差 (6.4) |
+
+两条恒等式值得单独说，因为它们是「保守场」概念的微分语言：
+
+$$
+\nabla\times(\nabla f) = \mathbf{0} \qquad\text{（坡上无涡：势场的旋度恒为零）}, \qquad
+\nabla\cdot(\nabla\times\mathbf{F}) = 0 \qquad\text{（涡无源：漩涡线不凭空出发）} \tag{6.5}
+$$
+
+第一条的意义：如果力可以写成势的梯度 $\mathbf{F} = -\nabla V$，它自动无旋——绕任何闭合回路做功为零（第 8 讲将给积分版的论证），这样的场叫**保守场**：重力、静电场都是。反过来，无旋场（$\nabla\times\mathbf{F}=\mathbf{0}$）局部必是某个势的梯度——「保守 $\Leftrightarrow$ 有势 $\Leftrightarrow$ 无旋」三个词是一个意思的三种说法（恒等式与势论的关系：[@griffiths2013, sec. 1.6]）。第二条则说明磁场线永远闭合（无磁单极）。
+
+## 先睹为快：麦克斯韦方程组（微分形式）
+
+本讲的算子语言已经足以读物理学的最高成就之一。微分形式四条，逐条翻译：
+
+$$
+\nabla\cdot\mathbf{E} = \frac{\rho}{\varepsilon_0}
+\qquad\text{电荷是电场线的源；正电荷发线，负电荷收线（高斯定律）} \tag{6.6}
+$$
+
+$$
+\nabla\cdot\mathbf{B} = 0
+\qquad\text{磁场无源：磁单极子不存在，磁感线永远闭合} \tag{6.7}
+$$
+
+$$
+\nabla\times\mathbf{E} = -\frac{\partial\mathbf{B}}{\partial t}
+\qquad\text{磁场变化时，空间出现涡旋电场（法拉第）} \tag{6.8}
+$$
+
+$$
+\nabla\times\mathbf{B} = \mu_0\mathbf{J} + \mu_0\varepsilon_0\frac{\partial\mathbf{E}}{\partial t}
+\qquad\text{电流与变化的电场都是磁场的涡源（安培–麦克斯韦）} \tag{6.9}
+$$
+
+四个符号全部到位：$\nabla\cdot$ 与 $\nabla\times$ 是本讲的两个局部量，$\partial/\partial t$ 是第 1 讲的率，$\mathbf{E},\mathbf{B}$ 是两个向量场，右边的 $\rho,\mathbf{J}$ 是源。**没有一个符号超出已学范围**——这四行是前六讲的期末考试，你现在每一行都能读出物理内容（方程组的推导与逐条讨论：[@griffiths2013, sec. 7.3]）。物理书里它们还会以积分形式出现（对任意闭合面/回路），互译的桥梁正是第 9 讲的两大定理。
+
+::: {.callout-note title="判据 V（见 $\nabla$ 家族）"}
+散度旋度分不清时回来数维度：**输入输出同为向量的是旋度，输出塌成标量的是散度**。见 $\mathbf{X} = -\nabla Y$ 想「下坡箭头场」（保守）；见 $\nabla\times\mathbf{F}\neq 0$ 想「小水车会转」（有涡）；见 $\nabla^2$ 想「与周围平均比高低」。
+:::
+
+## 出处与查表 {.unnumbered}
+
+本讲对象的教材定位——引文是查表索引，不是阅读任务：
+
+| 本书对象 | 定位 |
+|---|---|
+| 向量场、场线 | [@stewart2016, sec. 16.1]; [@feynman2010] |
+| 散度与旋度 | [@stewart2016, sec. 16.5]; [@griffiths2013, sec. 1.2] |
+| 恒等式、保守场与势 | [@griffiths2013, sec. 1.6] |
+| 麦克斯韦方程组 | [@griffiths2013, sec. 7.3] |
+
+## 本讲收束
+
+- 向量场 = 每点一个向量；场线方向给方向、密度给强度。
+- 两个局部量：散度（源，标量）、旋度（涡，向量）；$\nabla^2$ 量与周围平均之差。
+- $\nabla\times(\nabla f)=\mathbf{0}$：保守 = 有势 = 无旋，三位一体；$\mathbf{E}=-\nabla\phi$ 是静电学的地基。
+- 麦克斯韦微分形式四条逐行可读——语言已经齐了。
+
+但注意：$\nabla\cdot\mathbf{E}$ 里的 $\rho$ 是「单位体积的电荷」——要从分布算出总量，需要**在区域上累积**；(6.2) 的定义也偷偷用了「小闭合面上的积分」。局部语言背后处处是积分。下一讲补上这块最大的积木：多重积分——在平面区域与立体区域上的累积。

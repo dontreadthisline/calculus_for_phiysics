@@ -1,0 +1,164 @@
+# 多重积分 {#sec-multiple-integrals}
+
+「这块带电体总电荷多少？」「这根棒绕轴的转动惯量多少？」——密度是位置的函数时，总量 = **在区域上累积**。一维的 $\int_a^b$ 只会沿直线段累积；本讲把它升级到平面区域与立体区域，并处理随之而来的两个新问题：**积分次序**（怎么切、先积谁）与**换坐标**（极/柱/球下积分元怎么换算——第 4 讲埋的 Jacobian 正式登场）。
+
+::: {.callout-important title="本讲问题"}
+二重/三重积分怎么从黎曼和长出来，累次积分凭什么可以换序？换到极坐标时凭什么要乘一个 $r$、球坐标乘 $r^2\sin\theta$——Jacobian 作为「体积汇率」的完整换元公式是什么？连续分布（质量、电荷）的物理量怎么用这套语言描述？
+:::
+
+## 二重积分：从切片求和到区域求和
+
+把第 1 讲的黎曼和直接升级：矩形网格切成 $N\times M$ 小块，每块面积 $\Delta A = \Delta x\,\Delta y$，取每块上一点的高度，求和、取极限：
+
+$$
+\iint_R f(x,y)\,\mathrm{d}A \;=\; \lim_{N,M\to\infty}\sum_{i}\sum_{j} f(x_i, y_j)\,\Delta x\,\Delta y \tag{7.1}
+$$
+
+几何形象：$f \ge 0$ 时它是区域 $R$ 上方曲顶柱体的**体积**——「面积下的体积」正是「曲线下的面积」的升维。语义仍是判据 B 的三连问：积什么（被积函数是什么密度）、在哪测（$\mathrm{d}A$ 在什么区域上）、界在哪（$R$ 的边界）。
+
+**二重积分与两次一元积分的关系**是本讲的第一件工具：切蛋糕可以竖着切也可以横着切——先沿 $x$ 切条、每条算面积，再把条面积加起来；或者反过来。这就是**累次积分**（Fubini 定理保证好函数时两种切法相等）：
+
+$$
+\iint_R f\,\mathrm{d}A = \int_a^b\!\left[\int_{g_1(x)}^{g_2(x)} f(x,y)\,\mathrm{d}y\right]\mathrm{d}x
+= \int_c^d\!\left[\int_{h_1(y)}^{h_2(y)} f(x,y)\,\mathrm{d}x\right]\mathrm{d}y \tag{7.2}
+$$
+
+矩形区域时内层限是常数；一般区域时内层限是**曲线**（区域边界）——**区域信息全部搬进积分限**，被积函数不变。物理书最爱用这一点：「对 $y$ 从 $0$ 积到 $\sqrt{a^2-x^2}$」等价于「积上半圆盘」。换序（左式 ↔ 右式）是纯粹的改切法，常能把积不出的顺序换成积得出的——你不必练这个技巧，只需知道**换序合法、且边界要重新描述**（二重积分与累次积分：[@stewart2016, secs. 15.1-15.2]）。
+
+三重积分照方抓药，$\mathrm{d}v = \mathrm{d}x\,\mathrm{d}y\,\mathrm{d}z$，几何形象是四维「超体积」（无直觉也罢），物理形象更实在：密度 × 体积微元的总账。
+
+## 换坐标：极坐标与那个 $r$
+
+圆形区域用直角坐标描述边界很痛（$\sqrt{a^2-x^2}$ 满天飞），换极坐标后区域变成矩形 $[0,a]\times[0,2\pi]$。但被积函数与积分元都要换算——第 4 讲的面积元 (4.9) 此刻上岗：
+
+$$
+\iint_R f(x,y)\,\mathrm{d}A = \int_{\varphi_1}^{\varphi_2}\!\!\int_{r_1(\varphi)}^{r_2(\varphi)} f(r\cos\varphi,\, r\sin\varphi)\; \boxed{r}\;\mathrm{d}r\,\mathrm{d}\varphi \tag{7.3}
+$$
+
+**那个 $r$ 绝不能忘**——忘掉就是差一个数量级。柱坐标三重积分同理乘 $r$；球坐标乘 $r^2\sin\theta$（体积元 (4.11)，三条边的来历第 4 讲已给：柱/球坐标下的重积分见 [@stewart2016, secs. 15.3-15.8]）。
+
+一个值得欣赏的经典：高斯积分 $\int_{-\infty}^{\infty} e^{-x^2}\,\mathrm{d}x = \sqrt{\pi}$。一元没法算（$e^{-x^2}$ 没有初等原函数），但平方之后是二重积分 $\iint e^{-(x^2+y^2)}\,\mathrm{d}A$，换到极坐标，$e^{-r^2}$ 配 $r\,\mathrm{d}r$——凑成 $\mathrm{d}(e^{-r^2})$ 的形式，一步积出。**换坐标不只是方便，有时是唯一的活路**（物理书里正态分布、点电荷势的归一化全靠它）。
+
+## Jacobian：换元的一般公式
+
+$r$ 与 $r^2\sin\theta$ 不是孤例，是普遍规律：**换元 = 乘体积汇率**。一元换元你记得（第 1 讲链式法则的积分版）：
+
+$$
+\int f(x)\,\mathrm{d}x = \int f\big(x(u)\big)\,\frac{\mathrm{d}x}{\mathrm{d}u}\,\mathrm{d}u \tag{7.4}
+$$
+
+$\frac{\mathrm{d}x}{\mathrm{d}u}$ 是长度汇率。多元时「汇率」是第 5 讲的 Jacobian 矩阵，而**体积汇率是它的行列式**：
+
+$$
+\mathrm{d}x\,\mathrm{d}y = \left|\det\frac{\partial(x,y)}{\partial(u,v)}\right| \mathrm{d}u\,\mathrm{d}v \tag{7.5}
+$$
+
+为什么是行列式？放大镜层面一切映射都是线性的（第 1 讲），而线性映射把面积/体积伸缩的倍数恰好等于其矩阵行列式（叉积的面积意义）。极坐标验证：$\partial(x,y)/\partial(r,\varphi) = r$（两个三角函数偏导组成的矩阵，行列式算出来是 $r\cos^2\varphi + r\sin^2\varphi = r$）——(7.3) 的 $r$ 复现；球坐标同理得 $r^2\sin\theta$（换元定理与行列式的来历：[@stewart2016, sec. 15.9]）。
+
+下面这张图把「汇率」演出来看：左图是 $(r,\varphi)$ 平面上的**均匀**网格，右图是它映射到 $(x,y)$ 后的极网格。同一组格线，格子大小不再均匀——高亮同一个 $(\mathrm{d}r,\mathrm{d}\varphi)$ 单元，看它映射后随 $r$ 增大而变宽。**Jacobian 就是「右格面积 / 左格面积」，它恰好等于 $r$。**
+
+<div class="jac-fig" aria-hidden="true">
+<style>
+.jac-fig { margin: 1.6em 0; }
+.jac-fig svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+.jac-fig .j-bar { display: flex; gap: .5em; margin-bottom: .6em; justify-content: center; }
+.jac-fig .j-bar button { font: 500 .85em -apple-system,"PingFang SC",sans-serif; padding: .32em 1em;
+  border: 1px solid #ddd8ce; border-radius: 6px; background: #fff; color: #24292f; cursor: pointer; }
+.jac-fig .j-bar button:hover { border-color: #3a4aa8; color: #3a4aa8; }
+.jac-fig .j-bar button.on { border-color: #3a4aa8; color: #fff; background: #3a4aa8; }
+</style>
+<div class="j-bar">
+<button onclick="jSet(0)" id="jb0" class="on">r = 0.7</button>
+<button onclick="jSet(1)" id="jb1">r = 1.5</button>
+<button onclick="jSet(2)" id="jb2">r = 2.3</button>
+</div>
+<svg id="jacsvg" viewBox="0 0 680 300" width="680" height="300"></svg>
+<script>
+window.addEventListener('load', function () {
+  if (typeof Sketch === 'undefined') return;
+  const svg = document.getElementById('jacsvg');
+  const P = { ink: '#3a4aa8', deep: '#2c3a8c', amber: '#bf8700', green: '#1a7f37', dim: '#9aa1b9' };
+  const RS = [0.7, 1.5, 2.3], FIS = 0.55;
+  const DR = 0.45, DFI = 0.32;
+  const lx = r => 30 + (r-0.2)/2.6*280, ly = p => 265 - p/Math.PI*230;
+  const rx = x => 380 + x/3.1*140, ry = y => 250 - y/2.9*220;
+  window.jSet = function (k) {
+    [0,1,2].forEach(i => { const b = document.getElementById('jb'+i); if (b) b.className = i==k ? 'on' : ''; });
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    const s = Sketch(svg), r0 = RS[k];
+    s.path(`M30 35 L310 35 L310 265 L30 265 Z`, { stroke: 'rgba(154,161,185,.5)', width: 1.1 });
+    for (let r = 0.65; r < 2.8; r += 0.65) s.path(`M${lx(r)} 35 L${lx(r)} 265`, { stroke: 'rgba(154,161,185,.35)', width: 1 });
+    for (let p = Math.PI/4; p < Math.PI; p += Math.PI/4) s.path(`M30 ${ly(p)} L310 ${ly(p)}`, { stroke: 'rgba(154,161,185,.35)', width: 1 });
+    s.label(170, 288, '(r, φ) 平面 — 均匀格子', { size: 15, color: P.dim });
+    s.path(`M${lx(r0)} ${ly(FIS)} L${lx(r0+DR)} ${ly(FIS)} L${lx(r0+DR)} ${ly(FIS+DFI)} L${lx(r0)} ${ly(FIS+DFI)} Z`,
+           { stroke: P.amber, width: 2, fill: 'rgba(191,135,0,.15)', rough: false });
+    s.label(lx(r0+DR)+34, ly(FIS+DFI/2), 'dr·dφ', { size: 15, color: P.amber, mono: true });
+    for (let r = 0.65; r < 2.9; r += 0.65) {
+      let d = '';
+      for (let p = 0; p <= Math.PI + .01; p += .1) {
+        d += (d ? ' L' : 'M') + rx(r*Math.cos(p)) + ' ' + ry(r*Math.sin(p)); }
+      s.path(d, { stroke: 'rgba(58,74,168,.5)', width: 1.1 });
+    }
+    for (let p = 0; p <= Math.PI + .01; p += Math.PI/4)
+      s.path(`M${rx(0)} ${ry(0)} L${rx(2.8*Math.cos(p))} ${ry(2.8*Math.sin(p))}`, { stroke: 'rgba(58,74,168,.5)', width: 1.1 });
+    s.dot(rx(0), ry(0), P.deep, 3.5);
+    const cell = (rr, pp) => [rx(rr*Math.cos(pp)), ry(rr*Math.sin(pp))];
+    let d = '';
+    for (let p = FIS; p <= FIS+DFI+.001; p += .05) { const q = cell(r0, p); d += (d ? ' L' : 'M') + q[0] + ' ' + q[1]; }
+    for (let r = r0; r <= r0+DR+.001; r += .05)     { const q = cell(r, FIS+DFI); d += ' L' + q[0] + ' ' + q[1]; }
+    for (let p = FIS+DFI; p >= FIS-.001; p -= .05)  { const q = cell(r0+DR, p); d += ' L' + q[0] + ' ' + q[1]; }
+    for (let r = r0+DR; r >= r0-.001; r -= .05)     { const q = cell(r, FIS); d += ' L' + q[0] + ' ' + q[1]; }
+    s.path(d + ' Z', { stroke: P.amber, width: 2, fill: 'rgba(191,135,0,.2)', rough: false });
+    s.label((rx(0)+rx(2.6))/2 + 10, 288, '(x, y) 平面 — 格子随 r 变宽,  面积比 = r', { size: 15, color: P.deep });
+    s.label(rx(1.9), ry(1.9) - 22, '汇率 |det J| = ' + r0.toFixed(1), { size: 16, color: P.amber, mono: true });
+    s.path(`M315 150 L365 150`, { stroke: P.green, width: 1.6, arrow: true });
+    s.label(340, 136, '(r,φ)→(x,y)', { size: 12.5, color: P.green });
+  };
+  jSet(0);
+});
+</script>
+</div>
+
+::: {.callout-note title="判据 M（换坐标积分）三步"}
+1. **函数换写**：被积函数用新坐标表出（$x = r\cos\varphi$ 等）；
+2. **积分元换算**：乘上 Jacobian（$r$、$r^2\sin\theta$ 等），**绝不能忘**；
+3. **区域重述**：积分限用新坐标重写（对称时常常变成常数限——这正是换坐标的全部回报）。
+:::
+
+## 物理应用：连续分布的积分描述
+
+多重积分的物理身份就是「连续世界的总账」。密度 $\rho$（质量、电荷）在区域 $V$ 上分布时：
+
+$$
+Q = \iiint_V \rho(\mathbf{r})\,\mathrm{d}v, \qquad
+m = \iiint_V \rho_m(\mathbf{r})\,\mathrm{d}v \tag{7.6}
+$$
+
+两个衍生量同样只需认得定义式（**加权平均**：位置以密度为权重）：
+
+$$
+\mathbf{r}_{\text{cm}} = \frac{1}{m}\iiint_V \mathbf{r}\,\rho\,\mathrm{d}v \;(\text{质心}), \qquad
+I = \iiint_V d_{\perp}^2\,\rho\,\mathrm{d}v \;(\text{转动惯量},\; d_\perp = \text{到轴距离}) \tag{7.7}
+$$
+
+读法比算法重要：质心是「密度加权的平均位置」；转动惯量是「质量 × 力臂² 的总账」——为什么陀螺转起来稳、为什么芭蕾收臂变快，全在 $d_\perp^2$ 这个权重里。具体计算（均匀球、圆柱的 $I$）物理书会带着你做一两遍，你只需要在每一步问三连问 + 汇率对不对（三重积分的物理应用：[@stewart2016, ch. 15]; [@griffiths2013, sec. 1.3]）。
+
+## 出处与查表 {.unnumbered}
+
+本讲对象的教材定位——引文是查表索引，不是阅读任务：
+
+| 本书对象 | 定位 |
+|---|---|
+| 二重积分、累次积分与换序 | [@stewart2016, secs. 15.1-15.2] |
+| 极坐标下的二重积分 | [@stewart2016, sec. 15.3] |
+| 柱/球坐标下的三重积分 | [@stewart2016, secs. 15.7-15.8] |
+| Jacobian 换元公式 | [@stewart2016, sec. 15.9] |
+| 连续分布与体积分（物理侧） | [@griffiths2013, sec. 1.3] |
+
+## 本讲收束
+
+- 重积分 = 黎曼和升维；累次积分 = 两种切蛋糕方式，区域信息搬进积分限。
+- 换元三步：函数换写、**乘 Jacobian**、区域重述；高斯积分演示了「换坐标是唯一活路」。
+- 质心、转动惯量 = 密度加权平均——认得定义式，算交给物理书带练。
+
+区域累积的语言齐了。但还有两类累积不在区域内部，而在**低一维的骨架**上：沿曲线累积（力沿路径做功）、穿曲面累积（场穿过面的通量）——区域的边界正是曲线与曲面。下一讲：线积分与面积分。

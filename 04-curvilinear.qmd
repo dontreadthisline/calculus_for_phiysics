@@ -1,0 +1,170 @@
+# 曲线坐标系 {#sec-curvilinear}
+
+第 3 讲末尾的麻烦是普遍的：直角坐标不是天然的，只是最常用的一种报名方式。中心力的问题里力永远指向前方，圆的方程在直角坐标是 $x^2+y^2=r^2$、在极坐标是 $r=\text{const}$；球对称电荷在直角坐标要三个变量纠缠、在球坐标只剩一个。**换坐标 = 挑一个让物理量简单的报名方式**，动机从来不是数学趣味，是对称性。本讲处理换坐标的全部语言：会转动的基向量、曲线坐标下的运动学、以及坐标自带的「度量」——面积元与体积元。
+
+::: {.callout-important title="本讲问题"}
+极坐标的单位向量为什么是「活的」、它的时间导数怎么算，速度凭什么分成两项？柱/球坐标的运动学表达式长什么样？以及：为什么球坐标的体积元是 $r^2\sin\theta\,\mathrm{d}r\,\mathrm{d}\theta\,\mathrm{d}\varphi$——多出来的因子从哪来？
+:::
+
+## 极坐标与活基向量
+
+平面上一点有两种报名方式：直角 $(x,y)$，或「多远 + 朝哪」$(r,\varphi)$：
+
+$$
+x = r\cos\varphi, \qquad y = r\sin\varphi \tag{4.1}
+$$
+
+直角坐标的基向量 $\hat{\mathbf{x}}, \hat{\mathbf{y}}$ 是**钉死的**（$\hat{\mathbf{x}}$ 永远朝东）。极坐标的基向量 $\hat{\mathbf{r}}, \hat{\boldsymbol{\varphi}}$ 定义在**每个点上**：$\hat{\mathbf{r}}$ 指离原点向外的方向，$\hat{\boldsymbol{\varphi}}$ 指逆时针切向。它们随位置转动——**活的基向量**：
+
+$$
+\hat{\mathbf{r}} = (\cos\varphi,\; \sin\varphi), \qquad \hat{\boldsymbol{\varphi}} = (-\sin\varphi,\; \cos\varphi) \tag{4.2}
+$$
+
+活的基向量在求导时不再为零，这是力学书无数推导的暗礁。好消息是它的导数只要两行就能算清——对时间求导（链式法则，第 1 讲），注意 $\varphi$ 本身随时间变：
+
+$$
+\frac{\mathrm{d}\hat{\mathbf{r}}}{\mathrm{d}t} = \dot\varphi\,(-\sin\varphi,\; \cos\varphi) = \dot\varphi\,\hat{\boldsymbol{\varphi}}, \qquad
+\frac{\mathrm{d}\hat{\boldsymbol{\varphi}}}{\mathrm{d}t} = -\dot\varphi\,\hat{\mathbf{r}} \tag{4.3}
+$$
+
+读法：**基向量以角速度 $\dot\varphi$ 旋转**，导数就是「旋转 × 转过 $90°$ 的伙伴」。这两行是极坐标一切运动学的发动机。
+
+## 极坐标运动学：速度与加速度
+
+位置 $\mathbf{r} = r\,\hat{\mathbf{r}}$（极坐标里位置永远只有径向分量）。对时间求导，乘积法则 + (4.3)：
+
+$$
+\mathbf{v} = \dot{r}\,\hat{\mathbf{r}} + r\,\dot\varphi\,\hat{\boldsymbol{\varphi}} \tag{4.4}
+$$
+
+第一项：离原点的距离在变（径向速度）。第二项：距离不变但方向在转（横向速度，$r\dot\varphi$ = 半径 × 角速度）。**认得 (4.4) 是读开普勒一章的门票**——中心力问题的全部推导都从这个展开开始。
+
+再求导一次（同两件工具），得极坐标加速度：
+
+$$
+\mathbf{a} = \underbrace{(\ddot{r} - r\dot\varphi^2)}_{\text{径向}}\hat{\mathbf{r}} \;+\; \underbrace{(r\ddot\varphi + 2\dot{r}\dot\varphi)}_{\text{横向}}\hat{\boldsymbol{\varphi}} \tag{4.5}
+$$
+
+不必会推导，但要认得出三个熟面孔：径向里的 $-r\dot\varphi^2$ 就是向心加速度（第 3 讲 $v^2/\rho$ 在 $r$ 不变时的化身，$v = r\dot\varphi$）；横向的 $2\dot r\dot\varphi$ 叫科里奥利项（转盘上行走者被「甩」的效应）；真正的新加速度只有 $\ddot r$。运动学的完整推导见 [@taylor2005, ch. 8]。
+
+## 柱坐标与球坐标
+
+三维对称性升级，坐标跟着升级。**柱坐标** $=$ 平面极坐标 $+\,z$，基向量 $\hat{\mathbf{r}}, \hat{\boldsymbol{\varphi}}, \hat{\mathbf{z}}$，运动学直接继承 (4.4)(4.5)：
+
+$$
+\mathbf{v} = \dot r\,\hat{\mathbf{r}} + r\dot\varphi\,\hat{\boldsymbol{\varphi}} + \dot z\,\hat{\mathbf{z}}, \qquad
+\mathbf{a} = a_{\text{极坐标}} + \ddot z\,\hat{\mathbf{z}} \tag{4.6}
+$$
+
+**球坐标** $(r,\theta,\varphi)$：半径 $r$、极角 $\theta$（自 $+z$ 量起）、方位角 $\varphi$（绕 $z$ 轴）。换算：
+
+$$
+x = r\sin\theta\cos\varphi,\quad y = r\sin\theta\sin\varphi,\quad z = r\cos\theta \tag{4.7}
+$$
+
+速度是三项（每项 = 该坐标变化率 × 对应「杠杆臂」）：
+
+$$
+\mathbf{v} = \dot r\,\hat{\mathbf{r}} + r\dot\theta\,\hat{\boldsymbol{\theta}} + r\sin\theta\,\dot\varphi\,\hat{\boldsymbol{\varphi}} \tag{4.8}
+$$
+
+$\sin\theta$ 出现的理由与体积元里同源：纬圈半径被 $\theta$ 打折（见下节）。球坐标的**加速度**全式很长，物理书（如 [@griffiths2013, sec. 1.4] 的坐标表）把它当附表使用——认读立场：知道它存在、知道每个字母什么意思、需要时查表，不背。基向量体系与各坐标算子的完整表格见 [@griffiths2013, sec. 1.4]。
+
+## 坐标自带的度量：面积元与体积元
+
+坐标不只报名，还自带「量面积/体积的尺子」。极坐标下取一小格：径向边长 $\mathrm{d}r$，弧向边长不是 $\mathrm{d}\varphi$ 而是**弧长** $r\,\mathrm{d}\varphi$（半径乘角度）：
+
+$$
+\mathrm{d}A = r\,\mathrm{d}r\,\mathrm{d}\varphi \tag{4.9}
+$$
+
+同样的格子，离原点越远越大——像切披萨，靠边的楔形块面积更大（极坐标面积：[@stewart2016, sec. 10.4]）。柱坐标体积元直接继承：
+
+$$
+\mathrm{d}v = r\,\mathrm{d}r\,\mathrm{d}\varphi\,\mathrm{d}z \qquad(\text{柱}) \tag{4.10}
+$$
+
+球坐标体积元的记忆锚点是**小砖块的三条边**：
+
+| 边 | 长度 | 理由 |
+|---|---|---|
+| 径向 | $\mathrm{d}r$ | 沿半径走 |
+| 沿经线（$\theta$ 方向） | $r\,\mathrm{d}\theta$ | 大圆弧长 = 半径 × 角 |
+| 沿纬线（$\varphi$ 方向） | $r\sin\theta\,\mathrm{d}\varphi$ | 纬圈半径不是 $r$，是 $r\sin\theta$ |
+
+$$
+\mathrm{d}v = r^2 \sin\theta\;\mathrm{d}r\,\mathrm{d}\theta\,\mathrm{d}\varphi \qquad(\text{球}) \tag{4.11}
+$$
+
+忘记 $r^2\sin\theta$ 时不要背公式，回来想「纬圈的半径被 $\sin\theta$ 打折」：在北极 $\theta=0$，纬圈缩成一点，$\sin\theta=0$，那一小格没有体积（柱面与球面坐标的体积元：[@stewart2016, secs. 15.7-15.8]；物理书的写法见 [@griffiths2013, sec. 1.4]）。
+
+这些多出来的因子 ($r$、$r^2\sin\theta$) 有个统一的名字——**Jacobian**（换坐标的汇率）。第 7 讲做多重积分换元时，它会作为主角正式登场。
+
+<div class="basis-fig" aria-hidden="true">
+<style>
+.basis-fig { margin: 1.6em 0; }
+.basis-fig svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+</style>
+<svg id="basissvg" viewBox="0 0 560 240" width="560" height="240"></svg>
+<script>
+window.addEventListener('load', function () {
+  if (typeof Sketch === 'undefined') return;
+  const svg = document.getElementById('basissvg');
+  const P = { ink: '#3a4aa8', deep: '#2c3a8c', amber: '#bf8700', green: '#1a7f37', dim: '#9aa1b9' };
+  const s = Sketch(svg);
+  const O = [140, 150], R = 95;
+  let circ = '';
+  for (let a = 0; a <= 6.45; a += .15) circ += (circ ? ' L' : 'M') + (O[0] + R*Math.cos(a)) + ' ' + (O[1] - R*Math.sin(a));
+  s.path(circ + ' Z', { stroke: 'rgba(154,161,185,.55)', width: 1.2 });
+  s.dot(O[0], O[1], P.dim, 3.5);
+  s.label(O[0], O[1] + 20, '原点', { size: 13, color: P.dim });
+  function basis(phi, tag) {
+    const x = O[0] + R*Math.cos(phi), y = O[1] - R*Math.sin(phi);
+    s.path(`M${x} ${y} L${x + 62*Math.cos(phi)} ${y - 62*Math.sin(phi)}`,
+           { stroke: P.green, width: 2.2, arrow: true, rough: false });
+    s.path(`M${x} ${y} L${x + 48*Math.sin(phi)} ${y + 48*Math.cos(phi)}`,
+           { stroke: P.amber, width: 2, arrow: true, rough: false });
+    s.dot(x, y, P.deep, 4.5);
+    s.label(x + 78*Math.cos(phi), y - 78*Math.sin(phi) - 4, 'r̂', { size: 17, color: P.green, mono: true });
+    s.label(x + 60*Math.sin(phi), y + 62*Math.cos(phi), 'φ̂', { size: 17, color: P.amber, mono: true });
+    s.label(x + 14*Math.cos(phi + 1.9), y - 14*Math.sin(phi + 1.9), tag, { size: 13, color: P.deep });
+  }
+  basis(0.72, 'P₁');
+  basis(2.22, 'P₂');
+  /* 弧上脉冲: P1 -> P2 展示基向量随位置转动 */
+  let arc = '';
+  for (let a = 0.72; a <= 2.22; a += .05) arc += (arc ? ' L' : 'M') + (O[0] + R*Math.cos(a)) + ' ' + (O[1] - R*Math.sin(a));
+  s.pulse(arc, { t0: 0.5, travel: 2.2, period: 6, color: P.deep });
+  s.label(430, 60, '同一套基向量定义,', { size: 15, color: P.deep, anchor: 'start' });
+  s.label(430, 84, '随位置整体旋转 —', { size: 15, color: P.deep, anchor: 'start' });
+  s.label(430, 108, '「活」的基向量:', { size: 15, color: P.deep, anchor: 'start' });
+  s.label(430, 138, 'd r̂ / dt = φ̇ φ̂', { size: 15, color: P.green, anchor: 'start', mono: true });
+  s.label(430, 168, '求导不再为零', { size: 14, color: P.dim, anchor: 'start' });
+});
+</script>
+</div>
+
+::: {.callout-note title="判据 C2（见曲线坐标）"}
+看到 $\hat{\mathbf{r}}, \hat{\boldsymbol{\varphi}}, \hat{\boldsymbol{\theta}}$ 先问：**这里它们在转吗？**对时间求导时活基向量要按 (4.3) 补上转动项；看到 $r^2\sin\theta$ 或 $r\,\mathrm{d}\varphi$ 先翻译成「纬圈/圆弧半径打折」。换坐标的完整三步（函数换写、积分元乘汇率、区域重述）在第 7 讲正式立规。
+:::
+
+## 出处与查表 {.unnumbered}
+
+本讲对象的教材定位——引文是查表索引，不是阅读任务：
+
+| 本书对象 | 定位 |
+|---|---|
+| 极坐标 | [@stewart2016, sec. 10.3] |
+| 活基向量与极坐标运动学 | [@taylor2005, ch. 8] |
+| 柱/球坐标与体积元 | [@stewart2016, secs. 15.7-15.8]; [@griffiths2013, sec. 1.4] |
+| 极坐标面积元 | [@stewart2016, sec. 10.4] |
+| 球坐标基向量与算子表 | [@griffiths2013, sec. 1.4] |
+
+## 本讲收束
+
+- 换坐标的动机是对称；极/柱/球是一族「朝哪多远」式报名。
+- 基向量是活的：$\mathrm{d}\hat{\mathbf{r}}/\mathrm{d}t = \dot\varphi\,\hat{\boldsymbol{\varphi}}$——极坐标运动学的发动机。
+- $\mathbf{v} = \dot r\,\hat{\mathbf{r}} + r\dot\varphi\,\hat{\boldsymbol{\varphi}}$；加速度全式认得出 $-r\dot\varphi^2$（向心）与 $2\dot r\dot\varphi$（科里奥利）即可。
+- 体积元不背公式：三条边相乘，纬圈半径被 $\sin\theta$ 打折；多出来的因子叫 Jacobian，第 7 讲见。
+
+坐标描述了「位置」。但物理量大多挂在位置上：温度 $T(\mathbf{r})$、电势 $V(\mathbf{r})$——每点一个数；流速场、电场——每点一个向量。当「位置本身」成为函数的自变量，第 1 讲的两个母动作将全面升级：下一讲，多元函数。
