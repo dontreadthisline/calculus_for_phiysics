@@ -10,7 +10,7 @@ window.addEventListener('load', function () {
     for (let a = 0; a <= 6.4; a += .15) circle += (circle ? ' L' : 'M') + (cx + R*Math.cos(a)) + ' ' + (cy + R*Math.sin(a));
     s.path(circle + ' Z', { stroke: 'rgba(58,74,168,.8)', width: 1.8 });
     s.label(cx, cy + R + 44, '高斯面', { size: 13, color: P.deep });
-    const qx = qin ? cx : cx + R + 78;
+    const qx = qin ? cx : cx + R + 62;
     s.dot(qx, qy, P.amber, 7);
     s.label(qx, qy - 14, '+q', { size: 15, color: P.amber, mono: true });
     const hits = [];

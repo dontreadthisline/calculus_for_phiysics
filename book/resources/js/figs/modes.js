@@ -41,7 +41,7 @@ window.addEventListener('load', function () {
     s.label(320, 30, '驻波模式叠出方波初始形状', { size: 16, color: P.deep });
     s.label(320, 252, '深蓝: 前 ' + N + ' 项之和     淡绿: 各模式 sin(nx)     琥珀虚线: 目标方波', { size: 13.5, color: P.dim });
     kx(svg, 245, 232, '\\lambda_n=(n\\pi/L)^2', { fs: 13.5, color: P.green });
-    s.label(390, 236, '— 边界条件只发离散牌照', { size: 13.5, color: P.green });
+    s.label(390, 236, '— 边界条件筛出离散本征值', { size: 13.5, color: P.green });
   };
   mSet(1);
 });
