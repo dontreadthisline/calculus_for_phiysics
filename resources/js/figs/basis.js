@@ -17,7 +17,7 @@ window.addEventListener('load', function () {
     s.path(`M${x} ${y} L${x + 48*Math.sin(phi)} ${y + 48*Math.cos(phi)}`,
            { stroke: P.amber, width: 2, arrow: true, rough: false });
     s.dot(x, y, P.deep, 4.5);
-    s.label(x + 78*Math.cos(phi), y - 78*Math.sin(phi) - 4, 'r̂', { size: 17, color: P.green, mono: true });
+    s.label(Math.max(10, Math.min(430, x + 78*Math.cos(phi))), Math.max(16, y - 78*Math.sin(phi) - 4), 'r̂', { size: 17, color: P.green, mono: true });
     s.label(x + 60*Math.sin(phi), y + 62*Math.cos(phi), 'φ̂', { size: 17, color: P.amber, mono: true });
     s.label(x + 14*Math.cos(phi + 1.9), y - 14*Math.sin(phi + 1.9), tag, { size: 13, color: P.deep });
   }
@@ -29,8 +29,6 @@ window.addEventListener('load', function () {
   s.pulse(arc, { t0: 0.5, travel: 2.2, period: 6, color: P.deep });
   s.label(430, 60, '同一套基向量定义,', { size: 15, color: P.deep, anchor: 'start' });
   s.label(430, 84, '随位置整体旋转 —', { size: 15, color: P.deep, anchor: 'start' });
-  s.label(430, 108, '「活」的基向量:', { size: 15, color: P.deep, anchor: 'start' });
-  s.label(445, 122, '「活」的基向量:', { size: 15, color: P.deep, anchor: 'start' });
+  s.label(430, 112, '求导不再为零:', { size: 15, color: P.deep, anchor: 'start' });
   kx(svg, 480, 150, '\\mathrm{d}\\hat{\\mathbf{r}}/\\mathrm{d}t \\;=\\; \\dot{\\varphi}\\,\\hat{\\boldsymbol{\\varphi}}', { fs: 15, color: P.green });
-  s.label(430, 168, '求导不再为零', { size: 14, color: P.dim, anchor: 'start' });
 });

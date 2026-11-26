@@ -47,6 +47,7 @@ number-depth: 0
 
 | 记号 | 含义 |
 |---|---|
+| $\mathbf{v}$、$v$ | 向量用粗体（或箭头）：$\mathbf{v}$ 是速度向量；细体 $v \equiv |\mathbf{v}|$ 是它的模（速率，标量）。全书凡「向量记号 + 对应细体字母」皆此约定（如 $\mathbf{B}$ 与 $B$） |
 | $\mathbf{F}$、$\vec{F}$ | 向量（粗体或箭头，同义） |
 | $\hat{\mathbf{x}}$、$\hat{\mathbf{r}}$ | 单位向量（hat 即「长度为 1 的方向」） |
 | $\mathbf{a}\cdot\mathbf{b}$ | 点积：产出标量（投影、功） |

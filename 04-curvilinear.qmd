@@ -1,33 +1,37 @@
 # 曲线坐标系 {#sec-curvilinear}
 
-第 3 讲末尾的麻烦是普遍的：直角坐标不是天然的，只是最常用的一种报名方式。中心力的问题里力永远指向前方，圆的方程在直角坐标是 $x^2+y^2=r^2$、在极坐标是 $r=\text{const}$；球对称电荷在直角坐标要三个变量纠缠、在球坐标只剩一个。**换坐标 = 挑一个让物理量简单的报名方式**，动机从来不是数学趣味，是对称性。本讲处理换坐标的全部语言：会转动的基向量、曲线坐标下的运动学、以及坐标自带的「度量」——面积元与体积元。
+第 3 讲末尾的麻烦是普遍的：直角坐标不是天然的，只是最常用的一种描述方式。中心力的问题里力永远指向前方，圆的方程在直角坐标是 $x^2+y^2=r^2$、在极坐标是 $r=\text{const}$；球对称电荷在直角坐标要三个变量纠缠、在球坐标只剩一个。**换坐标 = 选一组让物理量表达式简单的变量**，动机从来不是数学趣味，是对称性。本讲处理换坐标的全部语言：随位置变化的基向量、曲线坐标下的运动学、以及坐标自带的「度量」——面积元与体积元。
 
-::: {.callout-important title="本讲问题"}
-极坐标的单位向量为什么是「活的」、它的时间导数怎么算，速度凭什么分成两项？柱/球坐标的运动学表达式长什么样？以及：为什么球坐标的体积元是 $r^2\sin\theta\,\mathrm{d}r\,\mathrm{d}\theta\,\mathrm{d}\varphi$——多出来的因子从哪来？
+::: {.callout-important title="本章路线：物理对象 → 数学缺口 → 工具落地"}
+**物理对象**：中心力场中的运动（行星轨道）、球对称的分布（电荷、质量）。
+
+**数学缺口**：直角坐标下这些问题的方程把三个变量纠缠在一起；圆与球的表达式繁琐，对称性用不上。
+
+**工具落地**：极/柱/球坐标：随位置变化的基向量及其导数、曲线坐标下的速度分解、面积元与体积元（$r\,\mathrm{d}r\,\mathrm{d}\varphi$、$r^2\sin\theta\,\mathrm{d}r\,\mathrm{d}\theta\,\mathrm{d}\varphi$）。
 :::
 
 ## 极坐标与活基向量
 
-平面上一点有两种报名方式：直角 $(x,y)$，或「多远 + 朝哪」$(r,\varphi)$：
+平面上一点有两种描述方式：直角 $(x,y)$，或「多远 + 朝哪」$(r,\varphi)$：
 
 $$
 x = r\cos\varphi, \qquad y = r\sin\varphi \tag{4.1}
 $$
 
-直角坐标的基向量 $\hat{\mathbf{x}}, \hat{\mathbf{y}}$ 是**钉死的**（$\hat{\mathbf{x}}$ 永远朝东）。极坐标的基向量 $\hat{\mathbf{r}}, \hat{\boldsymbol{\varphi}}$ 定义在**每个点上**：$\hat{\mathbf{r}}$ 指离原点向外的方向，$\hat{\boldsymbol{\varphi}}$ 指逆时针切向。它们随位置转动——**活的基向量**：
+直角坐标的基向量 $\hat{\mathbf{x}}, \hat{\mathbf{y}}$ 是**钉死的**（$\hat{\mathbf{x}}$ 永远朝东）。极坐标的基向量 $\hat{\mathbf{r}}, \hat{\boldsymbol{\varphi}}$ 定义在**每个点上**：$\hat{\mathbf{r}}$ 指离原点向外的方向，$\hat{\boldsymbol{\varphi}}$ 指逆时针切向。它们随位置转动——**随位置变化的基向量**：
 
 $$
 \hat{\mathbf{r}} = (\cos\varphi,\; \sin\varphi), \qquad \hat{\boldsymbol{\varphi}} = (-\sin\varphi,\; \cos\varphi) \tag{4.2}
 $$
 
-活的基向量在求导时不再为零，这是力学书无数推导的暗礁。好消息是它的导数只要两行就能算清——对时间求导（链式法则，第 1 讲），注意 $\varphi$ 本身随时间变：
+这种基向量对时间求导不再为零，这是力学书许多推导容易出错的地方。好消息是它的导数只要两行就能算清——对时间求导（链式法则，第 1 讲），注意 $\varphi$ 本身随时间变：
 
 $$
 \frac{\mathrm{d}\hat{\mathbf{r}}}{\mathrm{d}t} = \dot\varphi\,(-\sin\varphi,\; \cos\varphi) = \dot\varphi\,\hat{\boldsymbol{\varphi}}, \qquad
 \frac{\mathrm{d}\hat{\boldsymbol{\varphi}}}{\mathrm{d}t} = -\dot\varphi\,\hat{\mathbf{r}} \tag{4.3}
 $$
 
-读法：**基向量以角速度 $\dot\varphi$ 旋转**，导数就是「旋转 × 转过 $90°$ 的伙伴」。这两行是极坐标一切运动学的发动机。
+读法：**基向量以角速度 $\dot\varphi$ 旋转**，导数就是「旋转 × 转过 $90°$ 的伙伴」。这两行是极坐标运动学全部推导的基础。
 
 ## 极坐标运动学：速度与加速度
 
@@ -37,7 +41,7 @@ $$
 \mathbf{v} = \dot{r}\,\hat{\mathbf{r}} + r\,\dot\varphi\,\hat{\boldsymbol{\varphi}} \tag{4.4}
 $$
 
-第一项：离原点的距离在变（径向速度）。第二项：距离不变但方向在转（横向速度，$r\dot\varphi$ = 半径 × 角速度）。**认得 (4.4) 是读开普勒一章的门票**——中心力问题的全部推导都从这个展开开始。
+第一项：离原点的距离在变（径向速度）。第二项：距离不变但方向在转（横向速度，$r\dot\varphi$ = 半径 × 角速度）。**认得 (4.4) 是读开普勒一章的必要基础**——中心力问题的全部推导都从这个展开开始。
 
 再求导一次（同两件工具），得极坐标加速度：
 
@@ -45,7 +49,7 @@ $$
 \mathbf{a} = \underbrace{(\ddot{r} - r\dot\varphi^2)}_{\text{径向}}\hat{\mathbf{r}} \;+\; \underbrace{(r\ddot\varphi + 2\dot{r}\dot\varphi)}_{\text{横向}}\hat{\boldsymbol{\varphi}} \tag{4.5}
 $$
 
-不必会推导，但要认得出三个熟面孔：径向里的 $-r\dot\varphi^2$ 就是向心加速度（第 3 讲 $v^2/\rho$ 在 $r$ 不变时的化身，$v = r\dot\varphi$）；横向的 $2\dot r\dot\varphi$ 叫科里奥利项（转盘上行走者被「甩」的效应）；真正的新加速度只有 $\ddot r$。运动学的完整推导见 [@taylor2005, ch. 8]。
+不必会推导，但要认得出三个常见项：径向里的 $-r\dot\varphi^2$ 就是向心加速度（第 3 讲 $v^2/\rho$ 在 $r$ 不变时的特例，$v = r\dot\varphi$）；横向的 $2\dot r\dot\varphi$ 叫科里奥利项（转盘上行走者被「甩」的效应）；真正的新加速度只有 $\ddot r$。运动学的完整推导见 [@taylor2005, ch. 8]。
 
 ## 柱坐标与球坐标
 
@@ -70,9 +74,9 @@ $$
 
 $\sin\theta$ 出现的理由与体积元里同源：纬圈半径被 $\theta$ 打折（见下节）。球坐标的**加速度**全式很长，物理书（如 [@griffiths2013, sec. 1.4] 的坐标表）把它当附表使用——认读立场：知道它存在、知道每个字母什么意思、需要时查表，不背。基向量体系与各坐标算子的完整表格见 [@griffiths2013, sec. 1.4]。
 
-## 坐标自带的度量：面积元与体积元
+## 曲线坐标的度量：面积元与体积元
 
-坐标不只报名，还自带「量面积/体积的尺子」。极坐标下取一小格：径向边长 $\mathrm{d}r$，弧向边长不是 $\mathrm{d}\varphi$ 而是**弧长** $r\,\mathrm{d}\varphi$（半径乘角度）：
+坐标不只定位，还自带「量面积/体积的尺子」。极坐标下取一小格：径向边长 $\mathrm{d}r$，弧向边长不是 $\mathrm{d}\varphi$ 而是**弧长** $r\,\mathrm{d}\varphi$（半径乘角度）：
 
 $$
 \mathrm{d}A = r\,\mathrm{d}r\,\mathrm{d}\varphi \tag{4.9}
@@ -96,18 +100,26 @@ $$
 \mathrm{d}v = r^2 \sin\theta\;\mathrm{d}r\,\mathrm{d}\theta\,\mathrm{d}\varphi \qquad(\text{球}) \tag{4.11}
 $$
 
+@fig-volume-element 把这三条边与纬圈半径的来历画成立体图：
+
+::: {#fig-volume-element}
+<iframe class="fig-iframe" src="resources/figs/volume-element.html" title="volsvg" loading="lazy" scrolling="no" style="height:326px"></iframe>
+
+球坐标体积元的三条边：径向 $\mathrm{d}r$、经线方向 $r\,\mathrm{d}\theta$、纬线方向 $r\sin\theta\,\mathrm{d}\varphi$。右图解释 $\sin\theta$ 因子：P 所在纬圈是小圆，半径是 $r\sin\theta$ 而不是 $r$。
+:::
+
 忘记 $r^2\sin\theta$ 时不要背公式，回来想「纬圈的半径被 $\sin\theta$ 打折」：在北极 $\theta=0$，纬圈缩成一点，$\sin\theta=0$，那一小格没有体积（柱面与球面坐标的体积元：[@stewart2016, secs. 15.7-15.8]；物理书的写法见 [@griffiths2013, sec. 1.4]）。
 
-这些多出来的因子 ($r$、$r^2\sin\theta$) 有个统一的名字——**Jacobian**（换坐标的汇率）。第 7 讲做多重积分换元时，它会作为主角正式登场。
+这些多出来的因子 ($r$、$r^2\sin\theta$) 有个统一的名字——**Jacobian**（换坐标时的体积缩放因子）。第 7 讲做多重积分换元时，它将正式投入使用。
 
 ::: {#fig-basis}
-{{< include figs/basis.html >}}
+<iframe class="fig-iframe" src="resources/figs/basis.html" title="basissvg" loading="lazy" scrolling="no" style="height:246px"></iframe>
 
 极坐标的活基向量：同一套 $\hat{\mathbf{r}}, \hat{\boldsymbol{\varphi}}$ 定义在每个点上，随位置整体旋转，求导不再为零。
 :::
 
 ::: {.callout-note title="判据 C2（见曲线坐标）"}
-看到 $\hat{\mathbf{r}}, \hat{\boldsymbol{\varphi}}, \hat{\boldsymbol{\theta}}$ 先问：**这里它们在转吗？**对时间求导时活基向量要按 (4.3) 补上转动项；看到 $r^2\sin\theta$ 或 $r\,\mathrm{d}\varphi$ 先翻译成「纬圈/圆弧半径打折」。换坐标的完整三步（函数换写、积分元乘汇率、区域重述）在第 7 讲正式立规。
+看到 $\hat{\mathbf{r}}, \hat{\boldsymbol{\varphi}}, \hat{\boldsymbol{\theta}}$ 先问：**这里它们在转吗？**对时间求导时活基向量要按 (4.3) 补上转动项；看到 $r^2\sin\theta$ 或 $r\,\mathrm{d}\varphi$ 先翻译成「纬圈/圆弧半径打折」。换坐标的完整三步（函数换写、积分元乘 Jacobian、区域重述）在第 7 讲正式立规。
 :::
 
 ## 出处与查表 {.unnumbered}
@@ -122,11 +134,11 @@ $$
 | 极坐标面积元 | [@stewart2016, sec. 10.4] |
 | 球坐标基向量与算子表 | [@griffiths2013, sec. 1.4] |
 
-## 本讲收束
+## 本章小结
 
-- 换坐标的动机是对称；极/柱/球是一族「朝哪多远」式报名。
-- 基向量是活的：$\mathrm{d}\hat{\mathbf{r}}/\mathrm{d}t = \dot\varphi\,\hat{\boldsymbol{\varphi}}$——极坐标运动学的发动机。
+- 换坐标的动机是对称；极/柱/球是一族「离原点多远、朝哪个方向」式描述。
+- 基向量随位置变化：$\mathrm{d}\hat{\mathbf{r}}/\mathrm{d}t = \dot\varphi\,\hat{\boldsymbol{\varphi}}$——极坐标运动学推导的基础。
 - $\mathbf{v} = \dot r\,\hat{\mathbf{r}} + r\dot\varphi\,\hat{\boldsymbol{\varphi}}$；加速度全式认得出 $-r\dot\varphi^2$（向心）与 $2\dot r\dot\varphi$（科里奥利）即可。
 - 体积元不背公式：三条边相乘，纬圈半径被 $\sin\theta$ 打折；多出来的因子叫 Jacobian，第 7 讲见。
 
-坐标描述了「位置」。但物理量大多挂在位置上：温度 $T(\mathbf{r})$、电势 $V(\mathbf{r})$——每点一个数；流速场、电场——每点一个向量。当「位置本身」成为函数的自变量，第 1 讲的两个母动作将全面升级：下一讲，多元函数。
+坐标描述了「位置」。但物理量大多挂在位置上：温度 $T(\mathbf{r})$、电势 $V(\mathbf{r})$——每点一个数；流速场、电场——每点一个向量。当「位置本身」成为函数的自变量，第 1 讲的两个基本运算将全面推广：下一讲，多元函数。

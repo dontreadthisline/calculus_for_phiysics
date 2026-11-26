@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>图: 等值线与梯度</title>
+<link rel="stylesheet" href="../css/sketch.css">
+<link rel="stylesheet" href="../libs/katex/katex.min.css">
+<script defer src="../libs/katex/katex.min.js"></script>
+<script defer src="../js/sketch.js"></script>
+<script defer src="../js/kx.js"></script>
+<style>
+  html, body { margin: 0; padding: 0; background: transparent; }
+  svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+  .bar { display: flex; gap: .5em; margin-bottom: .6em; justify-content: center; flex-wrap: wrap; }
+  .bar button { font: 500 .85em -apple-system,"PingFang SC",sans-serif; padding: .32em 1em;
+    border: 1px solid #ddd8ce; border-radius: 6px; background: #fff; color: #24292f; cursor: pointer; }
+  .bar button:hover { border-color: #3a4aa8; color: #3a4aa8; }
+  .bar button.on { border-color: #3a4aa8; color: #fff; background: #3a4aa8; }
+</style>
+</head>
+<body>
+<div class="bar"><button onclick="gSet(0)" id="gb0" class="on">f = x² + y² （碗）</button>
+<button onclick="gSet(1)" id="gb1">f = x + 0.7y （斜坡）</button>
+<button onclick="gSet(2)" id="gb2">f = x² − y² （鞍）</button></div>
+
+<svg id="gradsvg" viewBox="0 0 360 350" width="360"></svg>
+<script defer src="../js/figs/gradient.js?v=2"></script>
+</body>
+</html>

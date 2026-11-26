@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>图: 三种阻尼下的位移曲线</title>
+<link rel="stylesheet" href="../css/sketch.css">
+<link rel="stylesheet" href="../libs/katex/katex.min.css">
+<script defer src="../libs/katex/katex.min.js"></script>
+<script defer src="../js/sketch.js"></script>
+<script defer src="../js/kx.js"></script>
+<style>
+  html, body { margin: 0; padding: 0; background: transparent; }
+  svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+  .bar { display: flex; gap: .5em; margin-bottom: .6em; justify-content: center; flex-wrap: wrap; }
+  .bar button { font: 500 .85em -apple-system,"PingFang SC",sans-serif; padding: .32em 1em;
+    border: 1px solid #ddd8ce; border-radius: 6px; background: #fff; color: #24292f; cursor: pointer; }
+  .bar button:hover { border-color: #3a4aa8; color: #3a4aa8; }
+  .bar button.on { border-color: #3a4aa8; color: #fff; background: #3a4aa8; }
+</style>
+</head>
+<body>
+<div class="bar"><button onclick="dSet(0)" id="db0" class="on">欠阻尼 γ=0.15</button>
+<button onclick="dSet(1)" id="db1">临界阻尼 γ=1.0</button>
+<button onclick="dSet(2)" id="db2">过阻尼 γ=1.8</button></div>
+
+<svg id="dampsvg" viewBox="0 0 640 296" width="640"></svg>
+<script defer src="../js/figs/damping.js?v=2"></script>
+</body>
+</html>

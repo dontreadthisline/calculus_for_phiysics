@@ -14,7 +14,7 @@ crossref:
 book:
   title: "微积分的物理地图"
   subtitle: "为经典力学与电动力学重学微积分 — 一张自包含的语言地图"
-  description: "不训练计算肌肉，只重建语言能力：两个母动作、一座桥、坐标无关性与「定律→方程」的翻译术，从一元串联走到向量场、ODE、PDE，直通物理书页。"
+  description: "不训练计算技能，只重建数学语言的阅读能力：微分与积分两个基本运算、微积分基本定理、坐标无关性，以及「定律→方程→条件选解」的完整流程，从一元走到向量场、ODE、PDE，直通物理书页。"
   page-navigation: true
   chapters:
     - index.qmd
@@ -34,7 +34,7 @@ book:
 format:
   indigo-atlas-html:
     code-copy: true
-    include-in-header: [back-to-landing.html, kx-head.html]
+    include-in-header: [back-to-landing.html, kx-head.html, figs-head.html]
     reference-location: section
     html-math-method:
       method: katex

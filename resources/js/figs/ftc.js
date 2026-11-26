@@ -45,7 +45,7 @@ window.addEventListener('load', function () {
     s.path(`M${q(tstar)-46} ${w(F(tstar))+46*k} L${q(tstar)+46} ${w(F(tstar))-46*k}`,
            { stroke: P.amber, width: 1.8, rough: false });
     s.dot(q(tstar), w(F(tstar)), P.amber, 5);
-    s.pulse(`M${q(0)} ${w(F(0))} ` + dF.slice(6), { t0: 0.4, travel: 3.6, period: 8, color: P.green });
+    s.pulse(`M${q(0)} ${w(F(0))} ` + dF.replace(/^[^L]+/, ''), { t0: 0.4, travel: 3.6, period: 8, color: P.green });
     s.label(398, 262, '累积', { size: 14, color: P.green });
     kx(svg, 474, 257, 'F(t)=\\int_0^{t} f', { fs: 13.5, color: P.green });
     s.label(577, 262, '— 斜率即高度', { size: 12.5, color: P.green });
